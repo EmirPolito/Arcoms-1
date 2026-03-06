@@ -1,0 +1,430 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@custom-variant dark (&:is(.dark *));
+
+/* --------------------
+   LIGHT (default)
+   -------------------- */
+:root,
+[data-theme="light"] {
+  /* Colores generales */
+  --23-hero-boton1: #4e4e4e;
+
+  --primary-color-text: #8d8d8d;
+  --primary-general: #000000;
+  --primary-header: #363636;
+    --divider-color: #393939; /* /header linea vertical divisora entre modo y colores*/
+
+  /* color del componente de las 3 tarjetas  */
+  --primary-color-1: #1cff10ce;
+  --primary-color-2: #00b7ff;
+  --primary-color-3: #e600ff;
+  --primary-color-linea: #008cff;
+
+  /* color del componente Cruz  */
+  --primary-ComponentCruz-1: #8d8d8d;
+  --primary-ComponentCruz-2:  #8d8d8d;
+  --primary-ComponentCruz-3:  #8d8d8d;
+  --primary-ComponentCruz-4:  #8d8d8d;
+
+  --primary-foreground: #fafafa;
+
+  --background: #ffffff;
+  --foreground: #0f0f0f;
+  --primary: #000000;
+  --primary2: #ffffff;
+  --primary3: #000000;
+  --primary4: #000000;
+  --primary5: #323232;
+  --buttonC: #323232;
+
+  --card: #ffffff;
+  --card-foreground: #0f0f0f;
+  --popover: #ffffff;
+  --popover-foreground: #0f0f0f;
+  --secondary: #f5f5f4;
+  --secondary-foreground: #1c1917;
+  --muted: #f5f5f4;
+  --muted-foreground: #78716c;
+  --accent: #f5f5f4;
+  --accent-foreground: #1c1917;
+  --destructive: #ef4444;
+  --destructive-foreground: #fafafa;
+  --border: #e7e5e4;
+  --input: #e7e5e4;
+  --ring: var(--primary);
+}
+
+/* --------------------
+   DARK
+   -------------------- */
+[data-theme="dark"] {
+  /* Colores generales */
+  --23-hero-boton1: #000000;
+  --primary-color-text: #bababa;   /* Para descripiones - no cambia en los modos */
+  --primary-general: #ffffffeb;   /* para los titulos - si cambia en los modos */
+  --primary-header: #ffffff;  /* especialmente para header color gris mas fuerte - cambia de modo al pasar el cursor */
+  --divider-color: #393939; /* /header linea vertical divisora entre modo y colores*/
+
+  /* color del componente de las 3 tarjetas  */
+  --primary-color-1: #1cff10ce;
+  --primary-color-2: #00b7ff;
+  --primary-color-3: #e600ff;
+  --primary-color-linea: #d6d6d6;
+
+    /* color del componente Cruz  */
+  --primary-ComponentCruz-1: #010101;
+  --primary-ComponentCruz-2:  #010101;
+  --primary-ComponentCruz-3:  #010101;
+  --primary-ComponentCruz-4:  #010101;
+
+  --background: #000000;
+  --foreground: #fafafa;
+
+  --primary: #4e4e4e;
+  --primary2: #000000; 
+  --primary3: #ffffff;
+  --primary4: #ffffff;
+  --primary5: #000000;
+
+  --buttonC: #2f2f2f;
+
+  /* --component5: #efefef; */
+  --primary-foreground: #fafafa;
+
+  --card: #090909;
+  --card-foreground: #fafafa;
+  --popover: #0c0a09;
+  --popover-foreground: #fafafa;
+  --secondary: #1c1917;
+  --secondary-foreground: #fafafa;
+  --muted: #1c1917;
+  --muted-foreground: #a8a29e;
+  --accent: #1c1917;
+  --accent-foreground: #fafafa;
+  --destructive: #dc2626;
+  --destructive-foreground: #fafafa;
+  --border: #1c1917;
+  --input: #1c1917;
+  --ring: var(--primary);
+}
+
+/* --------------------
+   COLORBLIND
+   -------------------- */
+[data-theme="colorblind"] {
+    --23-hero-boton1: #ffffff;
+
+  --primary-general: #2563eb;
+  --primary-color-linea: #008cff;
+  --primary-header: #2563eb;
+
+  --primary: #2563eb;
+  --primary2: #ffffff;
+  --primary3: #2563eb;
+  --primary4: #2563eb;
+  --primary5: #000000;
+
+    /* color del componente Cruz  */
+  --primary-ComponentCruz-1: #8d8d8d;
+  --primary-ComponentCruz-2:  #8d8d8d;
+  --primary-ComponentCruz-3:  #8d8d8d;
+  --primary-ComponentCruz-4:  #8d8d8d;
+
+  --buttonC: #2563eb;
+  --component5: #2563eb;
+
+  --primary-color-1: #2563eb;
+  --primary-color-2: #2563eb;
+  --primary-color-3: #2563eb;
+
+  --primary-foreground: #ffffff;
+  --background: #ffffff;
+  --foreground: #111827;
+  --card: #ffffff;
+  --card-foreground: #111827;
+  --popover: #ffffff;
+  --popover-foreground: #111827;
+  --secondary: #facc15;
+  --secondary-foreground: #111827;
+  --muted: #e5e7eb;
+  --muted-foreground: #6b7280;
+  --accent: #facc15;
+  --accent-foreground: #111827;
+  --destructive: #1f2933;
+  --destructive-foreground: #ffffff;
+  --border: #d1d5db;
+  --input: #d1d5db;
+  --ring: var(--primary);
+}
+
+/* =====================================================
+   COLOR ACCENTS (primary only)
+   ===================================================== */
+
+[data-color="orange"] {
+      --23-hero-boton1: #ffffff;
+  --primary-general: #ff6a00;
+    --primary-header: #ff6a00;
+
+  --primary: #ff6a00;
+  --primary2: #ffffff;
+  --primary3: #ff6a00;
+  --primary4: #ff6a00;
+  --ring: #f97316;
+
+  --buttonC: #ff6a00;
+
+  --primary-color-1: #ff6a00;
+  --primary-color-2: #ff6a00;
+  --primary-color-3: #ff6a00;
+  --primary-color-linea: #e2e2e2;
+
+    /* color del componente Cruz  */
+  --primary-ComponentCruz-1: #7c4408;
+  --primary-ComponentCruz-2:  #8d8d8d;
+  --primary-ComponentCruz-3:  #8d8d8d;
+  --primary-ComponentCruz-4:  #8d8d8d;
+
+}
+
+[data-color="blue"] {
+      --23-hero-boton1: #ffffff;
+
+  --primary-general: #0062ff;
+    --primary-header: #0062ff;
+
+  --primary: #0062ff;
+  --primary2: #ffffff;
+  --primary3: #0062ff;
+  --primary4: #0062ff;
+  --ring: #3b82f6;
+
+  --buttonC: #0062ff;
+
+  --primary-color-1: #0062ff;
+  --primary-color-2: #0062ff;
+  --primary-color-3: #0062ff;
+  --primary-color-linea: #e2e2e2;
+
+    /* color del componente Cruz  */
+  --primary-ComponentCruz-1: #8d8d8d;
+  --primary-ComponentCruz-2:  #8d8d8d;
+  --primary-ComponentCruz-3:  #8d8d8d;
+  --primary-ComponentCruz-4:  #8d8d8d;
+
+}
+
+[data-color="green"] {
+      --23-hero-boton1: #ffffff;
+
+  --primary-general: #68b701;
+    --primary-header: #68b701;
+
+  --primary: #68b701;
+  --primary2: #ffffff;
+  --primary3: #68b701;
+  --primary4: #68b701;
+  --ring: #68b701;
+
+  --buttonC: #68b701;
+
+  --primary-color-1: #68b701;
+  --primary-color-2: #68b701;
+  --primary-color-3: #68b701;
+  --primary-color-linea: #e2e2e2;
+
+    /* color del componente Cruz  */
+  --primary-ComponentCruz-1: #8d8d8d;
+  --primary-ComponentCruz-2:  #8d8d8d;
+  --primary-ComponentCruz-3:  #8d8d8d;
+  --primary-ComponentCruz-4:  #8d8d8d;
+
+}
+
+[data-color="violet"] {
+      --23-hero-boton1: #ffffff;
+
+  --primary-general: #4600e9;
+    --primary-header: #4600e9;
+
+  --primary: #4600e9;
+  --primary2: #ffffff;
+  --primary3: #4400e1;
+  --primary4: #4100d9;
+  --ring: #5522cc;
+
+  --buttonC: #4100d9;
+
+  --primary-color-1: #4100d9;
+  --primary-color-2: #4100d9;
+  --primary-color-3: #4100d9;
+  --primary-color-linea: #e2e2e2;
+
+    /* color del componente Cruz  */
+  --primary-ComponentCruz-1: #8d8d8d;
+  --primary-ComponentCruz-2:  #8d8d8d;
+  --primary-ComponentCruz-3:  #8d8d8d;
+  --primary-ComponentCruz-4:  #8d8d8d;
+
+}
+
+[data-color="rose"] {
+      --23-hero-boton1: #ffffff;
+
+  --primary-general: #ff002b;
+    --primary-header: #ff002b;
+
+  --primary: #ff002b;
+  --primary2: #ffffff;
+  --primary3: #ff002b;
+  --primary4: #ff002b;
+  --ring: #ff002b;
+
+  --buttonC: #ff002b;
+
+  --primary-color-1: #ff002b;
+  --primary-color-2: #ff002b;
+  --primary-color-3: #ff002b;
+  --primary-color-linea: #e2e2e2;
+
+    /* color del componente Cruz  */
+  --primary-ComponentCruz-1: #8d8d8d;
+  --primary-ComponentCruz-2:  #8d8d8d;
+  --primary-ComponentCruz-3:  #8d8d8d;
+  --primary-ComponentCruz-4:  #8d8d8d;
+
+}
+
+[data-color="yellow"] {
+      --23-hero-boton1: #ffffff;
+
+  --primary-general: #dcb700;
+    --primary-header: #dcb700;
+
+  --primary: #dcb700;
+  --primary2: #ffffff;
+  --primary3: #dcb700;
+  --primary4: #dcb700;
+  --ring: #dcb700;
+
+  --buttonC: #dcb700;
+
+  --primary-color-1: #dcb700;
+  --primary-color-2: #dcb700;
+  --primary-color-3: #dcb700;
+  --primary-color-linea: #e2e2e2;
+
+    /* color del componente Cruz  */
+  --primary-ComponentCruz-1: #8d8d8d;
+  --primary-ComponentCruz-2:  #8d8d8d;
+  --primary-ComponentCruz-3:  #8d8d8d;
+  --primary-ComponentCruz-4:  #8d8d8d;
+
+}
+
+/* =====================================================
+   TAILWIND THEME INTEGRATION
+   ===================================================== */
+@theme inline {
+  /* Colores generales */
+  --color-primary-color-text: var(--primary-color-text);
+  --color-23-hero-boton1: var(--23-hero-boton1);
+  --color-primary-general: var(--primary-general);
+  --color-primary-header: var(--primary-header);
+  --color-divider-color: var(--divider-color);
+
+  /* color del componente de las 3 tarjetas  */
+  --color-primary-color-1: var(--primary-color-1);
+  --color-primary-color-2: var(--primary-color-2);
+  --color-primary-color-3: var(--primary-color-3);
+  --color-primary-color-linea: var(--primary-color-linea);
+
+  /* color del componente Cruz  */
+  --color-primary-ComponentCruz-1: var(--primary-ComponentCruz-1);
+  --color-primary-ComponentCruz-2: var(--primary-ComponentCruz-2);
+  --color-primary-ComponentCruz-3: var(--primary-ComponentCruz-3);
+  --color-primary-ComponentCruz-4: var(--primary-ComponentCruz-4);
+
+  --color-primary: var(--primary);
+  --color-primary2: var(--primary2);
+  --color-primary3: var(--primary3);
+  --color-primary4: var(--primary4);
+  --color-primary5: var(--primary5);
+
+  --color-buttonC: var(--buttonC);
+  --color-component4: var(--component4);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --animate-marquee: marquee var(--duration) infinite linear;
+  --animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;
+
+  @keyframes marquee {
+  from {
+    transform: translateX(0);
+    }
+  to {
+    transform: translateX(calc(-100% - var(--gap)));
+    }
+  }
+  @keyframes marquee-vertical {
+  from {
+    transform: translateY(0);
+    }
+  to {
+    transform: translateY(calc(-100% - var(--gap)));
+    }
+  }
+}
+
+/* =====================================================
+   BASE STYLES
+   ===================================================== */
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
