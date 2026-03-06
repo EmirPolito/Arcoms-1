@@ -32,6 +32,16 @@ const ColorblindIcon = () => (
     </svg>
 );
 
+/* MAPA DE COLORES PARA TAILWIND */
+const colorClasses: Record<ColorTheme, string> = {
+    orange: "bg-orange-500",
+    blue: "bg-blue-500",
+    green: "bg-green-500",
+    violet: "bg-violet-500",
+    rose: "bg-rose-500",
+    yellow: "bg-yellow-500",
+};
+
 export function ThemeSwitcher() {
     let initialTheme: Theme = "light";
     let initialColor: ColorTheme | "neutro" = "neutro";
@@ -100,7 +110,6 @@ export function ThemeSwitcher() {
         theme === "dark" ? <MoonIcon /> :
         <ColorblindIcon />;
 
-    // 👇 texto limpio SIN puntito duplicado
     const colorLabel =
         color === "neutro"
             ? "Neutro"
@@ -122,12 +131,11 @@ export function ThemeSwitcher() {
 
                     {/* ÚNICO puntito visible */}
                     {color === "neutro" ? (
-                        <span className={`w-2.5 h-2.5 rounded-full bg-${animatedDotColor}-500 transition-colors`} />
+                        <span className={`w-2.5 h-2.5 rounded-full ${colorClasses[animatedDotColor]} transition-colors`} />
                     ) : (
-                        <span className={`w-2.5 h-2.5 rounded-full bg-${color}-500`} />
+                        <span className={`w-2.5 h-2.5 rounded-full ${colorClasses[color]}`} />
                     )}
 
-                    {/* SOLO TEXTO → evita doble puntito */}
                     <SelectValue>{colorLabel}</SelectValue>
                 </SelectTrigger>
 
@@ -142,7 +150,7 @@ export function ThemeSwitcher() {
                     {animatedColors.map((c) => (
                         <SelectItem key={c} value={c} className="text-xs">
                             <span className="flex items-center gap-1.5">
-                                <span className={`w-2.5 h-2.5 rounded-full bg-${c}-500`} />
+                                <span className={`w-2.5 h-2.5 rounded-full ${colorClasses[c]}`} />
                                 {c.charAt(0).toUpperCase() + c.slice(1)}
                             </span>
                         </SelectItem>
