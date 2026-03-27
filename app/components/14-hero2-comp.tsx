@@ -83,7 +83,7 @@ function ComponentHero14() {
 
       <img
         ref={revealImgRef}
-        src="/img/hero.jp"
+        src="/img/hero.jpg"
         alt="Reveal effect"
         style={{
           position: 'absolute',
