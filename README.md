@@ -1,4 +1,4 @@
-# 🌌 Arcoms-1 (Arcoms Collection)
+# 🌌 Arcoms-1 de (Arcoms Collection)
 
 ![1372c9fe-40a3-47a2-82de-867309d24449](https://github.com/user-attachments/assets/176ce5b7-0e10-4fc0-93db-204600b658d5)
 
@@ -6,7 +6,7 @@ Bienvenido al repositorio oficial de **Arcoms-1**, parte integral de **Arcoms Co
 
 ## ✨ Características Principales
 
-- **Diseño Ultra Moderno y Futurista**: Interfaces diseñadas con cuidado meticuloso usando fondos oscuros, contrastes visuales vibrantes (estilo neón), *glassmorphism* (efectos de cristal) y componentes de alto impacto.
+- **Diseño Ultra Moderno y Futurista**: Interfaces diseñadas con cuidado meticuloso usando fondos oscuros, contrastes visuales vibrantes (estilo neón), _glassmorphism_ (efectos de cristal) y componentes de alto impacto.
 - **Experiencia Inmersiva (Motion & 3D)**: Elevamos la barrera de lo estático utilizando **Framer Motion** para transiciones espectaculares y continuas, así como escenarios tridimensionales interactivos gestionados mediante **Three.js** y **Spline**.
 - **Partículas y Mundos Virtuales**: Implementación de fondos dinámicos y sistemas complejos de partículas con **tsParticles**, creando una estética "cyberpunk" y espacial inigualable.
 - **Internacionalización (i18n)**: Arquitectura completamente multilenguaje utilizando excelentes herramientas como `next-intl` y `i18next`.
@@ -16,15 +16,15 @@ Bienvenido al repositorio oficial de **Arcoms-1**, parte integral de **Arcoms Co
 
 El núcleo de este proyecto fusiona el mejor ecosistema de la web moderna para dotar al sistema de robustez y belleza gráfica:
 
-| Tecnología | Descripción |
-| :--- | :--- |
-| **Next.js 16** | Framework React líder para generación estática e híbrida y Server-Side Rendering (SSR). |
-| **React 19** | Última versión de React que aporta el mejor manejo de interacciones asíncronas de la industria. |
-| **Tailwind CSS v4** | Motor utilitario revolucionario para crear y mantener interfaces espectaculares a velocidad luz. |
-| **Framer Motion** | La librería predilecta para dar vida y orquestar animaciones complejas en la interfaz. |
-| **Three.js & Spline** | Todo el poder gráfico para renderizado de elementos 3D dinámicos directamente en el navegador. |
-| **Radix UI & Tabler Icons** | Componentes primitivos súper accesibles y miles de maravillosas representaciones vectoriales. |
-| **tsParticles** | Configuración avanzada de dinámicas para generar lluvias visuales y un entorno vivo. |
+| Tecnología                  | Descripción                                                                                      |
+| :-------------------------- | :----------------------------------------------------------------------------------------------- |
+| **Next.js 16**              | Framework React líder para generación estática e híbrida y Server-Side Rendering (SSR).          |
+| **React 19**                | Última versión de React que aporta el mejor manejo de interacciones asíncronas de la industria.  |
+| **Tailwind CSS v4**         | Motor utilitario revolucionario para crear y mantener interfaces espectaculares a velocidad luz. |
+| **Framer Motion**           | La librería predilecta para dar vida y orquestar animaciones complejas en la interfaz.           |
+| **Three.js & Spline**       | Todo el poder gráfico para renderizado de elementos 3D dinámicos directamente en el navegador.   |
+| **Radix UI & Tabler Icons** | Componentes primitivos súper accesibles y miles de maravillosas representaciones vectoriales.    |
+| **tsParticles**             | Configuración avanzada de dinámicas para generar lluvias visuales y un entorno vivo.             |
 
 ## 🚀 Inicio Rápido Local
 
@@ -33,8 +33,8 @@ Si deseas probar o compilar esta aplicación de forma local, sigue estas rápida
 ### 1. Clonar el repositorio
 
 ```bash
-git clone https://github.com/tu-usuario/arcoms-collection.git
-cd arcoms-collection
+git clone https://github.com/EmirPolito/Arcoms-1.git
+cd Arcoms-1
 ```
 
 ### 2. Instalar dependencias
@@ -71,8 +71,10 @@ Arcoms Collection/
 ## 🧠 Filosofía y Emoción Visual
 
 **Arcoms Collection** no está pensado solo como un agrupador de código y texto estéril; es una declaración de un concepto visual digital vivo. Un concepto diseñado mediante:
-*   **Curaduría Cromática**: El uso de paletas temáticas espaciales o técnicas que juegan con el claroscuro.
-*   **Vida UI/UX**: Inyectando respuestas animadas y micro-interacciones sutiles para que el portal aplauda la mera acción de moverse.
+
+- **Curaduría Cromática**: El uso de paletas temáticas espaciales o técnicas que juegan con el claroscuro.
+- **Vida UI/UX**: Inyectando respuestas animadas y micro-interacciones sutiles para que el portal aplauda la mera acción de moverse.
 
 ---
-> 🌌 *Diseñado y programado para el ecosistema **Arcoms Collection**. Una ventana audaz hacia el futuro de interfaces.*
+
+> 🌌 _Diseñado y programado para el ecosistema **Arcoms Collection**. Una ventana audaz hacia el futuro de interfaces._
