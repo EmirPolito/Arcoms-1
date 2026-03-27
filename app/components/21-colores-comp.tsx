@@ -110,24 +110,19 @@ export function ThemeSwitcher() {
 
   if (!mounted) return null;
 
-<<<<<<< HEAD
-    const colorLabel =
-        color === "neutro"
-            ? "Neutro"
-            : color.charAt(0).toUpperCase() + color.slice(1);
-=======
   const cycleTheme = () => {
     const order: Theme[] = ["light", "dark", "colorblind"];
     setTheme(order[(order.indexOf(theme) + 1) % order.length]);
   };
->>>>>>> 71a60b0 (Se mejoro el contenido)
 
   const icon =
-    theme === "light"
-      ? <SunIcon />
-      : theme === "dark"
-      ? <MoonIcon />
-      : <ColorblindIcon />;
+    theme === "light" ? (
+      <SunIcon />
+    ) : theme === "dark" ? (
+      <MoonIcon />
+    ) : (
+      <ColorblindIcon />
+    );
 
   const colorLabel =
     color === "neutro"
@@ -143,49 +138,19 @@ export function ThemeSwitcher() {
         {icon}
       </button>
 
-<<<<<<< HEAD
-                    {/* ÚNICO puntito visible */}
-                    {color === "neutro" ? (
-                        <span className={`w-2.5 h-2.5 rounded-full ${colorClasses[animatedDotColor]} transition-colors`} />
-                    ) : (
-                        <span className={`w-2.5 h-2.5 rounded-full ${colorClasses[color]}`} />
-                    )}
-
-                    <SelectValue>{colorLabel}</SelectValue>
-                </SelectTrigger>
-=======
       <div className="w-px h-4 bg-[var(--divider-color)]" />
 
-      <Select value={color} onValueChange={(v) => setColor(v as ColorTheme)}>
+      <Select value={color} onValueChange={(v) => setColor(v as ColorTheme | "neutro")}>
         <SelectTrigger className="h-8 w-28 text-xs flex items-center gap-2 cursor-pointer">
->>>>>>> 71a60b0 (Se mejoro el contenido)
-
           {/* ÚNICO puntito visible */}
           {color === "neutro" ? (
             <span
-              className={`w-2.5 h-2.5 rounded-full bg-${animatedDotColor}-500 transition-colors`}
+              className={`w-2.5 h-2.5 rounded-full ${colorClasses[animatedDotColor]} transition-colors`}
             />
           ) : (
-            <span
-              className={`w-2.5 h-2.5 rounded-full bg-${color}-500`}
-            />
+            <span className={`w-2.5 h-2.5 rounded-full ${colorClasses[color as ColorTheme]}`} />
           )}
 
-<<<<<<< HEAD
-                    {animatedColors.map((c) => (
-                        <SelectItem key={c} value={c} className="text-xs">
-                            <span className="flex items-center gap-1.5">
-                                <span className={`w-2.5 h-2.5 rounded-full ${colorClasses[c]}`} />
-                                {c.charAt(0).toUpperCase() + c.slice(1)}
-                            </span>
-                        </SelectItem>
-                    ))}
-                </SelectContent>
-            </Select>
-        </div>
-    );
-}
-=======
           <SelectValue>{colorLabel}</SelectValue>
         </SelectTrigger>
 
@@ -200,9 +165,7 @@ export function ThemeSwitcher() {
           {animatedColors.map((c) => (
             <SelectItem key={c} value={c} className="text-xs">
               <span className="flex items-center gap-1.5">
-                <span
-                  className={`w-2.5 h-2.5 rounded-full bg-${c}-500`}
-                />
+                <span className={`w-2.5 h-2.5 rounded-full ${colorClasses[c]}`} />
                 {c.charAt(0).toUpperCase() + c.slice(1)}
               </span>
             </SelectItem>
@@ -212,4 +175,3 @@ export function ThemeSwitcher() {
     </div>
   );
 }
->>>>>>> 71a60b0 (Se mejoro el contenido)
