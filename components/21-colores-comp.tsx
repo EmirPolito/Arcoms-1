@@ -43,7 +43,7 @@ const colorClasses: Record<ColorTheme, string> = {
 };
 
 export function ThemeSwitcher() {
-  let initialTheme: Theme = "light";
+  let initialTheme: Theme = "dark";
   let initialColor: ColorTheme | "neutro" = "neutro";
 
   if (typeof window !== "undefined") {

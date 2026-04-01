@@ -25,8 +25,12 @@ export default function RootLayout({
       const root = document.documentElement;
 
       // Theme
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      root.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme) {
+        root.setAttribute('data-theme', savedTheme);
+      } else {
+        root.setAttribute('data-theme', 'dark');
+      }
 
       // Color (default violet)
       const color = localStorage.getItem('color') || 'violet';
