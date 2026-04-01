@@ -6,21 +6,24 @@ import { ArrowRight, Mail, Phone, Headphones } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SeparatorPro } from "@/components/ui/seperatorpro";
 import dynamic from "next/dynamic";
-const GlobeWireframe = dynamic(() => import("@/components/ui/globe-wireframe"), { ssr: false });
+const GlobeWireframe = dynamic(
+  () => import("@/components/ui/globe-wireframe"),
+  { ssr: false },
+);
 
 const smoothEase = [0.25, 0.1, 0.25, 1] as const;
 
 const CONTACT_LINKS = [
   {
     icon: Mail,
-    label: "contact@yoursaas.ai",
-    href: "mailto:contact@yoursaas.ai",
+    label: "contact@ejemplo.com",
+    href: "mailto:contact@ejemplo.com",
   },
   { icon: Phone, label: "+1 (800) 321 XX21", href: "tel:+18003214321" },
   {
     icon: Headphones,
-    label: "support@yoursaas.ai",
-    href: "mailto:support@yoursaas.ai",
+    label: "support@ejemplo.com",
+    href: "mailto:support@ejemplo.com",
   },
 ];
 
@@ -154,7 +157,7 @@ export default function ContactWithGlobe({
                 </label>
                 <input
                   type="text"
-                  placeholder="Tu empresa"
+                  placeholder="Tu compañía"
                   className="w-full bg-background border border-border rounded-xl px-4 py-2.5 text-sm text-foreground placeholder:text-primary-color-text outline-none focus:border-primary-general focus:ring-2 focus:ring-primary-general/20 transition-all duration-200"
                 />
               </div>
@@ -166,7 +169,7 @@ export default function ContactWithGlobe({
               </label>
               <input
                 type="email"
-                placeholder="soporte@tuempresa.com"
+                placeholder="usuario@ejemplo.com"
                 className="w-full bg-background border border-border rounded-xl px-4 py-2.5 text-sm text-foreground placeholder:text-primary-color-text outline-none focus:border-primary-general focus:ring-2 focus:ring-primary-general/20 transition-all duration-200"
               />
             </div>
