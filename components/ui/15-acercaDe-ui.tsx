@@ -52,8 +52,8 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
           viewport={{ once: true }}
           className="text-base text-muted-foreground text-balance max-w-5xl mx-auto"
         >
-          Desde 2023, hemos estado desarrollando RALQ, con el objetivo de crear
-          experiencias educativas interactivas para estudiantes de química.
+          Lorem psum dolor sit amet consectetur adipisicing elit. Ipsam deserunt
+          laboriosam quo impedit dolor.i
         </motion.p>
       </div>
 

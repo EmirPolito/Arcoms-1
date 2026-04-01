@@ -1,4 +1,4 @@
-import { Header } from "@/components/20-header-comp";
+import { Header } from "@/components/header";
 
 export default async function AyudaSubPage({ params }: { params: Promise<{ slug: string }> }) {
   const resolvedParams = await params;

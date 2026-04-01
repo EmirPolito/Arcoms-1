@@ -148,14 +148,16 @@ function AnnouncementComponent({
   }, [children]);
 
   const updatePosition = useCallback(() => {
-    if (containerRef.current) {
-      const rect = containerRef.current.getBoundingClientRect();
-      setDropdownPosition({
-        top: rect.bottom + window.scrollY,
-        left: rect.left + window.scrollX,
-        width: rect.width,
-      });
-    }
+    requestAnimationFrame(() => {
+      if (containerRef.current) {
+        const rect = containerRef.current.getBoundingClientRect();
+        setDropdownPosition({
+          top: rect.bottom + window.scrollY,
+          left: rect.left + window.scrollX,
+          width: rect.width,
+        });
+      }
+    });
   }, []);
 
   useEffect(() => {
@@ -189,15 +191,15 @@ function AnnouncementComponent({
       updatePosition();
     };
 
-    document.addEventListener("mousedown", handleClickOutside);
-    document.addEventListener("keydown", handleEscape);
-    window.addEventListener("scroll", handleScroll, true);
-    window.addEventListener("resize", handleResize);
+    document.addEventListener("mousedown", handleClickOutside, { passive: true });
+    document.addEventListener("keydown", handleEscape, { passive: true });
+    window.addEventListener("scroll", handleScroll, { capture: true, passive: true });
+    window.addEventListener("resize", handleResize, { passive: true });
 
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
       document.removeEventListener("keydown", handleEscape);
-      window.removeEventListener("scroll", handleScroll, true);
+      window.removeEventListener("scroll", handleScroll, { capture: true } as EventListenerOptions);
       window.removeEventListener("resize", handleResize);
     };
   }, [isOpen, hasExpandable, updatePosition]);

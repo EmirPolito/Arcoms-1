@@ -14,41 +14,41 @@ interface CTAWithFloatingGalleryProps {
 
 const galleryImages = [
   {
-    url: "https://scrollxui.dev/assets/blocks/hero-sections.png",
+    url: "/img/cap1.png",
     alt: "Hero Portadas",
     delay: 0,
   },
   {
-    url: "https://scrollxui.dev/assets/blocks/footers.png",
+    url: "/img/cap2.png",
     alt: "Secciones Footer",
     delay: 0.1,
   },
   {
-    url: "https://scrollxui.dev/assets/blocks/bento.png",
+    url: "/img/cap3.png",
     alt: "Diseño Bento",
     delay: 0.2,
   },
   {
-    url: "https://scrollxui.dev/assets/blocks/pricing-sections.png",
+    url: "/img/cap4.png",
     alt: "Secciones de Precios",
     delay: 0.15,
   },
   {
-    url: "https://scrollxui.dev/assets/blocks/contact-sections.png",
+    url: "/img/cap5.png",
     alt: "Sección de Contacto",
     delay: 0.25,
   },
   {
-    url: "https://scrollxui.dev/assets/blocks/testimonials.png",
+    url: "/img/cap6.png",
     alt: "Logos y Clientes",
     delay: 0.3,
   },
 ];
 
 export default function CTAWithFloatingGallery({
-  title = "Potencia tu Presencia Digital",
-  description = "Lanza y escala proyectos web en tiempo récord. Construimos interfaces a medida, de alto rendimiento y enfocadas en la retención de usuarios.",
-  buttonLabel = "Empieza tu Proyecto",
+  title = "Resumen del proyecto",
+  description = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.",
+  buttonLabel = "Ver proyecto",
   className,
 }: CTAWithFloatingGalleryProps) {
   const words = title.split(" ");

@@ -267,8 +267,12 @@ export default function GlobeWireframe({
       return;
     }
 
-    const rotate = () => {
-      setRotation((prev) => [(prev[0] + autoRotateSpeed) % 360, prev[1]]);
+    let lastRenderTime = 0;
+    const rotate = (time: number) => {
+      if (time - lastRenderTime > 25) { // Throttle to ~40fps max
+        setRotation((prev) => [(prev[0] + autoRotateSpeed) % 360, prev[1]]);
+        lastRenderTime = time;
+      }
       animationFrame.current = requestAnimationFrame(rotate);
     };
 
@@ -305,13 +309,17 @@ export default function GlobeWireframe({
           rotationFrom.current[1] +
           (rotationTo.current[1] - rotationFrom.current[1]) * eased;
 
-        setRotation([lon, lat]);
+        if (time - lastRenderTime > 25 || t === 1) { // Throttle rendering
+          setRotation([lon, lat]);
+          lastRenderTime = time;
+        }
 
         if (t < 1) {
           rotationAnimFrame.current = requestAnimationFrame(animate);
         }
       };
 
+      let lastRenderTime = 0;
       rotationAnimFrame.current = requestAnimationFrame(animate);
     },
     [],
@@ -380,30 +388,37 @@ export default function GlobeWireframe({
     }
   };
 
+  const rafId = useRef<number | null>(null);
+
   const handleMouseMove = (event: React.MouseEvent) => {
     if (!isDragging || !enableInteraction) return;
-    const rect = svgRef.current?.getBoundingClientRect();
-    if (!rect) return;
 
-    const currentMouse = [event.clientX - rect.left, event.clientY - rect.top];
-    const dx = currentMouse[0] - lastMouse[0];
-    const dy = currentMouse[1] - lastMouse[1];
+    if (rafId.current) cancelAnimationFrame(rafId.current);
 
-    const t = progress / 100;
-    let sensitivity: number;
+    rafId.current = requestAnimationFrame(() => {
+      const rect = svgRef.current?.getBoundingClientRect();
+      if (!rect) return;
 
-    if (variant === 'wireframe') {
-      sensitivity = t < 0.5 ? 0.5 : 0.25;
-    } else {
-      sensitivity = 0.5;
-    }
+      const currentMouse = [event.clientX - rect.left, event.clientY - rect.top];
+      const dx = currentMouse[0] - lastMouse[0];
+      const dy = currentMouse[1] - lastMouse[1];
 
-    setRotation((prev) => [
-      prev[0] + dx * sensitivity,
-      Math.max(-90, Math.min(90, prev[1] - dy * sensitivity)),
-    ]);
+      const t = progress / 100;
+      let sensitivity: number;
 
-    setLastMouse(currentMouse);
+      if (variant === 'wireframe') {
+        sensitivity = t < 0.5 ? 0.5 : 0.25;
+      } else {
+        sensitivity = 0.5;
+      }
+
+      setRotation((prev) => [
+        prev[0] + dx * sensitivity,
+        Math.max(-90, Math.min(90, prev[1] - dy * sensitivity)),
+      ]);
+
+      setLastMouse(currentMouse);
+    });
   };
 
   const handleMouseUp = () => {

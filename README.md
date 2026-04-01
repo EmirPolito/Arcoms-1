@@ -74,13 +74,16 @@ Este proyecto cuenta con un sistema dinámico de modos visuales de próxima gene
 ```text
 Arcoms Collection/
 │
-├── app/               # Motor de App Router de Next.js. Contiene todas las rutas, traducciones y globals.css.
+├── app/               # Motor de App Router de Next.js. Contiene todas las rutas y globals.css.
 ├── components/        # Todo el catálogo de componentes reactivos UI y estéticos en la raíz.
-├── public/            # Archivos estáticos que no pasan por build process.
-│   └── img/           # Banco de recursos gráficos espectaculares del portal.
-├── tailwind.config.ts # Core de diseño donde se declara la paleta de color semántica e identidad.
-└── package.json       # Manifiesto vital de dependencias y scripts constructivos.
+├── public/            # Archivos estáticos purgados y depurados en producción.
+│   ├── img/           # Banco de recursos gráficos espectaculares del portal (totalmente en uso).
+│   └── icons/         # Colección de logotipos vectorizados para el carrusel y componentes.
+├── package.json       # Manifiesto vital de dependencias y scripts constructivos.
+└── tailwind.config.ts # (Virtualizado) en Tailwind v4 se migró directamente a globals.css integrado nativo.
 ```
+
+> **📌 Nota de Producción**: Todo el directorio fue auditado profundamente a nivel de árbol de dependencias (`ts-prune`). **Cero código muerto**. Hemos eliminado exitosamente todo archivo residual genérico del compilador original `create-next-app` (`file.svg`, `globe.svg`, `window.svg`, `next.svg`, `vercel.svg`) asegurando que el peso estructural y de servidor se destinen única y puramente al renderizado de sus librerías e interacciones 3D reales.
 
 ## 🧠 Filosofía y Emoción Visual
 

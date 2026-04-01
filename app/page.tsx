@@ -1,51 +1,79 @@
 "use client";
 
-import { Header } from "../components/20-header-comp";
+import { Header } from "../components/header";
 
-import { Component23 } from "@/components/23-robot-comp";
+import { HeroSection } from "@/components/hero";
 
-import ComponentLogos24 from "@/components/24-logos-comp";
+import CarruselLogos from "@/components/carrusel-logos";
 
-import { Titulo8 } from "@/components/8-comp";
-import Component6 from "@/components/6-comp";
+import { TituloEstadoAgentes } from "@/components/titulo-seccion";
+import EstadoAgentes from "@/components/estado-agentes";
 
-import { Titulo1 } from "@/components/1-comp";
-import { Component2 } from "@/components/2-comp";
+import { TituloCaracteristicas } from "@/components/texto-interactivo";
+import { BentoCaracteristicas } from "@/components/bento-caracteristicas";
 
-import { Titulo5 } from "@/components/5-comp";
-import { Component3 } from "@/components/3-comp";
+import { TituloTarjetas } from "@/components/texto-animado";
+import { TarjetaPines } from "@/components/tarjeta-pines";
 
-import { Titulo9 } from "@/components/9-comp";
-import Component4 from "@/components/4-comp";
+import { TituloDemo } from "@/components/resaltador-cursor";
+import DemoInteractiva from "@/components/demo-interactiva";
 
 import TestimonialsCarousel from "@/components/testimonials-with-carousel";
-import Footer2 from "../components/22-footer2-comp";
-//Footer
+import Footer from "../components/footer";
+
+import { motion } from "motion/react";
+
+function FadeInSection({ children }: { children: React.ReactNode }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+    >
+      {children}
+    </motion.div>
+  );
+}
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Header />
-      <main className="py-10">
-        <Component23 />
+      <main className="py-10 overflow-hidden">
+        <FadeInSection>
+          <HeroSection />
+        </FadeInSection>
 
-        <ComponentLogos24 />
+        <FadeInSection>
+          <CarruselLogos />
+        </FadeInSection>
 
-        <Titulo8 />
-        <Component6 />
+        <FadeInSection>
+          <TituloEstadoAgentes />
+          <EstadoAgentes />
+        </FadeInSection>
 
-        <Titulo5 />
-        <Component3 />
+        <FadeInSection>
+          <TituloTarjetas />
+          <TarjetaPines />
+        </FadeInSection>
 
-        <Titulo1 />
-        <Component2 />
+        <FadeInSection>
+          <TituloCaracteristicas />
+          <BentoCaracteristicas />
+        </FadeInSection>
 
-        <Titulo9 />
-        <Component4 />
+        <FadeInSection>
+          <TituloDemo />
+          <DemoInteractiva />
+        </FadeInSection>
 
-        <TestimonialsCarousel />
+        <FadeInSection>
+          <TestimonialsCarousel />
+        </FadeInSection>
       </main>
-      <Footer2 />
+      <Footer />
     </div>
   );
 }

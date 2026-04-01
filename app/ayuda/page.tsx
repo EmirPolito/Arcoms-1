@@ -1,8 +1,7 @@
 "use client";
 
-import { Header } from "@/components/20-header-comp";
-import Ayuda from "@/components/16-ayuda-comp";
-// import { Footer } from "@/components/19-footer-comp";
+import { Header } from "@/components/header";
+import Ayuda from "@/components/seccion-ayuda";
 
 
 export default function AyudaPage() {

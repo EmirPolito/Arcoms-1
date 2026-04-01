@@ -1,7 +1,7 @@
 "use client";
 
-import { Header } from "@/components/20-header-comp";
-import Footer2 from "@/components/22-footer2-comp";
+import { Header } from "@/components/header";
+import Footer2 from "@/components/footer";
 import { motion } from "framer-motion";
 
 export default function RealidadAumentadaPage() {

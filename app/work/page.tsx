@@ -1,6 +1,6 @@
 "use client";
 
-import { Header } from "@/components/20-header-comp";
+import { Header } from "@/components/header";
 import CTAWithFloatingGallery from "@/components/cta-section-with-floating-gallery";
 
 export default function WorkPage() {

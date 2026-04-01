@@ -1,6 +1,6 @@
 "use client";
 
-import { Header } from "@/components/20-header-comp";
+import { Header } from "@/components/header";
 import GalleryHoverCarousel from "@/components/gallery-hover-carousel";
 
 export default function ExplorePage() {
