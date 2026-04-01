@@ -1,18 +1,26 @@
-'use client';
+"use client";
 
-import { motion } from 'motion/react';
-import { cn } from '@/lib/utils';
-import { ArrowRight, Mail, Phone, Headphones } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { SeparatorPro } from '@/components/ui/seperatorpro';
-import GlobeWireframe from '@/components/ui/globe-wireframe';
+import { motion } from "motion/react";
+import { cn } from "@/lib/utils";
+import { ArrowRight, Mail, Phone, Headphones } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { SeparatorPro } from "@/components/ui/seperatorpro";
+import GlobeWireframe from "@/components/ui/globe-wireframe";
 
 const smoothEase = [0.25, 0.1, 0.25, 1] as const;
 
 const CONTACT_LINKS = [
-  { icon: Mail, label: 'contact@yoursaas.ai', href: 'mailto:contact@yoursaas.ai' },
-  { icon: Phone, label: '+1 (800) 321 XX21', href: 'tel:+18003214321' },
-  { icon: Headphones, label: 'support@yoursaas.ai', href: 'mailto:support@yoursaas.ai' },
+  {
+    icon: Mail,
+    label: "contact@yoursaas.ai",
+    href: "mailto:contact@yoursaas.ai",
+  },
+  { icon: Phone, label: "+1 (800) 321 XX21", href: "tel:+18003214321" },
+  {
+    icon: Headphones,
+    label: "support@yoursaas.ai",
+    href: "mailto:support@yoursaas.ai",
+  },
 ];
 
 interface ContactWithGlobeProps {
@@ -23,37 +31,25 @@ interface ContactWithGlobeProps {
 }
 
 export default function ContactWithGlobe({
-  title = 'Contact us',
-  subtitle = 'Contact',
-  description = 'We are always looking for ways to improve our products and services. Contact us and let us know how we can help you.',
+  title = "Contactanos",
+  description = "Estamos siempre buscando formas de mejorar. Contáctanos y déjanos saber cómo podemos ayudarte.",
   className,
 }: ContactWithGlobeProps) {
   return (
     <section
       className={cn(
-        'relative w-full bg-zinc-50 dark:bg-zinc-950 overflow-hidden py-20',
+        "relative w-full bg-background overflow-hidden py-8",
         className,
       )}
     >
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6">
-
-        <div className="flex flex-col items-center text-center gap-4 mb-12">
-          <motion.div
-            initial={{ opacity: 0, y: -12 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: smoothEase }}
-            className="inline-flex items-center px-4 py-1.5 rounded-full bg-rose-500/10 border border-rose-400/30"
-          >
-            <span className="text-sm text-rose-500 font-medium">{subtitle}</span>
-          </motion.div>
-
+        <div className="flex flex-col items-center text-center gap-2 mb-8">
           <motion.h2
             initial={{ opacity: 0, y: 14 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.9, delay: 0.15, ease: smoothEase }}
-            className="text-4xl md:text-5xl lg:text-6xl font-bold text-zinc-900 dark:text-white"
+            className="text-4xl  lg:text-6xl  md:text-5xl font-semibold text-primary-general "
           >
             {title}
           </motion.h2>
@@ -63,14 +59,13 @@ export default function ContactWithGlobe({
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.9, delay: 0.3, ease: smoothEase }}
-            className="text-base text-zinc-500 dark:text-zinc-400 max-w-md"
+            className="text-base text-primary-color-text max-w-[900px] mx-auto"
           >
             {description}
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 max-w-5xl mx-auto items-start">
-
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-30 max-w-7xl mx-auto items-start">
           <motion.div
             initial={{ opacity: 0, y: 28 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -79,11 +74,11 @@ export default function ContactWithGlobe({
             className="flex flex-col gap-6"
           >
             <div className="flex flex-col gap-1">
-              <h3 className="text-xl font-semibold text-zinc-900 dark:text-white">
-                Get in touch
+              <h3 className="text-xl font-semibold text-foreground">
+                Contacto Directo
               </h3>
-              <p className="text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed max-w-xs">
-                Reach out via any channel below. We typically reply within one business day.
+              <p className="text-sm text-primary-color-text leading-relaxed max-w-xs">
+                Usa cualquiera de los siguientes canales. Respondemos rápido.
               </p>
             </div>
 
@@ -95,11 +90,15 @@ export default function ContactWithGlobe({
                   initial={{ opacity: 0, x: -12 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.3 + i * 0.1, ease: smoothEase }}
-                  className="group flex items-center gap-3 w-fit text-sm text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors duration-200"
+                  transition={{
+                    duration: 0.5,
+                    delay: 0.3 + i * 0.1,
+                    ease: smoothEase,
+                  }}
+                  className="group flex items-center gap-3 w-fit text-sm text-primary-color-text hover:text-foreground transition-colors duration-200"
                 >
-                  <div className="w-8 h-8 rounded-lg bg-zinc-100 dark:bg-zinc-800/80 border border-zinc-200 dark:border-zinc-700 group-hover:border-rose-300 dark:group-hover:border-rose-500/40 group-hover:bg-rose-50 dark:group-hover:bg-rose-500/10 flex items-center justify-center shrink-0 transition-all duration-200">
-                    <Icon className="w-3.5 h-3.5 text-zinc-400 dark:text-zinc-500 group-hover:text-rose-500 dark:group-hover:text-rose-400 transition-colors duration-200" />
+                  <div className="w-8 h-8 rounded-lg bg-card border border-border group-hover:border-primary-general/50 group-hover:bg-primary-general/10 flex items-center justify-center shrink-0 transition-all duration-200">
+                    <Icon className="w-3.5 h-3.5 text-primary-color-text group-hover:text-primary-general transition-colors duration-200" />
                   </div>
                   {label}
                 </motion.a>
@@ -115,7 +114,7 @@ export default function ContactWithGlobe({
                 strokeWidth={0.6}
                 graticuleOpacity={0.12}
               />
-              <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/2 bg-linear-to-t from-zinc-50 dark:from-zinc-950 to-transparent" />
+              <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-background to-transparent" />
             </div>
           </motion.div>
 
@@ -124,14 +123,14 @@ export default function ContactWithGlobe({
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 1.0, delay: 0.35, ease: smoothEase }}
-            className="rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 p-6 sm:p-8 flex flex-col gap-5"
+            className="rounded-2xl border border-border bg-card p-6 sm:p-8 flex flex-col gap-5"
           >
             <div>
-              <h3 className="text-lg font-semibold text-zinc-900 dark:text-white mb-0.5">
-                Send a message
+              <h3 className="text-lg font-semibold text-foreground mb-0.5">
+                Envíanos tu mensaje
               </h3>
-              <p className="text-sm text-zinc-500 dark:text-zinc-400">
-                Fill out the form and we'll get back to you promptly.
+              <p className="text-sm text-primary-color-text">
+                Llena el formulario y responderemos a la brevedad.
               </p>
             </div>
 
@@ -139,54 +138,53 @@ export default function ContactWithGlobe({
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="flex flex-col gap-2">
-                <label className="text-xs font-semibold tracking-widest uppercase text-zinc-400 dark:text-zinc-500">
-                  Full Name
+                <label className="text-xs font-semibold tracking-widest uppercase text-primary-color-text">
+                  Nombre Completo
                 </label>
                 <input
                   type="text"
-                  placeholder="Ahdeetai"
-                  className="w-full bg-zinc-50 dark:bg-zinc-800/60 border border-zinc-200 dark:border-zinc-700 rounded-xl px-4 py-2.5 text-sm text-zinc-800 dark:text-zinc-200 placeholder:text-zinc-400 dark:placeholder:text-zinc-600 outline-none focus:border-rose-400 dark:focus:border-rose-500/50 focus:ring-2 focus:ring-rose-500/10 transition-all duration-200"
+                  placeholder="Tu nombre aquí"
+                  className="w-full bg-background border border-border rounded-xl px-4 py-2.5 text-sm text-foreground placeholder:text-primary-color-text outline-none focus:border-primary-general focus:ring-2 focus:ring-primary-general/20 transition-all duration-200"
                 />
               </div>
               <div className="flex flex-col gap-2">
-                <label className="text-xs font-semibold tracking-widest uppercase text-zinc-400 dark:text-zinc-500">
-                  Company
+                <label className="text-xs font-semibold tracking-widest uppercase text-primary-color-text">
+                  Compañía
                 </label>
                 <input
                   type="text"
-                  placeholder="ScrollX UI"
-                  className="w-full bg-zinc-50 dark:bg-zinc-800/60 border border-zinc-200 dark:border-zinc-700 rounded-xl px-4 py-2.5 text-sm text-zinc-800 dark:text-zinc-200 placeholder:text-zinc-400 dark:placeholder:text-zinc-600 outline-none focus:border-rose-400 dark:focus:border-rose-500/50 focus:ring-2 focus:ring-rose-500/10 transition-all duration-200"
+                  placeholder="Tu empresa"
+                  className="w-full bg-background border border-border rounded-xl px-4 py-2.5 text-sm text-foreground placeholder:text-primary-color-text outline-none focus:border-primary-general focus:ring-2 focus:ring-primary-general/20 transition-all duration-200"
                 />
               </div>
             </div>
 
             <div className="flex flex-col gap-2">
-              <label className="text-xs font-semibold tracking-widest uppercase text-zinc-400 dark:text-zinc-500">
-                Email Address
+              <label className="text-xs font-semibold tracking-widest uppercase text-primary-color-text">
+                Correo Electrónico
               </label>
               <input
                 type="email"
-                placeholder="support@scrollxui.com"
-                className="w-full bg-zinc-50 dark:bg-zinc-800/60 border border-zinc-200 dark:border-zinc-700 rounded-xl px-4 py-2.5 text-sm text-zinc-800 dark:text-zinc-200 placeholder:text-zinc-400 dark:placeholder:text-zinc-600 outline-none focus:border-rose-400 dark:focus:border-rose-500/50 focus:ring-2 focus:ring-rose-500/10 transition-all duration-200"
+                placeholder="soporte@tuempresa.com"
+                className="w-full bg-background border border-border rounded-xl px-4 py-2.5 text-sm text-foreground placeholder:text-primary-color-text outline-none focus:border-primary-general focus:ring-2 focus:ring-primary-general/20 transition-all duration-200"
               />
             </div>
 
             <div className="flex flex-col gap-2">
-              <label className="text-xs font-semibold tracking-widest uppercase text-zinc-400 dark:text-zinc-500">
-                Message
+              <label className="text-xs font-semibold tracking-widest uppercase text-primary-color-text">
+                Mensaje
               </label>
               <textarea
-                placeholder="Type your message here"
+                placeholder="Escribe tu mensaje aquí"
                 rows={4}
-                className="w-full bg-zinc-50 dark:bg-zinc-800/60 border border-zinc-200 dark:border-zinc-700 rounded-xl px-4 py-3 text-sm text-zinc-800 dark:text-zinc-200 placeholder:text-zinc-400 dark:placeholder:text-zinc-600 outline-none focus:border-rose-400 dark:focus:border-rose-500/50 focus:ring-2 focus:ring-rose-500/10 resize-none transition-all duration-200"
+                className="w-full bg-background border border-border rounded-xl px-4 py-3 text-sm text-foreground placeholder:text-primary-color-text outline-none focus:border-primary-general focus:ring-2 focus:ring-primary-general/20 resize-none transition-all duration-200"
               />
             </div>
 
-            <Button className="w-fit h-11 px-8 rounded-xl font-semibold text-sm bg-zinc-900 hover:bg-zinc-800 dark:bg-white dark:hover:bg-zinc-100 text-white dark:text-zinc-900 group">
-              Submit
-              <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
+            <Button className="w-fit h-[43px] px-8 rounded-xl font-medium text-[16px] bg-hero-btn-bg hover:opacity-90 text-primary2 group cursor-pointer transition-opacity">
+              Enviar
+              <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:-rotate-45" />
             </Button>
-
           </motion.div>
         </div>
       </div>

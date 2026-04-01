@@ -223,7 +223,7 @@ function AnimatedAvatarBorder({
   };
 
   return (
-    <div className='relative w-16 h-16 sm:w-20 sm:h-20 shrink-0 text-foreground'>
+    <div className='relative w-16 h-16 sm:w-20 sm:h-20 shrink-0 text-testim-ttl'>
       <svg
         className='absolute inset-0 w-full h-full'
         viewBox='0 0 100 100'
@@ -312,7 +312,7 @@ export default function TestimonialCarousel({
           <TestimonialCardContent>
             {data.map((testimonial, index) => (
               <TestimonialCardItem key={index} className='basis-full'>
-                <Card className='bg-background border h-full'>
+                <Card className='bg-card border-border border h-full'>
                   <CardContent className='p-4 sm:p-6 md:p-8 h-full flex items-center'>
                     <div className='flex flex-col sm:flex-row items-start gap-4 sm:gap-6 w-full'>
                       <AnimatedAvatarBorder
@@ -334,13 +334,13 @@ export default function TestimonialCarousel({
                         </Avatar>
                       </AnimatedAvatarBorder>
                       <div className='flex-1 min-h-30 sm:min-h-35 flex flex-col justify-center'>
-                        <h3 className='text-lg sm:text-xl font-semibold mb-1 text-foreground'>
+                        <h3 className='text-lg sm:text-xl font-semibold mb-1 text-testim-ttl'>
                           {testimonial.name}
                         </h3>
-                        <p className='text-xs sm:text-sm mb-3 sm:mb-4 text-muted-foreground'>
+                        <p className='text-xs sm:text-sm mb-3 sm:mb-4 text-testim-desc'>
                           {testimonial.handle}
                         </p>
-                        <p className='text-sm sm:text-base leading-relaxed text-foreground'>
+                        <p className='text-sm sm:text-base leading-relaxed text-testim-desc'>
                           {testimonial.description}
                         </p>
                       </div>

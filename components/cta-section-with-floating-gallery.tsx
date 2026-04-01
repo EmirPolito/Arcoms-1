@@ -1,0 +1,162 @@
+"use client";
+
+import { motion } from "motion/react";
+import { cn } from "@/lib/utils";
+import { ArrowRight } from "lucide-react";
+import { OrbButton } from "@/components/ui/orb-button";
+
+interface CTAWithFloatingGalleryProps {
+  title?: string;
+  description?: string;
+  buttonLabel?: string;
+  className?: string;
+}
+
+const galleryImages = [
+  {
+    url: "https://scrollxui.dev/assets/blocks/hero-sections.png",
+    alt: "Hero Portadas",
+    delay: 0,
+  },
+  {
+    url: "https://scrollxui.dev/assets/blocks/footers.png",
+    alt: "Secciones Footer",
+    delay: 0.1,
+  },
+  {
+    url: "https://scrollxui.dev/assets/blocks/bento.png",
+    alt: "Diseño Bento",
+    delay: 0.2,
+  },
+  {
+    url: "https://scrollxui.dev/assets/blocks/pricing-sections.png",
+    alt: "Secciones de Precios",
+    delay: 0.15,
+  },
+  {
+    url: "https://scrollxui.dev/assets/blocks/contact-sections.png",
+    alt: "Sección de Contacto",
+    delay: 0.25,
+  },
+  {
+    url: "https://scrollxui.dev/assets/blocks/testimonials.png",
+    alt: "Logos y Clientes",
+    delay: 0.3,
+  },
+];
+
+export default function CTAWithFloatingGallery({
+  title = "Potencia tu Presencia Digital",
+  description = "Lanza y escala proyectos web en tiempo récord. Construimos interfaces a medida, de alto rendimiento y enfocadas en la retención de usuarios.",
+  buttonLabel = "Empieza tu Proyecto",
+  className,
+}: CTAWithFloatingGalleryProps) {
+  const words = title.split(" ");
+  const leftImages = galleryImages.slice(0, 3);
+  const rightImages = galleryImages.slice(3);
+
+  return (
+    <section
+      className={cn(
+        "mx-auto my-20 grid w-full max-w-7xl grid-cols-1 items-center gap-10 px-4 md:my-0 md:grid-cols-2 md:gap-16 md:px-8",
+        className,
+      )}
+    >
+      <div className="max-w-xl">
+        <h2 className="text-3xl font-bold tracking-tight text-balance text-[var(--primary-general)] md:text-5xl">
+          {words.map((word, index) => (
+            <motion.span
+              key={`${word}-${index}`}
+              initial={{ opacity: 0, filter: "blur(6px)", y: 12 }}
+              whileInView={{ opacity: 1, filter: "blur(0px)", y: 0 }}
+              viewport={{ once: true }}
+              transition={{
+                duration: 0.4,
+                delay: index * 0.08,
+                ease: "easeInOut",
+              }}
+              className="mr-2 inline-block"
+            >
+              {word}
+            </motion.span>
+          ))}
+        </h2>
+
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+          className="mt-6 max-w-lg text-base text-[var(--primary-color-text)] md:text-lg"
+        >
+          {description}
+        </motion.p>
+
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.5 }}
+          className="mt-8"
+        >
+          <OrbButton>
+            <span className="flex items-center gap-2">{buttonLabel}</span>
+          </OrbButton>
+        </motion.div>
+      </div>
+
+      <div className="relative overflow-hidden rounded-2xl bg-background/60 p-3">
+        <div className="pointer-events-none absolute inset-x-0 top-0 z-10 h-24 bg-linear-to-b from-background to-transparent"></div>
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-24 bg-linear-to-t from-background to-transparent"></div>
+
+        <div className="grid grid-cols-2 gap-3 overflow-hidden">
+          <div className="flex flex-col gap-3">
+            {leftImages.map((image) => (
+              <motion.div
+                key={image.alt}
+                initial={{ opacity: 0, scale: 0.8, y: 20 }}
+                whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{
+                  duration: 0.6,
+                  delay: image.delay,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
+                className="overflow-hidden rounded-xl shadow-sm ring-1 ring-[var(--border)]"
+              >
+                <img
+                  src={image.url}
+                  alt={image.alt}
+                  className="h-44 w-full object-cover"
+                />
+              </motion.div>
+            ))}
+          </div>
+
+          <div className="mt-10 flex flex-col gap-3">
+            {rightImages.map((image) => (
+              <motion.div
+                key={image.alt}
+                initial={{ opacity: 0, scale: 0.8, y: 20 }}
+                whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{
+                  duration: 0.6,
+                  delay: image.delay,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
+                className="overflow-hidden rounded-xl shadow-sm ring-1 ring-[var(--border)]"
+              >
+                <img
+                  src={image.url}
+                  alt={image.alt}
+                  className="h-44 w-full object-cover"
+                />
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}

@@ -1,6 +1,6 @@
 @import "tailwindcss";
 @import "tw-animate-css";
-@custom-variant dark (&:is(.dark *));
+@custom-variant dark (&:is([data-theme="dark"] *, [data-theme="dark-daltonico"] *));
 
 /* --------------------
    LIGHT (default)
@@ -14,6 +14,59 @@
   --primary-general: #000000;
   --primary-header: #363636;
     --divider-color: #393939; /* /header linea vertical divisora entre modo y colores*/
+  /* =========================================
+     SEMANTIC COMPONENT TOKENS
+     ========================================= */
+  /* Header */
+  --header-bg: var(--background);
+  --header-txt: var(--foreground);
+  --header-hover: var(--primary-header);
+
+  /* Hero */
+  --hero-bg: var(--background);
+  --hero-ttl: var(--primary-general);
+  --hero-desc: var(--primary-color-text);
+  --hero-btn-bg: var(--primary-general);
+  --hero-btn-txt: var(--primary2);
+  --hero-btn-border: var(--border);
+
+  /* Logos */
+  --logos-bg: var(--background);
+  --logos-txt: var(--primary-color-text);
+
+  /* Titles (1,8,9) */
+  --title-bg: transparent;
+  --title-ttl: var(--primary-general);
+  --title-desc: var(--primary-color-text);
+
+  /* Features (2,6) */
+  --feat-bg: var(--background);
+  --feat-card: var(--card);
+  --feat-border: var(--border);
+  --feat-ttl: var(--primary-general);
+  --feat-desc: var(--primary-color-text);
+  --feat-txt: var(--foreground);
+
+  /* Pricing (4) */
+  --price-bg: var(--background);
+  --price-card: var(--card);
+  --price-border: var(--border);
+  --price-ttl: var(--primary-general);
+  --price-desc: var(--primary-color-text);
+  --price-btn-bg: var(--primary-general);
+  --price-btn-txt: var(--primary2);
+
+  /* Testimonials */
+  --testim-bg: var(--background);
+  --testim-ttl: var(--primary-general);
+  --testim-desc: var(--muted-foreground);
+
+  /* Footer */
+  --footer-bg: var(--background);
+  --footer-ttl: var(--foreground);
+  --footer-txt: var(--muted-foreground);
+  --footer-link: var(--foreground);
+  --footer-border: var(--border);
 
   /* color del componente de las 3 tarjetas  */
   --primary-color-1: #1cff10ce;
@@ -65,6 +118,59 @@
   --primary-general: #ffffffeb;   /* para los titulos - si cambia en los modos */
   --primary-header: #ffffff;  /* especialmente para header color gris mas fuerte - cambia de modo al pasar el cursor */
   --divider-color: #393939; /* /header linea vertical divisora entre modo y colores*/
+  /* =========================================
+     SEMANTIC COMPONENT TOKENS
+     ========================================= */
+  /* Header */
+  --header-bg: var(--background);
+  --header-txt: var(--foreground);
+  --header-hover: var(--primary-header);
+
+  /* Hero */
+  --hero-bg: var(--background);
+  --hero-ttl: var(--primary-general);
+  --hero-desc: var(--primary-color-text);
+  --hero-btn-bg: var(--primary-general);
+  --hero-btn-txt: var(--primary2);
+  --hero-btn-border: var(--border);
+
+  /* Logos */
+  --logos-bg: var(--background);
+  --logos-txt: var(--primary-color-text);
+
+  /* Titles (1,8,9) */
+  --title-bg: transparent;
+  --title-ttl: var(--primary-general);
+  --title-desc: var(--primary-color-text);
+
+  /* Features (2,6) */
+  --feat-bg: var(--background);
+  --feat-card: var(--card);
+  --feat-border: var(--border);
+  --feat-ttl: var(--primary-general);
+  --feat-desc: var(--primary-color-text);
+  --feat-txt: var(--foreground);
+
+  /* Pricing (4) */
+  --price-bg: var(--background);
+  --price-card: var(--card);
+  --price-border: var(--border);
+  --price-ttl: var(--primary-general);
+  --price-desc: var(--primary-color-text);
+  --price-btn-bg: var(--primary-general);
+  --price-btn-txt: var(--primary2);
+
+  /* Testimonials */
+  --testim-bg: var(--background);
+  --testim-ttl: var(--primary-general);
+  --testim-desc: var(--muted-foreground);
+
+  /* Footer */
+  --footer-bg: var(--background);
+  --footer-ttl: var(--foreground);
+  --footer-txt: var(--muted-foreground);
+  --footer-link: var(--foreground);
+  --footer-border: var(--border);
 
   /* color del componente de las 3 tarjetas  */
   --primary-color-1: #1cff10ce;
@@ -382,6 +488,51 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
+  /* =========================================
+     SEMANTIC COMPONENT THEME COLORS
+     ========================================= */
+  --color-header-bg: var(--header-bg);
+  --color-header-txt: var(--header-txt);
+  --color-header-hover: var(--header-hover);
+
+  --color-hero-bg: var(--hero-bg);
+  --color-hero-ttl: var(--hero-ttl);
+  --color-hero-desc: var(--hero-desc);
+  --color-hero-btn-bg: var(--hero-btn-bg);
+  --color-hero-btn-txt: var(--hero-btn-txt);
+  --color-hero-btn-border: var(--hero-btn-border);
+
+  --color-logos-bg: var(--logos-bg);
+  --color-logos-txt: var(--logos-txt);
+
+  --color-title-bg: var(--title-bg);
+  --color-title-ttl: var(--title-ttl);
+  --color-title-desc: var(--title-desc);
+
+  --color-feat-bg: var(--feat-bg);
+  --color-feat-card: var(--feat-card);
+  --color-feat-border: var(--feat-border);
+  --color-feat-ttl: var(--feat-ttl);
+  --color-feat-desc: var(--feat-desc);
+  --color-feat-txt: var(--feat-txt);
+
+  --color-price-bg: var(--price-bg);
+  --color-price-card: var(--price-card);
+  --color-price-border: var(--price-border);
+  --color-price-ttl: var(--price-ttl);
+  --color-price-desc: var(--price-desc);
+  --color-price-btn-bg: var(--price-btn-bg);
+  --color-price-btn-txt: var(--price-btn-txt);
+
+  --color-testim-bg: var(--testim-bg);
+  --color-testim-ttl: var(--testim-ttl);
+  --color-testim-desc: var(--testim-desc);
+
+  --color-footer-bg: var(--footer-bg);
+  --color-footer-ttl: var(--footer-ttl);
+  --color-footer-txt: var(--footer-txt);
+  --color-footer-link: var(--footer-link);
+  --color-footer-border: var(--footer-border);
   --animate-marquee: marquee var(--duration) infinite linear;
   --animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;
 
@@ -399,6 +550,14 @@
     }
   to {
     transform: translateY(calc(-100% - var(--gap)));
+    }
+  }
+  @keyframes shine {
+  0% {
+    background-position: 0% center;
+    }
+  100% {
+    background-position: 200% center;
     }
   }
 }
@@ -428,3 +587,40 @@ body {
   }
 }
 
+@layer utilities {
+  .animate-shine {
+    animation: shine 5s linear infinite;
+  }
+}
+
+@utility lustre-text {
+    display: inline-block;
+    font-weight: 800;
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    background-size: 200% auto;
+    background-position: 0% center;
+}
+
+@utility lustre-light {
+    background-image: linear-gradient(90deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.3) 30%, rgba(0,0,0,0.7) 45%, #ffffff 50%, rgba(0,0,0,0.7) 55%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0.05) 100%);
+}
+
+@utility lustre-dark {
+    background-image: linear-gradient(90deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.15) 30%, rgba(255,255,255,0.4) 45%, #ffffff 50%, rgba(255,255,255,0.4) 55%, rgba(255,255,255,0.15) 70%, rgba(255,255,255,0.05) 100%);
+    background-image: linear-gradient(90deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.15) 30%, rgba(255,255,255,0.4) 45%, #ffffff 50%, rgba(255,255,255,0.4) 55%, rgba(255,255,255,0.15) 70%, rgba(255,255,255,0.05) 100%);
+}
+
+@utility animate-shine {
+    animation-name: shine;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+@utility animate-shine-once {
+    animation-name: shine;
+    animation-timing-function: ease-out;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}

@@ -55,13 +55,23 @@ npm run dev
 
 Abre [http://localhost:3000](http://localhost:3000) en tu navegador preferido. ¡Interactúa, explora y siéntete atrapado por su gran ecosistema!
 
+## 🎨 Sistema de Temas y Colores
+
+Este proyecto cuenta con un sistema dinámico de temas (Claro / Oscuro) y una paleta de colores personalizable. Para garantizar que la interfaz se adapte perfectamente al modo seleccionado por el usuario:
+
+- Las propiedades de color y los modos se definen centralizadamente en `app/globals.css` mediante variables CSS.
+- **No se deben usar clases estáticas** directamente en los componentes (evitar el uso de utilidades hardcodeadas como `bg-black`, `text-white` o `dark:bg-black`).
+- En su lugar, se requiere el uso de las clases semánticas de Tailwind configuradas para el proyecto (ejemplo: usar `bg-background` para el fondo y `text-foreground` para el texto).
+
+Esto asegura que la plataforma escuche las elecciones del botón de temas integrándose de manera limpia y sin conflictos visuales.
+
 ## 📂 Organización Esencial
 
 ```text
 Arcoms Collection/
 │
-├── app/               # Motor de App Router de Next.js. Contiene todas las rutas.
-│   └── components/    # Todo el catálogo de componentes reactivos UI y estéticos.
+├── app/               # Motor de App Router de Next.js. Contiene todas las rutas y globals.css.
+├── components/        # Todo el catálogo de componentes reactivos UI y estéticos en la raíz.
 ├── public/            # Archivos estáticos que no pasan por build process.
 │   └── img/           # Banco de recursos gráficos de primer nivel del portal.
 ├── tailwind.config.ts # Core de diseño donde se declara la paleta de color e identidad.
