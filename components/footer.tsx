@@ -67,18 +67,19 @@ export default function Footer() {
               <ul className="space-y-2">
                 <li>
                   <Link
+                    href="https://github.com/EmirPolito"
+                    className="text-footer-txt hover:text-[var(--primary-general)] transition-colors font-normal"
+                  >
+                    GitHub
+                  </Link>
+                </li>
+
+                <li>
+                  <Link
                     href="https://www.linkedin.com/in/emir-polito-g/"
                     className="text-footer-txt hover:text-[var(--primary-general)] transition-colors font-normal"
                   >
                     LinkedIn
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="#"
-                    className="text-footer-txt hover:text-[var(--primary-general)] transition-colors font-normal"
-                  >
-                    Facebook
                   </Link>
                 </li>
                 <li>
