@@ -7,13 +7,11 @@ export function Header() {
   // ...existing code...
 
   return (
-    <header
-      className="sticky top-0 z-50 w-full backdrop-blur supports-backdrop-filter:bg-header-bg/60 h-18 "
-    >
+    <header className="sticky top-0 z-50 w-full backdrop-blur supports-backdrop-filter:bg-header-bg/60 h-18 ">
       <div className="container relative flex items-center h-17 translate-y-3">
         {/* Logo */}
-        <a href="/" className="flex items-center shrink-0 w-50 ">
-          <span className="font-bold text-header-txt">
+        <a href="/" className="flex items-center gap-2 shrink-0">
+          <span className="font-bold text-header-txt text-lg">
             Arcoms <span className="font-light">1</span>
           </span>
         </a>

@@ -127,7 +127,7 @@ export default function CTAWithFloatingGallery({
                 <img
                   src={image.url}
                   alt={image.alt}
-                  className="h-44 w-full object-cover"
+                  className="h-44 w-full object-cover scale-[1.12]"
                 />
               </motion.div>
             ))}
@@ -150,7 +150,7 @@ export default function CTAWithFloatingGallery({
                 <img
                   src={image.url}
                   alt={image.alt}
-                  className="h-44 w-full object-cover"
+                  className="h-44 w-full object-cover scale-[1.12]"
                 />
               </motion.div>
             ))}

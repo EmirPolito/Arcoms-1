@@ -10,10 +10,10 @@
   /* Colores generales */
   --23-hero-boton1: #4e4e4e;
 
-  --primary-color-text: #8d8d8d;
+  --primary-color-text: #4b4b4b; /* Mejor contraste en textos descriptivos */
   --primary-general: #000000;
   --primary-header: #363636;
-    --divider-color: #393939; /* /header linea vertical divisora entre modo y colores*/
+  --divider-color: #393939; /* /header linea vertical divisora entre modo y colores*/
   /* =========================================
      SEMANTIC COMPONENT TOKENS
      ========================================= */
@@ -98,7 +98,7 @@
   --secondary: #f5f5f4;
   --secondary-foreground: #1c1917;
   --muted: #f5f5f4;
-  --muted-foreground: #78716c;
+  --muted-foreground: #52525b; /* Textos secundarios más legibles */
   --accent: #f5f5f4;
   --accent-foreground: #1c1917;
   --destructive: #ef4444;
@@ -178,7 +178,7 @@
   --primary-color-3: #e600ff;
   --primary-color-linea: #d6d6d6;
 
-    /* color del componente Cruz  */
+  /* color del componente Cruz  */
   --primary-ComponentCruz-1: #010101;
   --primary-ComponentCruz-2:  #010101;
   --primary-ComponentCruz-3:  #010101;
@@ -219,8 +219,9 @@
    COLORBLIND
    -------------------- */
 [data-theme="colorblind"] {
-    --23-hero-boton1: #ffffff;
+  --23-hero-boton1: #ffffff;
 
+  --primary-color-text: #374151; /* Añadido contraste de texto oscuro explícito para daltónico */
   --primary-general: #2563eb;
   --primary-color-linea: #008cff;
   --primary-header: #2563eb;
@@ -231,7 +232,7 @@
   --primary4: #2563eb;
   --primary5: #000000;
 
-    /* color del componente Cruz  */
+  /* color del componente Cruz  */
   --primary-ComponentCruz-1: #8d8d8d;
   --primary-ComponentCruz-2:  #8d8d8d;
   --primary-ComponentCruz-3:  #8d8d8d;
@@ -254,7 +255,7 @@
   --secondary: #facc15;
   --secondary-foreground: #111827;
   --muted: #e5e7eb;
-  --muted-foreground: #6b7280;
+  --muted-foreground: #4b5563; /* Más legible en vez del gris muy opaco */
   --accent: #facc15;
   --accent-foreground: #111827;
   --destructive: #1f2933;
@@ -269,9 +270,9 @@
    ===================================================== */
 
 [data-color="orange"] {
-      --23-hero-boton1: #ffffff;
+  --23-hero-boton1: #ffffff;
   --primary-general: #ff6a00;
-    --primary-header: #ff6a00;
+  --primary-header: #ff6a00;
 
   --primary: #ff6a00;
   --primary2: #ffffff;
@@ -286,19 +287,18 @@
   --primary-color-3: #ff6a00;
   --primary-color-linea: #e2e2e2;
 
-    /* color del componente Cruz  */
+  /* color del componente Cruz  */
   --primary-ComponentCruz-1: #7c4408;
   --primary-ComponentCruz-2:  #8d8d8d;
   --primary-ComponentCruz-3:  #8d8d8d;
   --primary-ComponentCruz-4:  #8d8d8d;
-
 }
 
 [data-color="blue"] {
-      --23-hero-boton1: #ffffff;
+  --23-hero-boton1: #ffffff;
 
   --primary-general: #0062ff;
-    --primary-header: #0062ff;
+  --primary-header: #0062ff;
 
   --primary: #0062ff;
   --primary2: #ffffff;
@@ -313,19 +313,18 @@
   --primary-color-3: #0062ff;
   --primary-color-linea: #e2e2e2;
 
-    /* color del componente Cruz  */
+  /* color del componente Cruz  */
   --primary-ComponentCruz-1: #8d8d8d;
   --primary-ComponentCruz-2:  #8d8d8d;
   --primary-ComponentCruz-3:  #8d8d8d;
   --primary-ComponentCruz-4:  #8d8d8d;
-
 }
 
 [data-color="green"] {
-      --23-hero-boton1: #ffffff;
+  --23-hero-boton1: #ffffff;
 
   --primary-general: #68b701;
-    --primary-header: #68b701;
+  --primary-header: #68b701;
 
   --primary: #68b701;
   --primary2: #ffffff;
@@ -340,19 +339,18 @@
   --primary-color-3: #68b701;
   --primary-color-linea: #e2e2e2;
 
-    /* color del componente Cruz  */
+  /* color del componente Cruz  */
   --primary-ComponentCruz-1: #8d8d8d;
   --primary-ComponentCruz-2:  #8d8d8d;
   --primary-ComponentCruz-3:  #8d8d8d;
   --primary-ComponentCruz-4:  #8d8d8d;
-
 }
 
 [data-color="violet"] {
-      --23-hero-boton1: #ffffff;
+  --23-hero-boton1: #ffffff;
 
   --primary-general: #4600e9;
-    --primary-header: #4600e9;
+  --primary-header: #4600e9;
 
   --primary: #4600e9;
   --primary2: #ffffff;
@@ -367,19 +365,18 @@
   --primary-color-3: #4100d9;
   --primary-color-linea: #e2e2e2;
 
-    /* color del componente Cruz  */
+  /* color del componente Cruz  */
   --primary-ComponentCruz-1: #8d8d8d;
   --primary-ComponentCruz-2:  #8d8d8d;
   --primary-ComponentCruz-3:  #8d8d8d;
   --primary-ComponentCruz-4:  #8d8d8d;
-
 }
 
 [data-color="rose"] {
-      --23-hero-boton1: #ffffff;
+  --23-hero-boton1: #ffffff;
 
   --primary-general: #ff002b;
-    --primary-header: #ff002b;
+  --primary-header: #ff002b;
 
   --primary: #ff002b;
   --primary2: #ffffff;
@@ -394,19 +391,18 @@
   --primary-color-3: #ff002b;
   --primary-color-linea: #e2e2e2;
 
-    /* color del componente Cruz  */
+  /* color del componente Cruz  */
   --primary-ComponentCruz-1: #8d8d8d;
   --primary-ComponentCruz-2:  #8d8d8d;
   --primary-ComponentCruz-3:  #8d8d8d;
   --primary-ComponentCruz-4:  #8d8d8d;
-
 }
 
 [data-color="yellow"] {
-      --23-hero-boton1: #ffffff;
+  --23-hero-boton1: #ffffff;
 
   --primary-general: #dcb700;
-    --primary-header: #dcb700;
+  --primary-header: #dcb700;
 
   --primary: #dcb700;
   --primary2: #ffffff;
@@ -421,12 +417,11 @@
   --primary-color-3: #dcb700;
   --primary-color-linea: #e2e2e2;
 
-    /* color del componente Cruz  */
+  /* color del componente Cruz  */
   --primary-ComponentCruz-1: #8d8d8d;
   --primary-ComponentCruz-2:  #8d8d8d;
   --primary-ComponentCruz-3:  #8d8d8d;
   --primary-ComponentCruz-4:  #8d8d8d;
-
 }
 
 /* =====================================================
@@ -470,7 +465,6 @@
   --color-popover: var(--popover);
   --color-popover-foreground: var(--popover-foreground);
 
-  --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
 
   --color-secondary: var(--secondary);
@@ -488,6 +482,7 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
+
   /* =========================================
      SEMANTIC COMPONENT THEME COLORS
      ========================================= */
@@ -533,31 +528,34 @@
   --color-footer-txt: var(--footer-txt);
   --color-footer-link: var(--footer-link);
   --color-footer-border: var(--footer-border);
+
   --animate-marquee: marquee var(--duration) infinite linear;
   --animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;
 
   @keyframes marquee {
-  from {
-    transform: translateX(0);
+    from {
+      transform: translateX(0);
     }
-  to {
-    transform: translateX(calc(-100% - var(--gap)));
+    to {
+      transform: translateX(calc(-100% - var(--gap)));
     }
   }
+
   @keyframes marquee-vertical {
-  from {
-    transform: translateY(0);
+    from {
+      transform: translateY(0);
     }
-  to {
-    transform: translateY(calc(-100% - var(--gap)));
+    to {
+      transform: translateY(calc(-100% - var(--gap)));
     }
   }
+
   @keyframes shine {
-  0% {
-    background-position: 0% center;
+    0% {
+      background-position: 0% center;
     }
-  100% {
-    background-position: 200% center;
+    100% {
+      background-position: 200% center;
     }
   }
 }
@@ -594,33 +592,32 @@ body {
 }
 
 @utility lustre-text {
-    display: inline-block;
-    font-weight: 800;
-    color: transparent;
-    background-clip: text;
-    -webkit-background-clip: text;
-    background-size: 200% auto;
-    background-position: 0% center;
+  display: inline-block;
+  font-weight: 800;
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  background-size: 200% auto;
+  background-position: 0% center;
 }
 
 @utility lustre-light {
-    background-image: linear-gradient(90deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.3) 30%, rgba(0,0,0,0.7) 45%, #ffffff 50%, rgba(0,0,0,0.7) 55%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0.05) 100%);
+  background-image: linear-gradient(90deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.3) 30%, rgba(0,0,0,0.7) 45%, #ffffff 50%, rgba(0,0,0,0.7) 55%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0.05) 100%);
 }
 
 @utility lustre-dark {
-    background-image: linear-gradient(90deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.15) 30%, rgba(255,255,255,0.4) 45%, #ffffff 50%, rgba(255,255,255,0.4) 55%, rgba(255,255,255,0.15) 70%, rgba(255,255,255,0.05) 100%);
-    background-image: linear-gradient(90deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.15) 30%, rgba(255,255,255,0.4) 45%, #ffffff 50%, rgba(255,255,255,0.4) 55%, rgba(255,255,255,0.15) 70%, rgba(255,255,255,0.05) 100%);
+  background-image: linear-gradient(90deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.15) 30%, rgba(255,255,255,0.4) 45%, #ffffff 50%, rgba(255,255,255,0.4) 55%, rgba(255,255,255,0.15) 70%, rgba(255,255,255,0.05) 100%);
 }
 
 @utility animate-shine {
-    animation-name: shine;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
+  animation-name: shine;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
 }
 
 @utility animate-shine-once {
-    animation-name: shine;
-    animation-timing-function: ease-out;
-    animation-iteration-count: 1;
-    animation-fill-mode: forwards;
+  animation-name: shine;
+  animation-timing-function: ease-out;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
 }

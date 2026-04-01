@@ -1,12 +1,9 @@
 "use client";
 
-import "./i18n";
-import { useTranslation } from "react-i18next";
 import { Header } from "../components/20-header-comp";
 
 import { Component23 } from "@/components/23-robot-comp";
 
-import LogoCloud from "@/components/29-comp-logos";
 import ComponentLogos24 from "@/components/24-logos-comp";
 
 import { Titulo8 } from "@/components/8-comp";
@@ -26,7 +23,6 @@ import Footer2 from "../components/22-footer2-comp";
 //Footer
 
 export default function Home() {
-  const { t, i18n } = useTranslation();
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Header />
@@ -34,7 +30,6 @@ export default function Home() {
         <Component23 />
 
         <ComponentLogos24 />
-        {/* <LogoCloud /> */}
 
         <Titulo8 />
         <Component6 />

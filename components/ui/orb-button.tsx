@@ -6,7 +6,7 @@ import { ChevronRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 const OrbButtonVariants = cva(
-  'group relative inline-flex items-center whitespace-nowrap font-bold transition-all duration-500 focus-visible:outline-hidden focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 overflow-hidden rounded-full border border-[var(--border)] hover:border-[var(--primary-general)] data-[touched=true]:border-[var(--primary-general)] bg-transparent',
+  'group relative inline-flex items-center whitespace-nowrap font-bold transition-all duration-500 focus-visible:outline-hidden focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 overflow-hidden rounded-full border border-[var(--border)] hover:border-[var(--primary-general)] data-[touched=true]:border-[var(--primary-general)] bg-transparent cursor-pointer',
   {
     variants: {
       size: {

@@ -8,10 +8,6 @@ export default function Footer2() {
         <div className="flex flex-col md:flex-row justify-between">
           <div className="mb-8 md:mb-0">
             <Link href="/" className="mr-4 flex items-center gap-2 lg:mr-6">
-              <div className="h-6 w-6 bg-primary text-primary-foreground border-border border rounded-md flex items-center justify-center p-1 font-bold text-sm">
-                A
-              </div>
-
               <span className="font-bold lg:inline-block text-footer-ttl">
                 Arcoms 1
               </span>
@@ -20,7 +16,10 @@ export default function Footer2() {
             <h1 className="text-footer-txt mt-2 text-sm">
               Desarrollado por{" "}
               <span className="text-[var(--primary-general)] font-medium gap-2">
-                <Link className="underline hover:opacity-80" href="https://x.com/emirpolitog">
+                <Link
+                  className="underline hover:opacity-80"
+                  href="https://x.com/emirpolitog"
+                >
                   @emirpolitog
                 </Link>
               </span>
@@ -68,7 +67,7 @@ export default function Footer2() {
               <ul className="space-y-2">
                 <li>
                   <Link
-                    href="#"
+                    href="https://www.linkedin.com/in/emir-polito-g/"
                     className="text-footer-txt hover:text-[var(--primary-general)] transition-colors font-normal"
                   >
                     LinkedIn

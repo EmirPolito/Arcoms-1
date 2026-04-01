@@ -45,7 +45,7 @@ export function Component2() {
           </div>
 
           <div className="absolute bottom-[-15rem] right-[-1.5rem]">
-            <div className="rounded-2xl border border-neutral-800/70 bg-neutral-800/40 p-4">
+            <div className="rounded-2xl border border-border bg-muted/40 p-4">
               <img
                 src="/img/5.jpg"
                 alt="Infrastructure"
@@ -94,10 +94,9 @@ export function Component2() {
                 className="
                   h-43 w-43
                   rounded-xl
-                  border border-neutral-800/60
-                  bg-neutral-900/90
-                  backdrop-blur-md
-                  shadow-[0_30px_40px_-20px_rgba(0,0,0,0.8)]
+                  border border-border
+                  bg-background
+                  shadow-sm
                   flex items-center justify-center
                 "
               >
@@ -120,7 +119,7 @@ export function Component2() {
           </div>
 
           <div className="absolute bottom-[-4rem] right-[-1.5rem]">
-            <div className="rounded-2xl border border-neutral-800/70 bg-neutral-800/40 p-4">
+            <div className="rounded-2xl border border-border bg-muted/40 p-4">
               <img
                 src="/img/5.jpg"
                 alt="Scaling"
@@ -154,7 +153,7 @@ const workflowSwingCards = [
     content: (
       <div className="text-center">
         <p className="text-2xl font-bold text-emerald-400">99.9%</p>
-        <p className="text-[10px] text-neutral-400 font-medium uppercase tracking-wider mt-1">
+        <p className="text-[10px] text-muted-foreground font-medium uppercase tracking-wider mt-1">
           Uptime Seguro
         </p>
       </div>
@@ -165,7 +164,7 @@ const workflowSwingCards = [
     content: (
       <div className="text-center">
         <p className="text-2xl font-bold text-blue-400">10x</p>
-        <p className="text-[10px] text-neutral-400 font-medium uppercase tracking-wider mt-1">
+        <p className="text-[10px] text-muted-foreground font-medium uppercase tracking-wider mt-1">
           Más Rápido
         </p>
       </div>
@@ -176,7 +175,7 @@ const workflowSwingCards = [
     content: (
       <div className="text-center">
         <p className="text-2xl font-bold text-purple-400">&lt;10ms</p>
-        <p className="text-[10px] text-neutral-400 font-medium uppercase tracking-wider mt-1">
+        <p className="text-[10px] text-muted-foreground font-medium uppercase tracking-wider mt-1">
           Latencia
         </p>
       </div>
