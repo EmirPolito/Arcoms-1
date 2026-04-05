@@ -36,13 +36,13 @@ export const PinContainer = ({
       rel="noopener noreferrer"
     >
       <div
-        style={{ perspective: "1000px", transform: "rotateX(70deg) translateZ(0deg)" }}
+        style={{ perspective: "1000px", transform: "rotateX(70deg) translateZ(0deg)", willChange: "transform" }}
         className="absolute left-1/2 top-1/2 ml-[0.09375rem] mt-4 -translate-x-1/2 -translate-y-1/2"
       >
         <div
           style={{ transform }}
           className={cn(
-            "absolute left-1/2 top-1/2 p-4 flex justify-start items-start rounded-2xl transition duration-600 overflow-hidden",
+            "absolute left-1/2 top-1/2 p-4 flex justify-start items-start rounded-2xl transition-[opacity,transform] duration-600 overflow-hidden will-change-transform",
             "bg-background text-foreground border border-border shadow-md dark:shadow-lg",
             className
           )}

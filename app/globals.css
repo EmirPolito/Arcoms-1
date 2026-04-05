@@ -8,6 +8,7 @@
 :root,
 [data-theme="light"] {
   /* Colores generales */
+  --img-frame: rgba(0, 0, 0, 0.1);
   --23-hero-boton1: #4e4e4e;
 
   --primary-color-text: #4b4b4b; /* Mejor contraste en textos descriptivos */
@@ -91,7 +92,7 @@
   --primary5: #323232;
   --buttonC: #323232;
 
-  --card: #ffffff;
+  --card: #f8f8f8;
   --card-foreground: #0f0f0f;
   --popover: #ffffff;
   --popover-foreground: #0f0f0f;
@@ -113,6 +114,7 @@
    -------------------- */
 [data-theme="dark"] {
   /* Colores generales */
+  --img-frame: rgba(255, 255, 255, 0.12);
   --23-hero-boton1: #000000;
   --primary-color-text: #bababa;   /* Para descripiones - no cambia en los modos */
   --primary-general: #ffffffeb;   /* para los titulos - si cambia en los modos */
@@ -219,6 +221,7 @@
    COLORBLIND
    -------------------- */
 [data-theme="colorblind"] {
+  --img-frame: rgba(0, 0, 0, 0.15);
   --23-hero-boton1: #ffffff;
 
   --primary-color-text: #374151; /* Añadido contraste de texto oscuro explícito para daltónico */
@@ -529,6 +532,8 @@
   --color-footer-link: var(--footer-link);
   --color-footer-border: var(--footer-border);
 
+  --color-img-frame: var(--img-frame);
+
   --animate-marquee: marquee var(--duration) infinite linear;
   --animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;
 
@@ -563,6 +568,8 @@
 /* =====================================================
    BASE STYLES
    ===================================================== */
+
+
 body {
   background-color: var(--background);
   color: var(--foreground);

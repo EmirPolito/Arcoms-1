@@ -130,9 +130,9 @@ export default function GalleryHoverCarousel({
                     href={item.url}
                     className="group block relative w-full h-[300px] md:h-[350px]"
                   >
-                    <Card className="overflow-hidden rounded-xl h-full w-full rounded-3xl">
+                    <Card className="overflow-hidden h-full w-full rounded-3xl border border-img-frame shadow-sm">
                       {/* Image */}
-                      <div className="relative h-full w-full transition-all duration-500 group-hover:h-1/2">
+                      <div className="relative h-full w-full transition-all duration-300 group-hover:h-1/2">
                         <Image
                           width={400}
                           height={300}
@@ -141,11 +141,11 @@ export default function GalleryHoverCarousel({
                           className="h-full w-full object-cover object-center"
                         />
                         {/* Fade overlay at bottom */}
-                        <div className="absolute bottom-0 left-0 w-full h-20 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                        <div className="absolute bottom-0 left-0 w-full h-20 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                       </div>
 
                       {/* Text Section */}
-                      <div className="absolute bottom-0 left-0 w-full px-4 transition-all duration-500 group-hover:h-1/2 group-hover:flex flex-col justify-center bg-background/95 backdrop-blur-sm opacity-0 group-hover:opacity-100">
+                      <div className="absolute bottom-0 left-0 w-full px-4 transition-all duration-300 group-hover:h-1/2 group-hover:flex flex-col justify-center bg-background/95 backdrop-blur-sm opacity-0 group-hover:opacity-100">
                         <h3 className="text-lg font-medium md:text-xl text-[var(--primary-general)]">
                           {item.title}
                         </h3>

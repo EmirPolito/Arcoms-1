@@ -1,6 +1,6 @@
 "use client";
 
-import { PointerHighlight } from "@/components/ui/9-ui";
+import { PointerHighlight } from "@/components/ui/8-ui";
 
 export function TituloDemo() {
   return (

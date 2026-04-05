@@ -2,7 +2,7 @@
 
 import { Header } from "@/components/header";
 import Footer2 from "@/components/footer";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 
 export default function RealidadAumentadaPage() {
   return (

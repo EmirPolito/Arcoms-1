@@ -165,14 +165,6 @@ export default function DemoInteractiva() {
                     {" "}
                     {/* color atenuado */}/{isYearly ? "año" : "mes"}
                   </span>
-                  
-                  {isYearly && plan.priceYearly > 0 && (
-                    <div className="mt-4 flex justify-center">
-                      <span className="text-xs font-semibold text-emerald-500 bg-emerald-500/10 px-3 py-1 rounded-full">
-                        Ahorras 20% 🎉
-                      </span>
-                    </div>
-                  )}
                 </div>
                 <ul className="space-y-4 mb-4 flex-1">
                   {" "}

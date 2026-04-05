@@ -32,7 +32,7 @@ export default function EstadoAgentes() {
         }
         return prev + 1;
       });
-    }, 3000); // más lento = más suave
+    }, 1800);
     return () => clearInterval(interval);
   }, []);
 
@@ -45,7 +45,7 @@ export default function EstadoAgentes() {
         }
         return prev + 1;
       });
-    }, 3000); // igual que el primero (antes 800)
+    }, 1800);
     return () => clearInterval(interval);
   }, []);
 
@@ -73,10 +73,10 @@ export default function EstadoAgentes() {
               {agentStates.map((agent, index) => (
                 <div
                   key={agent.id}
-                  className={`flex items-center justify-between p-5 rounded-lg border transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+                  className={`flex items-center justify-between p-5 rounded-lg border transition-[opacity,background-color,border-color,box-shadow] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
                     activeAgent === index
-                      ? "border-primary/45 bg-card/10"
-                      : "border-border/50 bg-card/90 opacity-90"
+                      ? "border-primary/45 bg-primary/5 shadow-sm"
+                      : "border-border bg-card shadow-xs opacity-90"
                   }`}
                 >
                   <span className="text-sm text-feat-desc">{agent.name}</span>
@@ -205,14 +205,14 @@ export default function EstadoAgentes() {
               {guardrailChecks.map((check, index) => (
                 <div
                   key={check.id}
-                  className={`flex items-center gap-5 p-5 rounded-md transition-all duration-1000 ease-[cubic-bezier(0.22,1,0.36,1)] will-change-transform ${
+                  className={`flex items-center gap-5 p-5 rounded-md border transition-[opacity,transform,background-color,border-color,box-shadow] duration-600 ease-[cubic-bezier(0.22,1,0.36,1)] will-change-transform ${
                     guardrailProgress >= index
-                      ? "opacity-90 translate-x-0 bg-card/90"
-                      : "opacity-0 translate-x-2"
+                      ? "opacity-90 translate-x-0 bg-card border-feat-border/60 shadow-xs"
+                      : "opacity-0 translate-x-2 border-transparent"
                   }`}
                 >
                   <div
-                    className={`w-5 h-5 rounded-full flex items-center justify-center shrink-0 transition-all duration-700 ease-out ${
+                    className={`w-5 h-5 rounded-full flex items-center justify-center shrink-0 transition-[background-color,border-color] duration-500 ease-out ${
                       guardrailProgress >= index
                         ? `${check.color}`
                         : "border border-border/50"
@@ -220,7 +220,7 @@ export default function EstadoAgentes() {
                   >
                     {guardrailProgress >= index && (
                       <svg
-                        className="w-3.5 h-3.5 text-primary2 transition-all duration-500 ease-out"
+                        className="w-3.5 h-3.5 text-primary2 transition-opacity duration-500 ease-out"
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"

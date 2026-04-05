@@ -8,8 +8,6 @@ const SplineScene = dynamic(
   () => import("@/components/ui/splite").then((mod) => mod.SplineScene),
   { ssr: false },
 );
-import { Card } from "@/components/ui/card";
-import { Spotlight } from "@/components/ui/spotlight";
 import {
   Announcement,
   AnnouncementTag,
@@ -22,7 +20,7 @@ interface SplineSceneBasicProps {
 }
 
 export function HeroSection({
-  paragraphSize = "text-lg",
+  paragraphSize = "text-lg ",
   buttonWidth = "px-8",
 }: SplineSceneBasicProps) {
   const cardRef = useRef<HTMLDivElement>(null);
@@ -71,11 +69,11 @@ export function HeroSection({
       <div
         className={`
           absolute inset-0 z-10
-          transition-all duration-[1600ms] ease-out
+          transition-[opacity,transform] duration-[1600ms] ease-out will-change-[opacity,transform]
           ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}
         `}
       >
-        <div className="w-full h-full scale-[1.03] origin-top -translate-y-21 translate-x-[280px]">
+        <div className="w-full h-full scale-[1.04] origin-top -translate-y-16 translate-x-[285px]">
           <SplineScene
             scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
             className="w-full h-full"
@@ -87,7 +85,7 @@ export function HeroSection({
       <div
         className={`
           relative z-10 flex h-full items-center pointer-events-none
-          transition-all duration-[1800ms] ease-out delay-300
+          transition-[opacity,transform] duration-[1800ms] ease-out delay-300 will-change-[opacity,transform]
           ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"}
         `}
       >
@@ -111,7 +109,7 @@ export function HeroSection({
             alto nivel.
           </p>
 
-          <div className="pointer-events-auto mt-10 flex justify-center gap-5 lg:justify-start">
+          <div className="pointer-events-auto mt-12 flex justify-center gap-5 lg:justify-start">
             <Link
               href="/explore"
               className={`${buttonWidth} w-[165px] h-[43px] flex items-center justify-center text-lg rounded-md font-medium shadow-md text-hero-btn-txt bg-hero-btn-bg hover:opacity-80 transition-opacity cursor-pointer`}

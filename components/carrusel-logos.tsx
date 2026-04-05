@@ -108,8 +108,8 @@ export default function CarruselLogos() {
     <LogoStepper
       logos={logos}
       direction='vloop'
-      animationDelay={1.2}
-      animationDuration={0.6}
+      animationDelay={0.9}
+      animationDuration={0.4}
       visibleCount={5}
     />
   );

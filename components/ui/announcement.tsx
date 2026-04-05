@@ -191,15 +191,22 @@ function AnnouncementComponent({
       updatePosition();
     };
 
-    document.addEventListener("mousedown", handleClickOutside, { passive: true });
+    document.addEventListener("mousedown", handleClickOutside, {
+      passive: true,
+    });
     document.addEventListener("keydown", handleEscape, { passive: true });
-    window.addEventListener("scroll", handleScroll, { capture: true, passive: true });
+    window.addEventListener("scroll", handleScroll, {
+      capture: true,
+      passive: true,
+    });
     window.addEventListener("resize", handleResize, { passive: true });
 
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
       document.removeEventListener("keydown", handleEscape);
-      window.removeEventListener("scroll", handleScroll, { capture: true } as EventListenerOptions);
+      window.removeEventListener("scroll", handleScroll, {
+        capture: true,
+      } as EventListenerOptions);
       window.removeEventListener("resize", handleResize);
     };
   }, [isOpen, hasExpandable, updatePosition]);
@@ -403,7 +410,7 @@ export function AnnouncementTitle({
   return (
     <span
       className={cn(
-        "inline-flex items-center gap-1.5 py-1",
+        " inline-flex items-center gap-1.5 py-1",
         multiTags ? "flex-wrap" : "truncate",
         className,
       )}

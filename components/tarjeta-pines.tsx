@@ -4,7 +4,7 @@ import { PinContainer } from "@/components/ui/3-ui";
 
 export function TarjetaPines() {
   return (
-    <div className="w-full flex items-center justify-center py-11">
+    <div className="w-full flex items-center justify-center py-11" style={{ contain: "layout style" }}>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-20">
         {/* TARJETA 1 */}
         <PinContainer title="Descripcion1/" href="/">

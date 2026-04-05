@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import createGlobe from "cobe";
 import Image from "next/image";
 /* =====================================================
@@ -10,11 +10,11 @@ import Image from "next/image";
 
 export function BentoCaracteristicas() {
   return (
-    <section className="relative z-20 max-w-7xl mx-auto pt-10 pb-24 space-y-5.5 bg-feat-bg text-feat-txt">
+    <section className="relative z-20 max-w-7xl mx-auto pt-10 pb-24 space-y-5.5 bg-feat-bg text-feat-txt" style={{ contain: "layout style" }}>
       {/* ROW 1 */}
       <div className="flex flex-col md:flex-row gap-4.5 items-stretch">
         {/* LEFT — GLOBE CARD */}
-        <div className="relative overflow-hidden rounded-2xl bg-feat-card border border-feat-border p-5 h-[23rem] w-full md:w-[26rem] flex flex-col">
+        <div className="relative overflow-hidden rounded-2xl bg-feat-card border border-feat-border p-5 h-[23rem] w-full md:w-[26rem] flex flex-col will-change-transform">
           <div className="relative z-10 space-y-1">
             <h3 className="text-feat-ttl text-base font-semibold">Titulo</h3>
             <p className="text-sm text-feat-desc">
@@ -41,7 +41,7 @@ export function BentoCaracteristicas() {
           </div>
 
           <div className="absolute bottom-[-15rem] right-[-1.5rem]">
-            <div className="rounded-2xl border border-border bg-muted/40 p-4">
+            <div className="rounded-2xl border border-img-frame bg-muted/40 p-4">
               <Image
                 src="/img/5.jpg"
                 alt="Infrastructure"
@@ -113,7 +113,7 @@ export function BentoCaracteristicas() {
           </div>
 
           <div className="absolute bottom-[-4rem] right-[-1.5rem]">
-            <div className="rounded-2xl border border-border bg-muted/40 p-4">
+            <div className="rounded-2xl border border-img-frame bg-muted/40 p-4">
               <Image
                 src="/img/5.jpg"
                 alt="Scaling"

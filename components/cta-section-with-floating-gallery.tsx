@@ -4,6 +4,8 @@ import { motion } from "motion/react";
 import { cn } from "@/lib/utils";
 import { ArrowRight } from "lucide-react";
 import { OrbButton } from "@/components/ui/orb-button";
+import Image from "next/image";
+import Link from "next/link";
 
 interface CTAWithFloatingGalleryProps {
   title?: string;
@@ -100,7 +102,9 @@ export default function CTAWithFloatingGallery({
           className="mt-8"
         >
           <OrbButton>
-            <span className="flex items-center gap-2">{buttonLabel}</span>
+            <Link href="/">
+              <span className="flex items-center gap-2">{buttonLabel}</span>
+            </Link>
           </OrbButton>
         </motion.div>
       </div>
@@ -122,11 +126,13 @@ export default function CTAWithFloatingGallery({
                   delay: image.delay,
                   ease: [0.22, 1, 0.36, 1],
                 }}
-                className="overflow-hidden rounded-xl shadow-sm ring-1 ring-[var(--border)]"
+                className="overflow-hidden rounded-xl shadow-sm border border-img-frame"
               >
-                <img
+                <Image
                   src={image.url}
                   alt={image.alt}
+                  width={400}
+                  height={176}
                   className="h-44 w-full object-cover scale-[1.12]"
                 />
               </motion.div>
@@ -145,11 +151,13 @@ export default function CTAWithFloatingGallery({
                   delay: image.delay,
                   ease: [0.22, 1, 0.36, 1],
                 }}
-                className="overflow-hidden rounded-xl shadow-sm ring-1 ring-[var(--border)]"
+                className="overflow-hidden rounded-xl shadow-sm border border-img-frame"
               >
-                <img
+                <Image
                   src={image.url}
                   alt={image.alt}
+                  width={400}
+                  height={176}
                   className="h-44 w-full object-cover scale-[1.12]"
                 />
               </motion.div>

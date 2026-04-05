@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import { ThemeSwitcher } from "./21-colores-comp";
 
 export function Header() {

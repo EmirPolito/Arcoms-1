@@ -16,20 +16,21 @@ import { TituloTarjetas } from "@/components/texto-animado";
 import { TarjetaPines } from "@/components/tarjeta-pines";
 
 import { TituloDemo } from "@/components/resaltador-cursor";
-import DemoInteractiva from "@/components/demo-interactiva";
 
 import TestimonialsCarousel from "@/components/testimonials-with-carousel";
 import Footer from "../components/footer";
 
 import { motion } from "motion/react";
+import Pricing from "@/components/pricing";
 
 function FadeInSection({ children }: { children: React.ReactNode }) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 30 }}
+      initial={{ opacity: 0, y: 16 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-50px" }}
-      transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+      viewport={{ once: true, margin: "-80px" }}
+      transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
+      style={{ willChange: "opacity, transform" }}
     >
       {children}
     </motion.div>
@@ -40,7 +41,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Header />
-      <main className="py-10 overflow-hidden">
+      <main className="py-10">
         <FadeInSection>
           <HeroSection />
         </FadeInSection>
@@ -66,7 +67,7 @@ export default function Home() {
 
         <FadeInSection>
           <TituloDemo />
-          <DemoInteractiva />
+          <Pricing />
         </FadeInSection>
 
         <FadeInSection>

@@ -43,7 +43,7 @@ export default function TestimonialsCarousel() {
   const titleWords = title.split(" ");
 
   return (
-    <section className="relative w-full pt-16 pb-20 bg-testim-bg flex flex-col items-center px-4 overflow-hidden">
+    <section className="relative w-full pt-16 pb-20 bg-testim-bg flex flex-col items-center px-4 overflow-hidden" style={{ contain: "layout style" }}>
       <div className="relative z-10 flex flex-col items-center gap-2 w-full max-w-6xl mt-12">
         <motion.h1 
           className="text-primary-general text-3xl md:text-5xl font-bold mb-1"

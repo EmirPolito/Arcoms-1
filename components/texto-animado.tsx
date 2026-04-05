@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { LayoutTextFlip } from "@/components/ui/5-ui";
+import { LayoutTextFlip } from "@/components/ui/1-ui";
 import { motion } from "motion/react";
 
 export function TituloTarjetas() {
