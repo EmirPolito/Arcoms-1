@@ -110,8 +110,8 @@ export default function CTAWithFloatingGallery({
       </div>
 
       <div className="relative overflow-hidden rounded-2xl bg-background/60 p-3">
-        <div className="pointer-events-none absolute inset-x-0 top-0 z-10 h-24 bg-linear-to-b from-background to-transparent"></div>
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-24 bg-linear-to-t from-background to-transparent"></div>
+        <div className="pointer-events-none absolute inset-x-0 top-0 z-10 h-24 bg-linear-to-b from-background to-transparent hidden dark:block"></div>
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-24 bg-linear-to-t from-background to-transparent hidden dark:block"></div>
 
         <div className="grid grid-cols-2 gap-3 overflow-hidden">
           <div className="flex flex-col gap-3">

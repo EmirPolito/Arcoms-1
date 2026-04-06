@@ -1,6 +1,6 @@
 @import "tailwindcss";
 @import "tw-animate-css";
-@custom-variant dark (&:is([data-theme="dark"] *, [data-theme="dark-daltonico"] *));
+@custom-variant dark (&:is([data-theme="dark"] *));
 
 /* --------------------
    LIGHT (default)
@@ -92,7 +92,7 @@
   --primary5: #323232;
   --buttonC: #323232;
 
-  --card: #f8f8f8;
+  --card: #eeeeee;
   --card-foreground: #0f0f0f;
   --popover: #ffffff;
   --popover-foreground: #0f0f0f;
@@ -217,56 +217,6 @@
   --ring: var(--primary);
 }
 
-/* --------------------
-   COLORBLIND
-   -------------------- */
-[data-theme="colorblind"] {
-  --img-frame: rgba(0, 0, 0, 0.15);
-  --23-hero-boton1: #ffffff;
-
-  --primary-color-text: #374151; /* Añadido contraste de texto oscuro explícito para daltónico */
-  --primary-general: #2563eb;
-  --primary-color-linea: #008cff;
-  --primary-header: #2563eb;
-
-  --primary: #2563eb;
-  --primary2: #ffffff;
-  --primary3: #2563eb;
-  --primary4: #2563eb;
-  --primary5: #000000;
-
-  /* color del componente Cruz  */
-  --primary-ComponentCruz-1: #8d8d8d;
-  --primary-ComponentCruz-2:  #8d8d8d;
-  --primary-ComponentCruz-3:  #8d8d8d;
-  --primary-ComponentCruz-4:  #8d8d8d;
-
-  --buttonC: #2563eb;
-  --component5: #2563eb;
-
-  --primary-color-1: #2563eb;
-  --primary-color-2: #2563eb;
-  --primary-color-3: #2563eb;
-
-  --primary-foreground: #ffffff;
-  --background: #ffffff;
-  --foreground: #111827;
-  --card: #ffffff;
-  --card-foreground: #111827;
-  --popover: #ffffff;
-  --popover-foreground: #111827;
-  --secondary: #facc15;
-  --secondary-foreground: #111827;
-  --muted: #e5e7eb;
-  --muted-foreground: #4b5563; /* Más legible en vez del gris muy opaco */
-  --accent: #facc15;
-  --accent-foreground: #111827;
-  --destructive: #1f2933;
-  --destructive-foreground: #ffffff;
-  --border: #d1d5db;
-  --input: #d1d5db;
-  --ring: var(--primary);
-}
 
 /* =====================================================
    COLOR ACCENTS (primary only)
@@ -426,6 +376,7 @@
   --primary-ComponentCruz-3:  #8d8d8d;
   --primary-ComponentCruz-4:  #8d8d8d;
 }
+
 
 /* =====================================================
    TAILWIND THEME INTEGRATION

@@ -27,7 +27,7 @@ export function BentoCaracteristicas() {
             <Globe />
           </div>
 
-          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-card to-transparent" />
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-card to-transparent hidden dark:block" />
         </div>
 
         {/* RIGHT — GLOBAL INFRASTRUCTURE */}
@@ -132,7 +132,7 @@ export function BentoCaracteristicas() {
             </div>
           </div>
 
-          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-feat-card to-transparent" />
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-feat-card to-transparent hidden dark:block" />
         </div>
       </div>
     </section>

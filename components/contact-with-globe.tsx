@@ -118,7 +118,7 @@ export default function ContactWithGlobe({
                 strokeWidth={0.6}
                 graticuleOpacity={0.12}
               />
-              <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-background to-transparent" />
+              <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-background to-transparent hidden dark:block" />
             </div>
           </motion.div>
 

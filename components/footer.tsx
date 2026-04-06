@@ -116,7 +116,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="w-full flex mt-15 items-center justify-center">
-          <h1 className="text-center text-3xl md:text-5xl lg:text-[11rem] font-bold bg-clip-text text-transparent bg-gradient-to-b from-footer-ttl/50 to-footer-ttl/110 select-none ">
+          <h1 className="text-center text-3xl md:text-5xl lg:text-[11rem] font-bold bg-clip-text text-transparent bg-gradient-to-b from-footer-ttl/100 to-footer-ttl/110 select-none ">
             Arcoms 1
           </h1>
         </div>

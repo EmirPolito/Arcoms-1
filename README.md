@@ -14,7 +14,7 @@
 
 ## ✨ Características
 
-- **Sistema Multitema** — Modos **Claro**, **Oscuro** y **Daltónico** con acentos de color intercambiables en tiempo real (Naranja, Azul, Verde, Violeta, Rosa, Amarillo).
+- **Sistema Multitema** — Modos **Claro** y **Oscuro** con acentos de color intercambiables en tiempo real (Naranja, Azul, Verde, Violeta, Rosa, Amarillo).
 - **Tokens CSS Semánticos** — Arquitectura basada en variables como `--hero-bg`, `--feat-card`, `--price-ttl` que garantizan consistencia visual en todos los modos.
 - **Modelos 3D Interactivos** — Integración de escenas Spline renderizadas en tiempo real dentro del navegador.
 - **Animaciones GPU-Optimizadas** — Transiciones de entrada con Motion (Framer Motion) usando solamente propiedades compositadas (`opacity`, `transform`) para 0 jank.
@@ -78,13 +78,12 @@ npm start
 El proyecto utiliza un sistema de temas basado en atributos `data-theme` y `data-color` en el elemento `<html>`:
 
 ```
-data-theme="light" | "dark" | "colorblind"
+data-theme="light" | "dark"
 data-color="neutro" | "orange" | "blue" | "green" | "violet" | "rose" | "yellow"
 ```
 
 - **Tokens centralizados** en `app/globals.css`, organizados por componente semántico (`--header-*`, `--hero-*`, `--feat-*`, `--price-*`, `--footer-*`).
 - **Sin clases hardcodeadas** — todo responde a variables CSS reactivas.
-- **Modo daltónico** con paleta de alto contraste (azul + amarillo) para máxima accesibilidad.
 
 ---
 

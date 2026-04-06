@@ -9,7 +9,7 @@ import {
   SelectValue,
 } from "./ui/21-colores-ui";
 
-type Theme = "light" | "dark" | "colorblind";
+type Theme = "light" | "dark";
 type ColorTheme = "orange" | "blue" | "green" | "violet" | "rose" | "yellow";
 
 const SunIcon = () => (
@@ -25,12 +25,7 @@ const MoonIcon = () => (
   </svg>
 );
 
-const ColorblindIcon = () => (
-  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-    <circle cx="12" cy="12" r="3" />
-    <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
-  </svg>
-);
+
 
 /* MAPA DE COLORES PARA TAILWIND */
 const colorClasses: Record<ColorTheme, string> = {
@@ -111,17 +106,15 @@ export function ThemeSwitcher() {
   if (!mounted) return null;
 
   const cycleTheme = () => {
-    const order: Theme[] = ["light", "dark", "colorblind"];
+    const order: Theme[] = ["light", "dark"];
     setTheme(order[(order.indexOf(theme) + 1) % order.length]);
   };
 
   const icon =
     theme === "light" ? (
       <SunIcon />
-    ) : theme === "dark" ? (
-      <MoonIcon />
     ) : (
-      <ColorblindIcon />
+      <MoonIcon />
     );
 
   const colorLabel =

@@ -26,9 +26,10 @@ export default function RootLayout({
 
       // Theme
       const savedTheme = localStorage.getItem('theme');
-      if (savedTheme) {
+      if (savedTheme && savedTheme !== 'colorblind') {
         root.setAttribute('data-theme', savedTheme);
       } else {
+        localStorage.setItem('theme', 'dark');
         root.setAttribute('data-theme', 'dark');
       }
 
