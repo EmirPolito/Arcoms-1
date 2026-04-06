@@ -53,8 +53,8 @@ export default function EstadoAgentes() {
     <section className="w-full py-8 bg-feat-bg text-feat-txt">
       <div className="relative max-w-7xl mx-auto">
         {/* líneas cruz */}
-        <div className="absolute top-1/2 left-0 right-0 h-px bg-feat-border/80" />
-        <div className="absolute top-0 bottom-0 left-1/2 w-px bg-feat-border/80" />
+        <div className="absolute top-1/2 left-0 right-0 h-px bg-feat-border/100" />
+        <div className="absolute top-0 bottom-0 left-1/2 w-px bg-feat-border/100" />
 
         <div className="grid grid-cols-2 grid-rows-2 min-h-[700px]">
           <div className="p-12 pr-16 space-y-10">
@@ -138,6 +138,9 @@ export default function EstadoAgentes() {
               <li>
                 • Lorem ipsum dolor sit amet consectetur adipisicing elit.
               </li>
+              <li>
+                • Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              </li>
             </ul>
           </div>
 
@@ -161,6 +164,9 @@ export default function EstadoAgentes() {
             </div>
 
             <ul className="py-2 space-y-2.5 text-sm text-feat-desc">
+              <li>
+                • Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              </li>
               <li>
                 • Lorem ipsum dolor sit amet consectetur adipisicing elit.
               </li>

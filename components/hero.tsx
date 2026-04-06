@@ -73,7 +73,7 @@ export function HeroSection({
           ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}
         `}
       >
-        <div className="w-full h-full scale-[1.04] origin-top -translate-y-16 translate-x-[285px]">
+        <div className="w-full h-full scale-[1.09] origin-top -translate-y-22.5 translate-x-[290px]">
           <SplineScene
             scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
             className="w-full h-full"
@@ -112,14 +112,14 @@ export function HeroSection({
           <div className="pointer-events-auto mt-12 flex justify-center gap-5 lg:justify-start">
             <Link
               href="/explore"
-              className={`${buttonWidth} w-[165px] h-[43px] flex items-center justify-center text-lg rounded-md font-medium shadow-md text-hero-btn-txt bg-hero-btn-bg hover:opacity-80 transition-opacity cursor-pointer`}
+              className={`${buttonWidth} w-[165px] h-[43px] flex items-center justify-center text-lg rounded-md font-medium shadow-md text-hero-btn-txt bg-hero-btn-bg hover:opacity-95 transition-opacity cursor-pointer`}
             >
               Explorar
             </Link>
 
             <Link
               href="/work"
-              className={`${buttonWidth} w-[165px] h-[43px] flex items-center justify-center text-lg rounded-lg text-hero-ttl font-medium shadow-md transition-colors hover:opacity-80 cursor-pointer`}
+              className={`${buttonWidth} w-[165px] h-[43px] flex items-center justify-center text-lg rounded-lg text-hero-ttl font-medium shadow-md transition-colors hover:opacity-95 cursor-pointer`}
             >
               Resumen
             </Link>
