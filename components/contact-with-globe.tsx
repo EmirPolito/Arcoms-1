@@ -53,7 +53,7 @@ export default function ContactWithGlobe({
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.9, delay: 0.15, ease: smoothEase }}
-            className="text-4xl  lg:text-6xl  md:text-5xl font-semibold text-primary-general "
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-primary-general "
           >
             {title}
           </motion.h2>
@@ -63,13 +63,13 @@ export default function ContactWithGlobe({
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.9, delay: 0.3, ease: smoothEase }}
-            className="text-base text-primary-color-text max-w-[900px] mx-auto"
+            className="text-sm sm:text-base text-primary-color-text max-w-[900px] mx-auto"
           >
             {description}
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-30 max-w-7xl mx-auto items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-30 max-w-7xl mx-auto items-start">
           <motion.div
             initial={{ opacity: 0, y: 28 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -78,7 +78,7 @@ export default function ContactWithGlobe({
             className="flex flex-col gap-6"
           >
             <div className="flex flex-col gap-1">
-              <h3 className="text-xl font-semibold text-foreground">
+              <h3 className="text-lg sm:text-xl font-semibold text-foreground">
                 Contacto Directo
               </h3>
               <p className="text-sm text-primary-color-text leading-relaxed max-w-xs">
@@ -104,12 +104,12 @@ export default function ContactWithGlobe({
                   <div className="w-8 h-8 rounded-lg bg-card border border-border group-hover:border-primary-general/50 group-hover:bg-primary-general/10 flex items-center justify-center shrink-0 transition-all duration-200">
                     <Icon className="w-3.5 h-3.5 text-primary-color-text group-hover:text-primary-general transition-colors duration-200" />
                   </div>
-                  {label}
+                  <span className="break-all sm:break-normal">{label}</span>
                 </motion.a>
               ))}
             </div>
 
-            <div className="relative overflow-hidden h-52">
+            <div className="relative overflow-hidden h-40 sm:h-52">
               <GlobeWireframe
                 className="w-full aspect-square max-w-full absolute top-0 left-0"
                 variant="wireframesolid"
@@ -127,7 +127,7 @@ export default function ContactWithGlobe({
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 1.0, delay: 0.35, ease: smoothEase }}
-            className="rounded-2xl border border-border bg-card p-6 sm:p-8 flex flex-col gap-5"
+            className="rounded-2xl border border-border bg-card p-5 sm:p-6 md:p-8 flex flex-col gap-5"
           >
             <div>
               <h3 className="text-lg font-semibold text-foreground mb-0.5">
@@ -185,7 +185,7 @@ export default function ContactWithGlobe({
               />
             </div>
 
-            <Button className="w-fit h-[43px] px-8 rounded-xl font-medium text-[16px] bg-hero-btn-bg hover:opacity-90 text-primary2 group cursor-pointer transition-opacity">
+            <Button className="w-full sm:w-fit h-[43px] px-8 rounded-xl font-medium text-[16px] bg-hero-btn-bg hover:opacity-90 text-primary2 group cursor-pointer transition-opacity">
               Enviar
               <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:-rotate-45" />
             </Button>

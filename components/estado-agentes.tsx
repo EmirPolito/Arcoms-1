@@ -51,15 +51,15 @@ export default function EstadoAgentes() {
 
   return (
     <section className="w-full py-8 bg-feat-bg text-feat-txt">
-      <div className="relative max-w-7xl mx-auto">
-        {/* líneas cruz */}
-        <div className="absolute top-1/2 left-0 right-0 h-px bg-feat-border/100" />
-        <div className="absolute top-0 bottom-0 left-1/2 w-px bg-feat-border/100" />
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6">
+        {/* líneas cruz — hidden on mobile */}
+        <div className="absolute top-1/2 left-0 right-0 h-px bg-feat-border/100 hidden md:block" />
+        <div className="absolute top-0 bottom-0 left-1/2 w-px bg-feat-border/100 hidden md:block" />
 
-        <div className="grid grid-cols-2 grid-rows-2 min-h-[700px]">
-          <div className="p-12 pr-16 space-y-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 md:grid-rows-2 md:min-h-[700px] gap-8 md:gap-0">
+          <div className="p-4 sm:p-6 md:p-12 md:pr-16 space-y-8 md:space-y-10">
             <div>
-              <h2 className="text-2xl font-semibold text-feat-ttl mb-2">
+              <h2 className="text-xl md:text-2xl font-semibold text-feat-ttl mb-2">
                 Título de la sección
               </h2>
               <p className="text-sm max-w-md-lg text-feat-desc">
@@ -73,7 +73,7 @@ export default function EstadoAgentes() {
               {agentStates.map((agent, index) => (
                 <div
                   key={agent.id}
-                  className={`flex items-center justify-between p-5 rounded-lg border transition-[opacity,background-color,border-color,box-shadow] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+                  className={`flex items-center justify-between p-3 sm:p-5 rounded-lg border transition-[opacity,background-color,border-color,box-shadow] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
                     activeAgent === index
                       ? "border-primary/45 bg-primary/5 shadow-sm"
                       : "border-border bg-card shadow-xs opacity-90"
@@ -95,9 +95,9 @@ export default function EstadoAgentes() {
           </div>
 
           {/* ===== TEXTO  ===== */}
-          <div className="p-12 pl-16 space-y-10">
+          <div className="p-4 sm:p-6 md:p-12 md:pl-16 space-y-8 md:space-y-10">
             <div className="space-y-3 max-w-md">
-              <h2 className="text-2xl font-semibold text-feat-ttl leading-snug">
+              <h2 className="text-xl md:text-2xl font-semibold text-feat-ttl leading-snug">
                 Título de la sección
               </h2>
 
@@ -145,9 +145,9 @@ export default function EstadoAgentes() {
           </div>
 
           {/* ===== TEXTO  ===== */}
-          <div className="p-12 pl-16 space-y-10">
+          <div className="p-4 sm:p-6 md:p-12 md:pl-16 space-y-8 md:space-y-10">
             <div className="space-y-3 max-w-md">
-              <h2 className="text-2xl font-semibold text-feat-ttl leading-snug">
+              <h2 className="text-xl md:text-2xl font-semibold text-feat-ttl leading-snug">
                 Título de la sección
               </h2>
 
@@ -195,9 +195,9 @@ export default function EstadoAgentes() {
           </div>
 
           {/* ===== INTERACTIVO ===== */}
-          <div className="p-12 pl-16 space-y-14">
+          <div className="p-4 sm:p-6 md:p-12 md:pl-16 space-y-10 md:space-y-14">
             <div>
-              <h2 className="text-2xl font-semibold text-feat-ttl mb-2">
+              <h2 className="text-xl md:text-2xl font-semibold text-feat-ttl mb-2">
                 Título de la sección
               </h2>
               <p className="text-sm max-w-md-lg text-feat-desc">
@@ -211,7 +211,7 @@ export default function EstadoAgentes() {
               {guardrailChecks.map((check, index) => (
                 <div
                   key={check.id}
-                  className={`flex items-center gap-5 p-5 rounded-md border transition-[opacity,transform,background-color,border-color,box-shadow] duration-600 ease-[cubic-bezier(0.22,1,0.36,1)] will-change-transform ${
+                  className={`flex items-center gap-3 sm:gap-5 p-3 sm:p-5 rounded-md border transition-[opacity,transform,background-color,border-color,box-shadow] duration-600 ease-[cubic-bezier(0.22,1,0.36,1)] will-change-transform ${
                     guardrailProgress >= index
                       ? "opacity-90 translate-x-0 bg-card border-feat-border/60 shadow-xs"
                       : "opacity-0 translate-x-2 border-transparent"

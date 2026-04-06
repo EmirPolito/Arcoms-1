@@ -10,11 +10,11 @@ import Image from "next/image";
 
 export function BentoCaracteristicas() {
   return (
-    <section className="relative z-20 max-w-7xl mx-auto pt-10 pb-24 space-y-5.5 bg-feat-bg text-feat-txt" style={{ contain: "layout style" }}>
+    <section className="relative z-20 max-w-7xl mx-auto pt-10 pb-24 space-y-5.5 bg-feat-bg text-feat-txt px-4 sm:px-6" style={{ contain: "layout style" }}>
       {/* ROW 1 */}
       <div className="flex flex-col md:flex-row gap-4.5 items-stretch">
         {/* LEFT — GLOBE CARD */}
-        <div className="relative overflow-hidden rounded-2xl bg-feat-card border border-feat-border p-5 h-[23rem] w-full md:w-[26rem] flex flex-col will-change-transform">
+        <div className="relative overflow-hidden rounded-2xl bg-feat-card border border-feat-border p-5 h-[20rem] md:h-[23rem] w-full md:w-[26rem] flex flex-col will-change-transform">
           <div className="relative z-10 space-y-1">
             <h3 className="text-feat-ttl text-base font-semibold">Titulo</h3>
             <p className="text-sm text-feat-desc">
@@ -23,7 +23,7 @@ export function BentoCaracteristicas() {
             </p>
           </div>
 
-          <div className="absolute inset-0 flex items-end justify-center translate-x-[8.75rem]">
+          <div className="absolute inset-0 flex items-end justify-center md:translate-x-[8.75rem] translate-x-[4rem]">
             <Globe />
           </div>
 
@@ -31,7 +31,7 @@ export function BentoCaracteristicas() {
         </div>
 
         {/* RIGHT — GLOBAL INFRASTRUCTURE */}
-        <div className="relative flex-1 rounded-2xl bg-feat-card border border-feat-border p-5.5 overflow-hidden">
+        <div className="relative flex-1 rounded-2xl bg-feat-card border border-feat-border p-5.5 overflow-hidden min-h-[16rem] md:min-h-0">
           <div className="max-w-md space-y-1">
             <h4 className="text-feat-ttl text-base font-semibold">Título</h4>
             <p className="text-sm text-feat-desc leading-relaxed">
@@ -49,7 +49,7 @@ export function BentoCaracteristicas() {
                 height={450}
                 draggable={false}
                 className="
-                  w-40
+                  w-[20rem]
                   md:w-[51rem]
                   h-[28.5rem]
                   object-cover
@@ -74,7 +74,7 @@ export function BentoCaracteristicas() {
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam.
           </p>
 
-          <div className="flex items-center justify-center gap-13 mt-19">
+          <div className="flex items-center justify-center gap-6 sm:gap-8 md:gap-13 mt-10 md:mt-19 flex-wrap">
             {workflowSwingCards.map((card, i) => (
               <motion.div
                 key={card.id}
@@ -88,7 +88,9 @@ export function BentoCaracteristicas() {
                   ease: "easeInOut",
                 }}
                 className="
-                  h-43 w-43
+                  h-28 w-28
+                  sm:h-36 sm:w-36
+                  md:h-43 md:w-43
                   rounded-xl
                   border border-border
                   bg-secondary
@@ -103,7 +105,7 @@ export function BentoCaracteristicas() {
         </div>
 
         {/* RIGHT — INTELLIGENT SCALING */}
-        <div className="relative overflow-hidden rounded-2xl bg-feat-card border border-feat-border p-5.5 h-[23rem] w-full md:w-[26rem] flex flex-col">
+        <div className="relative overflow-hidden rounded-2xl bg-feat-card border border-feat-border p-5.5 h-[20rem] md:h-[23rem] w-full md:w-[26rem] flex flex-col">
           <div className="relative z-10 space-y-1.5">
             <h3 className="text-feat-ttl text-base font-semibold">Titulo</h3>
             <p className="text-sm text-feat-desc">
@@ -122,7 +124,8 @@ export function BentoCaracteristicas() {
                 draggable={false}
                 className="
                   h-[18rem]
-                  w-[24rem]
+                  w-[18rem]
+                  sm:w-[24rem]
                   object-right
                   rounded-xl
                   opacity-90
@@ -148,7 +151,7 @@ const workflowSwingCards = [
     id: 1,
     content: (
       <div className="text-center">
-        <p className="text-2xl font-bold text-emerald-400">99.9%</p>
+        <p className="text-xl md:text-2xl font-bold text-emerald-400">99.9%</p>
         <p className="text-[10px] text-muted-foreground font-medium uppercase tracking-wider mt-1">
           Uptime Seguro
         </p>
@@ -159,7 +162,7 @@ const workflowSwingCards = [
     id: 2,
     content: (
       <div className="text-center">
-        <p className="text-2xl font-bold text-blue-400">10x</p>
+        <p className="text-xl md:text-2xl font-bold text-blue-400">10x</p>
         <p className="text-[10px] text-muted-foreground font-medium uppercase tracking-wider mt-1">
           Más Rápido
         </p>
@@ -170,7 +173,7 @@ const workflowSwingCards = [
     id: 3,
     content: (
       <div className="text-center">
-        <p className="text-2xl font-bold text-purple-400">&lt;10ms</p>
+        <p className="text-xl md:text-2xl font-bold text-purple-400">&lt;10ms</p>
         <p className="text-[10px] text-muted-foreground font-medium uppercase tracking-wider mt-1">
           Latencia
         </p>

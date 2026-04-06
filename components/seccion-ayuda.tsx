@@ -90,31 +90,31 @@ export default function ContenidoBlog() {
   }
 
   return (
-    <div className="w-full py-8 transition-colors">
+    <div className="w-full py-8 transition-colors px-4 sm:px-6">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: "easeOut" }}
-          className="text-center mb-20"
+          className="text-center mb-10 md:mb-20"
         >
-          <h1 className="text-primary-general md:text-5xl font-semibold mb-3">
+          <h1 className="text-primary-general text-3xl md:text-5xl font-semibold mb-3">
             Centro de Ayuda
           </h1>
 
-          <p className="text-primary-color-text max-w-4xl mx-auto text-base">
+          <p className="text-primary-color-text max-w-4xl mx-auto text-sm sm:text-base">
             Encuentra asistencia rápida sobre el funcionamiento de la
             plataforma, guías, tutoriales, reportes y soporte personalizado.
           </p>
         </motion.div>
 
         {/* Items */}
-        <div className="space-y-10">
+        <div className="space-y-6 md:space-y-10">
           {rows.map((row, rowIndex) => (
             <div
               key={rowIndex}
-              className="grid grid-cols-1 md:grid-cols-3 gap-2"
+              className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2"
             >
               {row.map((item, itemIndex) => (
                 <motion.div
@@ -126,17 +126,17 @@ export default function ContenidoBlog() {
                     ease: "easeOut",
                     delay: (rowIndex * 3 + itemIndex) * 0.08, // animación escalonada SOLO al cargar
                   }}
-                  className={`py-7 px-8 transition-all duration-300 relative group border-border
+                  className={`py-5 px-5 sm:py-7 sm:px-8 transition-all duration-300 relative group border-border
                     ${itemIndex !== row.length - 1 ? "md:border-r" : ""}
                   `}
                   onMouseEnter={() => setHoveredId(item.id)}
                   onMouseLeave={() => setHoveredId(null)}
                 >
                   <div className="mb-5">
-                    <h2 className="text-primary-general text-xl font-semibold mb-5">
+                    <h2 className="text-primary-general text-lg sm:text-xl font-semibold mb-3 sm:mb-5">
                       {item.title}
                     </h2>
-                    <p className="text-primary-color-text  text-accent leading-relaxed">
+                    <p className="text-primary-color-text text-sm sm:text-base text-accent leading-relaxed">
                       {item.description}
                     </p>
                   </div>

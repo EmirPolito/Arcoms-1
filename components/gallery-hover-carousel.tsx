@@ -82,26 +82,26 @@ export default function GalleryHoverCarousel({
   const canScrollNext = index < itemsCount - 1;
 
   return (
-    <section className="py-20 bg-background">
-      <div className="container mx-auto px-6">
-        <div className="mb-8 flex flex-col justify-between md:mb-14 md:flex-row md:items-end lg:mb-7">
+    <section className="py-10 sm:py-20 bg-background">
+      <div className="container mx-auto px-4 sm:px-6">
+        <div className="mb-6 sm:mb-8 flex flex-col justify-between md:mb-14 md:flex-row md:items-end lg:mb-7 gap-4">
           <div className="max-w-5xl">
-            <h3 className="text-lg sm:text-xl lg:text-3xl font-medium text-[var(--primary-general)] leading-relaxed">
+            <h3 className="text-base sm:text-lg md:text-xl lg:text-3xl font-medium text-[var(--primary-general)] leading-relaxed">
               {heading}{" "}
-              <span className="text-[var(--primary-color-text)] text-sm sm:text-base lg:text-3xl">
+              <span className="text-[var(--primary-color-text)] text-xs sm:text-sm md:text-base lg:text-3xl">
                 {" "}
                 Explora nuestra colección de soluciones innovadoras y tecnologías
                 de vanguardia diseñadas para potenciar tu negocio.
               </span>
             </h3>
           </div>
-          <div className="flex gap-2 mt-4 md:mt-0">
+          <div className="flex gap-2 mt-2 md:mt-0">
             <Button
               variant="outline"
               size="icon"
               onClick={() => setIndex(index - 1)}
               disabled={!canScrollPrev}
-              className="h-10 w-10 rounded-full text-[var(--primary-general)] border-[var(--border)] hover:bg-[var(--primary)] hover:text-white transition-colors cursor-pointer"
+              className="h-9 w-9 sm:h-10 sm:w-10 rounded-full text-[var(--primary-general)] border-[var(--border)] hover:bg-[var(--primary)] hover:text-white transition-colors cursor-pointer"
             >
               <ChevronLeft className="h-4 w-4" />
             </Button>
@@ -110,7 +110,7 @@ export default function GalleryHoverCarousel({
               size="icon"
               onClick={() => setIndex(index + 1)}
               disabled={!canScrollNext}
-              className="h-10 w-10 rounded-full text-[var(--primary-general)] border-[var(--border)] hover:bg-[var(--primary)] hover:text-white transition-colors cursor-pointer"
+              className="h-9 w-9 sm:h-10 sm:w-10 rounded-full text-[var(--primary-general)] border-[var(--border)] hover:bg-[var(--primary)] hover:text-white transition-colors cursor-pointer"
             >
               <ChevronRight className="h-4 w-4" />
             </Button>
@@ -125,12 +125,12 @@ export default function GalleryHoverCarousel({
           >
             <CarouselContent className="hide-scrollbar w-full max-w-full md:ml-4 md:-mr-4">
               {items.map((item) => (
-                <CarouselItem key={item.id} className="ml-6 md:max-w-[350px]">
+                <CarouselItem key={item.id} className="ml-3 sm:ml-6 max-w-[260px] sm:max-w-[300px] md:max-w-[350px]">
                   <Link
                     href={item.url}
-                    className="group block relative w-full h-[300px] md:h-[350px]"
+                    className="group block relative w-full h-[240px] sm:h-[280px] md:h-[350px]"
                   >
-                    <Card className="overflow-hidden h-full w-full rounded-3xl border border-img-frame shadow-sm">
+                    <Card className="overflow-hidden h-full w-full rounded-2xl sm:rounded-3xl border border-img-frame shadow-sm">
                       {/* Image */}
                       <div className="relative h-full w-full transition-all duration-300 group-hover:h-1/2">
                         <Image
@@ -145,11 +145,11 @@ export default function GalleryHoverCarousel({
                       </div>
 
                       {/* Text Section */}
-                      <div className="absolute bottom-0 left-0 w-full px-4 transition-all duration-300 group-hover:h-1/2 group-hover:flex flex-col justify-center bg-background/95 backdrop-blur-sm opacity-0 group-hover:opacity-100">
-                        <h3 className="text-lg font-medium md:text-xl text-[var(--primary-general)]">
+                      <div className="absolute bottom-0 left-0 w-full px-3 sm:px-4 transition-all duration-300 group-hover:h-1/2 group-hover:flex flex-col justify-center bg-background/95 backdrop-blur-sm opacity-0 group-hover:opacity-100">
+                        <h3 className="text-base sm:text-lg font-medium md:text-xl text-[var(--primary-general)]">
                           {item.title}
                         </h3>
-                        <p className="text-[var(--primary-color-text)] text-sm md:text-base line-clamp-2">
+                        <p className="text-[var(--primary-color-text)] text-xs sm:text-sm md:text-base line-clamp-2">
                           {item.summary}
                         </p>
                         <Button

@@ -60,12 +60,12 @@ export default function CTAWithFloatingGallery({
   return (
     <section
       className={cn(
-        "mx-auto my-20 grid w-full max-w-7xl grid-cols-1 items-center gap-10 px-4 md:my-0 md:grid-cols-2 md:gap-16 md:px-8",
+        "mx-auto my-10 sm:my-20 grid w-full max-w-7xl grid-cols-1 items-center gap-8 px-4 sm:px-6 md:my-0 md:grid-cols-2 md:gap-16 md:px-8",
         className,
       )}
     >
       <div className="max-w-xl">
-        <h2 className="text-3xl font-bold tracking-tight text-balance text-[var(--primary-general)] md:text-5xl">
+        <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-balance text-[var(--primary-general)] md:text-5xl">
           {words.map((word, index) => (
             <motion.span
               key={`${word}-${index}`}
@@ -89,7 +89,7 @@ export default function CTAWithFloatingGallery({
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.4 }}
-          className="mt-6 max-w-lg text-base text-[var(--primary-color-text)] md:text-lg"
+          className="mt-4 sm:mt-6 max-w-lg text-sm sm:text-base text-[var(--primary-color-text)] md:text-lg"
         >
           {description}
         </motion.p>
@@ -99,7 +99,7 @@ export default function CTAWithFloatingGallery({
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.5 }}
-          className="mt-8"
+          className="mt-6 sm:mt-8"
         >
           <OrbButton>
             <Link href="/">
@@ -133,13 +133,13 @@ export default function CTAWithFloatingGallery({
                   alt={image.alt}
                   width={400}
                   height={176}
-                  className="h-44 w-full object-cover scale-[1.12]"
+                  className="h-32 sm:h-44 w-full object-cover scale-[1.12]"
                 />
               </motion.div>
             ))}
           </div>
 
-          <div className="mt-10 flex flex-col gap-3">
+          <div className="mt-6 sm:mt-10 flex flex-col gap-3">
             {rightImages.map((image) => (
               <motion.div
                 key={image.alt}
@@ -158,7 +158,7 @@ export default function CTAWithFloatingGallery({
                   alt={image.alt}
                   width={400}
                   height={176}
-                  className="h-44 w-full object-cover scale-[1.12]"
+                  className="h-32 sm:h-44 w-full object-cover scale-[1.12]"
                 />
               </motion.div>
             ))}
