@@ -23,44 +23,15 @@ export function HeroSection({
   paragraphSize = "text-base md:text-lg ",
   buttonWidth = "px-6 md:px-8",
 }: SplineSceneBasicProps) {
-  const cardRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
 
-  // Glow que sigue el cursor SOLO dentro del card
+  // Animación inicial inmediata para mayor respuesta
   useEffect(() => {
-    const el = cardRef.current;
-    if (!el) return;
-
-    let rafId: number;
-    const move = (e: MouseEvent) => {
-      cancelAnimationFrame(rafId);
-      rafId = requestAnimationFrame(() => {
-        if (!el) return;
-        const rect = el.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-
-        el.style.setProperty("--x", `${x}px`);
-        el.style.setProperty("--y", `${y}px`);
-      });
-    };
-
-    el.addEventListener("mousemove", move, { passive: true });
-    return () => {
-      el.removeEventListener("mousemove", move);
-      cancelAnimationFrame(rafId);
-    };
-  }, []);
-
-  // Animación inicial
-  useEffect(() => {
-    const t = setTimeout(() => setIsVisible(true), 80);
-    return () => clearTimeout(t);
+    setIsVisible(true);
   }, []);
 
   return (
     <div
-      ref={cardRef}
       className="w-full h-[400px] sm:h-[500px] md:h-[600px] lg:h-[650px] relative overflow-hidden bg-background border-0 shadow-none ring-0 text-foreground"
     >
       {/* Background Lights removed by user request for 100% Pure Black */}
@@ -68,9 +39,9 @@ export function HeroSection({
       {/* Spline — hidden on mobile for performance, visible from md up */}
       <div
         className={`
-          absolute inset-0 z-10 hidden md:block
-          transition-[opacity,transform] duration-[1600ms] ease-out will-change-[opacity,transform]
-          ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}
+          absolute inset-0 z-10 hidden md:block transform-gpu
+          transition-[opacity,transform] duration-[800ms] ease-out will-change-[opacity,transform]
+          ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}
         `}
       >
         <div className="w-full h-full scale-[1.09] origin-top -translate-y-22.5 md:translate-x-[180px] lg:translate-x-[290px]">
@@ -84,12 +55,12 @@ export function HeroSection({
       {/* Contenido */}
       <div
         className={`
-          relative z-10 flex h-full items-center pointer-events-none px-4 sm:px-6
-          transition-[opacity,transform] duration-[1800ms] ease-out delay-300 will-change-[opacity,transform]
-          ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"}
+          relative z-10 flex h-full items-center pointer-events-none px-4 sm:px-6 transform-gpu
+          transition-[opacity,transform] duration-[1000ms] ease-out delay-150 will-change-[opacity,transform]
+          ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}
         `}
       >
-        <div className="mx-auto max-w-lg text-center lg:ml-32 lg:text-left -mt-12 md:-mt-24">
+        <div className="mx-auto max-w-lg text-center lg:ml-16 lg:text-left -mt-20 md:-mt-36">
           <div className="mb-3 flex justify-center lg:justify-start">
             <Announcement styled animation="fade">
               <AnnouncementTag>Tu Landing</AnnouncementTag>

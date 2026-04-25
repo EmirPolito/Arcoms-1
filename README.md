@@ -1,14 +1,29 @@
-# Arcoms-1 — Arcoms Collection
+<div align="center">
+  <h1>Arcoms-1 — Arcoms Collection</h1>
+</div>
+
+<div align="center">
 
 [![Next.js](https://img.shields.io/badge/Next.js-16-black?logo=next.js)](https://nextjs.org/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4-38bdf8?logo=tailwindcss)](https://tailwindcss.com/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.0-black?logo=typescript)](https://www.typescriptlang.org/)
+[![React](https://img.shields.io/badge/React-19-black?logo=react)](https://reactjs.org/)
+[![Spline](https://img.shields.io/badge/Spline-3D-black?logo=spline)](https://spline.design/)
 
-**Demo en vivo:** [arcoms-1.vercel.app](https://arcoms-1.vercel.app/)
+</div>
+
+**Arcoms-1** es una landing page inmersiva y de alto impacto visual, parte de **Arcoms Collection**. Diseñada para cautivar al usuario desde el primer segundo mediante animaciones fluidas, modelos 3D interactivos y un sistema de temas completamente personalizable.
+
+---
 
 ![9256019b-e669-4a83-a367-29cd49e4f2dd](https://github.com/user-attachments/assets/e3907327-70fa-45c6-9bb9-6e7b2b4dade0)
 ![1e652d5d-10e2-4d96-87ea-081189ab4776](https://github.com/user-attachments/assets/91adc200-d930-47a8-9037-31f35d61c73b)
 
-**Arcoms-1** es una landing page inmersiva y de alto impacto visual, parte de **Arcoms Collection**. Diseñada para cautivar al usuario desde el primer segundo mediante animaciones fluidas, modelos 3D interactivos y un sistema de temas completamente personalizable.
+<br>
+
+<div align="center">
+ **Arcoms-1 Demo en vivo:** [arcoms-1.vercel.app](https://arcoms-1.vercel.app/)
+</div>
 
 ---
 
