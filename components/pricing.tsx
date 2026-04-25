@@ -116,13 +116,13 @@ export default function DemoInteractiva() {
             {/* grid: cuadrícula, grid-cols-1: 1 columna, md:grid-cols-2: 2 en md, lg:grid-cols-4: 4 en lg, gap-6: espacio entre tarjetas, max-w-7xl: ancho máximo, mx-auto: centrado */}
             {plans.map((plan, index) => (
               <motion.div
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 15 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true, margin: "50px" }}
+                transition={{ duration: 0.4, delay: index * 0.05, ease: "easeOut" }}
                 key={index}
                 onClick={() => setSelectedPlan(index)}
-                className={`relative flex flex-col justify-between h-full p-6 lg:p-8 rounded-2xl border transition-all duration-300
+                className={`relative flex flex-col justify-between h-full p-6 lg:p-8 rounded-2xl border transition-all duration-300 transform-gpu will-change-transform
                                     cursor-pointer
                                     hover:border-primary
                                     hover:shadow-xl
@@ -180,7 +180,7 @@ export default function DemoInteractiva() {
                   {" "}
                   {/* mt-auto: empuja el botón al fondo */}
                   <button
-                    className={`w-full py-3 rounded-lg font-medium transition-all duration-300 cursor-pointer ${
+                    className={`w-full py-3 rounded-lg font-medium transition-all duration-300 cursor-pointer transform-gpu will-change-transform ${
                       plan.popular
                         ? "bg-price-btn-bg text-price-btn-txt hover:opacity-90 hover:-translate-y-1.5 hover:shadow-xl shadow-md" // Popular: fondo primario, texto blanco, opacidad al hover, y sube
                         : "border border-price-border hover:border-price-btn-bg hover:text-price-btn-bg" // No popular: borde y texto color primario al hover

@@ -59,7 +59,7 @@ export const PinContainer = ({
 
 export const PinPerspective = ({ title }: { title?: string }) => {
   return (
-    <motion.div className="pointer-events-none w-96 h-80 flex items-center justify-center opacity-0 group-hover/pin:opacity-100 z-20 transition duration-500">
+    <motion.div className="pointer-events-none w-96 h-80 flex items-center justify-center opacity-0 group-hover/pin:opacity-100 z-20 transition duration-500 transform-gpu">
 <div className="absolute inset-0 flex items-center justify-center">
 
         {/* TITULO */}

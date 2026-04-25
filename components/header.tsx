@@ -50,7 +50,7 @@ export function Header() {
               }`}
             />
             <span
-              className={`block h-[2px] w-5 bg-header-txt transition-all duration-300 ${
+              className={`block h-[2px] w-5 bg-header-txt transition-all duration-300 will-change-transform ${
                 menuOpen ? "-rotate-45 -translate-y-[7px]" : ""
               }`}
             />
@@ -60,7 +60,7 @@ export function Header() {
 
       {/* Mobile Menu */}
       <div
-        className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out bg-background/95 backdrop-blur-md border-b border-border ${
+        className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out bg-background/95 backdrop-blur-md border-b border-border will-change-[max-height,opacity] ${
           menuOpen ? "max-h-60 opacity-100" : "max-h-0 opacity-0"
         }`}
       >

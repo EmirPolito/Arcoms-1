@@ -84,7 +84,7 @@ export default function EstadoAgentes() {
                   <div className="flex items-center gap-3">
                     <span className="text-xs">{agent.state}</span>
                     <span
-                      className={`w-2.5 h-2.5 rounded-full ${agent.color} ${
+                      className={`w-2.5 h-2.5 rounded-full ${agent.color} transform-gpu will-change-transform ${
                         activeAgent === index ? "animate-pulse" : ""
                       }`}
                     />

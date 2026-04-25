@@ -1,16 +1,20 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion } from "motion/react";
 import createGlobe from "cobe";
 import Image from "next/image";
+import { useTheme } from "next-themes";
 /* =====================================================
    SECTION
 ===================================================== */
 
 export function BentoCaracteristicas() {
   return (
-    <section className="relative z-20 max-w-7xl mx-auto pt-10 pb-24 space-y-5.5 bg-feat-bg text-feat-txt px-4 sm:px-6" style={{ contain: "layout style" }}>
+    <section
+      className="relative z-20 max-w-7xl mx-auto pt-10 pb-24 space-y-5.5 bg-feat-bg text-feat-txt px-4 sm:px-6"
+      style={{ contain: "layout style" }}
+    >
       {/* ROW 1 */}
       <div className="flex flex-col md:flex-row gap-4.5 items-stretch">
         {/* LEFT — GLOBE CARD */}
@@ -23,7 +27,7 @@ export function BentoCaracteristicas() {
             </p>
           </div>
 
-          <div className="absolute inset-0 flex items-end justify-center md:translate-x-[8.75rem] translate-x-[4rem]">
+          <div className="absolute inset-0 flex items-end justify-center md:translate-x-[7rem] translate-x-[2.5rem]">
             <Globe />
           </div>
 
@@ -40,7 +44,7 @@ export function BentoCaracteristicas() {
             </p>
           </div>
 
-          <div className="absolute bottom-[-15rem] right-[-1.5rem]">
+          <div className="absolute bottom-[-23rem] md:bottom-[-15rem] right-[-2rem] md:right-[-4.5rem]">
             <div className="rounded-2xl border border-img-frame bg-muted/40 p-4">
               <Image
                 src="/img/5.jpg"
@@ -114,7 +118,7 @@ export function BentoCaracteristicas() {
             </p>
           </div>
 
-          <div className="absolute bottom-[-4rem] right-[-1.5rem]">
+          <div className="absolute bottom-[-9rem] md:bottom-[-4rem] right-[0] md:right-[-1.5rem]">
             <div className="rounded-2xl border border-img-frame bg-muted/40 p-4">
               <Image
                 src="/img/5.jpg"
@@ -173,7 +177,9 @@ const workflowSwingCards = [
     id: 3,
     content: (
       <div className="text-center">
-        <p className="text-xl md:text-2xl font-bold text-purple-400">&lt;10ms</p>
+        <p className="text-xl md:text-2xl font-bold text-purple-400">
+          &lt;10ms
+        </p>
         <p className="text-[10px] text-muted-foreground font-medium uppercase tracking-wider mt-1">
           Latencia
         </p>
@@ -188,24 +194,85 @@ const workflowSwingCards = [
 
 function Globe() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const { resolvedTheme } = useTheme();
+  const [themeTick, setThemeTick] = useState(0);
+
+  useEffect(() => {
+    const observer = new MutationObserver((mutations) => {
+      for (const mutation of mutations) {
+        if (
+          mutation.attributeName === "data-theme" ||
+          mutation.attributeName === "data-color"
+        ) {
+          setThemeTick((t) => t + 1);
+        }
+      }
+    });
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["data-theme", "data-color"],
+    });
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     if (!canvasRef.current) return;
 
     let phi = 0;
+    const isDark = resolvedTheme === "dark";
+
+    const getCssVarRgb = (
+      varName: string,
+      fallback: [number, number, number],
+    ): [number, number, number] => {
+      if (typeof window === "undefined") return fallback;
+      const hex = getComputedStyle(document.documentElement)
+        .getPropertyValue(varName)
+        .trim();
+      if (hex.startsWith("#")) {
+        const r = parseInt(hex.slice(1, 3), 16) / 255;
+        const g = parseInt(hex.slice(3, 5), 16) / 255;
+        const b = parseInt(hex.slice(5, 7), 16) / 255;
+        if (!isNaN(r) && !isNaN(g) && !isNaN(b)) return [r, g, b];
+      }
+      return fallback;
+    };
+
+    const primaryRgb = getCssVarRgb(
+      "--primary",
+      isDark ? [0.1, 0.1, 0.1] : [1, 1, 1],
+    );
+
+    // Detecta colores neutrales (blancos, negros, grises) incluyendo tonos casi grises
+    const isNeutral =
+      Math.abs(primaryRgb[0] - primaryRgb[1]) < 0.1 &&
+      Math.abs(primaryRgb[1] - primaryRgb[2]) < 0.1;
+
+    // Asignación inteligente de color:
+    // - Si es neutral, usa blanco puro en claro y "un poco oscuro" en oscuro.
+    // - Si hay un color llamativo (naranja, azul), usa ese color.
+    const globeColor: [number, number, number] = isNeutral
+      ? isDark
+        ? [0.25, 0.25, 0.25]
+        : [1, 1, 1]
+      : primaryRgb;
+
+    // Si el globo es blanco/muy claro, necesita líneas oscuras para que se vea la red.
+    const isBright = globeColor[0] + globeColor[1] + globeColor[2] > 2.5;
+
     const globe = createGlobe(canvasRef.current, {
       devicePixelRatio: 2,
       width: 840,
       height: 840,
       phi: 0,
       theta: 0,
-      dark: 1,
+      dark: isBright ? 0 : 1,
       diffuse: 1.2,
       mapSamples: 16000,
       mapBrightness: 6,
-      baseColor: [0.25, 0.25, 0.25],
-      markerColor: [1, 1, 1],
-      glowColor: [1, 1, 1],
+      baseColor: globeColor,
+      glowColor: globeColor,
+      markerColor: isBright ? [0.1, 0.1, 0.1] : [1, 1, 1],
       markers: [
         { location: [37.7595, -122.4367], size: 0.03 },
         { location: [40.7128, -74.006], size: 0.1 },
@@ -217,13 +284,13 @@ function Globe() {
     });
 
     return () => globe.destroy();
-  }, []);
+  }, [resolvedTheme, themeTick]);
 
   return (
     <canvas
       ref={canvasRef}
-      className="translate-y-[9rem] scale-[1.1] aspect-square"
-      style={{ width: 500, height: 420, maxWidth: "110%" }}
+      className="translate-y-[8rem] scale-[0.75] md:scale-100 aspect-square"
+      style={{ width: 450, height: 450, maxWidth: "110%" }}
     />
   );
 }

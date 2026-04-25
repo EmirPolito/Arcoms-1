@@ -47,30 +47,30 @@ export default function TestimonialsCarousel() {
       <div className="relative z-10 flex flex-col items-center gap-2 w-full max-w-6xl mt-12">
         <motion.h1 
           className="text-primary-general text-3xl md:text-5xl font-bold mb-1"
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
+          viewport={{ once: true, margin: "50px" }}
+          transition={{ duration: 0.4, ease: "easeOut" }}
         >
           Comentarios
         </motion.h1>
 
         <motion.p 
           className="text-primary-color-text max-w-4xl mx-auto text-base text-center"
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.2 }}
+          viewport={{ once: true, margin: "50px" }}
+          transition={{ duration: 0.4, ease: "easeOut", delay: 0.1 }}
         >
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
           quod.
         </motion.p>
 
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.4 }}
+          viewport={{ once: true, margin: "50px" }}
+          transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }}
           className="w-full mt-3"
         >
           <TestimonialCarousel data={testimonials} borderType="solid" />

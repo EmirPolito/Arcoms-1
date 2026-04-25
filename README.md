@@ -1,5 +1,5 @@
 <div align="center">
-  <h1>Arcoms-1 — Arcoms Collection</h1>
+  <h1>Arcoms-1 - Arcoms Collection</h1>
 </div>
 
 <div align="center">
@@ -19,10 +19,8 @@
 ![9256019b-e669-4a83-a367-29cd49e4f2dd](https://github.com/user-attachments/assets/e3907327-70fa-45c6-9bb9-6e7b2b4dade0)
 ![1e652d5d-10e2-4d96-87ea-081189ab4776](https://github.com/user-attachments/assets/91adc200-d930-47a8-9037-31f35d61c73b)
 
-<br>
-
 <div align="center">
- **Arcoms-1 Demo en vivo:** [arcoms-1.vercel.app](https://arcoms-1.vercel.app/)
+ (https://arcoms-1.vercel.app/)
 </div>
 
 ---

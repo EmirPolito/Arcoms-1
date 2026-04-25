@@ -88,7 +88,7 @@ export const LogoStepper: React.FC<LogoStepperProps> = ({
                   duration: animationDuration,
                   ease: [0.4, 0, 0.2, 1],
                 }}
-                className="flex flex-col items-center shrink-0 min-h-50 w-20"
+                className="flex flex-col items-center shrink-0 min-h-50 w-20 transform-gpu will-change-transform"
               >
                 <motion.div className="rounded-xl border border-neutral-200 dark:border-neutral-800 bg-card p-6 hover:border-neutral-300 dark:hover:border-neutral-700 transition-colors shadow-sm dark:shadow-none">
                   <div className="w-10 h-10 flex items-center justify-center">
