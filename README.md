@@ -20,7 +20,7 @@
 ![1e652d5d-10e2-4d96-87ea-081189ab4776](https://github.com/user-attachments/assets/91adc200-d930-47a8-9037-31f35d61c73b)
 
 <div align="center">
- (https://arcoms-1.vercel.app/)
+ https://arcoms-1.vercel.app/
 </div>
 
 ---
