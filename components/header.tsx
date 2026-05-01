@@ -8,7 +8,7 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 w-full backdrop-blur supports-backdrop-filter:bg-header-bg/60 h-18 ">
-      <div className="container relative flex items-center h-17 translate-y-3 px-4">
+      <div className="container relative flex items-center h-17 px-4">
         {/* Logo */}
         <a href="/" className="flex items-center gap-2 shrink-0">
           <span className="font-bold text-header-txt text-lg">
@@ -30,7 +30,7 @@ export function Header() {
         </nav>
 
         {/* Right side */}
-        <div className="flex items-center justify-end shrink-0 ml-auto gap-3">
+        <div className="flex items-center justify-end shrink-0 ml-auto gap-2 sm:gap-3">
           <ThemeSwitcher />
 
           {/* Hamburger — Mobile */}

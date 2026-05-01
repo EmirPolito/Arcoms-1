@@ -99,7 +99,7 @@ export default function ContenidoBlog() {
           transition={{ duration: 0.7, ease: "easeOut" }}
           className="text-center mb-10 md:mb-20"
         >
-          <h1 className="text-primary-general text-3xl md:text-5xl font-semibold mb-3">
+          <h1 className="text-3xl md:text-6xl font-semibold mb-2 text-balance text-primary-general">
             Centro de Ayuda
           </h1>
 
@@ -142,13 +142,9 @@ export default function ContenidoBlog() {
                   </div>
 
                   <div
-                    className={`text-primary-general transition-all duration-300 overflow-hidden 
-                      ${
-                        hoveredId === item.id
-                          ? "opacity-100 visible"
-                          : "opacity-0 invisible"
-                      }
-                    `}
+                    className={`text-primary-general transition-all duration-300 overflow-hidden opacity-100 visible md:opacity-0 md:invisible ${
+                      hoveredId === item.id ? "md:opacity-100 md:visible" : ""
+                    }`}
                   >
                     <Link
                       href={item.href}

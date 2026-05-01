@@ -25,7 +25,11 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
     offset: ["start 10%", "end 50%"],
   });
 
-  const heightTransform = useTransform(scrollYProgress, [0, 1], [0, height]);
+  const heightTransform = useTransform(
+    scrollYProgress,
+    [0, 1],
+    [0, height + 250],
+  );
   const opacityTransform = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
 
   return (
@@ -40,7 +44,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: "easeOut" }}
           viewport={{ once: true }}
-          className="text-5xl md:text-6xl font-semibold mb-5 text-balance text-primary-general"
+          className="text-3xl md:text-6xl font-semibold mb-2 text-balance text-primary-general"
         >
           Acerca de nosotros
         </motion.h1>
@@ -58,7 +62,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
       </div>
 
       {/* 🔥 TIMELINE */}
-      <div ref={ref} className="relative max-w-7xl mx-auto pb-20">
+      <div ref={ref} className="relative max-w-7xl mx-auto pb-60">
         {data.map((item, index) => (
           <motion.div
             key={index}
@@ -75,7 +79,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
             {/* Punto + título grande */}
             <div className="sticky flex flex-col md:flex-row z-40 items-center top-40 self-start max-w-xs lg:max-w-sm md:w-full">
               <div className="h-10 absolute left-3 md:left-3 w-10 rounded-full bg-[var(--card)] flex items-center justify-center">
-                <div className="h-4 w-4 rounded-full bg-[var(--foreground-secondary)] border border-[var(--border-theme)] p-2" />
+                <div className="h-4 w-4 rounded-full bg-[var(--primary-general)] border border-[var(--border)] p-2" />
               </div>
 
               {/* 🔥 TÍTULO GRANDE ANIMADO */}
@@ -84,7 +88,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, ease: "easeOut" }}
                 viewport={{ once: true }}
-                className="hidden md:block text-xl md:pl-20 md:text-5xl font-bold text-[var(--foreground-secondary)]"
+                className="hidden md:block text-xl md:pl-20 md:text-5xl font-bold text-[var(--primary-general)]"
               >
                 {item.title}
               </motion.h3>
@@ -98,7 +102,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, ease: "easeOut" }}
                 viewport={{ once: true }}
-                className="md:hidden block text-2xl mb-4 text-left font-bold text-[var(--foreground-secondary)]"
+                className="md:hidden block text-2xl mb-4 text-left font-bold text-[var(--primary-general)]"
               >
                 {item.title}
               </motion.h3>
@@ -118,12 +122,12 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
 
         {/* LÍNEA IZQUIERDA */}
         <div
-          style={{ height: height + "px" }}
-          className="absolute md:left-8 left-8 top-0 overflow-hidden w-[2px] bg-[var(--foreground)] [mask-image:linear-gradient(to_bottom,transparent_0%,black_10%,black_90%,transparent_100%)]"
+          style={{ height: height + 250 + "px" }}
+          className="absolute md:left-8 left-8 top-0 overflow-hidden w-[2px] bg-transparent [mask-image:linear-gradient(to_bottom,transparent_0%,black_10%,black_100%)]"
         >
           <motion.div
             style={{ height: heightTransform, opacity: opacityTransform }}
-            className="absolute inset-x-0 top-0 w-[2px] bg-gradient-to-t from-[var(--foreground)] via-[var(--foreground)] to-transparent rounded-full"
+            className="absolute inset-x-0 top-0 w-[2px] bg-gradient-to-t from-[var(--primary-general)] via-[var(--primary-general)] to-transparent rounded-full"
           />
         </div>
       </div>

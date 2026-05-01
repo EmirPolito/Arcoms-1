@@ -48,15 +48,15 @@ export default function ContactWithGlobe({
     >
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6">
         <div className="flex flex-col items-center text-center gap-2 mb-8">
-          <motion.h2
+          <motion.h1
             initial={{ opacity: 0, y: 14 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.9, delay: 0.15, ease: smoothEase }}
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-primary-general "
+            className="text-3xl md:text-6xl font-semibold mb-1 text-balance text-primary-general"
           >
             {title}
-          </motion.h2>
+          </motion.h1>
 
           <motion.p
             initial={{ opacity: 0, y: 14 }}

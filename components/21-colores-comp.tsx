@@ -123,10 +123,10 @@ export function ThemeSwitcher() {
       : color.charAt(0).toUpperCase() + color.slice(1);
 
   return (
-    <div className="flex gap-3 items-center">
+    <div className="flex gap-2 sm:gap-3 items-center">
       <button
         onClick={cycleTheme}
-        className="cursor-pointer w-9 h-9 rounded-full flex items-center justify-center border-2 bg-[var(--primary)] text-white border-[var(--primary)] shadow-lg hover:scale-110 active:scale-95 transition"
+        className="cursor-pointer w-8 h-8 sm:w-9 sm:h-9 rounded-full flex items-center justify-center border-2 bg-[var(--primary)] text-white border-[var(--primary)] shadow-lg hover:scale-110 active:scale-95 transition mr-1 sm:mr-0"
       >
         {icon}
       </button>
@@ -134,7 +134,7 @@ export function ThemeSwitcher() {
       <div className="w-px h-4 bg-[var(--divider-color)]" />
 
       <Select value={color} onValueChange={(v) => setColor(v as ColorTheme | "neutro")}>
-        <SelectTrigger className="h-8 w-28 text-xs flex items-center gap-2 cursor-pointer">
+        <SelectTrigger className="h-8 w-24 sm:w-28 text-[11px] sm:text-xs flex items-center gap-1 sm:gap-2 cursor-pointer">
           {/* ÚNICO puntito visible */}
           {color === "neutro" ? (
             <span
