@@ -5,10 +5,10 @@ import { PinContainer } from "@/components/ui/3-ui";
 export function TarjetaPines() {
   return (
     <div
-      className="w-full flex items-center justify-center pt-1.5 pb-10 px-4"
+      className="w-full flex items-center justify-center pt-0 pb-10 px-4"
       style={{ contain: "layout style" }}
     >
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 sm:gap-14 lg:gap-10">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-14 lg:gap-10">
         {/* TARJETA 1 */}
         <PinContainer title="Descripcion1/" href="/">
           <div className="flex basis-full flex-col p-3.5 tracking-tight text-primary-color-text w-[17.5rem] h-[17.5rem] sm:w-[18rem] sm:h-[18rem] lg:w-[20rem] lg:h-[20rem]">

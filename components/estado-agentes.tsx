@@ -50,7 +50,7 @@ export default function EstadoAgentes() {
   }, []);
 
   return (
-    <section className="w-full py-10 md:py-30 bg-feat-bg text-feat-txt">
+    <section className="w-full py-8.5 md:py-30 bg-feat-bg text-feat-txt">
       <div className="relative max-w-7xl mx-auto px-3 sm:px-0">
         {/* líneas cruz — hidden on mobile */}
         <div className="absolute top-1/2 left-0 right-0 h-px bg-feat-border/100 hidden md:block" />
@@ -63,9 +63,8 @@ export default function EstadoAgentes() {
                 Título de la sección
               </h2>
               <p className="px-2 text-center md:text-left text-sm max-w-md-lg text-feat-desc">
-                Lorem ipsum sit ipsum ipsum sitconsectetur sitos adipisicing
-                elit. Quisquam, quod. Lorem ipsum dolor sit amet consectetur
-                adipisicing.
+                Lorem dolor sit met consectetu adipisicing elit. Quisquam, quod.
+                lo adipisicing elit.
               </p>
             </div>
 
@@ -197,9 +196,7 @@ export default function EstadoAgentes() {
                     )}
                   </div>
 
-                  <span className="text-xs font-medium">
-                    {check.label}
-                  </span>
+                  <span className="text-xs font-medium">{check.label}</span>
                 </div>
               ))}
             </div>

@@ -2,7 +2,7 @@
 
 export function TituloEstadoAgentes() {
   return (
-    <div className="mx-auto sm:mb-0 text-center my-8 md:my-13 px-3">
+    <div className="mx-auto sm:mb-0 text-center my-9 md:my-13 px-3">
       <div className="text-title-ttl text-2xl sm:text-2xl font-bold tracking-tight md:text-4xl">
         <div className="relative inline-flex items-center whitespace-nowrap w-fit">
           <span>Título de la sección</span>
