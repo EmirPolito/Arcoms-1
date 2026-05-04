@@ -19,7 +19,7 @@ export function BentoCaracteristicas() {
       {/* HEADER INTEGRADO */}
       <div className="text-center  mb-5 md:mb-10 px-4">
         <div className="flex flex-row flex-wrap items-center justify-center gap-4 mb-2">
-          <span className="text-2xl md:text-4xl font-bold tracking-tight text-title-ttl">
+          <span className="text-2xl md:text-4xl font-bold tracking-tight text-titulos">
             Título
           </span>
           <span className="bg-buttonC text-primary-foreground px-5 py-1.5 rounded-md text-2xl md:text-4xl font-bold tracking-tight ring-1 ring-white/10">
