@@ -234,7 +234,7 @@ function AnnouncementComponent({
   const badgeContent = (
     <Badge
       className={cn(
-        "group relative max-w-full overflow-hidden rounded-full bg-background px-2 py-1.5 font-medium shadow-sm border border-border/50",
+        "group relative max-w-full overflow-hidden rounded-full bg-background px-2 py-1.5 font-medium shadow-sm border border-border/50 transition-colors duration-300",
         styled && "border-foreground/5",
         className,
       )}
@@ -356,7 +356,7 @@ export function AnnouncementTag({
   const tagContent = (
     <span
       className={cn(
-        "text-primary-general relative inline-flex items-center gap-2 pl-3.5 pr-3.5 py-1 text-xs font-semibold rounded-full bg-muted shadow-xs",
+        "text-primary-general relative inline-flex items-center gap-2 pl-3.5 pr-3.5 py-1 text-xs font-semibold rounded-full bg-muted shadow-xs transition-colors duration-300",
         className,
       )}
       {...props}

@@ -41,7 +41,7 @@ export function HeroSection({
         `}
       >
         <div className="mx-auto w-full max-w-lg text-center lg:ml-16 lg:text-left -mt-8 md:-mt-36">
-          <div className="relative z-20 mb-3 flex justify-center lg:justify-start">
+          <div className="relative z-20 mt-2 mb-1 flex justify-center lg:justify-start">
             <Announcement styled animation="fade">
               <AnnouncementTag>Tu Landing</AnnouncementTag>
               <AnnouncementTitle>Experiencia Inmersiva</AnnouncementTitle>

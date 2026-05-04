@@ -50,7 +50,7 @@ export function Header() {
               }`}
             />
             <span
-              className={`block h-[2px] w-5 bg-header-txt transition-all duration-300 will-change-transform ${
+              className={`block h-[2px] w-5 bg-header-txt transition-all duration-300 ${
                 menuOpen ? "-rotate-45 -translate-y-[7px]" : ""
               }`}
             />

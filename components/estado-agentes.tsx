@@ -50,8 +50,8 @@ export default function EstadoAgentes() {
   }, []);
 
   return (
-    <section className="w-full py-0 md:py-0 bg-feat-bg text-feat-txt">
-      <div className="relative max-w-7xl mx-auto px-3 sm:px-6">
+    <section className="w-full py-10 md:py-30 bg-feat-bg text-feat-txt">
+      <div className="relative max-w-7xl mx-auto px-3 sm:px-0">
         {/* líneas cruz — hidden on mobile */}
         <div className="absolute top-1/2 left-0 right-0 h-px bg-feat-border/100 hidden md:block" />
         <div className="absolute top-0 bottom-0 left-1/2 w-px bg-feat-border/100 hidden md:block" />
@@ -121,8 +121,6 @@ export default function EstadoAgentes() {
               <li>• Lorem ipsum dolor sit amet adipisicing elite.</li>
               <li>• Lorem ipsum dolor sit amet adipisicing elite.</li>
               <li>• Lorem ipsum dolor sit amet adipisicing elite.</li>
-              <li>• Lorem ipsum dolor sit amet adipisicing elite.</li>
-              <li>• Lorem ipsum dolor sit amet adipisicing elite.</li>
             </ul>
           </div>
 
@@ -153,8 +151,6 @@ export default function EstadoAgentes() {
               <li>• Lorem ipsum dolor sit amet adipisicing elite.</li>
               <li>• Lorem ipsum dolor sit amet adipisicing elite.</li>
               <li>• Lorem ipsum dolor sit amet adipisicing elite.</li>
-              <li>• Lorem ipsum dolor sit amet adipisicing elite.</li>
-              <li>• Lorem ipsum dolor sit amet adipisicing elite.</li>
             </ul>
           </div>
 
@@ -175,7 +171,7 @@ export default function EstadoAgentes() {
               {guardrailChecks.map((check, index) => (
                 <div
                   key={check.id}
-                  className={`flex items-center gap-3 sm:gap-5 p-3 sm:p-5 rounded-md border transition-[opacity,transform,background-color,border-color,box-shadow] duration-600 ease-[cubic-bezier(0.22,1,0.36,1)] will-change-transform ${
+                  className={`flex items-center gap-3 sm:gap-5 p-3 sm:p-5 rounded-md border transition-[opacity,transform,background-color,border-color,box-shadow] duration-600 ease-[cubic-bezier(0.22,1,0.36,1)] ${
                     guardrailProgress >= index
                       ? "opacity-90 translate-x-0 bg-card border-feat-border/60 shadow-xs"
                       : "opacity-0 translate-x-2 border-transparent"

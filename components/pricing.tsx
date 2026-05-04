@@ -126,7 +126,7 @@ export default function DemoInteractiva() {
                 }}
                 key={index}
                 onClick={() => setSelectedPlan(index)}
-                className={`relative flex flex-col justify-between h-full p-6 lg:p-8 rounded-2xl border transition-all duration-300 transform-gpu will-change-transform
+                className={`relative flex flex-col justify-between h-full p-6 lg:p-8 rounded-2xl border transition-all duration-300 transform-gpu
                                     cursor-pointer
                                     hover:border-primary
                                     hover:shadow-xl
@@ -184,7 +184,7 @@ export default function DemoInteractiva() {
                   {" "}
                   {/* mt-auto: empuja el botón al fondo */}
                   <button
-                    className={`w-full py-3 rounded-lg font-medium transition-all duration-300 cursor-pointer transform-gpu will-change-transform ${
+                    className={`w-full py-3 rounded-lg font-medium transition-all duration-300 cursor-pointer transform-gpu ${
                       plan.popular
                         ? "bg-price-btn-bg text-price-btn-txt hover:opacity-90 hover:-translate-y-1.5 hover:shadow-xl shadow-md" // Popular: fondo primario, texto blanco, opacidad al hover, y sube
                         : "border border-price-border hover:border-price-btn-bg hover:text-price-btn-bg" // No popular: borde y texto color primario al hover

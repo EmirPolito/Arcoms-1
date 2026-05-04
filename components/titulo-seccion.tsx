@@ -4,7 +4,7 @@ import { PointerHighlight } from "@/components/ui/8-ui";
 
 export function TituloEstadoAgentes() {
   return (
-    <div className="mx-auto sm:mb-0 text-center my-10 md:my-20 px-3">
+    <div className="mx-auto sm:mb-0 text-center my-0 md:my-12 px-3">
       <div className="text-title-ttl text-2xl sm:text-2xl font-bold tracking-tight md:text-4xl">
         <PointerHighlight>
           <span>Título de la sección</span>

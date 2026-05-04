@@ -1,6 +1,6 @@
 "use client";
-import React, { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "motion/react";
+import React, { useState, useEffect, useRef } from "react";
+import { motion, AnimatePresence, useInView } from "motion/react";
 
 type AnimationDirection = "loop" | "vloop";
 
@@ -17,7 +17,7 @@ interface LogoStepperProps {
   visibleCount?: number;
 }
 
-export const LogoStepper: React.FC<LogoStepperProps> = ({
+export const LogoStepper: React.FC<LogoStepperProps> = React.memo(({
   logos,
   animationDuration = 0.6,
   animationDelay = 1.2,
@@ -25,14 +25,18 @@ export const LogoStepper: React.FC<LogoStepperProps> = ({
   visibleCount = 5,
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const isInView = useInView(containerRef, { margin: "200px" });
 
   useEffect(() => {
+    if (!isInView) return;
+
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % logos.length);
     }, animationDelay * 1000);
 
     return () => clearInterval(interval);
-  }, [logos.length, animationDelay]);
+  }, [logos.length, animationDelay, isInView]);
 
   const getVisibleLogos = () => {
     const visible = [];
@@ -53,9 +57,9 @@ export const LogoStepper: React.FC<LogoStepperProps> = ({
   const visibleLogos = getVisibleLogos();
 
   return (
-    <div className="relative w-full flex items-start justify-center overflow-hidden py-10">
+    <div ref={containerRef} className="relative w-full flex items-start justify-center overflow-hidden py-13">
       <div
-        className="flex items-start justify-center gap-40"
+        className="flex items-start justify-center gap-24 md:gap-40"
         style={{ width: "fit-content" }}
       >
         <AnimatePresence initial={false} mode="popLayout">
@@ -90,8 +94,8 @@ export const LogoStepper: React.FC<LogoStepperProps> = ({
                 }}
                 className="flex flex-col items-center shrink-0 min-h-50 w-20 transform-gpu will-change-transform"
               >
-                <motion.div className="rounded-xl border border-neutral-200 dark:border-neutral-800 bg-card p-6 hover:border-neutral-300 dark:hover:border-neutral-700 transition-colors shadow-sm dark:shadow-none">
-                  <div className="w-10 h-10 flex items-center justify-center">
+                <motion.div className="rounded-xl border border-neutral-200 dark:border-neutral-800 bg-card p-4 md:p-6 hover:border-neutral-300 dark:hover:border-neutral-700 transition-colors shadow-sm dark:shadow-none">
+                  <div className="w-8 h-8 md:w-10 md:h-10 flex items-center justify-center">
                     {logo.icon}
                   </div>
                 </motion.div>
@@ -104,10 +108,10 @@ export const LogoStepper: React.FC<LogoStepperProps> = ({
                     duration: animationDuration,
                     ease: [0.4, 0, 0.2, 1],
                   }}
-                  className="flex flex-col items-center mt-4 h-28"
+                  className="flex flex-col items-center mt-3 md:mt-4 h-24 md:h-28"
                 >
-                  <div className="w-px h-16 mb-4 bg-neutral-200 dark:bg-neutral-800" />
-                  <span className="text-muted-foreground uppercase text-xs font-medium tracking-wider whitespace-nowrap">
+                  <div className="w-px h-10 md:h-16 mb-3 md:mb-4 bg-neutral-200 dark:bg-neutral-800" />
+                  <span className="text-muted-foreground uppercase text-[10px] md:text-xs font-medium tracking-wider whitespace-nowrap">
                     {logo.label}
                   </span>
                 </motion.div>
@@ -118,4 +122,4 @@ export const LogoStepper: React.FC<LogoStepperProps> = ({
       </div>
     </div>
   );
-};
+});

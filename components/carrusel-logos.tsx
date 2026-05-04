@@ -9,11 +9,13 @@ export default function CarruselLogos() {
           <img
             src='/icons/React_light.svg'
             alt='React'
+            loading='lazy' decoding='async'
             className='w-full h-full object-contain block dark:hidden'
           />
           <img
             src='/icons/React_dark.svg'
             alt='React'
+            loading='lazy' decoding='async'
             className='w-full h-full object-contain hidden dark:block'
           />
         </>
@@ -25,6 +27,7 @@ export default function CarruselLogos() {
         <img
           src='/icons/next.svg'
           alt='Next'
+          loading='lazy' decoding='async'
           className='w-full h-full object-contain'
         />
       ),
@@ -35,6 +38,7 @@ export default function CarruselLogos() {
         <img
           src='/icons/typescript.svg'
           alt='TypeScript'
+          loading='lazy' decoding='async'
           className='w-full h-full object-contain'
         />
       ),
@@ -45,6 +49,7 @@ export default function CarruselLogos() {
         <img
           src='/icons/tailwindcss.svg'
           alt='Tailwindcss'
+          loading='lazy' decoding='async'
           className='w-full h-full object-contain'
         />
       ),
@@ -56,11 +61,13 @@ export default function CarruselLogos() {
           <img
             src='/icons/Vercel_light.svg'
             alt='Vercel'
+            loading='lazy' decoding='async'
             className='w-full h-full object-contain block dark:hidden'
           />
           <img
             src='/icons/Vercel_dark.svg'
             alt='Vercel'
+            loading='lazy' decoding='async'
             className='w-full h-full object-contain hidden dark:block'
           />
         </>
@@ -73,11 +80,13 @@ export default function CarruselLogos() {
           <img
             src='/icons/GitHub_light.svg'
             alt='GitHub'
+            loading='lazy' decoding='async'
             className='w-full h-full object-contain block dark:hidden'
           />
           <img
             src='/icons/GitHub_dark.svg'
             alt='GitHub'
+            loading='lazy' decoding='async'
             className='w-full h-full object-contain hidden dark:block'
           />
         </>
@@ -90,11 +99,13 @@ export default function CarruselLogos() {
           <img
             src='/icons/OpenAI_light.svg'
             alt='ChatGPT'
+            loading='lazy' decoding='async'
             className='w-full h-full object-contain block dark:hidden'
           />
           <img
             src='/icons/OpenAI_dark.svg'
             alt='ChatGPT'
+            loading='lazy' decoding='async'
             className='w-full h-full object-contain hidden dark:block'
           />
         </>

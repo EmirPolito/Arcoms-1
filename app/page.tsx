@@ -6,10 +6,9 @@ import { HeroSection } from "@/components/hero";
 import CarruselLogos from "@/components/carrusel-logos";
 
 import { TituloEstadoAgentes } from "@/components/titulo-seccion";
-import EstadoAgentes from "@/components/estado-agentes"; /** 2 lineas */
-
-import { TituloTarjetas } from "@/components/texto-animado";
 import { TarjetaPines } from "@/components/tarjeta-pines"; /**pines 3d */
+
+import EstadoAgentes from "@/components/estado-agentes"; /** 2 lineas */
 
 import { TituloCaracteristicas } from "@/components/texto-interactivo";
 import { BentoCaracteristicas } from "@/components/bento-caracteristicas"; /**mundo */
@@ -17,6 +16,7 @@ import { BentoCaracteristicas } from "@/components/bento-caracteristicas"; /**mu
 import { TituloDemo } from "@/components/resaltador-cursor";
 import Pricing from "@/components/pricing"; /**precios */
 
+import { TituloTarjetas } from "@/components/texto-animado";
 import TestimonialsCarousel from "@/components/testimonials-with-carousel";
 import Footer from "../components/footer";
 
@@ -27,8 +27,6 @@ function FadeInSection({ children }: { children: React.ReactNode }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "100px" }}
       transition={{ duration: 0.35, ease: "easeOut" }}
-      className="transform-gpu"
-      style={{ willChange: "opacity, transform" }}
     >
       {children}
     </motion.div>
@@ -50,12 +48,12 @@ export default function Home() {
 
         <FadeInSection>
           <TituloEstadoAgentes />
-          <EstadoAgentes />
+          <TarjetaPines />
         </FadeInSection>
 
         <FadeInSection>
-          <TituloTarjetas />
-          <TarjetaPines />
+          {/* <TituloTarjetas /> */}
+          <EstadoAgentes />
         </FadeInSection>
 
         <FadeInSection>
@@ -69,6 +67,7 @@ export default function Home() {
         </FadeInSection>
 
         <FadeInSection>
+          <TituloTarjetas />
           <TestimonialsCarousel />
         </FadeInSection>
       </main>

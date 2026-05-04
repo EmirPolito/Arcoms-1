@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { motion } from "motion/react";
+import { motion, useInView } from "motion/react";
 import createGlobe from "cobe";
 import Image from "next/image";
 import { useTheme } from "next-themes";
@@ -18,7 +18,7 @@ export function BentoCaracteristicas() {
       {/* ROW 1 */}
       <div className="flex flex-col md:flex-row gap-6 md:gap-5 items-stretch">
         {/* LEFT — GLOBE CARD */}
-        <div className="relative overflow-hidden rounded-2xl bg-feat-card border border-feat-border p-5 h-[21rem] md:h-[23rem] w-full md:w-[26rem] flex flex-col will-change-transform">
+        <div className="relative overflow-hidden rounded-2xl bg-feat-card border border-feat-border p-5 h-[21rem] md:h-[23rem] w-full md:w-[26rem] flex flex-col">
           <div className="relative z-10 space-y-1">
             <h3 className="text-feat-ttl text-base font-semibold">Titulo</h3>
             <p className="text-sm text-feat-desc">
@@ -44,7 +44,7 @@ export function BentoCaracteristicas() {
             </p>
           </div>
 
-          <div className="absolute bottom-[-15rem] md:bottom-[-15rem] right-[-4rem] md:right-[-4.5rem]">
+          <div className="absolute bottom-[-14rem] md:bottom-[-15rem] right-[-4rem] md:right-[-4.5rem]">
             <div className="rounded-2xl border border-img-frame bg-muted/40 p-4">
               <Image
                 src="/img/5.jpg"
@@ -218,78 +218,80 @@ function Globe() {
     return () => observer.disconnect();
   }, []);
 
-  useEffect(() => {
-    if (!canvasRef.current) return;
+    const isVisible = useInView(canvasRef, { margin: "400px" });
 
-    let phi = 0;
-    const isDark = resolvedTheme === "dark";
+    useEffect(() => {
+      if (!canvasRef.current || !isVisible) return;
 
-    const getCssVarRgb = (
-      varName: string,
-      fallback: [number, number, number],
-    ): [number, number, number] => {
-      if (typeof window === "undefined") return fallback;
-      const hex = getComputedStyle(document.documentElement)
-        .getPropertyValue(varName)
-        .trim();
-      if (hex.startsWith("#")) {
-        const r = parseInt(hex.slice(1, 3), 16) / 255;
-        const g = parseInt(hex.slice(3, 5), 16) / 255;
-        const b = parseInt(hex.slice(5, 7), 16) / 255;
-        if (!isNaN(r) && !isNaN(g) && !isNaN(b)) return [r, g, b];
-      }
-      return fallback;
-    };
+      let phi = 0;
+      const isDark = resolvedTheme === "dark";
 
-    const primaryRgb = getCssVarRgb(
-      "--primary",
-      isDark ? [0.1, 0.1, 0.1] : [1, 1, 1],
-    );
+      const getCssVarRgb = (
+        varName: string,
+        fallback: [number, number, number],
+      ): [number, number, number] => {
+        if (typeof window === "undefined") return fallback;
+        const hex = getComputedStyle(document.documentElement)
+          .getPropertyValue(varName)
+          .trim();
+        if (hex.startsWith("#")) {
+          const r = parseInt(hex.slice(1, 3), 16) / 255;
+          const g = parseInt(hex.slice(3, 5), 16) / 255;
+          const b = parseInt(hex.slice(5, 7), 16) / 255;
+          if (!isNaN(r) && !isNaN(g) && !isNaN(b)) return [r, g, b];
+        }
+        return fallback;
+      };
 
-    // Detecta colores neutrales (blancos, negros, grises) incluyendo tonos casi grises
-    const isNeutral =
-      Math.abs(primaryRgb[0] - primaryRgb[1]) < 0.1 &&
-      Math.abs(primaryRgb[1] - primaryRgb[2]) < 0.1;
+      const primaryRgb = getCssVarRgb(
+        "--primary",
+        isDark ? [0.1, 0.1, 0.1] : [1, 1, 1],
+      );
 
-    // Asignación inteligente de color:
-    // - Si es neutral, usa blanco puro en claro y "un poco oscuro" en oscuro.
-    // - Si hay un color llamativo (naranja, azul), usa ese color.
-    const globeColor: [number, number, number] = isNeutral
-      ? isDark
-        ? [0.25, 0.25, 0.25]
-        : [1, 1, 1]
-      : primaryRgb;
+      // Detecta colores neutrales (blancos, negros, grises) incluyendo tonos casi grises
+      const isNeutral =
+        Math.abs(primaryRgb[0] - primaryRgb[1]) < 0.1 &&
+        Math.abs(primaryRgb[1] - primaryRgb[2]) < 0.1;
 
-    // Si el globo es blanco/muy claro, necesita líneas oscuras para que se vea la red.
-    const isBright = globeColor[0] + globeColor[1] + globeColor[2] > 2.5;
+      // Asignación inteligente de color:
+      // - Si es neutral, usa blanco puro en claro y "un poco oscuro" en oscuro.
+      // - Si hay un color llamativo (naranja, azul), usa ese color.
+      const globeColor: [number, number, number] = isNeutral
+        ? isDark
+          ? [0.25, 0.25, 0.25]
+          : [1, 1, 1]
+        : primaryRgb;
 
-    const globe = createGlobe(canvasRef.current, {
-      devicePixelRatio: 2,
-      width: 840,
-      height: 840,
-      phi: 0,
-      theta: 0,
-      dark: isBright ? 0 : 1,
-      diffuse: 1.2,
-      mapSamples: 16000,
-      mapBrightness: 6,
-      baseColor: globeColor,
-      glowColor: globeColor,
-      markerColor: isBright ? [0.1, 0.1, 0.1] : [1, 1, 1],
-      markers: [
-        { location: [37.7595, -122.4367], size: 0.03 },
-        { location: [40.7128, -74.006], size: 0.1 },
-      ],
-      onRender: (state: any) => {
-        state.phi = phi;
-        phi += 0.01;
-      },
-    });
+      // Si el globo es blanco/muy claro, necesita líneas oscuras para que se vea la red.
+      const isBright = globeColor[0] + globeColor[1] + globeColor[2] > 2.5;
 
-    return () => globe.destroy();
-  }, [resolvedTheme, themeTick]);
+      const globe = createGlobe(canvasRef.current, {
+        devicePixelRatio: 2,
+        width: 840,
+        height: 840,
+        phi: 0,
+        theta: 0,
+        dark: isBright ? 0 : 1,
+        diffuse: 1.2,
+        mapSamples: 16000,
+        mapBrightness: 6,
+        baseColor: globeColor,
+        glowColor: globeColor,
+        markerColor: isBright ? [0.1, 0.1, 0.1] : [1, 1, 1],
+        markers: [
+          { location: [37.7595, -122.4367], size: 0.03 },
+          { location: [40.7128, -74.006], size: 0.1 },
+        ],
+        onRender: (state: any) => {
+          state.phi = phi;
+          phi += 0.01;
+        },
+      });
 
-  return (
+      return () => globe.destroy();
+    }, [resolvedTheme, themeTick, isVisible]);
+
+    return (
     <canvas
       ref={canvasRef}
       className="translate-y-[8rem] scale-[0.75] md:scale-100 aspect-square"

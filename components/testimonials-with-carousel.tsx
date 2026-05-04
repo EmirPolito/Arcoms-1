@@ -44,31 +44,10 @@ export default function TestimonialsCarousel() {
 
   return (
     <section
-      className="relative w-full pt-0 pb-20 bg-testim-bg flex flex-col items-center px-4 overflow-hidden"
+      className="relative w-full pt-0 pb-8 md:pb-20 bg-testim-bg flex flex-col items-center px-4 overflow-hidden"
       style={{ contain: "layout style" }}
     >
-      <div className="relative z-10 flex flex-col items-center gap-0 w-full max-w-6xl mt-16">
-        <motion.h1
-          className="text-primary-general text-3xl md:text-5xl font-bold mb-1"
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "50px" }}
-          transition={{ duration: 0.4, ease: "easeOut" }}
-        >
-          Comentarios
-        </motion.h1>
-
-        <motion.p
-          className=" text-primary-color-text max-w-4xl mx-auto text-base text-center"
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "50px" }}
-          transition={{ duration: 0.4, ease: "easeOut", delay: 0.1 }}
-        >
-          Lorem dolor sit met consectetu adipisicing elit. Quisquam, quod. lol
-          adipisicing playes.
-        </motion.p>
-
+      <div className="relative z-10 flex flex-col items-center gap-0 w-full max-w-6xl mt-0">
         <motion.div
           initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}

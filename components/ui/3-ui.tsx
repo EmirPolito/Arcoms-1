@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useState } from "react";
-import { motion } from "motion/react";
+import React, { useRef, useState, useEffect } from "react";
+import { motion, useInView } from "motion/react";
 import { cn } from "@/lib/utils";
 
 export const PinContainer = ({
@@ -17,23 +17,35 @@ export const PinContainer = ({
   className?: string;
   containerClassName?: string;
 }) => {
-  const [transform, setTransform] = useState(
-    "translate(-50%,-50%) rotateX(0deg)",
-  );
+  const ref = useRef(null);
+  const isInView = useInView(ref, { margin: "-25% 0px -25% 0px" });
+  const [isHovered, setIsHovered] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
-  const onMouseEnter = () =>
-    setTransform("translate(-50%,-50%) rotateX(40deg) scale(0.8)");
-  const onMouseLeave = () =>
-    setTransform("translate(-50%,-50%) rotateX(0deg) scale(1)");
+  useEffect(() => {
+    setIsMobile(window.innerWidth < 768);
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const isActive = isMobile ? isInView : isHovered;
+
+  const transform = isActive
+    ? isMobile
+      ? "translate(-50%,-50%) rotateX(25deg) scale(0.95)"
+      : "translate(-50%,-50%) rotateX(40deg) scale(0.8)"
+    : "translate(-50%,-50%) rotateX(0deg) scale(1)";
 
   return (
     <a
+      ref={ref}
       className={cn(
         "relative group/pin cursor-pointer z-10",
         containerClassName,
       )}
-      onMouseEnter={onMouseEnter}
-      onMouseLeave={onMouseLeave}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
       href={href || "/"}
       target="_blank"
       rel="noopener noreferrer"
@@ -42,14 +54,13 @@ export const PinContainer = ({
         style={{
           perspective: "1000px",
           transform: "rotateX(70deg) translateZ(0deg)",
-          willChange: "transform",
         }}
         className="absolute left-1/2 top-1/2 ml-[0.09375rem] mt-4 -translate-x-1/2 -translate-y-1/2"
       >
         <div
           style={{ transform }}
           className={cn(
-            "absolute left-1/2 top-1/2 p-4 flex justify-start items-start rounded-2xl transition-[opacity,transform] duration-600 overflow-hidden will-change-transform",
+            "absolute left-1/2 top-1/2 p-4 flex justify-start items-start rounded-2xl transition-[opacity,transform] duration-500 overflow-hidden",
             "bg-background text-foreground border border-border shadow-md dark:shadow-lg",
             className,
           )}
@@ -59,17 +70,22 @@ export const PinContainer = ({
       </div>
 
       {/* TEXTO Y EFECTO */}
-      <PinPerspective title={title} />
+      <PinPerspective title={title} isActive={isActive} isMobile={isMobile} />
     </a>
   );
 };
 
-export const PinPerspective = ({ title }: { title?: string }) => {
+export const PinPerspective = ({ title, isActive, isMobile }: { title?: string; isActive: boolean; isMobile: boolean }) => {
   return (
-    <motion.div className="pointer-events-none w-96 h-80 flex items-center justify-center opacity-0 group-hover/pin:opacity-100 z-20 transition duration-500 transform-gpu">
-      <div className="absolute inset-0 flex items-center justify-center">
+    <motion.div
+      className={cn(
+        "pointer-events-none w-full md:w-96 h-80 flex items-center justify-center z-20 transition duration-500 transform-gpu",
+        isActive ? "opacity-100" : "opacity-0"
+      )}
+    >
+      <div className="absolute inset-0 flex items-center justify-center w-full">
         {/* TITULO */}
-        <div className="absolute top-0 inset-x-0 flex justify-center">
+        <div className={cn("absolute inset-x-0 flex justify-center transition-all duration-500", isMobile ? "top-4" : "top-0")}>
           <div className="relative flex space-x-2 items-center z-10 rounded-full bg-background/70 backdrop-blur-sm py-0.5 px-4 ring-1 ring-border">
             <span className="relative z-20 text-xs font-bold text-foreground inline-block py-0.5">
               {title}
@@ -84,7 +100,7 @@ export const PinPerspective = ({ title }: { title?: string }) => {
             perspective: "1000px",
             transform: "rotateX(70deg) translateZ(0)",
           }}
-          className="absolute left-1/2 top-1/2 ml-[0.09375rem] mt-4 -translate-x-1/2 -translate-y-1/2"
+          className={cn("absolute left-1/2 top-1/2 ml-[0.09375rem] -translate-x-1/2 -translate-y-1/2", isMobile ? "mt-10" : "mt-4")}
         >
           {[0, 2, 4].map((delay) => (
             <motion.div
@@ -92,17 +108,20 @@ export const PinPerspective = ({ title }: { title?: string }) => {
               initial={{ opacity: 0, scale: 0, x: "-50%", y: "-50%" }}
               animate={{ opacity: [0, 1, 0.5, 0], scale: 1 }}
               transition={{ duration: 6, repeat: Infinity, delay }}
-              className="absolute left-1/2 top-1/2 h-[11.25rem] w-[11.25rem] rounded-full bg-primary/15 shadow-md"
+              className={cn(
+                "absolute left-1/2 top-1/2 rounded-full shadow-md",
+                isMobile ? "h-[7.5rem] w-[7.5rem] bg-white/10" : "h-[11.25rem] w-[11.25rem] bg-primary/15"
+              )}
             />
           ))}
         </div>
 
         {/* PARTICULAS */}
         <>
-          <motion.div className="absolute right-1/2 bottom-1/2 bg-gradient-to-b from-transparent to-primary-color-linea translate-y-[14px] w-px h-20 group-hover/pin:h-40 blur-[2px]" />
-          <motion.div className="absolute right-1/2 bottom-1/2 bg-gradient-to-b from-transparent to-primary-color-linea translate-y-[14px] w-px h-20 group-hover/pin:h-40" />
-          <motion.div className="absolute right-1/2 translate-x-[1.5px] bottom-1/2 bg-primary-color-linea translate-y-[14px] w-1 h-1 rounded-full z-40 blur-[3px]" />
-          <motion.div className="absolute right-1/2 translate-x-[0.5px] bottom-1/2 bg-primary-color-linea/70 translate-y-[14px] w-[2px] h-[2px] rounded-full z-40" />
+          <motion.div className={cn("absolute right-1/2 bottom-1/2 bg-gradient-to-b from-transparent to-primary-color-linea w-px transition-all duration-500 blur-[2px]", isMobile ? "translate-y-[38px]" : "translate-y-[14px]", isActive ? (isMobile ? "h-48" : "h-40") : "h-20")} />
+          <motion.div className={cn("absolute right-1/2 bottom-1/2 bg-gradient-to-b from-transparent to-primary-color-linea w-px transition-all duration-500", isMobile ? "translate-y-[38px]" : "translate-y-[14px]", isActive ? (isMobile ? "h-48" : "h-40") : "h-20")} />
+          <motion.div className={cn("absolute right-1/2 translate-x-[1.5px] bottom-1/2 bg-primary-color-linea w-1 h-1 rounded-full z-40 blur-[3px]", isMobile ? "translate-y-[38px]" : "translate-y-[14px]")} />
+          <motion.div className={cn("absolute right-1/2 translate-x-[0.5px] bottom-1/2 bg-primary-color-linea/70 w-[2px] h-[2px] rounded-full z-40", isMobile ? "translate-y-[38px]" : "translate-y-[14px]")} />
         </>
       </div>
     </motion.div>
