@@ -80,9 +80,9 @@ export default function Home() {
           <TituloDemo />
         </FadeInSection>
 
-        <FadeInSection>
+        {/* <FadeInSection>
           <TituloTarjetas />
-        </FadeInSection>
+        </FadeInSection> */}
         <FadeInSection>
           <TestimonialsCarousel />
         </FadeInSection>

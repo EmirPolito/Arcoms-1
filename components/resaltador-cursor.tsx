@@ -2,11 +2,11 @@
 
 export function TituloDemo() {
   return (
-    <div className="mx-auto text-center mt-0 md:mt-7 mb-4 px-5">
+    <div className="mx-auto text-center mt-0 md:mt-4 mb-4 px-5">
       <div className="text-title-ttl text-2xl sm:text-2xl font-bold tracking-tight md:text-4xl">
-        Lo necesario{" "}
+        Mira los{" "}
         <div className="relative inline-flex items-center whitespace-nowrap w-fit">
-          <span>en un solo plan</span>
+          <span>testimonios</span>
           <div className="pointer-events-none absolute inset-0 z-0">
             <div className="absolute inset-0 border border-primary-color-text" />
             <div
