@@ -361,7 +361,7 @@ export function AnnouncementTag({
       )}
       {...props}
     >
-      <span className="absolute inset-0 rounded-full bg-background opacity-40 pointer-events-none" />
+      <span className="absolute inset-0 rounded-full bg-background opacity-40 pointer-events-none transition-colors duration-300" />
       <span className="relative z-10">
         {React.Children.map(children, (child) =>
           lustre && typeof child === "string" ? (
@@ -410,7 +410,7 @@ export function AnnouncementTitle({
   return (
     <span
       className={cn(
-        " inline-flex items-center gap-1.5 py-1",
+        " inline-flex items-center gap-1.5 py-1 transition-colors duration-300",
         multiTags ? "flex-wrap" : "truncate",
         className,
       )}
