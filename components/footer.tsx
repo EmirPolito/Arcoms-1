@@ -57,7 +57,7 @@ export default function Footer() {
                     href="/acerca"
                     className="text-footer-txt hover:text-[var(--primary-general)] transition-colors font-normal text-sm"
                   >
-                    Acerca De
+                    Nosotros
                   </Link>
                 </li>
               </ul>

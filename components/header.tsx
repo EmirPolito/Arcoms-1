@@ -18,13 +18,17 @@ export function Header() {
 
         {/* Nav — Desktop */}
         <nav className="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 items-center gap-5">
-          {["acerca", "contacto", "ayuda"].map((item) => (
+          {[
+            { label: "Contacto", href: "/contacto" },
+            { label: "Nosotros", href: "/acerca" },
+            { label: "Ayuda", href: "/ayuda" },
+          ].map((item) => (
             <a
-              key={item}
-              href={`/${item}`}
+              key={item.label}
+              href={item.href}
               className="text-sm font-medium text-header-txt opacity-70 hover:opacity-100 hover:text-header-hover px-4"
             >
-              {item.charAt(0).toUpperCase() + item.slice(1)}
+              {item.label}
             </a>
           ))}
         </nav>
@@ -65,14 +69,18 @@ export function Header() {
         }`}
       >
         <nav className="flex flex-col items-center gap-4 py-6">
-          {["acerca", "contacto", "ayuda"].map((item) => (
+          {[
+            { label: "Contacto", href: "/contacto" },
+            { label: "Nosotros", href: "/acerca" },
+            { label: "Ayuda", href: "/ayuda" },
+          ].map((item) => (
             <a
-              key={item}
-              href={`/${item}`}
+              key={item.label}
+              href={item.href}
               onClick={() => setMenuOpen(false)}
               className="text-sm font-medium text-header-txt opacity-70 hover:opacity-100 hover:text-header-hover px-4"
             >
-              {item.charAt(0).toUpperCase() + item.slice(1)}
+              {item.label}
             </a>
           ))}
         </nav>
