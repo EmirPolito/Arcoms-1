@@ -4,12 +4,25 @@ import { PinContainer } from "@/components/ui/3-ui";
 
 export function TarjetaPines() {
   return (
-    <div
-      className="w-full flex items-center justify-center pt-0 pb-10 px-4"
-      style={{ contain: "layout style" }}
-    >
+    <section className="w-full py-11 px-4 flex flex-col items-center">
+      {/* HEADER INTEGRADO */}
+      <div className="text-center mb-2.5 md:mb-10  px-4">
+        <div className="flex flex-row flex-wrap items-center justify-center gap-4 mb-2">
+          <span className="text-2xl md:text-4xl font-bold tracking-tight text-titulos">
+            Título
+          </span>
+          <span className="bg-buttonC text-primary-foreground px-5 py-1.5 rounded-md text-2xl md:text-4xl font-bold tracking-tight ring-1 ring-white/10">
+            texto
+          </span>
+        </div>
+        <p className="text-sm md:text-base text-title-desc max-w-2xl mx-auto">
+          Lorem dolor sit met consectetu adipisicing elit. Quisquam, quod. lo
+          adipisicing elit.
+        </p>
+      </div>
+
+      {/* GRID DE TARJETAS */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-14 lg:gap-10">
-        {/* TARJETA 1 */}
         <PinContainer title="Descripcion1/" href="/">
           <div className="flex basis-full flex-col p-3.5 tracking-tight text-primary-color-text w-[17.5rem] h-[17.5rem] sm:w-[18rem] sm:h-[18rem] lg:w-[20rem] lg:h-[20rem]">
             <h3 className="max-w-xs pb-2 m-0 font-bold text-base text-foreground">
@@ -23,7 +36,6 @@ export function TarjetaPines() {
           </div>
         </PinContainer>
 
-        {/* TARJETA 2 — Realidad Aumentada */}
         <PinContainer title="Descripcion2/" href="/">
           <div className="flex basis-full flex-col p-3.5 tracking-tight text-foreground/60 w-[17.5rem] h-[17.5rem] sm:w-[18rem] sm:h-[18rem] lg:w-[20rem] lg:h-[20rem]">
             <h3 className="max-w-xs pb-2 m-0 font-bold text-base text-foreground">
@@ -37,7 +49,6 @@ export function TarjetaPines() {
           </div>
         </PinContainer>
 
-        {/* TARJETA 3 — Laboratorios Virtuales */}
         <PinContainer title="Descripcion3/" href="/">
           <div className="flex basis-full flex-col p-3.5 tracking-tight text-foreground/60 w-[17.5rem] h-[17.5rem] sm:w-[18rem] sm:h-[18rem] lg:w-[20rem] lg:h-[20rem]">
             <h3 className="max-w-xs pb-2 m-0 font-bold text-base text-foreground">
@@ -51,6 +62,6 @@ export function TarjetaPines() {
           </div>
         </PinContainer>
       </div>
-    </div>
+    </section>
   );
 }

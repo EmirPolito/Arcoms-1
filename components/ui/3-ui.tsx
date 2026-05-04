@@ -18,7 +18,7 @@ export const PinContainer = ({
   containerClassName?: string;
 }) => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { margin: "-25% 0px -25% 0px" });
+  const isInView = useInView(ref, { margin: "-20% 0px -20% 0px" });
   const [isHovered, setIsHovered] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
@@ -60,7 +60,7 @@ export const PinContainer = ({
         <div
           style={{ transform }}
           className={cn(
-            "absolute left-1/2 top-1/2 p-4 flex justify-start items-start rounded-2xl transition-[opacity,transform] duration-500 overflow-hidden",
+            "absolute left-1/2 top-1/2 p-4 flex justify-start items-start rounded-2xl transition-[opacity,transform] duration-500 overflow-hidden transform-gpu will-change-transform",
             "bg-background text-foreground border border-border shadow-md dark:shadow-lg",
             className,
           )}
@@ -75,17 +75,30 @@ export const PinContainer = ({
   );
 };
 
-export const PinPerspective = ({ title, isActive, isMobile }: { title?: string; isActive: boolean; isMobile: boolean }) => {
+export const PinPerspective = ({
+  title,
+  isActive,
+  isMobile,
+}: {
+  title?: string;
+  isActive: boolean;
+  isMobile: boolean;
+}) => {
   return (
     <motion.div
       className={cn(
-        "pointer-events-none w-full md:w-96 h-80 flex items-center justify-center z-20 transition duration-500 transform-gpu",
-        isActive ? "opacity-100" : "opacity-0"
+        "pointer-events-none w-full md:w-96 h-83.5 flex items-center justify-center z-20 transition duration-500 transform-gpu",
+        isActive ? "opacity-100" : "opacity-0",
       )}
     >
       <div className="absolute inset-0 flex items-center justify-center w-full">
         {/* TITULO */}
-        <div className={cn("absolute inset-x-0 flex justify-center transition-all duration-500", isMobile ? "top-4" : "top-0")}>
+        <div
+          className={cn(
+            "absolute inset-x-0 flex justify-center transition-all duration-500",
+            isMobile ? "top-4" : "top-0",
+          )}
+        >
           <div className="relative flex space-x-2 items-center z-10 rounded-full bg-background/70 backdrop-blur-sm py-0.5 px-4 ring-1 ring-border">
             <span className="relative z-20 text-xs font-bold text-foreground inline-block py-0.5">
               {title}
@@ -94,23 +107,28 @@ export const PinPerspective = ({ title, isActive, isMobile }: { title?: string; 
           </div>
         </div>
 
-        {/* HALOS ANIMADOS */}
+        {/* HALOS ANIMADOS — Reducidos en mobile */}
         <div
           style={{
             perspective: "1000px",
             transform: "rotateX(70deg) translateZ(0)",
           }}
-          className={cn("absolute left-1/2 top-1/2 ml-[0.09375rem] -translate-x-1/2 -translate-y-1/2", isMobile ? "mt-10" : "mt-4")}
+          className={cn(
+            "absolute left-1/2 top-1/2 ml-[0.09375rem] -translate-x-1/2 -translate-y-1/2 transform-gpu",
+            isMobile ? "mt-10" : "mt-4",
+          )}
         >
-          {[0, 2, 4].map((delay) => (
+          {(isMobile ? [0, 3] : [0, 2, 4]).map((delay) => (
             <motion.div
               key={delay}
               initial={{ opacity: 0, scale: 0, x: "-50%", y: "-50%" }}
               animate={{ opacity: [0, 1, 0.5, 0], scale: 1 }}
               transition={{ duration: 6, repeat: Infinity, delay }}
               className={cn(
-                "absolute left-1/2 top-1/2 rounded-full shadow-md",
-                isMobile ? "h-[7.5rem] w-[7.5rem] bg-white/10" : "h-[11.25rem] w-[11.25rem] bg-primary/15"
+                "absolute left-1/2 top-1/2 rounded-full shadow-md transform-gpu will-change-transform",
+                isMobile
+                  ? "h-[7.5rem] w-[7.5rem] bg-white/10"
+                  : "h-[11.25rem] w-[11.25rem] bg-primary/15",
               )}
             />
           ))}
@@ -118,10 +136,32 @@ export const PinPerspective = ({ title, isActive, isMobile }: { title?: string; 
 
         {/* PARTICULAS */}
         <>
-          <motion.div className={cn("absolute right-1/2 bottom-1/2 bg-gradient-to-b from-transparent to-primary-color-linea w-px transition-all duration-500 blur-[2px]", isMobile ? "translate-y-[38px]" : "translate-y-[14px]", isActive ? (isMobile ? "h-48" : "h-40") : "h-20")} />
-          <motion.div className={cn("absolute right-1/2 bottom-1/2 bg-gradient-to-b from-transparent to-primary-color-linea w-px transition-all duration-500", isMobile ? "translate-y-[38px]" : "translate-y-[14px]", isActive ? (isMobile ? "h-48" : "h-40") : "h-20")} />
-          <motion.div className={cn("absolute right-1/2 translate-x-[1.5px] bottom-1/2 bg-primary-color-linea w-1 h-1 rounded-full z-40 blur-[3px]", isMobile ? "translate-y-[38px]" : "translate-y-[14px]")} />
-          <motion.div className={cn("absolute right-1/2 translate-x-[0.5px] bottom-1/2 bg-primary-color-linea/70 w-[2px] h-[2px] rounded-full z-40", isMobile ? "translate-y-[38px]" : "translate-y-[14px]")} />
+          <motion.div
+            className={cn(
+              "absolute right-1/2 bottom-1/2 bg-gradient-to-b from-transparent to-primary-color-linea w-px transition-all duration-500 blur-[2px] transform-gpu",
+              isMobile ? "translate-y-[38px]" : "translate-y-[14px]",
+              isActive ? (isMobile ? "h-48" : "h-40") : "h-20",
+            )}
+          />
+          <motion.div
+            className={cn(
+              "absolute right-1/2 bottom-1/2 bg-gradient-to-b from-transparent to-primary-color-linea w-px transition-all duration-500 transform-gpu",
+              isMobile ? "translate-y-[38px]" : "translate-y-[14px]",
+              isActive ? (isMobile ? "h-48" : "h-40") : "h-20",
+            )}
+          />
+          <motion.div
+            className={cn(
+              "absolute right-1/2 translate-x-[1.5px] bottom-1/2 bg-primary-color-linea w-1 h-1 rounded-full z-40 blur-[3px] transform-gpu",
+              isMobile ? "translate-y-[38px]" : "translate-y-[14px]",
+            )}
+          />
+          <motion.div
+            className={cn(
+              "absolute right-1/2 translate-x-[0.5px] bottom-1/2 bg-primary-color-linea/70 w-[2px] h-[2px] rounded-full z-40 transform-gpu",
+              isMobile ? "translate-y-[38px]" : "translate-y-[14px]",
+            )}
+          />
         </>
       </div>
     </motion.div>

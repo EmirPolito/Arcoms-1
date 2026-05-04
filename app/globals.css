@@ -530,8 +530,9 @@ body {
 /* Fade-in sections — CSS puro, sin JS de animación */
 .fade-section {
   opacity: 0;
-  transform: translateY(14px);
-  transition: opacity 0.45s ease-out, transform 0.45s ease-out;
+  transform: translateY(10px);
+  transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+  will-change: opacity, transform;
 }
 .fade-section.visible {
   opacity: 1;

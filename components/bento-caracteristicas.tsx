@@ -5,6 +5,7 @@ import { motion, useInView } from "motion/react";
 import createGlobe from "cobe";
 import Image from "next/image";
 import { useTheme } from "next-themes";
+
 /* =====================================================
    SECTION
 ===================================================== */
@@ -12,11 +13,27 @@ import { useTheme } from "next-themes";
 export function BentoCaracteristicas() {
   return (
     <section
-      className="relative z-20 max-w-7xl mx-auto pt-8 pb-24 space-y-6 md:space-y-5 bg-feat-bg text-feat-txt px-6 sm:px-6"
+      className="relative z-20 max-w-7xl mx-auto pt-8 pb-24 space-y-6 md:space-y-5 bg-feat-bg text-feat-txt px-6 sm:px-6 flex flex-col items-center"
       style={{ contain: "layout style" }}
     >
+      {/* HEADER INTEGRADO */}
+      <div className="text-center  mb-5 md:mb-10 px-4">
+        <div className="flex flex-row flex-wrap items-center justify-center gap-4 mb-2">
+          <span className="text-2xl md:text-4xl font-bold tracking-tight text-title-ttl">
+            Título
+          </span>
+          <span className="bg-buttonC text-primary-foreground px-5 py-1.5 rounded-md text-2xl md:text-4xl font-bold tracking-tight ring-1 ring-white/10">
+            texto
+          </span>
+        </div>
+        <p className="text-sm md:text-base text-title-desc max-w-2xl mx-auto">
+          Lorem dolor sit met consectetu adipisicing elit. Quisquam, quod. lo
+          adipisicing elit.
+        </p>
+      </div>
+
       {/* ROW 1 */}
-      <div className="flex flex-col md:flex-row gap-6 md:gap-5 items-stretch">
+      <div className="flex flex-col md:flex-row gap-6 md:gap-5 items-stretch w-full">
         {/* LEFT — GLOBE CARD */}
         <div className="relative overflow-hidden rounded-2xl bg-feat-card border border-feat-border p-5 h-[21rem] md:h-[23rem] w-full md:w-[26rem] flex flex-col">
           <div className="relative z-10 space-y-1">
@@ -69,7 +86,7 @@ export function BentoCaracteristicas() {
       </div>
 
       {/* ROW 2 */}
-      <div className="flex flex-col md:flex-row gap-6 md:gap-5 items-stretch">
+      <div className="flex flex-col md:flex-row gap-6 md:gap-5 items-stretch w-full">
         {/* LEFT — CHART IMAGE (MOVED FROM RIGHT) */}
         <div className="relative flex-1 rounded-2xl bg-feat-card border border-feat-border p-6 overflow-hidden min-h-[23.5rem] md:min-h-0">
           <div className="max-w-md space-y-1 relative z-10">
