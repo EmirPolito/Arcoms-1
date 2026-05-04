@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
 
 export default function DemoInteractiva() {
   const [isYearly, setIsYearly] = useState(false);
@@ -115,15 +114,7 @@ export default function DemoInteractiva() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 w-full max-w-sm mx-auto md:max-w-none">
             {/* grid: cuadrícula, grid-cols-1: 1 columna, md:grid-cols-2: 2 en md, lg:grid-cols-4: 4 en lg, gap-6: espacio entre tarjetas, max-w-7xl: ancho máximo, mx-auto: centrado */}
             {plans.map((plan, index) => (
-              <motion.div
-                initial={{ opacity: 0, y: 15 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "50px" }}
-                transition={{
-                  duration: 0.4,
-                  delay: index * 0.05,
-                  ease: "easeOut",
-                }}
+              <div
                 key={index}
                 onClick={() => setSelectedPlan(index)}
                 className={`relative flex flex-col justify-between h-full p-6 lg:p-8 rounded-2xl border transition-all duration-300 transform-gpu
@@ -133,8 +124,8 @@ export default function DemoInteractiva() {
                                     ${plan.popular ? "mx-2 md:mx-0" : ""}
                                     ${
                                       selectedPlan === index
-                                        ? "border-price-btn-bg bg-price-btn-bg/5 shadow-lg scale-105 z-10" // Seleccionado
-                                        : "border-price-border bg-price-card" // No seleccionado
+                                        ? "border-price-btn-bg bg-price-btn-bg/5 shadow-lg scale-105 z-10"
+                                        : "border-price-border bg-price-card"
                                     }`}
               >
                 {plan.popular && (
@@ -194,7 +185,7 @@ export default function DemoInteractiva() {
                     {plan.cta}
                   </button>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>

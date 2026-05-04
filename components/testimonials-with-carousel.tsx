@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "motion/react";
 import TestimonialCarousel from "@/components/ui/testimonial-carousel";
 
 const testimonials = [
@@ -48,15 +47,9 @@ export default function TestimonialsCarousel() {
       style={{ contain: "layout style" }}
     >
       <div className="relative z-10 flex flex-col items-center gap-0 w-full max-w-6xl mt-0">
-        <motion.div
-          initial={{ opacity: 0, y: 15 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "50px" }}
-          transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }}
-          className="w-full mt-0"
-        >
+        <div className="w-full mt-0">
           <TestimonialCarousel data={testimonials} borderType="solid" />
-        </motion.div>
+        </div>
       </div>
     </section>
   );

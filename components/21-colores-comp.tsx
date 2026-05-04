@@ -13,28 +13,40 @@ type Theme = "light" | "dark";
 type ColorTheme = "orange" | "blue" | "green" | "violet" | "rose" | "yellow";
 
 const SunIcon = () => (
-  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+  <svg
+    width="18"
+    height="18"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+  >
     <circle cx="12" cy="12" r="4" />
     <path d="M12 2v2M12 20v2M2 12h2M20 12h2" />
   </svg>
 );
 
 const MoonIcon = () => (
-  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+  <svg
+    width="18"
+    height="18"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+  >
     <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
   </svg>
 );
 
-
-
 /* MAPA DE COLORES PARA TAILWIND */
 const colorClasses: Record<ColorTheme, string> = {
-    orange: "bg-orange-500",
-    blue: "bg-blue-500",
-    green: "bg-green-500",
-    violet: "bg-violet-500",
-    rose: "bg-rose-500",
-    yellow: "bg-yellow-500",
+  orange: "bg-orange-500",
+  blue: "bg-blue-500",
+  green: "bg-green-500",
+  violet: "bg-violet-500",
+  rose: "bg-rose-500",
+  yellow: "bg-yellow-500",
 };
 
 const colorTranslations: Record<ColorTheme, string> = {
@@ -52,7 +64,10 @@ export function ThemeSwitcher() {
 
   if (typeof window !== "undefined") {
     const savedTheme = localStorage.getItem("theme") as Theme | null;
-    const savedColor = localStorage.getItem("color") as ColorTheme | "neutro" | null;
+    const savedColor = localStorage.getItem("color") as
+      | ColorTheme
+      | "neutro"
+      | null;
 
     if (savedTheme) initialTheme = savedTheme;
 
@@ -119,17 +134,10 @@ export function ThemeSwitcher() {
     setTheme(order[(order.indexOf(theme) + 1) % order.length]);
   };
 
-  const icon =
-    theme === "light" ? (
-      <SunIcon />
-    ) : (
-      <MoonIcon />
-    );
+  const icon = theme === "light" ? <SunIcon /> : <MoonIcon />;
 
   const colorLabel =
-    color === "neutro"
-      ? "Neutro"
-      : colorTranslations[color as ColorTheme];
+    color === "neutro" ? "Neutro" : colorTranslations[color as ColorTheme];
 
   return (
     <div className="flex gap-2 sm:gap-3 items-center">
@@ -142,7 +150,10 @@ export function ThemeSwitcher() {
 
       <div className="w-px h-4 bg-[var(--divider-color)]" />
 
-      <Select value={color} onValueChange={(v) => setColor(v as ColorTheme | "neutro")}>
+      <Select
+        value={color}
+        onValueChange={(v) => setColor(v as ColorTheme | "neutro")}
+      >
         <SelectTrigger className="h-8 w-24 sm:w-28 text-[11px] sm:text-xs flex items-center gap-1 sm:gap-2 cursor-pointer">
           {/* ÚNICO puntito visible */}
           {color === "neutro" ? (
@@ -150,7 +161,9 @@ export function ThemeSwitcher() {
               className={`w-2.5 h-2.5 rounded-full ${colorClasses[animatedDotColor]} transition-colors`}
             />
           ) : (
-            <span className={`w-2.5 h-2.5 rounded-full ${colorClasses[color as ColorTheme]}`} />
+            <span
+              className={`w-2.5 h-2.5 rounded-full ${colorClasses[color as ColorTheme]}`}
+            />
           )}
 
           <SelectValue>{colorLabel}</SelectValue>
@@ -167,7 +180,9 @@ export function ThemeSwitcher() {
           {animatedColors.map((c) => (
             <SelectItem key={c} value={c} className="text-xs">
               <span className="flex items-center gap-1.5">
-                <span className={`w-2.5 h-2.5 rounded-full ${colorClasses[c]}`} />
+                <span
+                  className={`w-2.5 h-2.5 rounded-full ${colorClasses[c]}`}
+                />
                 {colorTranslations[c]}
               </span>
             </SelectItem>

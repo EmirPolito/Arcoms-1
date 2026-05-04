@@ -32,7 +32,7 @@ export default function EstadoAgentes() {
         }
         return prev + 1;
       });
-    }, 3000);
+    }, 1200);
     return () => clearInterval(interval);
   }, []);
 
@@ -45,7 +45,7 @@ export default function EstadoAgentes() {
         }
         return prev + 1;
       });
-    }, 3000);
+    }, 1200);
     return () => clearInterval(interval);
   }, []);
 
@@ -73,10 +73,10 @@ export default function EstadoAgentes() {
               {agentStates.map((agent, index) => (
                 <div
                   key={agent.id}
-                  className={`flex items-center justify-between p-3 sm:p-5 rounded-lg border transition-[opacity,background-color,border-color,box-shadow] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+                  className={`flex items-center justify-between p-3 sm:p-5 rounded-lg border transition-[opacity,background-color,border-color,box-shadow,ring] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
                     activeAgent === index
-                      ? "border-primary/70 bg-primary/15 shadow-md"
-                      : "border-border bg-card shadow-xs opacity-90"
+                      ? "border-primary/80 bg-primary/25 shadow-md ring-1 ring-primary/30"
+                      : "border-border bg-card shadow-xs opacity-70"
                   }`}
                 >
                   <span className="text-sm text-feat-desc">{agent.name}</span>

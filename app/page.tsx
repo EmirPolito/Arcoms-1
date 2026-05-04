@@ -1,38 +1,51 @@
 "use client";
-import { motion } from "motion/react";
+import { useEffect, useRef } from "react";
 
 import { Header } from "../components/header";
 import { HeroSection } from "@/components/hero";
 import CarruselLogos from "@/components/carrusel-logos";
 
 import { TituloEstadoAgentes } from "@/components/titulo-seccion";
-import { TarjetaPines } from "@/components/tarjeta-pines"; /**pines 3d */
+import { TarjetaPines } from "@/components/tarjeta-pines";
 
-import EstadoAgentes from "@/components/estado-agentes"; /** 2 lineas */
+import EstadoAgentes from "@/components/estado-agentes";
 
 import { TituloCaracteristicas } from "@/components/texto-interactivo";
-import { BentoCaracteristicas } from "@/components/bento-caracteristicas"; /**mundo */
+import { BentoCaracteristicas } from "@/components/bento-caracteristicas";
 
 import { TituloDemo } from "@/components/resaltador-cursor";
-import Pricing from "@/components/pricing"; /**precios */
+import Pricing from "@/components/pricing";
 
 import { TituloTarjetas } from "@/components/texto-animado";
 import TestimonialsCarousel from "@/components/testimonials-with-carousel";
 import Footer from "../components/footer";
 
 function FadeInSection({ children }: { children: React.ReactNode }) {
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          el.classList.add("visible");
+          observer.unobserve(el);
+        }
+      },
+      { threshold: 0.05, rootMargin: "0px 0px -40px 0px" }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 12 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "60px" }}
-      transition={{ duration: 0.4, ease: "easeOut" }}
-      className="transform-gpu will-change-[opacity,transform]"
-    >
+    <div ref={ref} className="fade-section">
       {children}
-    </motion.div>
+    </div>
   );
 }
+
 
 export default function Home() {
   return (

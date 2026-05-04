@@ -285,15 +285,8 @@ export default function TestimonialCarousel({
     });
   }, [api]);
 
-  React.useEffect(() => {
-    if (!api) return;
 
-    const timer = setInterval(() => {
-      if (api) api.scrollNext();
-    }, 5000);
 
-    return () => clearInterval(timer);
-  }, [api, current]);
 
   return (
     <div className="relative flex items-center justify-center w-full select-none px-2 sm:px-4 md:px-6 pt-5 pb-10">
