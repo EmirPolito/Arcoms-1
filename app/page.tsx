@@ -46,30 +46,20 @@ export default function Home() {
           <CarruselLogos />
         </FadeInSection>
 
-        <FadeInSection>
-          <TituloEstadoAgentes />
-          <TarjetaPines />
-        </FadeInSection>
+        <TituloEstadoAgentes />
+        <TarjetaPines />
 
-        <FadeInSection>
-          {/* <TituloTarjetas /> */}
-          <EstadoAgentes />
-        </FadeInSection>
+        {/* <TituloTarjetas /> */}
+        <EstadoAgentes />
 
-        <FadeInSection>
-          <TituloCaracteristicas />
-          <BentoCaracteristicas />
-        </FadeInSection>
+        <TituloCaracteristicas />
+        <BentoCaracteristicas />
 
-        <FadeInSection>
-          <TituloDemo />
-          <Pricing />
-        </FadeInSection>
+        <TituloDemo />
+        <Pricing />
 
-        <FadeInSection>
-          <TituloTarjetas />
-          <TestimonialsCarousel />
-        </FadeInSection>
+        <TituloTarjetas />
+        <TestimonialsCarousel />
       </main>
       <Footer />
     </div>
