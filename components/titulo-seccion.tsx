@@ -1,6 +1,5 @@
 "use client";
 
-
 export function TituloEstadoAgentes() {
   return (
     <div className="mx-auto sm:mb-0 text-center my-0 md:my-12 px-3">
@@ -16,7 +15,7 @@ export function TituloEstadoAgentes() {
                 top: "100%",
                 marginLeft: "4px",
                 marginTop: "4px",
-                transform: "rotate(-90deg)"
+                transform: "rotate(-90deg)",
               }}
             >
               <svg

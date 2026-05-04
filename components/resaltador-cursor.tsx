@@ -1,7 +1,5 @@
 "use client";
 
-
-
 export function TituloDemo() {
   return (
     <div className="mx-auto text-center mt-0 md:mt-7 mb-4 px-5">
@@ -18,7 +16,7 @@ export function TituloDemo() {
                 top: "100%",
                 marginLeft: "4px",
                 marginTop: "4px",
-                transform: "rotate(-90deg)"
+                transform: "rotate(-90deg)",
               }}
             >
               <svg

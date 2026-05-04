@@ -3,7 +3,7 @@
 export function TituloCaracteristicas() {
   return (
     <div className="px-4">
-      <div className="relative mx-2 sm:mx-6 mt-10 mb-4 sm:mt-0 sm:mb-4 flex flex-row flex-wrap items-center justify-center gap-4 text-center sm:mx-0">
+      <div className="relative mx-2 sm:mx-6 mt-10 mb-2 sm:mt-0 sm:mb-4 flex flex-row flex-wrap items-center justify-center gap-4 text-center sm:mx-0">
         <span className="text-2xl font-bold tracking-tight drop-shadow-lg md:text-4xl">
           Título
         </span>

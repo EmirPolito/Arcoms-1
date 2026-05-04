@@ -23,10 +23,11 @@ import Footer from "../components/footer";
 function FadeInSection({ children }: { children: React.ReactNode }) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 8 }}
+      initial={{ opacity: 0, y: 12 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "100px" }}
-      transition={{ duration: 0.35, ease: "easeOut" }}
+      viewport={{ once: true, margin: "60px" }}
+      transition={{ duration: 0.4, ease: "easeOut" }}
+      className="transform-gpu will-change-[opacity,transform]"
     >
       {children}
     </motion.div>
@@ -46,20 +47,37 @@ export default function Home() {
           <CarruselLogos />
         </FadeInSection>
 
-        <TituloEstadoAgentes />
-        <TarjetaPines />
+        <FadeInSection>
+          <TituloEstadoAgentes />
+        </FadeInSection>
+        <FadeInSection>
+          <TarjetaPines />
+        </FadeInSection>
 
-        {/* <TituloTarjetas /> */}
-        <EstadoAgentes />
+        <FadeInSection>
+          <EstadoAgentes />
+        </FadeInSection>
 
-        <TituloCaracteristicas />
-        <BentoCaracteristicas />
+        <FadeInSection>
+          <TituloCaracteristicas />
+        </FadeInSection>
+        <FadeInSection>
+          <BentoCaracteristicas />
+        </FadeInSection>
 
-        <TituloDemo />
-        <Pricing />
+        <FadeInSection>
+          <TituloDemo />
+        </FadeInSection>
+        <FadeInSection>
+          <Pricing />
+        </FadeInSection>
 
-        <TituloTarjetas />
-        <TestimonialsCarousel />
+        <FadeInSection>
+          <TituloTarjetas />
+        </FadeInSection>
+        <FadeInSection>
+          <TestimonialsCarousel />
+        </FadeInSection>
       </main>
       <Footer />
     </div>

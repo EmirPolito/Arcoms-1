@@ -32,7 +32,7 @@ export default function EstadoAgentes() {
         }
         return prev + 1;
       });
-    }, 1800);
+    }, 3000);
     return () => clearInterval(interval);
   }, []);
 
@@ -45,7 +45,7 @@ export default function EstadoAgentes() {
         }
         return prev + 1;
       });
-    }, 1800);
+    }, 3000);
     return () => clearInterval(interval);
   }, []);
 
@@ -75,7 +75,7 @@ export default function EstadoAgentes() {
                   key={agent.id}
                   className={`flex items-center justify-between p-3 sm:p-5 rounded-lg border transition-[opacity,background-color,border-color,box-shadow] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
                     activeAgent === index
-                      ? "border-primary/45 bg-primary/5 shadow-sm"
+                      ? "border-primary/70 bg-primary/15 shadow-md"
                       : "border-border bg-card shadow-xs opacity-90"
                   }`}
                 >
