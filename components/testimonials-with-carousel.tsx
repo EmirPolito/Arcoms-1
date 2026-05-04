@@ -45,9 +45,9 @@ export default function TestimonialsCarousel() {
     >
       {/* HEADER INTEGRADO */}
       <div className="text-center  mb-0 md:mb-3.5 px-4">
-        <h2 className="text-2xl md:text-4xl font-bold tracking-tight text-title-ttl">
+        <h2 className="text-2xl md:text-4xl font-bold tracking-tight text-titulos">
           Mira los{" "}
-          <div className="inline-flex relative items-center justify-center px-4 py-1.5 border border-primary-color-text/50">
+          <div className=" text-title-ttl inline-flex relative items-center justify-center px-4 py-1.5 border border-primary-color-text/50">
             <span>testimonios</span>
             <div className="absolute -bottom-2 -right-2 transform rotate-[-90deg] text-primary-color-text">
               <svg

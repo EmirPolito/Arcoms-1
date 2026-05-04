@@ -113,7 +113,7 @@ export default function EstadoAgentes() {
     <section className="w-full py-10 md:py-27 bg-feat-bg text-feat-txt">
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 flex flex-col items-center">
         {/* HEADER INTEGRADO */}
-        <div className="text-center mb-4 md:mb-12 px-4">
+        <div className="text-center mb-3 md:mb-12 px-4">
           <div className="inline-flex relative items-center justify-center px-4 py-1.5 border border-primary-color-text/50">
             <h2 className="text-2xl md:text-4xl font-bold tracking-tight text-title-ttl">
               Título de la sección
@@ -148,8 +148,8 @@ export default function EstadoAgentes() {
                   Sub-titulo 1
                 </h2>
                 <p className="px-2 text-center md:text-left text-sm max-w-md-lg text-feat-desc">
-                  Lorem dolor sit met consectetu adipisicing elit. Quisquam,
-                  quod. lo adipisicing elit.
+                  Lorem dolor sit netus met consectetu adipisicing elit.
+                  Quisquam, quod. lo.
                 </p>
               </div>
 
@@ -160,7 +160,7 @@ export default function EstadoAgentes() {
             <div className="p-4 sm:p-6 md:p-12 md:pl-16 space-y-4 md:space-y-10">
               <div className="space-y-3 max-w-md">
                 <h2 className="text-center md:text-left text-xl md:text-2xl font-semibold text-feat-ttl leading-snug">
-                  Título de la sección
+                  Sub-titulo 2
                 </h2>
 
                 <p className="text-center md:text-left text-[10.5px] tracking-widest uppercase text-feat-desc">
@@ -190,7 +190,7 @@ export default function EstadoAgentes() {
             <div className="p-4 sm:p-6 md:p-12 md:pl-16 space-y-4 md:space-y-10">
               <div className="space-y-3 max-w-md">
                 <h2 className="text-center md:text-left text-xl md:text-2xl font-semibold text-feat-ttl leading-snug">
-                  Título de la sección
+                  Sub-titulo 3
                 </h2>
 
                 <p className="text-center md:text-left text-[10.5px] tracking-widest uppercase text-feat-desc">
@@ -220,12 +220,11 @@ export default function EstadoAgentes() {
             <div className="p-2 sm:p-6 md:p-12 md:pl-16 space-y-7 md:space-y-14">
               <div>
                 <h2 className="text-center md:text-left text-xl md:text-2xl font-semibold text-feat-ttl mb-0">
-                  Título de la sección
+                  Sub-titulo 4
                 </h2>
                 <p className="text-center md:text-left text-sm max-w-md-lg text-feat-desc">
-                  Lorem ipsum sit ipsum ipsum sitconsectetur sitos adipisicing
-                  elit. Quisquam, quod. Lorem ipsum dolor sit amet consectetur
-                  adipisicing.
+                  Lorem dolor sit netus met consectetu adipisicing elit.
+                  Quisquam, quod. lo.
                 </p>
               </div>
 

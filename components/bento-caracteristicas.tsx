@@ -27,8 +27,8 @@ export function BentoCaracteristicas() {
           </span>
         </div>
         <p className="text-sm md:text-base text-title-desc max-w-2xl mx-auto">
-          Lorem dolor sit met consectetu adipisicing elit. Quisquam, quod. lo
-          adipisicing elit.
+          Lorem dolor sit met lot amet si consectetu adipisicing meetings elit.
+          Quisquam, quod.
         </p>
       </div>
 
