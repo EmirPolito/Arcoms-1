@@ -296,20 +296,21 @@ export default function TestimonialCarousel({
   }, [api, current]);
 
   return (
-    <div className="relative flex items-center justify-center w-full select-none px-2 sm:px-4 md:px-6 py-10">
-      <TestimonialCard className="relative max-w-6xl w-full" setApi={setApi}>
+    <div className="relative flex items-center justify-center w-full select-none px-2 sm:px-4 md:px-6 pt-5 pb-10">
+      <TestimonialCard
+        className="relative max-w-xl md:max-w-5xl w-full"
+        setApi={setApi}
+      >
         <div className="relative w-full">
           <TestimonialCardContent>
             {data.map((testimonial, index) => (
               <TestimonialCardItem key={index} className="basis-full">
                 <Card className="bg-card border-border border h-full">
-                  <CardContent className="p-4 sm:p-6 md:p-8 h-full flex items-center">
-                    <div className="flex flex-col sm:flex-row items-start gap-4 sm:gap-6 w-full">
-                      <AnimatedAvatarBorder
-                        isActive={index === current}
-                        borderType={borderType}
-                      >
-                        <Avatar className="w-full h-full">
+                  <CardContent className="p-3.5 sm:p-6 md:p-8 h-full flex items-center">
+                    <div className="flex flex-col w-full gap-4">
+                      {/* Fila: avatar + nombre/handle */}
+                      <div className="flex items-center gap-4">
+                        <Avatar className="w-13 h-13 sm:w-15 sm:h-15 shrink-0">
                           <AvatarImage
                             src={testimonial.image}
                             alt={testimonial.name}
@@ -321,18 +322,19 @@ export default function TestimonialCarousel({
                               .join("")}
                           </AvatarFallback>
                         </Avatar>
-                      </AnimatedAvatarBorder>
-                      <div className="flex-1 min-h-30 sm:min-h-35 flex flex-col justify-center">
-                        <h3 className="text-lg sm:text-xl font-semibold mb-1 text-testim-ttl">
-                          {testimonial.name}
-                        </h3>
-                        <p className="text-xs sm:text-sm mb-3 sm:mb-4 text-testim-desc">
-                          {testimonial.handle}
-                        </p>
-                        <p className="text-sm sm:text-base leading-relaxed text-testim-desc">
-                          {testimonial.description}
-                        </p>
+                        <div>
+                          <h3 className="text-base sm:text-lg font-semibold text-testim-ttl leading-tight">
+                            {testimonial.name}
+                          </h3>
+                          <p className="text-xs sm:text-sm text-testim-desc mt-0.5">
+                            {testimonial.handle}
+                          </p>
+                        </div>
                       </div>
+                      {/* Descripción debajo */}
+                      <p className="text-sm sm:text-base leading-relaxed text-testim-desc">
+                        {testimonial.description}
+                      </p>
                     </div>
                   </CardContent>
                 </Card>

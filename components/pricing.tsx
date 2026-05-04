@@ -112,7 +112,7 @@ export default function DemoInteractiva() {
             </div>
           </div>
           {/* Pricing Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 w-full">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 w-full max-w-sm mx-auto md:max-w-none">
             {/* grid: cuadrícula, grid-cols-1: 1 columna, md:grid-cols-2: 2 en md, lg:grid-cols-4: 4 en lg, gap-6: espacio entre tarjetas, max-w-7xl: ancho máximo, mx-auto: centrado */}
             {plans.map((plan, index) => (
               <motion.div
@@ -130,6 +130,7 @@ export default function DemoInteractiva() {
                                     cursor-pointer
                                     hover:border-primary
                                     hover:shadow-xl
+                                    ${plan.popular ? "mx-2 md:mx-0" : ""}
                                     ${
                                       selectedPlan === index
                                         ? "border-price-btn-bg bg-price-btn-bg/5 shadow-lg scale-105 z-10" // Seleccionado

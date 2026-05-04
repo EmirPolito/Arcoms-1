@@ -44,7 +44,7 @@ export function BentoCaracteristicas() {
             </p>
           </div>
 
-          <div className="absolute bottom-[-16rem] md:bottom-[-15rem] right-[-5rem] md:right-[-4.5rem]">
+          <div className="absolute bottom-[-16rem] md:bottom-[-16rem] right-[-5rem] md:right-[-5rem]">
             <div className="rounded-2xl border border-img-frame bg-muted/40 p-4">
               <Image
                 src="/img/5.jpg"
@@ -80,7 +80,7 @@ export function BentoCaracteristicas() {
             </p>
           </div>
 
-          <div className="absolute bottom-[-16rem] md:bottom-[-15rem] right-[-5rem] md:right-[-4.5rem]">
+          <div className="absolute bottom-[-16rem] md:bottom-[-16rem] right-[-5rem] md:right-[-5rem]">
             <div className="rounded-2xl border border-img-frame bg-muted/40 p-4">
               <Image
                 src="/img/5.jpg"
