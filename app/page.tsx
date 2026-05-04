@@ -5,11 +5,8 @@ import { Header } from "../components/header";
 import { HeroSection } from "@/components/hero";
 import LogoCloud from "@/components/logo-cloud";
 import { TarjetaPines } from "@/components/tarjeta-pines";
-
 import EstadoAgentes from "@/components/estado-agentes";
-
 import { BentoCaracteristicas } from "@/components/bento-caracteristicas";
-
 import TestimonialsCarousel from "@/components/testimonials-with-carousel";
 import Footer from "../components/footer";
 
@@ -71,10 +68,4 @@ export default function Home() {
       <Footer />
     </div>
   );
-}
-
-{
-  /* <FadeInSection>
-          <TituloTarjetas />
-        </FadeInSection> */
 }
