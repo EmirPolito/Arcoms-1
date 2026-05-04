@@ -37,6 +37,15 @@ const colorClasses: Record<ColorTheme, string> = {
     yellow: "bg-yellow-500",
 };
 
+const colorTranslations: Record<ColorTheme, string> = {
+  orange: "Naranja",
+  blue: "Azul",
+  green: "Verde",
+  violet: "Violeta",
+  rose: "Rosa",
+  yellow: "Amarillo",
+};
+
 export function ThemeSwitcher() {
   let initialTheme: Theme = "dark";
   let initialColor: ColorTheme | "neutro" = "neutro";
@@ -120,7 +129,7 @@ export function ThemeSwitcher() {
   const colorLabel =
     color === "neutro"
       ? "Neutro"
-      : color.charAt(0).toUpperCase() + color.slice(1);
+      : colorTranslations[color as ColorTheme];
 
   return (
     <div className="flex gap-2 sm:gap-3 items-center">
@@ -159,7 +168,7 @@ export function ThemeSwitcher() {
             <SelectItem key={c} value={c} className="text-xs">
               <span className="flex items-center gap-1.5">
                 <span className={`w-2.5 h-2.5 rounded-full ${colorClasses[c]}`} />
-                {c.charAt(0).toUpperCase() + c.slice(1)}
+                {colorTranslations[c]}
               </span>
             </SelectItem>
           ))}
