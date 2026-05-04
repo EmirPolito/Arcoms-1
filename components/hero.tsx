@@ -1,12 +1,17 @@
 "use client";
 import Link from "next/link";
-
-import { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
 
 const SplineScene = dynamic(
-  () => import("@/components/ui/splite").then((mod) => mod.SplineScene),
-  { ssr: false },
+  () => import("@splinetool/react-spline"),
+  {
+    ssr: false,
+    loading: () => (
+      <div className="w-full h-full flex items-center justify-center">
+        <span className="loader" />
+      </div>
+    ),
+  }
 );
 
 import {
@@ -24,21 +29,12 @@ export function HeroSection({
   paragraphSize = "text-base md:text-lg ",
   buttonWidth = "px-6 md:px-8",
 }: SplineSceneBasicProps) {
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    setIsVisible(true);
-  }, []);
 
   return (
     <div className="w-full min-h-[500px] md:h-[600px] lg:h-[650px] relative overflow-hidden bg-background border-0 shadow-none ring-0 text-foreground">
       {/* Contenido */}
       <div
-        className={`
-          relative z-10 flex h-full items-center pointer-events-none px-4 sm:px-6 pt-6 pb-12 md:py-0 transform-gpu
-          transition-[opacity,transform] duration-[500ms] ease-out will-change-[opacity,transform]
-          ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}
-        `}
+        className="relative z-10 flex h-full items-center pointer-events-none px-4 sm:px-6 pt-6 pb-12 md:py-0 transform-gpu opacity-100 translate-y-0"
       >
         <div className="mx-auto w-full max-w-lg text-center lg:ml-16 lg:text-left -mt-8 md:-mt-36">
           <div className="relative z-20 mt-2 mb-1 flex justify-center lg:justify-start">
