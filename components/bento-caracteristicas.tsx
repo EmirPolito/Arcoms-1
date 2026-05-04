@@ -44,7 +44,7 @@ export function BentoCaracteristicas() {
             </p>
           </div>
 
-          <div className="absolute bottom-[-14rem] md:bottom-[-15rem] right-[-4rem] md:right-[-4.5rem]">
+          <div className="absolute bottom-[-16rem] md:bottom-[-15rem] right-[-5rem] md:right-[-4.5rem]">
             <div className="rounded-2xl border border-img-frame bg-muted/40 p-4">
               <Image
                 src="/img/5.jpg"
@@ -80,7 +80,7 @@ export function BentoCaracteristicas() {
             </p>
           </div>
 
-          <div className="absolute bottom-[-15rem] md:bottom-[-15rem] right-[-4rem] md:right-[-4.5rem]">
+          <div className="absolute bottom-[-16rem] md:bottom-[-15rem] right-[-5rem] md:right-[-4.5rem]">
             <div className="rounded-2xl border border-img-frame bg-muted/40 p-4">
               <Image
                 src="/img/5.jpg"
@@ -113,7 +113,7 @@ export function BentoCaracteristicas() {
             </p>
           </div>
 
-          <div className="flex-1 flex items-center justify-center gap-4 sm:gap-6 md:gap-4 mt-6 md:mt-4 flex-wrap relative z-10">
+          <div className="flex-1 flex items-center justify-center gap-4 sm:gap-6 md:gap-4 mt-4 md:mt-4 flex-wrap relative z-10">
             {workflowSwingCards.map((card, i) => (
               <motion.div
                 key={card.id}
@@ -127,7 +127,7 @@ export function BentoCaracteristicas() {
                   ease: "easeInOut",
                 }}
                 className="
-                  h-24 w-24
+                  h-20 w-20
                   sm:h-28 sm:w-28
                   md:h-28 md:w-28
                   rounded-xl
@@ -218,80 +218,80 @@ function Globe() {
     return () => observer.disconnect();
   }, []);
 
-    const isVisible = useInView(canvasRef, { margin: "400px" });
+  const isVisible = useInView(canvasRef, { margin: "400px" });
 
-    useEffect(() => {
-      if (!canvasRef.current || !isVisible) return;
+  useEffect(() => {
+    if (!canvasRef.current || !isVisible) return;
 
-      let phi = 0;
-      const isDark = resolvedTheme === "dark";
+    let phi = 0;
+    const isDark = resolvedTheme === "dark";
 
-      const getCssVarRgb = (
-        varName: string,
-        fallback: [number, number, number],
-      ): [number, number, number] => {
-        if (typeof window === "undefined") return fallback;
-        const hex = getComputedStyle(document.documentElement)
-          .getPropertyValue(varName)
-          .trim();
-        if (hex.startsWith("#")) {
-          const r = parseInt(hex.slice(1, 3), 16) / 255;
-          const g = parseInt(hex.slice(3, 5), 16) / 255;
-          const b = parseInt(hex.slice(5, 7), 16) / 255;
-          if (!isNaN(r) && !isNaN(g) && !isNaN(b)) return [r, g, b];
-        }
-        return fallback;
-      };
+    const getCssVarRgb = (
+      varName: string,
+      fallback: [number, number, number],
+    ): [number, number, number] => {
+      if (typeof window === "undefined") return fallback;
+      const hex = getComputedStyle(document.documentElement)
+        .getPropertyValue(varName)
+        .trim();
+      if (hex.startsWith("#")) {
+        const r = parseInt(hex.slice(1, 3), 16) / 255;
+        const g = parseInt(hex.slice(3, 5), 16) / 255;
+        const b = parseInt(hex.slice(5, 7), 16) / 255;
+        if (!isNaN(r) && !isNaN(g) && !isNaN(b)) return [r, g, b];
+      }
+      return fallback;
+    };
 
-      const primaryRgb = getCssVarRgb(
-        "--primary",
-        isDark ? [0.1, 0.1, 0.1] : [1, 1, 1],
-      );
+    const primaryRgb = getCssVarRgb(
+      "--primary",
+      isDark ? [0.1, 0.1, 0.1] : [1, 1, 1],
+    );
 
-      // Detecta colores neutrales (blancos, negros, grises) incluyendo tonos casi grises
-      const isNeutral =
-        Math.abs(primaryRgb[0] - primaryRgb[1]) < 0.1 &&
-        Math.abs(primaryRgb[1] - primaryRgb[2]) < 0.1;
+    // Detecta colores neutrales (blancos, negros, grises) incluyendo tonos casi grises
+    const isNeutral =
+      Math.abs(primaryRgb[0] - primaryRgb[1]) < 0.1 &&
+      Math.abs(primaryRgb[1] - primaryRgb[2]) < 0.1;
 
-      // Asignación inteligente de color:
-      // - Si es neutral, usa blanco puro en claro y "un poco oscuro" en oscuro.
-      // - Si hay un color llamativo (naranja, azul), usa ese color.
-      const globeColor: [number, number, number] = isNeutral
-        ? isDark
-          ? [0.25, 0.25, 0.25]
-          : [1, 1, 1]
-        : primaryRgb;
+    // Asignación inteligente de color:
+    // - Si es neutral, usa blanco puro en claro y "un poco oscuro" en oscuro.
+    // - Si hay un color llamativo (naranja, azul), usa ese color.
+    const globeColor: [number, number, number] = isNeutral
+      ? isDark
+        ? [0.25, 0.25, 0.25]
+        : [1, 1, 1]
+      : primaryRgb;
 
-      // Si el globo es blanco/muy claro, necesita líneas oscuras para que se vea la red.
-      const isBright = globeColor[0] + globeColor[1] + globeColor[2] > 2.5;
+    // Si el globo es blanco/muy claro, necesita líneas oscuras para que se vea la red.
+    const isBright = globeColor[0] + globeColor[1] + globeColor[2] > 2.5;
 
-      const globe = createGlobe(canvasRef.current, {
-        devicePixelRatio: 2,
-        width: 840,
-        height: 840,
-        phi: 0,
-        theta: 0,
-        dark: isBright ? 0 : 1,
-        diffuse: 1.2,
-        mapSamples: 16000,
-        mapBrightness: 6,
-        baseColor: globeColor,
-        glowColor: globeColor,
-        markerColor: isBright ? [0.1, 0.1, 0.1] : [1, 1, 1],
-        markers: [
-          { location: [37.7595, -122.4367], size: 0.03 },
-          { location: [40.7128, -74.006], size: 0.1 },
-        ],
-        onRender: (state: any) => {
-          state.phi = phi;
-          phi += 0.01;
-        },
-      });
+    const globe = createGlobe(canvasRef.current, {
+      devicePixelRatio: 2,
+      width: 840,
+      height: 840,
+      phi: 0,
+      theta: 0,
+      dark: isBright ? 0 : 1,
+      diffuse: 1.2,
+      mapSamples: 16000,
+      mapBrightness: 6,
+      baseColor: globeColor,
+      glowColor: globeColor,
+      markerColor: isBright ? [0.1, 0.1, 0.1] : [1, 1, 1],
+      markers: [
+        { location: [37.7595, -122.4367], size: 0.03 },
+        { location: [40.7128, -74.006], size: 0.1 },
+      ],
+      onRender: (state: any) => {
+        state.phi = phi;
+        phi += 0.01;
+      },
+    });
 
-      return () => globe.destroy();
-    }, [resolvedTheme, themeTick, isVisible]);
+    return () => globe.destroy();
+  }, [resolvedTheme, themeTick, isVisible]);
 
-    return (
+  return (
     <canvas
       ref={canvasRef}
       className="translate-y-[8rem] scale-[0.75] md:scale-100 aspect-square"

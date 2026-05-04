@@ -171,11 +171,7 @@ export default function EstadoAgentes() {
               {guardrailChecks.map((check, index) => (
                 <div
                   key={check.id}
-                  className={`flex items-center gap-3 sm:gap-5 p-3 sm:p-5 rounded-md border transition-[opacity,transform,background-color,border-color,box-shadow] duration-600 ease-[cubic-bezier(0.22,1,0.36,1)] ${
-                    guardrailProgress >= index
-                      ? "opacity-90 translate-x-0 bg-card border-feat-border/60 shadow-xs"
-                      : "opacity-0 translate-x-2 border-transparent"
-                  }`}
+                  className="flex items-center gap-3 sm:gap-5 p-3 sm:p-5 rounded-md border bg-card border-feat-border/60 shadow-xs opacity-90"
                 >
                   <div
                     className={`w-5 h-5 rounded-full flex items-center justify-center shrink-0 transition-[background-color,border-color] duration-500 ease-out ${
@@ -201,7 +197,7 @@ export default function EstadoAgentes() {
                     )}
                   </div>
 
-                  <span className="text-xs font-medium transition-opacity duration-700 ease-out">
+                  <span className="text-xs font-medium">
                     {check.label}
                   </span>
                 </div>
