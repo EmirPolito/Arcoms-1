@@ -3,7 +3,7 @@ import { useEffect, useRef } from "react";
 
 import { Header } from "../components/header";
 import { HeroSection } from "@/components/hero";
-import CarruselLogos from "@/components/carrusel-logos";
+import LogoCloud from "@/components/logo-cloud";
 
 import { TituloEstadoAgentes } from "@/components/titulo-seccion";
 import { TarjetaPines } from "@/components/tarjeta-pines";
@@ -14,7 +14,6 @@ import { TituloCaracteristicas } from "@/components/texto-interactivo";
 import { BentoCaracteristicas } from "@/components/bento-caracteristicas";
 
 import { TituloDemo } from "@/components/resaltador-cursor";
-import Pricing from "@/components/pricing";
 
 import { TituloTarjetas } from "@/components/texto-animado";
 import TestimonialsCarousel from "@/components/testimonials-with-carousel";
@@ -33,7 +32,7 @@ function FadeInSection({ children }: { children: React.ReactNode }) {
           observer.unobserve(el);
         }
       },
-      { threshold: 0.05, rootMargin: "0px 0px -40px 0px" }
+      { threshold: 0.05, rootMargin: "0px 0px -40px 0px" },
     );
     observer.observe(el);
     return () => observer.disconnect();
@@ -46,7 +45,6 @@ function FadeInSection({ children }: { children: React.ReactNode }) {
   );
 }
 
-
 export default function Home() {
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -57,7 +55,7 @@ export default function Home() {
         </FadeInSection>
 
         <FadeInSection>
-          <CarruselLogos />
+          <LogoCloud />
         </FadeInSection>
 
         <FadeInSection>
@@ -80,9 +78,6 @@ export default function Home() {
 
         <FadeInSection>
           <TituloDemo />
-        </FadeInSection>
-        <FadeInSection>
-          <Pricing />
         </FadeInSection>
 
         <FadeInSection>

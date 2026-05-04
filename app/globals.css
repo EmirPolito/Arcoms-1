@@ -545,6 +545,15 @@ body {
   padding-inline: 1rem;
 }
 
+/* Logo cloud infinite slider */
+@keyframes marquee-logos {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.animate-marquee-logos {
+  animation: marquee-logos linear infinite;
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
