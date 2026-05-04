@@ -12,18 +12,18 @@ import { useTheme } from "next-themes";
 export function BentoCaracteristicas() {
   return (
     <section
-      className="relative z-20 max-w-7xl mx-auto pt-10 pb-24 space-y-5.5 bg-feat-bg text-feat-txt px-4 sm:px-6"
+      className="relative z-20 max-w-7xl mx-auto pt-10 pb-24 space-y-6 md:space-y-5 bg-feat-bg text-feat-txt px-6 sm:px-6"
       style={{ contain: "layout style" }}
     >
       {/* ROW 1 */}
-      <div className="flex flex-col md:flex-row gap-4.5 items-stretch">
+      <div className="flex flex-col md:flex-row gap-6 md:gap-5 items-stretch">
         {/* LEFT — GLOBE CARD */}
-        <div className="relative overflow-hidden rounded-2xl bg-feat-card border border-feat-border p-5 h-[20rem] md:h-[23rem] w-full md:w-[26rem] flex flex-col will-change-transform">
+        <div className="relative overflow-hidden rounded-2xl bg-feat-card border border-feat-border p-5 h-[21rem] md:h-[23rem] w-full md:w-[26rem] flex flex-col will-change-transform">
           <div className="relative z-10 space-y-1">
             <h3 className="text-feat-ttl text-base font-semibold">Titulo</h3>
             <p className="text-sm text-feat-desc">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
-              quod.adipisicing elit. Quisquam.
+              Lorem ipsum dolor sit amet consectetur adipisicing elit bot,
+              quod.adipisicing elite.
             </p>
           </div>
 
@@ -35,16 +35,16 @@ export function BentoCaracteristicas() {
         </div>
 
         {/* RIGHT — GLOBAL INFRASTRUCTURE */}
-        <div className="relative flex-1 rounded-2xl bg-feat-card border border-feat-border p-5.5 overflow-hidden min-h-[16rem] md:min-h-0">
+        <div className="relative flex-1 rounded-2xl bg-feat-card border border-feat-border p-5.5 overflow-hidden min-h-[23.5rem] md:min-h-0">
           <div className="max-w-md space-y-1">
             <h4 className="text-feat-ttl text-base font-semibold">Título</h4>
             <p className="text-sm text-feat-desc leading-relaxed">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam.
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam.
+              Lorem ipsum dolor sit amet consectetur adipisicing elit bot,
+              quod.adipisicing elite.
             </p>
           </div>
 
-          <div className="absolute bottom-[-23rem] md:bottom-[-15rem] right-[-2rem] md:right-[-4.5rem]">
+          <div className="absolute bottom-[-15rem] md:bottom-[-15rem] right-[-4rem] md:right-[-4.5rem]">
             <div className="rounded-2xl border border-img-frame bg-muted/40 p-4">
               <Image
                 src="/img/5.jpg"
@@ -69,16 +69,51 @@ export function BentoCaracteristicas() {
       </div>
 
       {/* ROW 2 */}
-      <div className="flex flex-col md:flex-row gap-4 items-stretch">
-        {/* LEFT — AUTOMATED WORKFLOWS (NEW) */}
-        <div className="relative flex-1 rounded-2xl bg-feat-card border border-feat-border p-6 overflow-hidden">
-          <h4 className="text-feat-ttl text-base font-semibold">Título</h4>
-          <p className="text-sm text-feat-desc leading-relaxed">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam.
-          </p>
+      <div className="flex flex-col md:flex-row gap-6 md:gap-5 items-stretch">
+        {/* LEFT — CHART IMAGE (MOVED FROM RIGHT) */}
+        <div className="relative flex-1 rounded-2xl bg-feat-card border border-feat-border p-6 overflow-hidden min-h-[23.5rem] md:min-h-0">
+          <div className="max-w-md space-y-1 relative z-10">
+            <h4 className="text-feat-ttl text-base font-semibold">Título</h4>
+            <p className="text-sm text-feat-desc leading-relaxed">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit bot,
+              quod.adipisicing elite.
+            </p>
+          </div>
 
-          <div className="flex items-center justify-center gap-6 sm:gap-8 md:gap-13 mt-10 md:mt-19 flex-wrap">
+          <div className="absolute bottom-[-15rem] md:bottom-[-15rem] right-[-4rem] md:right-[-4.5rem]">
+            <div className="rounded-2xl border border-img-frame bg-muted/40 p-4">
+              <Image
+                src="/img/5.jpg"
+                alt="Infrastructure"
+                width={800}
+                height={450}
+                draggable={false}
+                className="
+                  w-[20rem]
+                  md:w-[51rem]
+                  h-[28.5rem]
+                  object-cover
+                  object-center
+                  rounded-xl
+                  opacity-90
+                  pointer-events-none
+                "
+              />
+            </div>
+          </div>
+        </div>
+
+        {/* RIGHT — METRIC CARDS (MOVED FROM LEFT) */}
+        <div className="relative overflow-hidden rounded-2xl bg-feat-card border border-feat-border p-5.5 h-[21rem] md:h-[23rem] w-full md:w-[26rem] flex flex-col">
+          <div className="relative z-10 space-y-1.5">
+            <h3 className="text-feat-ttl text-base font-semibold">Titulo</h3>
+            <p className="text-sm text-feat-desc">
+              Lorem ipsum dolor sit amet consecteetur adipisicing elit.
+              Quisquam.adipisicing elit.
+            </p>
+          </div>
+
+          <div className="flex-1 flex items-center justify-center gap-4 sm:gap-6 md:gap-4 mt-6 md:mt-4 flex-wrap relative z-10">
             {workflowSwingCards.map((card, i) => (
               <motion.div
                 key={card.id}
@@ -92,9 +127,9 @@ export function BentoCaracteristicas() {
                   ease: "easeInOut",
                 }}
                 className="
-                  h-28 w-28
-                  sm:h-36 sm:w-36
-                  md:h-43 md:w-43
+                  h-24 w-24
+                  sm:h-28 sm:w-28
+                  md:h-28 md:w-28
                   rounded-xl
                   border border-border
                   bg-secondary
@@ -105,38 +140,6 @@ export function BentoCaracteristicas() {
                 {card.content}
               </motion.div>
             ))}
-          </div>
-        </div>
-
-        {/* RIGHT — INTELLIGENT SCALING */}
-        <div className="relative overflow-hidden rounded-2xl bg-feat-card border border-feat-border p-5.5 h-[20rem] md:h-[23rem] w-full md:w-[26rem] flex flex-col">
-          <div className="relative z-10 space-y-1.5">
-            <h3 className="text-feat-ttl text-base font-semibold">Titulo</h3>
-            <p className="text-sm text-feat-desc">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Quisquam.adipisicing elit. Quisquam.Quisquam
-            </p>
-          </div>
-
-          <div className="absolute bottom-[-9rem] md:bottom-[-4rem] right-[0] md:right-[-1.5rem]">
-            <div className="rounded-2xl border border-img-frame bg-muted/40 p-4">
-              <Image
-                src="/img/5.jpg"
-                alt="Scaling"
-                width={400}
-                height={300}
-                draggable={false}
-                className="
-                  h-[18rem]
-                  w-[18rem]
-                  sm:w-[24rem]
-                  object-right
-                  rounded-xl
-                  opacity-90
-                  pointer-events-none
-                "
-              />
-            </div>
           </div>
 
           <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-feat-card to-transparent hidden dark:block" />

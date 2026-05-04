@@ -1,13 +1,14 @@
 "use client";
 import Link from "next/link";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
 
 const SplineScene = dynamic(
   () => import("@/components/ui/splite").then((mod) => mod.SplineScene),
   { ssr: false },
 );
+
 import {
   Announcement,
   AnnouncementTag,
@@ -25,17 +26,12 @@ export function HeroSection({
 }: SplineSceneBasicProps) {
   const [isVisible, setIsVisible] = useState(false);
 
-  // Animación inicial inmediata para mayor respuesta
   useEffect(() => {
     setIsVisible(true);
   }, []);
 
   return (
-    <div
-      className="w-full h-auto min-h-[500px] md:h-[600px] lg:h-[650px] relative overflow-hidden bg-background border-0 shadow-none ring-0 text-foreground"
-    >
-      {/* Background Lights removed by user request for 100% Pure Black */}
-
+    <div className="w-full min-h-[500px] md:h-[600px] lg:h-[650px] relative overflow-hidden bg-background border-0 shadow-none ring-0 text-foreground">
       {/* Contenido */}
       <div
         className={`
@@ -51,17 +47,18 @@ export function HeroSection({
               <AnnouncementTitle>Experiencia Inmersiva</AnnouncementTitle>
             </Announcement>
           </div>
+
           <h1 className="relative z-20 font-semibold text-4xl sm:text-5xl md:text-6xl xl:text-7xl text-hero-ttl">
             Bienvenidos
             <br />
             <span className="block">a Arcoms 1</span>
           </h1>
 
-          {/* ROBOT: Inline en móvil, Fondo absoluto en laptop */}
+          {/* ROBOT */}
           <div
             className={`
               relative md:absolute md:inset-0 z-10 block transform-gpu pointer-events-auto
-              h-[350px] md:h-auto my-6 md:my-0 w-full
+              h-[368.5px] md:h-auto my-6 md:my-0 w-full
             `}
           >
             <div className="w-full h-full scale-[1.0] sm:scale-[1.1] md:scale-[1.09] origin-center md:origin-top -translate-y-4 md:-translate-y-24 md:translate-x-[180px] lg:translate-x-[290px]">
@@ -72,24 +69,25 @@ export function HeroSection({
             </div>
           </div>
 
-          <p className={`relative z-20 mt-3 text-pretty text-hero-desc ${paragraphSize}`}>
-            Esta es una landing page adaptable enfocada en crear una experiencia
-            inmersiva mediante animaciones, interacción y diseño minimalista. Su
-            objetivo es impactar visualmente y servir como plantilla base de
-            alto nivel.
+          <p
+            className={`relative z-20 mt-3 text-pretty text-hero-desc ${paragraphSize}`}
+          >
+            Landing page con experiencia futurista mediante animaciones,
+            interacción y diseño minimalista. Genera alto impacto visual
+            sirviendo como plantilla base profesional.
           </p>
 
-          <div className="relative z-20 pointer-events-auto mt-8 md:mt-12 flex flex-col sm:flex-row justify-center gap-3 sm:gap-5 lg:justify-start">
+          <div className="relative z-20 pointer-events-auto mt-8 md:mt-12 flex flex-row justify-center gap-4 sm:gap-5 lg:justify-start">
             <Link
               href="/explore"
-              className={`${buttonWidth} w-full sm:w-[165px] h-[43px] flex items-center justify-center text-base md:text-lg rounded-md font-medium shadow-md text-hero-btn-txt bg-hero-btn-bg hover:opacity-95 transition-opacity cursor-pointer`}
+              className={`${buttonWidth} w-full max-w-[135px] sm:w-[165px] h-[43px] flex items-center justify-center text-base md:text-lg rounded-md font-medium shadow-md text-hero-btn-txt bg-hero-btn-bg transition-opacity cursor-pointer md:hover:opacity-95`}
             >
               Explorar
             </Link>
 
             <Link
               href="/work"
-              className={`${buttonWidth} w-full sm:w-[165px] h-[43px] flex items-center justify-center text-base md:text-lg rounded-lg text-hero-ttl font-medium shadow-md transition-colors hover:opacity-95 cursor-pointer`}
+              className={`${buttonWidth} w-full max-w-[135px] sm:w-[165px] h-[43px] flex items-center justify-center text-base md:text-lg rounded-lg text-hero-ttl font-medium shadow-md transition-opacity cursor-pointer md:hover:opacity-95`}
             >
               Resumen
             </Link>

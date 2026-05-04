@@ -50,22 +50,22 @@ export default function EstadoAgentes() {
   }, []);
 
   return (
-    <section className="w-full py-8 bg-feat-bg text-feat-txt">
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6">
+    <section className="w-full py-0 md:py-0 bg-feat-bg text-feat-txt">
+      <div className="relative max-w-7xl mx-auto px-3 sm:px-6">
         {/* líneas cruz — hidden on mobile */}
         <div className="absolute top-1/2 left-0 right-0 h-px bg-feat-border/100 hidden md:block" />
         <div className="absolute top-0 bottom-0 left-1/2 w-px bg-feat-border/100 hidden md:block" />
 
         <div className="grid grid-cols-1 md:grid-cols-2 md:grid-rows-2 md:min-h-[700px] gap-8 md:gap-0">
-          <div className="p-4 sm:p-6 md:p-12 md:pr-16 space-y-8 md:space-y-10">
+          <div className="p-4 sm:p-6 md:p-12 md:pr-16 space-y-7 md:space-y-10">
             <div>
-              <h2 className="text-xl md:text-2xl font-semibold text-feat-ttl mb-2">
+              <h2 className="text-center md:text-left text-xl  md:text-2xl font-semibold text-feat-ttl mb-0">
                 Título de la sección
               </h2>
-              <p className="text-sm max-w-md-lg text-feat-desc">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Quisquam, quod. Lorem ipsum dolor sit amet consectetur
-                adipisicing elit. Quisquam, quod.
+              <p className="px-2 text-center md:text-left text-sm max-w-md-lg text-feat-desc">
+                Lorem ipsum sit ipsum ipsum sitconsectetur sitos adipisicing
+                elit. Quisquam, quod. Lorem ipsum dolor sit amet consectetur
+                adipisicing.
               </p>
             </div>
 
@@ -95,115 +95,79 @@ export default function EstadoAgentes() {
           </div>
 
           {/* ===== TEXTO  ===== */}
-          <div className="p-4 sm:p-6 md:p-12 md:pl-16 space-y-8 md:space-y-10">
+          <div className="p-4 sm:p-6 md:p-12 md:pl-16 space-y-4 md:space-y-10">
             <div className="space-y-3 max-w-md">
-              <h2 className="text-xl md:text-2xl font-semibold text-feat-ttl leading-snug">
+              <h2 className="text-center md:text-left text-xl md:text-2xl font-semibold text-feat-ttl leading-snug">
                 Título de la sección
               </h2>
 
-              <p className="text-[11px] tracking-widest uppercase text-feat-desc">
+              <p className="text-center md:text-left text-[10.5px] tracking-widest uppercase text-feat-desc">
                 Subtítulo de la sección
               </p>
 
               <p className="text-sm max-w-md-lg text-feat-desc">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Quisquam, quod. Lorem ipsum dolor sit amet consectetur
-                adipisicing elit. Quisquam, quod. Lorem ipsum dolor sit amet
-                consectetur adipisicing.
+                Lorem ipsum sit ipsum ipsum sitconsectetur sitos adipisicing
+                elit. Quisquam, quod. Lorem ipsum dolor sit amet consectetur
+                adipisicing.
               </p>
             </div>
 
             <ul className="py-2 space-y-2.5 text-sm text-feat-desc">
-              <li>
-                • Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              </li>
-              <li>
-                • Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              </li>
-              <li>
-                • Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              </li>
-              <li>
-                • Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              </li>
-              <li>
-                • Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              </li>
-              <li>
-                • Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              </li>
-              <li>
-                • Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              </li>
-              <li>
-                • Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              </li>
-              <li>
-                • Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              </li>
+              <li>• Lorem ipsum dolor sit amet adipisicing elite.</li>
+              <li>• Lorem ipsum dolor sit amet adipisicing elite.</li>
+              <li>• Lorem ipsum dolor sit amet adipisicing elite.</li>
+              <li>• Lorem ipsum dolor sit amet adipisicing elite.</li>
+              <li>• Lorem ipsum dolor sit amet adipisicing elite.</li>
+              <li>• Lorem ipsum dolor sit amet adipisicing elite.</li>
+              <li>• Lorem ipsum dolor sit amet adipisicing elite.</li>
+              <li>• Lorem ipsum dolor sit amet adipisicing elite.</li>
+              <li>• Lorem ipsum dolor sit amet adipisicing elite.</li>
+              <li>• Lorem ipsum dolor sit amet adipisicing elite.</li>
             </ul>
           </div>
 
           {/* ===== TEXTO  ===== */}
-          <div className="p-4 sm:p-6 md:p-12 md:pl-16 space-y-8 md:space-y-10">
+          <div className="p-4 sm:p-6 md:p-12 md:pl-16 space-y-4 md:space-y-10">
             <div className="space-y-3 max-w-md">
-              <h2 className="text-xl md:text-2xl font-semibold text-feat-ttl leading-snug">
+              <h2 className="text-center md:text-left text-xl md:text-2xl font-semibold text-feat-ttl leading-snug">
                 Título de la sección
               </h2>
 
-              <p className="text-[11px] tracking-widest uppercase text-feat-desc">
+              <p className="text-center md:text-left text-[10.5px] tracking-widest uppercase text-feat-desc">
                 Subtítulo de la sección
               </p>
 
               <p className="text-sm max-w-md-lg text-feat-desc">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Quisquam, quod. Lorem ipsum dolor sit amet consectetur
-                adipisicing elit. Quisquam, quod. Lorem ipsum dolor sit amet
-                consectetur adipisicing.
+                Lorem ipsum sit ipsum ipsum sitconsectetur sitos adipisicing
+                elit. Quisquam, quod. Lorem ipsum dolor sit amet consectetur
+                adipisicing.
               </p>
             </div>
 
             <ul className="py-2 space-y-2.5 text-sm text-feat-desc">
-              <li>
-                • Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              </li>
-              <li>
-                • Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              </li>
-              <li>
-                • Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              </li>
-              <li>
-                • Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              </li>
-              <li>
-                • Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              </li>
-              <li>
-                • Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              </li>
-              <li>
-                • Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              </li>
-              <li>
-                • Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              </li>
-              <li>
-                • Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              </li>
+              <li>• Lorem ipsum dolor sit amet adipisicing elite.</li>
+              <li>• Lorem ipsum dolor sit amet adipisicing elite.</li>
+              <li>• Lorem ipsum dolor sit amet adipisicing elite.</li>
+              <li>• Lorem ipsum dolor sit amet adipisicing elite.</li>
+              <li>• Lorem ipsum dolor sit amet adipisicing elite.</li>
+              <li>• Lorem ipsum dolor sit amet adipisicing elite.</li>
+              <li>• Lorem ipsum dolor sit amet adipisicing elite.</li>
+              <li>• Lorem ipsum dolor sit amet adipisicing elite.</li>
+              <li>• Lorem ipsum dolor sit amet adipisicing elite.</li>
+              <li>• Lorem ipsum dolor sit amet adipisicing elite.</li>
             </ul>
           </div>
 
           {/* ===== INTERACTIVO ===== */}
-          <div className="p-4 sm:p-6 md:p-12 md:pl-16 space-y-10 md:space-y-14">
+          <div className="p-4 sm:p-6 md:p-12 md:pl-16 space-y-7 md:space-y-14">
             <div>
-              <h2 className="text-xl md:text-2xl font-semibold text-feat-ttl mb-2">
+              <h2 className="text-center md:text-left text-xl md:text-2xl font-semibold text-feat-ttl mb-0">
                 Título de la sección
               </h2>
-              <p className="text-sm max-w-md-lg text-feat-desc">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Quisquam, quod. Lorem ipsum dolor sit amet consectetur
-                adipisicing elit. Quisquam, quod.
+              <p className="text-center md:text-left text-sm max-w-md-lg text-feat-desc">
+                Lorem ipsum sit ipsum ipsum sitconsectetur sitos adipisicing
+                elit. Quisquam, quod. Lorem ipsum dolor sit amet consectetur
+                adipisicing.
               </p>
             </div>
 

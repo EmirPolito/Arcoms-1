@@ -43,9 +43,12 @@ export default function TestimonialsCarousel() {
   const titleWords = title.split(" ");
 
   return (
-    <section className="relative w-full pt-16 pb-20 bg-testim-bg flex flex-col items-center px-4 overflow-hidden" style={{ contain: "layout style" }}>
-      <div className="relative z-10 flex flex-col items-center gap-2 w-full max-w-6xl mt-12">
-        <motion.h1 
+    <section
+      className="relative w-full pt-0 pb-20 bg-testim-bg flex flex-col items-center px-4 overflow-hidden"
+      style={{ contain: "layout style" }}
+    >
+      <div className="relative z-10 flex flex-col items-center gap-0 w-full max-w-6xl mt-16">
+        <motion.h1
           className="text-primary-general text-3xl md:text-5xl font-bold mb-1"
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -55,15 +58,15 @@ export default function TestimonialsCarousel() {
           Comentarios
         </motion.h1>
 
-        <motion.p 
-          className="text-primary-color-text max-w-4xl mx-auto text-base text-center"
+        <motion.p
+          className=" text-primary-color-text max-w-4xl mx-auto text-base text-center"
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "50px" }}
           transition={{ duration: 0.4, ease: "easeOut", delay: 0.1 }}
         >
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
-          quod.
+          Lorem dolor sit met consectetu adipisicing elit. Quisquam, quod. lol
+          adipisicing playes.
         </motion.p>
 
         <motion.div
@@ -71,7 +74,7 @@ export default function TestimonialsCarousel() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "50px" }}
           transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }}
-          className="w-full mt-3"
+          className="w-full mt-0"
         >
           <TestimonialCarousel data={testimonials} borderType="solid" />
         </motion.div>

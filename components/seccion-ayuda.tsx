@@ -17,7 +17,7 @@ const supportItems: SupportItem[] = [
     id: "faq",
     title: "Preguntas Frecuentes",
     description:
-      "Respuestas rápidas a problemas comunes: navegación, configuraciones, compatibilidad y más.",
+      "Respuestas rápidas a problemas comunes: navegación, configuraciones y demás.",
     href: "/ayuda/preguntas-frecuentes",
   },
   {
@@ -90,22 +90,22 @@ export default function ContenidoBlog() {
   }
 
   return (
-    <div className="w-full py-8 transition-colors px-4 sm:px-6">
+    <div className="w-full py-8 transition-colors px-5 sm:px-6">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: "easeOut" }}
-          className="text-center mb-10 md:mb-20"
+          className="text-center mb-8 md:mb-20"
         >
-          <h1 className="text-3xl md:text-6xl font-semibold mb-2 text-balance text-primary-general">
+          <h1 className="text-3xl md:text-6xl font-semibold mb-1 text-balance text-primary-general">
             Centro de Ayuda
           </h1>
 
           <p className="text-primary-color-text max-w-4xl mx-auto text-sm sm:text-base">
-            Encuentra asistencia rápida sobre el funcionamiento de la
-            plataforma, guías, tutoriales, reportes y soporte personalizado.
+            Aquí encontrarás la respuestas a todas tus dudas. En caso de no
+            encontrar lo que buscas, no dudes en contactarnos.
           </p>
         </motion.div>
 
@@ -114,7 +114,7 @@ export default function ContenidoBlog() {
           {rows.map((row, rowIndex) => (
             <div
               key={rowIndex}
-              className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2"
+              className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3.5"
             >
               {row.map((item, itemIndex) => (
                 <motion.div
@@ -126,14 +126,14 @@ export default function ContenidoBlog() {
                     ease: "easeOut",
                     delay: (rowIndex * 3 + itemIndex) * 0.08, // animación escalonada SOLO al cargar
                   }}
-                  className={`py-5 px-5 sm:py-7 sm:px-8 transition-all duration-300 relative group border-border
+                  className={`py-5 px-2.5 sm:py-7 sm:px-8 transition-all duration-300 relative group border-border
                     ${itemIndex !== row.length - 1 ? "md:border-r" : ""}
                   `}
                   onMouseEnter={() => setHoveredId(item.id)}
                   onMouseLeave={() => setHoveredId(null)}
                 >
-                  <div className="mb-5">
-                    <h2 className="text-primary-general text-lg sm:text-xl font-semibold mb-3 sm:mb-5">
+                  <div className="mb-4">
+                    <h2 className="text-primary-general text-lg sm:text-xl font-semibold mb-0.5 sm:mb-5">
                       {item.title}
                     </h2>
                     <p className="text-primary-color-text text-sm sm:text-base text-accent leading-relaxed">

@@ -79,8 +79,8 @@ export default function DemoInteractiva() {
     <div className="min-h-screen bg-price-bg text-price-ttl">
       {" "}
       {/* min-h-screen: altura mínima pantalla completa, bg-price-bg: fondo, text-price-ttl: color principal de texto */}
-      <main className="py-4">
-        <div className="relative max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8">
+      <main className="py-3">
+        <div className="relative max-w-7xl mx-auto w-full px-5.5 sm:px-6 lg:px-8">
           {/* Hero Section */}
           <div className="text-center mb-10">
             {" "}
@@ -119,7 +119,11 @@ export default function DemoInteractiva() {
                 initial={{ opacity: 0, y: 15 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "50px" }}
-                transition={{ duration: 0.4, delay: index * 0.05, ease: "easeOut" }}
+                transition={{
+                  duration: 0.4,
+                  delay: index * 0.05,
+                  ease: "easeOut",
+                }}
                 key={index}
                 onClick={() => setSelectedPlan(index)}
                 className={`relative flex flex-col justify-between h-full p-6 lg:p-8 rounded-2xl border transition-all duration-300 transform-gpu will-change-transform

@@ -14,21 +14,28 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
   const [height, setHeight] = useState(0);
 
   useEffect(() => {
-    if (ref.current) {
-      const rect = ref.current.getBoundingClientRect();
-      setHeight(rect.height);
-    }
+    if (!ref.current) return;
+    
+    const observer = new ResizeObserver(() => {
+      if (ref.current) {
+        setHeight(ref.current.offsetHeight);
+      }
+    });
+    
+    observer.observe(ref.current);
+    
+    return () => observer.disconnect();
   }, [ref]);
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["start 10%", "end 50%"],
+    offset: ["start 10%", "end 100%"],
   });
 
   const heightTransform = useTransform(
     scrollYProgress,
     [0, 1],
-    [0, height + 250],
+    [0, height],
   );
   const opacityTransform = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
 
@@ -44,7 +51,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: "easeOut" }}
           viewport={{ once: true }}
-          className="text-3xl md:text-6xl font-semibold mb-2 text-balance text-primary-general"
+          className="text-3xl md:text-6xl font-semibold mb-1 text-balance text-primary-general"
         >
           Acerca de nosotros
         </motion.h1>
@@ -56,13 +63,13 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
           viewport={{ once: true }}
           className="text-base text-muted-foreground text-balance max-w-5xl mx-auto"
         >
-          Lorem psum dolor sit amet consectetur adipisicing elit. Ipsam deserunt
-          laboriosam quo impedit dolor.i
+          Lorem ipsum dolor sit amet consectetur bout itesadipisicing elit.
+          Ipsam deserunt.
         </motion.p>
       </div>
 
       {/* 🔥 TIMELINE */}
-      <div ref={ref} className="relative max-w-7xl mx-auto pb-60">
+      <div ref={ref} className="relative max-w-7xl mx-auto pb-10">
         {data.map((item, index) => (
           <motion.div
             key={index}
@@ -74,7 +81,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
               ease: "easeOut",
               delay: index * 0.15,
             }}
-            className="flex justify-start pt-10 md:pt-40 md:gap-10"
+            className="flex justify-start pt-16 md:pt-32 md:gap-10"
           >
             {/* Punto + título grande */}
             <div className="sticky flex flex-col md:flex-row z-40 items-center top-40 self-start max-w-xs lg:max-w-sm md:w-full">
@@ -95,7 +102,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
             </div>
 
             {/* Contenido */}
-            <div className="relative pl-20 pr-4 md:pl-4 w-full">
+            <div className="relative pl-18 pr-4 md:pl-4 w-full">
               {/* 🔥 TÍTULO MÓVIL ANIMADO */}
               <motion.h3
                 initial={{ opacity: 0, y: 15 }}
@@ -122,7 +129,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
 
         {/* LÍNEA IZQUIERDA */}
         <div
-          style={{ height: height + 250 + "px" }}
+          style={{ height: height + "px" }}
           className="absolute md:left-8 left-8 top-0 overflow-hidden w-[2px] bg-transparent [mask-image:linear-gradient(to_bottom,transparent_0%,black_10%,black_100%)]"
         >
           <motion.div

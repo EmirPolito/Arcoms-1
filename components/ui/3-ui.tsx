@@ -18,7 +18,7 @@ export const PinContainer = ({
   containerClassName?: string;
 }) => {
   const [transform, setTransform] = useState(
-    "translate(-50%,-50%) rotateX(0deg)"
+    "translate(-50%,-50%) rotateX(0deg)",
   );
 
   const onMouseEnter = () =>
@@ -28,7 +28,10 @@ export const PinContainer = ({
 
   return (
     <a
-      className={cn("relative group/pin cursor-pointer z-10", containerClassName)}
+      className={cn(
+        "relative group/pin cursor-pointer z-10",
+        containerClassName,
+      )}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
       href={href || "/"}
@@ -36,7 +39,11 @@ export const PinContainer = ({
       rel="noopener noreferrer"
     >
       <div
-        style={{ perspective: "1000px", transform: "rotateX(70deg) translateZ(0deg)", willChange: "transform" }}
+        style={{
+          perspective: "1000px",
+          transform: "rotateX(70deg) translateZ(0deg)",
+          willChange: "transform",
+        }}
         className="absolute left-1/2 top-1/2 ml-[0.09375rem] mt-4 -translate-x-1/2 -translate-y-1/2"
       >
         <div
@@ -44,7 +51,7 @@ export const PinContainer = ({
           className={cn(
             "absolute left-1/2 top-1/2 p-4 flex justify-start items-start rounded-2xl transition-[opacity,transform] duration-600 overflow-hidden will-change-transform",
             "bg-background text-foreground border border-border shadow-md dark:shadow-lg",
-            className
+            className,
           )}
         >
           <div className="relative z-20">{children}</div>
@@ -60,21 +67,23 @@ export const PinContainer = ({
 export const PinPerspective = ({ title }: { title?: string }) => {
   return (
     <motion.div className="pointer-events-none w-96 h-80 flex items-center justify-center opacity-0 group-hover/pin:opacity-100 z-20 transition duration-500 transform-gpu">
-<div className="absolute inset-0 flex items-center justify-center">
-
+      <div className="absolute inset-0 flex items-center justify-center">
         {/* TITULO */}
         <div className="absolute top-0 inset-x-0 flex justify-center">
           <div className="relative flex space-x-2 items-center z-10 rounded-full bg-background/70 backdrop-blur-sm py-0.5 px-4 ring-1 ring-border">
             <span className="relative z-20 text-xs font-bold text-foreground inline-block py-0.5">
               {title}
             </span>
-<div className="bg-gradient-to-r from-black/0 via-black/70 to-black/0 dark:from-white/0 dark:via-white/70 dark:to-white/0"></div>
+            <div className="bg-gradient-to-r from-black/0 via-black/70 to-black/0 dark:from-white/0 dark:via-white/70 dark:to-white/0"></div>
           </div>
         </div>
 
         {/* HALOS ANIMADOS */}
         <div
-          style={{ perspective: "1000px", transform: "rotateX(70deg) translateZ(0)" }}
+          style={{
+            perspective: "1000px",
+            transform: "rotateX(70deg) translateZ(0)",
+          }}
           className="absolute left-1/2 top-1/2 ml-[0.09375rem] mt-4 -translate-x-1/2 -translate-y-1/2"
         >
           {[0, 2, 4].map((delay) => (
@@ -94,8 +103,7 @@ export const PinPerspective = ({ title }: { title?: string }) => {
           <motion.div className="absolute right-1/2 bottom-1/2 bg-gradient-to-b from-transparent to-primary-color-linea translate-y-[14px] w-px h-20 group-hover/pin:h-40" />
           <motion.div className="absolute right-1/2 translate-x-[1.5px] bottom-1/2 bg-primary-color-linea translate-y-[14px] w-1 h-1 rounded-full z-40 blur-[3px]" />
           <motion.div className="absolute right-1/2 translate-x-[0.5px] bottom-1/2 bg-primary-color-linea/70 translate-y-[14px] w-[2px] h-[2px] rounded-full z-40" />
-          
-        </>        
+        </>
       </div>
     </motion.div>
   );

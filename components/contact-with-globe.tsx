@@ -46,8 +46,8 @@ export default function ContactWithGlobe({
         className,
       )}
     >
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6">
-        <div className="flex flex-col items-center text-center gap-2 mb-8">
+      <div className="relative mx-auto max-w-7xl px-6 sm:px-6">
+        <div className="flex flex-col items-center text-center gap-0 mb-10 lg:mb-17">
           <motion.h1
             initial={{ opacity: 0, y: 14 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -78,7 +78,7 @@ export default function ContactWithGlobe({
             className="flex flex-col gap-6"
           >
             <div className="flex flex-col gap-1">
-              <h3 className="text-lg sm:text-xl font-semibold text-foreground">
+              <h3 className="text-lg sm:text-xl font-semibold text-primary-general">
                 Contacto Directo
               </h3>
               <p className="text-sm text-primary-color-text leading-relaxed max-w-xs">
@@ -130,7 +130,7 @@ export default function ContactWithGlobe({
             className="rounded-2xl border border-border bg-card p-5 sm:p-6 md:p-8 flex flex-col gap-5"
           >
             <div>
-              <h3 className="text-lg font-semibold text-foreground mb-0.5">
+              <h3 className="text-lg font-semibold text-primary-general mb-0.5">
                 Envíanos tu mensaje
               </h3>
               <p className="text-sm text-primary-color-text">
@@ -142,7 +142,7 @@ export default function ContactWithGlobe({
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="flex flex-col gap-2">
-                <label className="text-xs font-semibold tracking-widest uppercase text-primary-color-text">
+                <label className="text-xs font-semibold tracking-widest uppercase text-primary-general">
                   Nombre Completo
                 </label>
                 <input
@@ -152,7 +152,7 @@ export default function ContactWithGlobe({
                 />
               </div>
               <div className="flex flex-col gap-2">
-                <label className="text-xs font-semibold tracking-widest uppercase text-primary-color-text">
+                <label className="text-xs font-semibold tracking-widest uppercase text-primary-general">
                   Compañía
                 </label>
                 <input
@@ -164,7 +164,7 @@ export default function ContactWithGlobe({
             </div>
 
             <div className="flex flex-col gap-2">
-              <label className="text-xs font-semibold tracking-widest uppercase text-primary-color-text">
+              <label className="text-xs font-semibold tracking-widest uppercase text-primary-general">
                 Correo Electrónico
               </label>
               <input
@@ -175,7 +175,7 @@ export default function ContactWithGlobe({
             </div>
 
             <div className="flex flex-col gap-2">
-              <label className="text-xs font-semibold tracking-widest uppercase text-primary-color-text">
+              <label className="text-xs font-semibold tracking-widest uppercase text-primary-general">
                 Mensaje
               </label>
               <textarea

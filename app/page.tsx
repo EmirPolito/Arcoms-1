@@ -1,27 +1,24 @@
 "use client";
+import { motion } from "motion/react";
 
 import { Header } from "../components/header";
-
 import { HeroSection } from "@/components/hero";
-
 import CarruselLogos from "@/components/carrusel-logos";
 
 import { TituloEstadoAgentes } from "@/components/titulo-seccion";
-import EstadoAgentes from "@/components/estado-agentes";
-
-import { TituloCaracteristicas } from "@/components/texto-interactivo";
-import { BentoCaracteristicas } from "@/components/bento-caracteristicas";
+import EstadoAgentes from "@/components/estado-agentes"; /** 2 lineas */
 
 import { TituloTarjetas } from "@/components/texto-animado";
-import { TarjetaPines } from "@/components/tarjeta-pines";
+import { TarjetaPines } from "@/components/tarjeta-pines"; /**pines 3d */
+
+import { TituloCaracteristicas } from "@/components/texto-interactivo";
+import { BentoCaracteristicas } from "@/components/bento-caracteristicas"; /**mundo */
 
 import { TituloDemo } from "@/components/resaltador-cursor";
+import Pricing from "@/components/pricing"; /**precios */
 
 import TestimonialsCarousel from "@/components/testimonials-with-carousel";
 import Footer from "../components/footer";
-
-import { motion } from "motion/react";
-import Pricing from "@/components/pricing";
 
 function FadeInSection({ children }: { children: React.ReactNode }) {
   return (

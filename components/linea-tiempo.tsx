@@ -11,12 +11,12 @@ export function AcercaDe() {
       content: (
         <div>
           <p className="mb-2 text-base md:text-lg text-muted-foreground">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam
-            deserunt laboriosam quo impedit dolor.
+            Lorem ipsum dolor sit amet items consectetur adipisicing elit. Ipsam
+            deserunt laboriosam quo impedit.
           </p>
           <p className="mb-8 text-base md:text-lg text-muted-foreground">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam
-            deserunt laboriosam quo impedit dolor.
+            Lorem ipsum dolor sit amet items consectetur adipisicing elit.
+            Ipsam.
           </p>
 
           <div className="grid grid-cols-2 gap-4">
@@ -43,12 +43,12 @@ export function AcercaDe() {
       content: (
         <div>
           <p className="mb-2 text-base md:text-lg text-muted-foreground">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam
-            deserunt laboriosam quo impedit dolor.
+            Lorem ipsum dolor sit amet items consectetur adipisicing elit. Ipsam
+            deserunt laboriosam quo impedit.
           </p>
           <p className="mb-8 text-base md:text-lg text-muted-foreground">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam
-            deserunt laboriosam quo impedit dolor.
+            Lorem ipsum dolor sit amet items consectetur adipisicing elit.
+            Ipsam.
           </p>
           <div className="grid grid-cols-2 gap-4">
             <Image
@@ -74,12 +74,12 @@ export function AcercaDe() {
       content: (
         <div>
           <p className="mb-2 text-base md:text-lg text-muted-foreground">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam
-            deserunt laboriosam quo impedit dolor.
+            Lorem ipsum dolor sit amet items consectetur adipisicing elit. Ipsam
+            deserunt laboriosam quo impedit.
           </p>
           <p className="mb-8 text-base md:text-lg text-muted-foreground">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam
-            deserunt laboriosam quo impedit dolor.
+            Lorem ipsum dolor sit amet items consectetur adipisicing elit.
+            Ipsam.
           </p>
           <div className="grid grid-cols-2 gap-4">
             <Image
@@ -106,12 +106,12 @@ export function AcercaDe() {
       content: (
         <div>
           <p className="mb-2 text-base md:text-lg text-muted-foreground">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam
-            deserunt laboriosam quo impedit dolor.
+            Lorem ipsum dolor sit amet items consectetur adipisicing elit. Ipsam
+            deserunt laboriosam quo impedit.
           </p>
           <p className="mb-8 text-base md:text-lg text-muted-foreground">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam
-            deserunt laboriosam quo impedit dolor.
+            Lorem ipsum dolor sit amet items consectetur adipisicing elit.
+            Ipsam.
           </p>
           <div className="grid grid-cols-2 gap-4">
             <Image

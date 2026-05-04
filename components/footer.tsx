@@ -3,9 +3,9 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="border-t border-footer-border py-12 md:py-20 px-4 md:px-6 z-50 bg-footer-bg text-footer-txt">
+    <footer className="border-t border-footer-border py-10 md:py-20 px-5 md:px-6 z-50 bg-footer-bg text-footer-txt">
       <div className="relative max-w-7xl mx-auto w-full">
-        <div className="flex flex-col md:flex-row justify-between gap-8 md:gap-0">
+        <div className="flex flex-col md:flex-row justify-between gap-5.5 md:gap-0">
           <div className="mb-4 md:mb-0">
             <Link href="/" className="mr-4 flex items-center gap-2 lg:mr-6">
               <span className="font-bold lg:inline-block text-[var(--primary-general)] ">
@@ -13,7 +13,7 @@ export default function Footer() {
               </span>
             </Link>
 
-            <h1 className="text-footer-txt mt-2 font-normal text-sm sm:text-base">
+            <h1 className="text-footer-txt mt-0 md:mt-1 font-normal text-sm sm:text-base">
               Desarrollado por{" "}
               <span className="text-[var(--primary-general)] font-normal gap-2">
                 <Link
@@ -30,10 +30,12 @@ export default function Footer() {
               reservados.
             </p>
           </div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 sm:gap-8">
+          <div className="grid grid-cols-4 sm:grid-cols-3 md:grid-cols-4 gap-4.5 sm:gap-8">
             <div>
-              <h3 className="font-semibold mb-3 sm:mb-4 text-footer-ttl text-sm sm:text-base">Páginas</h3>
-              <ul className="space-y-2">
+              <h3 className="font-semibold mb-2 sm:mb-4 text-footer-ttl text-sm sm:text-base">
+                Páginas
+              </h3>
+              <ul className="space-y-1.5">
                 <li>
                   <Link
                     href="/ayuda"
@@ -61,10 +63,10 @@ export default function Footer() {
               </ul>
             </div>
             <div>
-              <h3 className="font-semibold mb-3 sm:mb-4 text-footer-ttl text-sm sm:text-base">
-                Redes Sociales
+              <h3 className="font-semibold mb-2 sm:mb-4 text-footer-ttl text-sm sm:text-base">
+                Redes
               </h3>
-              <ul className="space-y-2">
+              <ul className="space-y-1.5">
                 <li>
                   <Link
                     href="https://github.com/EmirPolito"
@@ -92,15 +94,18 @@ export default function Footer() {
                 </li>
               </ul>
             </div>
+
             <div className="col-span-2 sm:col-span-1">
-              <h3 className="font-semibold mb-3 sm:mb-4 text-footer-ttl text-sm sm:text-base">Legal</h3>
-              <ul className="space-y-2">
+              <h3 className="font-semibold mb-2 sm:mb-4 text-footer-ttl text-sm sm:text-base">
+                Legal
+              </h3>
+              <ul className="space-y-1.5">
                 <li>
                   <Link
                     href="/privacy-policy"
                     className="text-footer-txt hover:text-[var(--primary-general)] transition-colors font-normal text-sm"
                   >
-                    Política de Privacidad
+                    Política de privacidad
                   </Link>
                 </li>
                 <li>
@@ -108,7 +113,7 @@ export default function Footer() {
                     href="/tos"
                     className="text-footer-txt hover:text-[var(--primary-general)] transition-colors font-normal text-sm"
                   >
-                    Términos de Servicio
+                    Términos de servicio
                   </Link>
                 </li>
               </ul>

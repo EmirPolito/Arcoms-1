@@ -7,15 +7,16 @@ import { motion } from "motion/react";
 export function TituloTarjetas() {
   return (
     <div className="px-4">
-      <motion.div className="relative mx-2 sm:mx-6 my-16 sm:my-30 flex flex-col items-center justify-center gap-3 text-center sm:mx-0 sm:mb-0 sm:flex-row">
+      <motion.div className="relative mx-2 sm:mx-6 mt-12 mb-4 sm:mt-20 sm:mb-4 flex flex-row flex-wrap items-center justify-center gap-4 text-center sm:mx-0">
         <LayoutTextFlip
-          text="Título del"
-          words={["texto 1", "texto 2", "texto 3"]}
-          duration={2500}
+          text="Título "
+          words={["texto 1", "texto 2", "texto 3", "texto 4"]}
         />
       </motion.div>
-      <p className="mt-1 text-center text-sm sm:text-base text-primary-color-text">
-        Explora la personalización completa de tus componentes frontend.
+
+      <p className="-mb-9 sm:mb-4 text-center text-sm sm:text-base text-title-desc">
+        Lorem dolor sit met consectetu adipisicing elit. Quisquam, quod. lo
+        adipisicing elit. Quisquam.
       </p>
     </div>
   );
