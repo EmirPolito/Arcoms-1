@@ -80,9 +80,6 @@ export default function Home() {
           <TituloDemo />
         </FadeInSection>
 
-        {/* <FadeInSection>
-          <TituloTarjetas />
-        </FadeInSection> */}
         <FadeInSection>
           <TestimonialsCarousel />
         </FadeInSection>
@@ -90,4 +87,10 @@ export default function Home() {
       <Footer />
     </div>
   );
+}
+
+{
+  /* <FadeInSection>
+          <TituloTarjetas />
+        </FadeInSection> */
 }
