@@ -30,7 +30,7 @@ export function HeroSection({
     <div className="w-full min-h-[500px] md:h-[600px] lg:h-[650px] relative overflow-hidden bg-background border-0 shadow-none ring-0 text-foreground">
       {/* Contenido */}
       <div className="relative z-10 flex h-full items-center pointer-events-none px-4 sm:px-6 pt-6 pb-12 md:py-0 transform-gpu opacity-100 translate-y-0">
-        <div className="mx-auto w-full max-w-lg text-center lg:ml-16 lg:text-left -mt-8 md:-mt-36">
+        <div className="mx-auto w-full max-w-lg text-center lg:ml-16 lg:text-left mt-8 md:-mt-15">
           <div className="relative z-20 mt-2 mb-1 flex justify-center lg:justify-start">
             <Announcement styled animation="fade">
               <AnnouncementTag>Tu Landing</AnnouncementTag>
@@ -51,7 +51,7 @@ export function HeroSection({
               h-[400px] md:h-auto my-6 md:my-0 w-full
             `}
           >
-            <div className="w-full h-full scale-[1.0] sm:scale-[1.1] md:scale-[1.09] origin-center md:origin-top -translate-y-4 md:-translate-y-24 md:translate-x-[180px] lg:translate-x-[290px]">
+            <div className="w-full h-full scale-[1.0] sm:scale-[1.1] md:scale-[1.09] origin-center md:origin-top -translate-y-6 md:-translate-y-8 md:translate-x-[180px] lg:translate-x-[290px]">
               <SplineScene
                 scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
                 className="w-full h-full"

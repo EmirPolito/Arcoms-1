@@ -1,14 +1,31 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ThemeSwitcher } from "./21-colores-comp";
+import { cn } from "@/lib/utils";
 
 export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <header className="sticky top-0 z-50 w-full backdrop-blur supports-backdrop-filter:bg-header-bg/60 h-18 ">
-      <div className="container relative flex items-center h-17 px-4">
+    <header 
+      className={cn(
+        "fixed top-0 z-50 w-full transition-all duration-300 ease-in-out h-18 border-b",
+        scrolled 
+          ? "bg-background/80 backdrop-blur-md border-border shadow-sm" 
+          : "bg-transparent border-transparent"
+      )}
+    >
+      <div className="container relative flex items-center h-17 px-4 mx-auto">
         {/* Logo */}
         <a href="/" className="flex items-center gap-2 shrink-0">
           <span className="font-bold text-header-txt text-lg">
@@ -44,19 +61,22 @@ export function Header() {
             aria-label="Toggle menu"
           >
             <span
-              className={`block h-[2px] w-5 bg-header-txt transition-all duration-300 ${
+              className={cn(
+                "block h-[2px] w-5 bg-header-txt transition-all duration-300",
                 menuOpen ? "rotate-45 translate-y-[7px]" : ""
-              }`}
+              )}
             />
             <span
-              className={`block h-[2px] w-5 bg-header-txt transition-all duration-300 ${
+              className={cn(
+                "block h-[2px] w-5 bg-header-txt transition-all duration-300",
                 menuOpen ? "opacity-0" : ""
-              }`}
+              )}
             />
             <span
-              className={`block h-[2px] w-5 bg-header-txt transition-all duration-300 ${
+              className={cn(
+                "block h-[2px] w-5 bg-header-txt transition-all duration-300",
                 menuOpen ? "-rotate-45 -translate-y-[7px]" : ""
-              }`}
+              )}
             />
           </button>
         </div>
@@ -64,9 +84,10 @@ export function Header() {
 
       {/* Mobile Menu */}
       <div
-        className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out bg-background/95 backdrop-blur-md border-b border-border will-change-[max-height,opacity] ${
+        className={cn(
+          "md:hidden overflow-hidden transition-all duration-300 ease-in-out bg-background/95 backdrop-blur-md border-b border-border will-change-[max-height,opacity]",
           menuOpen ? "max-h-60 opacity-100" : "max-h-0 opacity-0"
-        }`}
+        )}
       >
         <nav className="flex flex-col items-center gap-4 py-6">
           {[

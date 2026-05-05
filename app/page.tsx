@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 
 import { Header } from "../components/header";
 import { HeroSection } from "@/components/hero";
@@ -10,40 +10,51 @@ import { BentoCaracteristicas } from "@/components/bento-caracteristicas";
 import TestimonialsCarousel from "@/components/testimonials-with-carousel";
 import Footer from "../components/footer";
 
-function FadeInSection({ children }: { children: React.ReactNode }) {
-  const ref = useRef<HTMLDivElement>(null);
-
+/**
+ * Shared observer for all sections to improve performance.
+ * Ensure the CSS for .fade-section includes:
+ * transition: opacity 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+ */
+const useSharedObserver = () => {
   useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
     const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          el.classList.add("visible");
-          observer.unobserve(el);
-        }
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
       },
-      { threshold: 0.05, rootMargin: "0px 0px -40px 0px" },
+      { 
+        threshold: 0.1, 
+        rootMargin: "0px 0px -50px 0px" 
+      }
     );
-    observer.observe(el);
+
+    const elements = document.querySelectorAll(".fade-section");
+    elements.forEach((el) => observer.observe(el));
+
     return () => observer.disconnect();
   }, []);
+};
 
+function FadeInSection({ children }: { children: React.ReactNode }) {
   return (
-    <div ref={ref} className="fade-section">
+    <div className="fade-section">
       {children}
     </div>
   );
 }
 
 export default function Home() {
+  useSharedObserver();
+
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
       <Header />
       <main className="py-10">
-        <FadeInSection>
-          <HeroSection />
-        </FadeInSection>
+        <HeroSection />
 
         <FadeInSection>
           <LogoCloud />

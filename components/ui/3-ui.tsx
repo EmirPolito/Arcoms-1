@@ -107,7 +107,7 @@ export const PinPerspective = ({
           </div>
         </div>
 
-        {/* HALOS ANIMADOS — Reducidos en mobile */}
+        {/* HALOS ANIMADOS — Reducidos para rendimiento */}
         <div
           style={{
             perspective: "1000px",
@@ -118,17 +118,17 @@ export const PinPerspective = ({
             isMobile ? "mt-10" : "mt-4",
           )}
         >
-          {(isMobile ? [0, 3] : [0, 2, 4]).map((delay) => (
+          {(isMobile ? [0] : [0, 3]).map((delay) => (
             <motion.div
               key={delay}
               initial={{ opacity: 0, scale: 0, x: "-50%", y: "-50%" }}
-              animate={{ opacity: [0, 1, 0.5, 0], scale: 1 }}
-              transition={{ duration: 6, repeat: Infinity, delay }}
+              animate={{ opacity: [0, 0.8, 0.4, 0], scale: 1.1 }}
+              transition={{ duration: 5, repeat: Infinity, delay }}
               className={cn(
                 "absolute left-1/2 top-1/2 rounded-full shadow-md transform-gpu will-change-transform",
                 isMobile
-                  ? "h-[7.5rem] w-[7.5rem] bg-white/10"
-                  : "h-[11.25rem] w-[11.25rem] bg-primary/15",
+                  ? "h-[7rem] w-[7rem] bg-white/5"
+                  : "h-[10rem] w-[10rem] bg-primary/10",
               )}
             />
           ))}

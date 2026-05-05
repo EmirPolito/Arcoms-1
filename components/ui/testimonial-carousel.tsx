@@ -152,25 +152,25 @@ function TestimonialCardItem({
 }
 
 const TestimonialItem = React.memo(({ testimonial }: { testimonial: Testimonial }) => (
-  <TestimonialCardItem className="md:px-4">
-    <Card className="bg-card border-feat-border/40 border shadow-xs max-w-[90vw] sm:max-w-3xl mx-auto rounded-xl overflow-hidden">
-      <CardContent className="p-4 sm:p-8 md:p-10 flex items-center justify-center">
-        <div className="flex flex-col items-center text-center max-w-xl gap-3 sm:gap-6">
-          <Avatar className="w-14 h-14 sm:w-20 sm:h-20 ring-2 ring-primary-general/5 transition-transform hover:scale-105 duration-300">
+  <TestimonialCardItem className="flex justify-center">
+    <Card className="bg-card border-feat-border/40 border shadow-xs w-full max-w-[92vw] md:max-w-5xl mx-auto rounded-2xl overflow-hidden">
+      <CardContent className="p-6 md:p-10 flex items-center justify-center">
+        <div className="flex flex-col md:flex-row items-center md:items-start text-center md:text-left max-w-4xl gap-6 md:gap-12">
+          <Avatar className="w-16 h-16 md:w-24 md:h-24 ring-2 ring-primary-general/5 transition-transform hover:scale-105 duration-300 shrink-0">
             <AvatarImage src={testimonial.image} alt={testimonial.name} />
             <AvatarFallback>{testimonial.name.split(" ").map(n => n[0]).join("")}</AvatarFallback>
           </Avatar>
           
-          <div className="space-y-2 sm:space-y-4">
-            <p className="text-sm sm:text-base md:text-lg leading-relaxed text-foreground font-medium italic opacity-90">
+          <div className="flex flex-col justify-center space-y-4 md:space-y-6">
+            <p className="text-sm md:text-xl leading-relaxed text-foreground font-medium italic opacity-95">
               "{testimonial.description}"
             </p>
             
-            <div className="space-y-0.5 sm:space-y-1">
-              <h3 className="text-sm sm:text-lg font-semibold text-testim-ttl">
+            <div className="space-y-1">
+              <h3 className="text-base md:text-xl font-semibold text-testim-ttl">
                 {testimonial.name}
               </h3>
-              <p className="text-[9px] sm:text-xs text-testim-desc font-normal tracking-widest uppercase opacity-70">
+              <p className="text-[10px] md:text-xs text-testim-desc font-normal tracking-widest uppercase opacity-70">
                 {testimonial.handle}
               </p>
             </div>

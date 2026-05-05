@@ -527,16 +527,19 @@ body {
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
 }
 
-/* Fade-in sections — CSS puro, sin JS de animación */
+/* Fade-in sections — Optimización de rendimiento */
 .fade-section {
   opacity: 0;
-  transform: translateY(10px);
-  transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+  transform: translateY(20px);
+  transition: opacity 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), 
+              transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
   will-change: opacity, transform;
 }
+
 .fade-section.visible {
   opacity: 1;
   transform: translateY(0);
+  will-change: auto; /* Libera memoria GPU después de la animación */
 }
 
 .container {
