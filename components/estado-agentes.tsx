@@ -1,238 +1,182 @@
 "use client";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect, memo, useMemo } from "react";
+import { Check } from "lucide-react";
 
-// Componente 1
-const agentStates = [
+// Data defined outside to prevent re-creation on render
+const AGENT_STATES = [
   { id: 1, name: "Subtitulo 1", state: "Ejecutando", color: "bg-green-500" },
-  { id: 2, name: "Subtitulo 2", state: "En espera", color: "bg-white" },
+  { id: 2, name: "Subtitulo 2", state: "En espera", color: "bg-background" },
   { id: 3, name: "Subtitulo 3", state: "Procesando", color: "bg-orange-500" },
   { id: 4, name: "Subtitulo 4", state: "Pausado", color: "bg-blue-500" },
   { id: 5, name: "Subtitulo 5", state: "Pausado", color: "bg-red-500" },
 ];
 
-// Componente 2
-const guardrailChecks = [
-  { id: 1, label: "Subtitulo 1", color: "bg-primary-general" },
-  { id: 2, label: "Subtitulo 2", color: "bg-primary-general" },
-  { id: 3, label: "Subtitulo 3", color: "bg-primary-general" },
-  { id: 4, label: "Subtitulo 4", color: "bg-primary-general" },
-  { id: 5, label: "Subtitulo 5", color: "bg-primary-general" },
+const GUARDRAIL_CHECKS = [
+  { id: 1, label: "Subtitulo 1", color: "bg-primary" },
+  { id: 2, label: "Subtitulo 2", color: "bg-primary" },
+  { id: 3, label: "Subtitulo 3", color: "bg-primary" },
+  { id: 4, label: "Subtitulo 4", color: "bg-primary" },
+  { id: 5, label: "Subtitulo 5", color: "bg-primary" },
 ];
 
-/* ─── Sub-componente para la lista de estados de agentes ─── */
-function AgentStatusList() {
-  const [activeAgent, setActiveAgent] = useState(0);
+/* ─── Memoized Sub-components ─── */
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveAgent((prev) =>
-        prev === agentStates.length - 1 ? 0 : prev + 1,
-      );
-    }, 1200);
-    return () => clearInterval(interval);
-  }, []);
-
-  return (
-    <div className="space-y-3">
-      {agentStates.map((agent, index) => (
-        <div
-          key={agent.id}
-          className={`flex items-center justify-between p-3 sm:p-5 rounded-lg border transition-[opacity,background-color,border-color,box-shadow,ring] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
-            activeAgent === index
-              ? "border-primary/80 bg-primary/25 shadow-md ring-1 ring-primary/30"
-              : "border-border bg-card shadow-xs opacity-70"
-          }`}
-        >
-          <span className="text-sm text-feat-desc">{agent.name}</span>
-          <div className="flex items-center gap-3">
-            <span className="text-xs">{agent.state}</span>
-            <span
-              className={`w-2.5 h-2.5 rounded-full ${agent.color} transform-gpu will-change-transform ${
-                activeAgent === index ? "animate-pulse" : ""
-              }`}
-            />
-          </div>
-        </div>
-      ))}
+const AgentItem = memo(({ agent, isActive }: { agent: typeof AGENT_STATES[0]; isActive: boolean }) => (
+  <div
+    className={`flex items-center justify-between p-3 sm:p-5 rounded-lg border transition-all duration-500 ease-in-out ${
+      isActive
+        ? "border-primary/80 bg-primary/15 shadow-md ring-1 ring-primary/20"
+        : "border-feat-border bg-feat-card opacity-70"
+    }`}
+  >
+    <span className="text-sm text-feat-desc font-medium">{agent.name}</span>
+    <div className="flex items-center gap-3">
+      <span className="text-xs text-feat-desc/80">{agent.state}</span>
+      <span
+        className={`w-2.5 h-2.5 rounded-full ${agent.color} ${
+          isActive ? "animate-pulse shadow-[0_0_8px_rgba(0,0,0,0.2)]" : ""
+        }`}
+      />
     </div>
-  );
-}
+  </div>
+));
+AgentItem.displayName = "AgentItem";
 
-/* ─── Sub-componente para los checks de guardrails ─── */
-function GuardrailStatusList() {
-  const [guardrailProgress, setGuardrailProgress] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setGuardrailProgress((prev) =>
-        prev === guardrailChecks.length - 1 ? 0 : prev + 1,
-      );
-    }, 1200);
-    return () => clearInterval(interval);
-  }, []);
-
-  return (
-    <div className="space-y-3">
-      {guardrailChecks.map((check, index) => (
-        <div
-          key={check.id}
-          className="flex items-center gap-3 sm:gap-5 p-3 sm:p-5 rounded-md border bg-card border-feat-border/60 shadow-xs opacity-90"
-        >
-          <div
-            className={`w-5 h-5 rounded-full flex items-center justify-center shrink-0 transition-[background-color,border-color] duration-500 ease-out ${
-              guardrailProgress >= index
-                ? `${check.color}`
-                : "border border-border/50"
-            }`}
-          >
-            {guardrailProgress >= index && (
-              <svg
-                className="w-3.5 h-3.5 text-primary2 transition-opacity duration-500 ease-out"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={4}
-                  d="M5 13l4 4L19 7"
-                />
-              </svg>
-            )}
-          </div>
-          <span className="text-xs font-medium">{check.label}</span>
-        </div>
-      ))}
+const GuardrailItem = memo(({ check, isCompleted }: { check: typeof GUARDRAIL_CHECKS[0]; isCompleted: boolean }) => (
+  <div className="flex items-center gap-3 sm:gap-5 p-3 sm:p-5 rounded-md border border-feat-border/60 bg-feat-card shadow-xs transition-opacity duration-300">
+    <div
+      className={`w-5 h-5 rounded-full flex items-center justify-center shrink-0 transition-all duration-500 ease-out ${
+        isCompleted ? check.color : "border border-feat-border"
+      }`}
+    >
+      {isCompleted && <Check className="w-3.5 h-3.5 text-primary2" strokeWidth={4} />}
     </div>
-  );
-}
+    <span className="text-xs font-medium text-feat-desc">{check.label}</span>
+  </div>
+));
+GuardrailItem.displayName = "GuardrailItem";
 
 export default function EstadoAgentes() {
+  const [progress, setProgress] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setProgress((prev) => (prev + 1) % 5);
+    }, 1500); // Slightly slower for better readability and lower CPU usage
+    return () => clearInterval(interval);
+  }, []);
+
   return (
-    <section className="w-full py-10 md:py-27 bg-feat-bg text-feat-txt">
+    <section className="w-full py-16 md:py-24 bg-feat-bg text-feat-txt overflow-hidden">
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 flex flex-col items-center">
-        {/* HEADER INTEGRADO */}
-        <div className="text-center mb-3 md:mb-12 px-4">
-          <div className="inline-flex relative items-center justify-center px-4 py-1.5 border border-primary-color-text/50">
+        
+        {/* HEADER */}
+        <div className="text-center mb-12 md:mb-20 px-4">
+          <div className="inline-flex relative items-center justify-center px-6 py-2 border border-primary-general/30 mb-6 group transition-colors">
             <h2 className="text-2xl md:text-4xl font-bold tracking-tight text-title-ttl">
-              Título de la sección
+              Ecosistema de Agentes
             </h2>
-            {/* Icono de cursor decorativo */}
-            <div className="absolute -bottom-2 -right-2 transform rotate-[-90deg] text-primary-color-text">
-              <svg
-                className="h-5 w-5 fill-current"
-                viewBox="0 0 16 16"
-                xmlns="http://www.w3.org/2000/svg"
-              >
+            <div className="absolute -bottom-2 -right-2 transform rotate-[-90deg] text-primary-general">
+              <svg className="h-5 w-5 fill-current" viewBox="0 0 16 16">
                 <path d="M14.082 2.182a.5.5 0 0 1 .103.557L8.528 15.467a.5.5 0 0 1-.917-.007L5.57 10.694.803 8.652a.5.5 0 0 1-.006-.916l12.728-5.657a.5.5 0 0 1 .556.103z" />
               </svg>
             </div>
           </div>
-          <p className="mt-2 text-sm md:text-base text-title-desc max-w-2xl mx-auto">
-            Lorem dolor sit met consectetu adipisicing elit. Quisquam, quod. lo
-            adipisicing elit.
+          <p className="text-sm md:text-base text-title-desc max-w-2xl mx-auto leading-relaxed">
+            Gestión inteligente y segura en tiempo real. Monitorea la autonomía de tus procesos bajo el control estricto de nuestros protocolos de seguridad.
           </p>
         </div>
 
-        {/* CONTENEDOR DE GRID CON LÍNEAS */}
+        {/* GRID CONTAINER */}
         <div className="relative w-full">
-          {/* líneas cruz — hidden on mobile */}
-          <div className="absolute top-1/2 left-0 right-0 h-px bg-feat-border/100 hidden md:block" />
-          <div className="absolute top-0 bottom-0 left-1/2 w-px bg-feat-border/100 hidden md:block" />
+          {/* Decorative Grid Lines */}
+          <div className="absolute top-1/2 left-0 right-0 h-[1px] bg-feat-border/20 hidden md:block" />
+          <div className="absolute top-0 bottom-0 left-1/2 w-[1px] bg-feat-border/20 hidden md:block" />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 md:grid-rows-2 md:min-h-[700px] gap-8 md:gap-0">
-            <div className="p-4 sm:p-6 md:p-12 md:pr-16 space-y-7 md:space-y-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 md:min-h-[600px] gap-px bg-feat-border/20">
+            
+            {/* COLUMN 1: Agent Status (Top-Left) */}
+            <div className="bg-feat-bg p-6 md:p-12 space-y-8">
               <div>
-                <h2 className="text-center md:text-left text-xl  md:text-2xl font-semibold text-feat-ttl mb-0">
-                  Sub-titulo 1
-                </h2>
-                <p className="px-2 text-center md:text-left text-sm max-w-md-lg text-feat-desc">
-                  Lorem dolor sit netus met consectetu adipisicing elit.
-                  Quisquam, quod. lo.
+                <h3 className="text-xl md:text-2xl font-semibold text-feat-ttl mb-2">Monitoreo de Agentes</h3>
+                <p className="text-sm text-feat-desc max-w-md">
+                  Estado actual y flujo de ejecución de las entidades inteligentes activas en el sistema.
                 </p>
               </div>
-
-              <AgentStatusList />
+              <div className="space-y-3">
+                {AGENT_STATES.map((agent, index) => (
+                  <AgentItem key={agent.id} agent={agent} isActive={progress === index} />
+                ))}
+              </div>
             </div>
 
-            {/* ===== TEXTO  ===== */}
-            <div className="p-4 sm:p-6 md:p-12 md:pl-16 space-y-4 md:space-y-10">
-              <div className="space-y-3 max-w-md">
-                <h2 className="text-center md:text-left text-xl md:text-2xl font-semibold text-feat-ttl leading-snug">
-                  Sub-titulo 2
-                </h2>
-
-                <p className="text-center md:text-left text-[10.5px] tracking-widest uppercase text-feat-desc">
-                  Subtítulo de la sección
-                </p>
-
-                <p className="text-sm max-w-md-lg text-feat-desc">
-                  Lorem ipsum sit ipsum ipsum sitconsectetur sitos adipisicing
-                  elit. Quisquam, quod. Lorem ipsum dolor sit amet consectetur
-                  adipisicing.
+            {/* COLUMN 2: Features Text 1 (Top-Right) */}
+            <div className="bg-feat-bg p-6 md:p-12 space-y-6">
+              <div className="space-y-4">
+                <h3 className="text-xl md:text-2xl font-semibold text-feat-ttl">Operación Autónoma</h3>
+                <p className="text-[10px] tracking-[0.3em] uppercase text-primary-general font-bold">Sistema Inteligente</p>
+                <p className="text-sm text-feat-desc leading-relaxed">
+                  Nuestros agentes operan de manera independiente, coordinando tareas complejas con mínima intervención, asegurando una productividad constante y optimizada.
                 </p>
               </div>
-
-              <ul className="py-2 space-y-2.5 text-sm text-feat-desc">
-                <li>• Lorem ipsum dolor sit amet adipisicing elite.</li>
-                <li>• Lorem ipsum dolor sit amet adipisicing elite.</li>
-                <li>• Lorem ipsum dolor sit amet adipisicing elite.</li>
-                <li>• Lorem ipsum dolor sit amet adipisicing elite.</li>
-                <li>• Lorem ipsum dolor sit amet adipisicing elite.</li>
-                <li>• Lorem ipsum dolor sit amet adipisicing elite.</li>
-                <li>• Lorem ipsum dolor sit amet adipisicing elite.</li>
-                <li>• Lorem ipsum dolor sit amet adipisicing elite.</li>
+              <ul className="grid grid-cols-1 gap-3 text-sm text-feat-desc/80">
+                {[
+                  "Toma de decisiones proactiva",
+                  "Coordinación multi-agente fluida",
+                  "Aprendizaje continuo en tiempo real",
+                  "Priorización inteligente de objetivos"
+                ].map((item, i) => (
+                  <li key={i} className="flex items-center gap-3 group">
+                    <span className="w-1.5 h-1.5 rounded-full bg-primary-general/60 group-hover:bg-primary-general transition-colors" />
+                    {item}
+                  </li>
+                ))}
               </ul>
             </div>
 
-            {/* ===== TEXTO  ===== */}
-            <div className="p-4 sm:p-6 md:p-12 md:pl-16 space-y-4 md:space-y-10">
-              <div className="space-y-3 max-w-md">
-                <h2 className="text-center md:text-left text-xl md:text-2xl font-semibold text-feat-ttl leading-snug">
-                  Sub-titulo 3
-                </h2>
-
-                <p className="text-center md:text-left text-[10.5px] tracking-widest uppercase text-feat-desc">
-                  Subtítulo de la sección
-                </p>
-
-                <p className="text-sm max-w-md-lg text-feat-desc">
-                  Lorem ipsum sit ipsum ipsum sitconsectetur sitos adipisicing
-                  elit. Quisquam, quod. Lorem ipsum dolor sit amet consectetur
-                  adipisicing.
+            {/* COLUMN 3: Features Text 2 (Bottom-Left) */}
+            <div className="bg-feat-bg p-6 md:p-12 space-y-6 order-last md:order-none">
+              <div className="space-y-4">
+                <h3 className="text-xl md:text-2xl font-semibold text-feat-ttl">Seguridad y Control</h3>
+                <p className="text-[10px] tracking-[0.3em] uppercase text-primary-general font-bold">Guardrails Activos</p>
+                <p className="text-sm text-feat-desc leading-relaxed">
+                  Cada acción es filtrada a través de protocolos estrictos que previenen comportamientos inesperados y garantizan el cumplimiento de normativas.
                 </p>
               </div>
-
-              <ul className="py-2 space-y-2.5 text-sm text-feat-desc">
-                <li>• Lorem ipsum dolor sit amet adipisicing elite.</li>
-                <li>• Lorem ipsum dolor sit amet adipisicing elite.</li>
-                <li>• Lorem ipsum dolor sit amet adipisicing elite.</li>
-                <li>• Lorem ipsum dolor sit amet adipisicing elite.</li>
-                <li>• Lorem ipsum dolor sit amet adipisicing elite.</li>
-                <li>• Lorem ipsum dolor sit amet adipisicing elite.</li>
-                <li>• Lorem ipsum dolor sit amet adipisicing elite.</li>
-                <li>• Lorem ipsum dolor sit amet adipisicing elite.</li>
+              <ul className="grid grid-cols-1 gap-3 text-sm text-feat-desc/80">
+                {[
+                  "Filtrado de contenido sensible",
+                  "Límites operativos definidos",
+                  "Auditoría de procesos en vivo",
+                  "Prevención de sesgos y errores"
+                ].map((item, i) => (
+                  <li key={i} className="flex items-center gap-3 group">
+                    <span className="w-1.5 h-1.5 rounded-full bg-primary-general/60 group-hover:bg-primary-general transition-colors" />
+                    {item}
+                  </li>
+                ))}
               </ul>
             </div>
 
-            {/* ===== INTERACTIVO ===== */}
-            <div className="p-2 sm:p-6 md:p-12 md:pl-16 space-y-7 md:space-y-14">
+            {/* COLUMN 4: Guardrail Progress (Bottom-Right) */}
+            <div className="bg-feat-bg p-6 md:p-12 space-y-8">
               <div>
-                <h2 className="text-center md:text-left text-xl md:text-2xl font-semibold text-feat-ttl mb-0">
-                  Sub-titulo 4
-                </h2>
-                <p className="text-center md:text-left text-sm max-w-md-lg text-feat-desc">
-                  Lorem dolor sit netus met consectetu adipisicing elit.
-                  Quisquam, quod. lo.
+                <h3 className="text-xl md:text-2xl font-semibold text-feat-ttl mb-2">Validación de Protocolos</h3>
+                <p className="text-sm text-feat-desc max-w-md">
+                  Verificación secuencial de normativas y reglas de cumplimiento activas en el entorno.
                 </p>
               </div>
-
-              <GuardrailStatusList />
+              <div className="space-y-3">
+                {GUARDRAIL_CHECKS.map((check, index) => (
+                  <GuardrailItem key={check.id} check={check} isCompleted={progress >= index} />
+                ))}
+              </div>
             </div>
+
           </div>
         </div>
       </div>
     </section>
   );
 }
+

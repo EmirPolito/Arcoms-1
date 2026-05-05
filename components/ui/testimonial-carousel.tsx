@@ -18,7 +18,6 @@ type TestimonialCardPlugin = UseTestimonialCardParameters[1];
 type TestimonialCardProps = {
   opts?: TestimonialCardOptions;
   plugins?: TestimonialCardPlugin;
-
   setApi?: (api: TestimonialCardApi) => void;
 };
 
@@ -115,7 +114,6 @@ function TestimonialCard({
         className={cn("relative", className)}
         role="region"
         aria-roledescription="carousel"
-        data-slot="testimonial-card"
         {...props}
       >
         {children}
@@ -133,7 +131,6 @@ function TestimonialCardContent({
     <div
       ref={carouselRef}
       className="overflow-hidden"
-      data-slot="testimonial-card-content"
     >
       <div className={cn("flex", className)} {...props} />
     </div>
@@ -148,115 +145,42 @@ function TestimonialCardItem({
     <div
       role="group"
       aria-roledescription="slide"
-      data-slot="testimonial-card-item"
-      className={cn("min-w-0 shrink-0 grow-0 basis-full", className)}
+      className={cn("min-w-0 shrink-0 grow-0 basis-full px-4", className)}
       {...props}
     />
   );
 }
 
-function TestimonialCardPrevious({
-  className,
-  variant = "outline",
-  size = "icon",
-  ...props
-}: React.ComponentProps<typeof Button>) {
-  const { scrollPrev, canScrollPrev } = useTestimonialCard();
-  return (
-    <Button
-      data-slot="testimonial-card-previous"
-      variant={variant}
-      size={size}
-      className={cn("absolute size-8 rounded-full", className)}
-      disabled={!canScrollPrev}
-      onClick={scrollPrev}
-      {...props}
-    >
-      <ArrowLeft />
-      <span className="sr-only">Previous slide</span>
-    </Button>
-  );
-}
-
-function TestimonialCardNext({
-  className,
-  variant = "outline",
-  size = "icon",
-  ...props
-}: React.ComponentProps<typeof Button>) {
-  const { scrollNext, canScrollNext } = useTestimonialCard();
-  return (
-    <Button
-      data-slot="testimonial-card-next"
-      variant={variant}
-      size={size}
-      className={cn("absolute size-8 rounded-full", className)}
-      disabled={!canScrollNext}
-      onClick={scrollNext}
-      {...props}
-    >
-      <ArrowRight />
-      <span className=" sr-only">Next slide</span>
-    </Button>
-  );
-}
-
-function AnimatedAvatarBorder({
-  children,
-  isActive,
-  borderType = "solid",
-}: {
-  children: React.ReactNode;
-  isActive: boolean;
-  borderType?: "solid" | "gradient";
-}) {
-  const offset = isActive ? 0 : 301.59;
-  const gradientId = React.useId();
-
-  const getStrokeColor = () => {
-    if (borderType === "gradient") {
-      return `url(#${gradientId})`;
-    }
-    return "currentColor";
-  };
-
-  return (
-    <div className="relative w-16 h-16 sm:w-20 sm:h-20 shrink-0 text-testim-ttl">
-      <svg
-        className="absolute inset-0 w-full h-full"
-        viewBox="0 0 100 100"
-        style={{ transform: "rotate(-90deg)" }}
-      >
-        <circle
-          cx="50"
-          cy="50"
-          r="48"
-          fill="none"
-          stroke={getStrokeColor()}
-          strokeWidth="4"
-          strokeDasharray="301.59"
-          strokeDashoffset={offset}
-          strokeLinecap="round"
-          style={{
-            transition: isActive ? "stroke-dashoffset 5000ms linear" : "none",
-          }}
-        />
-        {borderType === "gradient" && (
-          <defs>
-            <linearGradient id={gradientId} x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#3b82f6" />
-              <stop offset="50%" stopColor="#8b5cf6" />
-              <stop offset="100%" stopColor="#ec4899" />
-            </linearGradient>
-          </defs>
-        )}
-      </svg>
-      <div className="absolute inset-1/2 -translate-x-1/2 -translate-y-1/2 w-14 h-14 sm:w-18 sm:h-18 rounded-full overflow-hidden p-2">
-        {children}
-      </div>
-    </div>
-  );
-}
+const TestimonialItem = React.memo(({ testimonial }: { testimonial: Testimonial }) => (
+  <TestimonialCardItem className="md:px-4">
+    <Card className="bg-card border-feat-border/40 border shadow-xs max-w-[90vw] sm:max-w-3xl mx-auto rounded-xl overflow-hidden">
+      <CardContent className="p-4 sm:p-8 md:p-10 flex items-center justify-center">
+        <div className="flex flex-col items-center text-center max-w-xl gap-3 sm:gap-6">
+          <Avatar className="w-14 h-14 sm:w-20 sm:h-20 ring-2 ring-primary-general/5 transition-transform hover:scale-105 duration-300">
+            <AvatarImage src={testimonial.image} alt={testimonial.name} />
+            <AvatarFallback>{testimonial.name.split(" ").map(n => n[0]).join("")}</AvatarFallback>
+          </Avatar>
+          
+          <div className="space-y-2 sm:space-y-4">
+            <p className="text-sm sm:text-base md:text-lg leading-relaxed text-foreground font-medium italic opacity-90">
+              "{testimonial.description}"
+            </p>
+            
+            <div className="space-y-0.5 sm:space-y-1">
+              <h3 className="text-sm sm:text-lg font-semibold text-testim-ttl">
+                {testimonial.name}
+              </h3>
+              <p className="text-[9px] sm:text-xs text-testim-desc font-normal tracking-widest uppercase opacity-70">
+                {testimonial.handle}
+              </p>
+            </div>
+          </div>
+        </div>
+      </CardContent>
+    </Card>
+  </TestimonialCardItem>
+));
+TestimonialItem.displayName = "TestimonialItem";
 
 type Testimonial = {
   description: string;
@@ -272,75 +196,41 @@ type TestimonialCarouselProps = {
 
 export default function TestimonialCarousel({
   data,
-  borderType = "solid",
 }: TestimonialCarouselProps) {
   const [api, setApi] = React.useState<TestimonialCardApi>();
-  const [current, setCurrent] = React.useState(0);
-
-  React.useEffect(() => {
-    if (!api) return;
-    setCurrent(api.selectedScrollSnap());
-    api.on("select", () => {
-      if (api) setCurrent(api.selectedScrollSnap());
-    });
-  }, [api]);
-
-
-
 
   return (
-    <div className="relative flex items-center justify-center w-full select-none px-2 sm:px-4 md:px-6 pt-5 pb-10">
+    <div className="relative flex flex-col items-center w-full select-none pt-5 pb-10">
       <TestimonialCard
-        className="relative max-w-xl md:max-w-5xl w-full"
+        className="relative w-full"
         setApi={setApi}
       >
-        <div className="relative w-full">
-          <TestimonialCardContent>
-            {data.map((testimonial, index) => (
-              <TestimonialCardItem key={index} className="basis-full">
-                <Card className="bg-card border-border border h-full">
-                  <CardContent className="p-3.5 sm:p-6 md:p-8 h-full flex items-center">
-                    <div className="flex flex-col w-full gap-4">
-                      {/* Fila: avatar + nombre/handle */}
-                      <div className="flex items-center gap-4">
-                        <Avatar className="w-13 h-13 sm:w-15 sm:h-15 shrink-0">
-                          <AvatarImage
-                            src={testimonial.image}
-                            alt={testimonial.name}
-                          />
-                          <AvatarFallback>
-                            {testimonial.name
-                              .split(" ")
-                              .map((n) => n[0])
-                              .join("")}
-                          </AvatarFallback>
-                        </Avatar>
-                        <div>
-                          <h3 className="text-base sm:text-lg font-semibold text-testim-ttl leading-tight">
-                            {testimonial.name}
-                          </h3>
-                          <p className="text-xs sm:text-sm text-testim-desc mt-0.5">
-                            {testimonial.handle}
-                          </p>
-                        </div>
-                      </div>
-                      {/* Descripción debajo */}
-                      <p className="text-sm sm:text-base leading-relaxed text-testim-desc">
-                        {testimonial.description}
-                      </p>
-                    </div>
-                  </CardContent>
-                </Card>
-              </TestimonialCardItem>
-            ))}
-          </TestimonialCardContent>
-        </div>
+        <TestimonialCardContent>
+          {data.map((testimonial, index) => (
+            <TestimonialItem key={index} testimonial={testimonial} />
+          ))}
+        </TestimonialCardContent>
 
-        <div className="flex items-center justify-center gap-4 mt-6">
-          <TestimonialCardPrevious className="cursor-pointer shadow-lg dark:shadow-gray-800 static!" />
-          <TestimonialCardNext className="cursor-pointer shadow-lg dark:shadow-gray-800 static!" />
+        <div className="flex items-center justify-center gap-6 mt-8 md:mt-12">
+          <Button
+            variant="outline"
+            size="icon"
+            className="rounded-full size-10 md:size-12 border-primary-general/20 hover:bg-primary-general hover:text-primary2 transition-all duration-300"
+            onClick={() => api?.scrollPrev()}
+          >
+            <ArrowLeft className="size-5 md:size-6" />
+          </Button>
+          <Button
+            variant="outline"
+            size="icon"
+            className="rounded-full size-10 md:size-12 border-primary-general/20 hover:bg-primary-general hover:text-primary2 transition-all duration-300"
+            onClick={() => api?.scrollNext()}
+          >
+            <ArrowRight className="size-5 md:size-6" />
+          </Button>
         </div>
       </TestimonialCard>
     </div>
   );
 }
+
