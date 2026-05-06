@@ -1,5 +1,5 @@
 <div align="center">
-  <h1>Arcoms-1 - Arcoms Collection</h1>
+  <h1>Arcoms-1</h1>
 </div>
 
 <div align="center">
@@ -12,7 +12,7 @@
 
 </div>
 
-**Arcoms-1** es una landing page inmersiva y de alto impacto visual, parte de **Arcoms Collection**. Diseñada para cautivar al usuario desde el primer segundo mediante animaciones fluidas, modelos 3D interactivos y un sistema de temas completamente personalizable.
+**Arcoms-1** es una landing page inmersiva y de alto impacto visual. Diseñada para cautivar al usuario desde el primer segundo mediante animaciones, modelos 3D interactivos y un sistema de temas completamente personalizable.
 
 ---
 
