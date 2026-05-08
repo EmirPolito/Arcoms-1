@@ -27,7 +27,7 @@ const useSharedObserver = () => {
         });
       },
       { 
-        threshold: 0.1, 
+        threshold: 0, 
         rootMargin: "0px 0px -50px 0px" 
       }
     );
@@ -54,7 +54,9 @@ export default function Home() {
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
       <Header />
       <main className="py-10">
-        <HeroSection />
+        <FadeInSection>
+          <HeroSection />
+        </FadeInSection>
 
         <FadeInSection>
           <LogoCloud />

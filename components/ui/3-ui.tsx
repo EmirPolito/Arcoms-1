@@ -134,8 +134,8 @@ export const PinPerspective = ({
           ))}
         </div>
 
-        {/* PARTICULAS - Ocultas en móvil */}
-        <div className="hidden md:block">
+        {/* PARTICULAS - Mostradas en móvil */}
+        <div className="block">
           <motion.div
             className={cn(
               "absolute right-1/2 bottom-1/2 bg-gradient-to-b from-transparent to-primary-color-linea w-px transition-all duration-500 blur-[2px] transform-gpu",

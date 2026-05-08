@@ -122,7 +122,7 @@ function Logo({ logo }: { logo: (typeof logos)[0] }) {
 /* ─── Main export ─── */
 export default function LogoCloud() {
   return (
-    <section className="bg-background overflow-hidden py-0 md:py-10">
+    <section className="bg-background overflow-hidden py-1 md:py-10">
       <div className="relative w-full px-4 md:px-2">
         <div className="flex items-center md:flex-row">
           {/* Left label - Ajustado ancho para dar más espacio al slider en laptop */}
