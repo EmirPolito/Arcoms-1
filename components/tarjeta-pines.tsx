@@ -4,7 +4,7 @@ import { PinContainer } from "@/components/ui/3-ui";
 
 export function TarjetaPines() {
   return (
-    <section className="w-full py-11 px-4 flex flex-col items-center">
+    <section className="w-full py-2 px-4 flex flex-col items-center">
       {/* HEADER INTEGRADO */}
       <div className="text-center mb-2.5 md:mb-10  px-4">
         <div className="flex flex-row flex-wrap items-center justify-center gap-4 mb-2">
