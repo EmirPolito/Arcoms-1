@@ -41,36 +41,25 @@ export function HeroSection({
   return (
     <div className="w-full min-h-[500px] md:h-[600px] lg:h-[650px] relative overflow-hidden bg-background border-0 shadow-none ring-0 text-foreground">
       {/* Contenido */}
-      <div className="relative z-10 flex h-full items-center pointer-events-none px-4 sm:px-6 pt-3.5 pb-12 md:py-0 transform-gpu opacity-100 translate-y-0">
-        <div className="mx-auto w-full max-w-lg text-center lg:ml-16 lg:text-left mt-8 md:-mt-15">
-          <div className="relative z-20 mt-2 mb-1 flex justify-center lg:justify-start">
+      <div className="relative z-10 flex h-full items-center pointer-events-none px-5 sm:px-6 pt-0 pb-12 md:py-0 transform-gpu opacity-100 translate-y-8">
+        <div className="mx-auto w-full max-w-lg text-left  lg:ml-16 lg:text-left mt-8 md:-mt-15">
+          <div className="relative z-20 mt-2 mb-1 flex justify-left lg:justify-start">
             <Announcement styled animation="fade">
               <AnnouncementTag>Tu Landing</AnnouncementTag>
               <AnnouncementTitle>Experiencia Inmersiva</AnnouncementTitle>
             </Announcement>
           </div>
 
-          <h1 className="relative z-20 font-semibold text-4xl sm:text-5xl md:text-6xl xl:text-7xl text-hero-ttl">
+          <h1 className=" relative z-20 font-semibold text-4xl sm:text-5xl md:text-6xl xl:text-7xl text-hero-ttl">
             Bienvenidos
             <br />
             <span className="block">a Arcoms 1</span>
           </h1>
 
           {/* ROBOT */}
-          <div
-            className={`
-              relative md:absolute md:inset-0 z-10 block transform-gpu 
-              ${isMobile ? "pointer-events-none" : "pointer-events-auto"}
-              h-[400px] sm:h-[450px] md:h-auto mt-2 mb-0 md:my-0 w-full
-            `}
-          >
-            <div
-              className={`translate
-              w-full h-full origin-top
-              ${isMobile ? "translate-y-0 scale-[1.0] opacity-90 transition-opacity duration-1000" : "-translate-y-8 md:translate-x-[180px] lg:translate-x-[290px] scale-[1.0] sm:scale-[1.1] md:scale-[1.09]"}
-            `}
-            >
-              {isMounted && (
+          <div className="hidden md:block absolute inset-0 z-10 transform-gpu pointer-events-auto w-full">
+            <div className="w-full h-full origin-top -translate-y-8 md:translate-x-[180px] lg:translate-x-[290px] md:scale-[1.09]">
+              {isMounted && !isMobile && (
                 <SplineScene
                   scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
                   className="w-full h-full"
@@ -80,13 +69,13 @@ export function HeroSection({
           </div>
 
           <p
-            className={`text-sm md:text-base relative z-20 mt-4 md:mt-3 text-pretty text-hero-desc ${paragraphSize}`}
+            className={`text-left md:text-left text-base md:text-base relative z-20 mt-27 md:mt-3 text-pretty text-hero-desc ${paragraphSize}`}
           >
             Landing page con experiencia futurista mediante animaciones,
             interacción y diseño minimalista. Genera alto impacto visual.
           </p>
 
-          <div className="relative z-20 pointer-events-auto mt-8 md:mt-12 flex flex-row justify-center gap-4 sm:gap-5 lg:justify-start">
+          <div className="relative z-20 pointer-events-auto mt-3 md:mt-12 flex flex-row justify-left gap-4 sm:gap-5 lg:justify-start">
             <Link
               href="/explore"
               className={`${buttonWidth} w-full max-w-[135px] sm:w-[165px] h-[43px] flex items-center justify-center text-base md:text-lg rounded-md font-medium shadow-md text-hero-btn-txt bg-hero-btn-bg transition-opacity cursor-pointer md:hover:opacity-95`}

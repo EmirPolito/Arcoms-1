@@ -44,7 +44,7 @@ export function BentoCaracteristicas() {
             </p>
           </div>
 
-          <div className="absolute inset-0 flex items-end justify-center md:translate-x-[7rem] translate-x-[2.5rem] hidden md:flex">
+          <div className="absolute inset-0 flex items-end justify-center md:translate-x-[7rem] translate-x-[2.5rem]">
             <Globe />
           </div>
 
