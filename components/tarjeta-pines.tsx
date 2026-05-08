@@ -23,7 +23,7 @@ export function TarjetaPines() {
 
       {/* GRID DE TARJETAS */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-14 lg:gap-10">
-        <PinContainer title="Descripcion1/" href="/">
+        <PinContainer title="Link1/" href="/">
           <div className="flex basis-full flex-col p-3.5 tracking-tight text-primary-color-text w-[17.5rem] h-[17.5rem] sm:w-[18rem] sm:h-[18rem] lg:w-[20rem] lg:h-[20rem]">
             <h3 className="max-w-xs pb-2 m-0 font-bold text-base text-foreground">
               Titulo 1
@@ -36,7 +36,7 @@ export function TarjetaPines() {
           </div>
         </PinContainer>
 
-        <PinContainer title="Descripcion2/" href="/">
+        <PinContainer title="Link2/" href="/">
           <div className="flex basis-full flex-col p-3.5 tracking-tight text-foreground/60 w-[17.5rem] h-[17.5rem] sm:w-[18rem] sm:h-[18rem] lg:w-[20rem] lg:h-[20rem]">
             <h3 className="max-w-xs pb-2 m-0 font-bold text-base text-foreground">
               Titulo 2
@@ -49,7 +49,7 @@ export function TarjetaPines() {
           </div>
         </PinContainer>
 
-        <PinContainer title="Descripcion3/" href="/">
+        <PinContainer title="Link3/" href="/">
           <div className="flex basis-full flex-col p-3.5 tracking-tight text-foreground/60 w-[17.5rem] h-[17.5rem] sm:w-[18rem] sm:h-[18rem] lg:w-[20rem] lg:h-[20rem]">
             <h3 className="max-w-xs pb-2 m-0 font-bold text-base text-foreground">
               Titulo 3

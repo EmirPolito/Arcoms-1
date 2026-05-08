@@ -39,7 +39,7 @@ const TESTIMONIALS = [
 
 const TestimonialsCarousel = memo(() => {
   return (
-    <section className="relative w-full py-5 bg-testim-bg flex flex-col items-center px-4 overflow-hidden">
+    <section className="relative w-full py-2 bg-testim-bg flex flex-col items-center px-4 overflow-hidden">
       {/* HEADER */}
       <div className="text-center mb-4 md:mb-8 px-4">
         <h2 className="text-2xl md:text-4xl font-bold tracking-tight text-foreground mb-3">

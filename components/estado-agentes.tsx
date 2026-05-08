@@ -21,39 +21,57 @@ const GUARDRAIL_CHECKS = [
 
 /* ─── Memoized Sub-components ─── */
 
-const AgentItem = memo(({ agent, isActive }: { agent: typeof AGENT_STATES[0]; isActive: boolean }) => (
-  <div
-    className={`flex items-center justify-between p-3 sm:p-5 rounded-lg border transition-all duration-500 ease-in-out ${
-      isActive
-        ? "border-primary/80 bg-primary/15 shadow-md ring-1 ring-primary/20"
-        : "border-feat-border bg-feat-card opacity-70"
-    }`}
-  >
-    <span className="text-sm text-feat-desc font-medium">{agent.name}</span>
-    <div className="flex items-center gap-3">
-      <span className="text-xs text-feat-desc/80">{agent.state}</span>
-      <span
-        className={`w-2.5 h-2.5 rounded-full ${agent.color} ${
-          isActive ? "animate-pulse shadow-[0_0_8px_rgba(0,0,0,0.2)]" : ""
-        }`}
-      />
-    </div>
-  </div>
-));
-AgentItem.displayName = "AgentItem";
-
-const GuardrailItem = memo(({ check, isCompleted }: { check: typeof GUARDRAIL_CHECKS[0]; isCompleted: boolean }) => (
-  <div className="flex items-center gap-3 sm:gap-5 p-3 sm:p-5 rounded-md border border-feat-border/60 bg-feat-card shadow-xs transition-opacity duration-300">
+const AgentItem = memo(
+  ({
+    agent,
+    isActive,
+  }: {
+    agent: (typeof AGENT_STATES)[0];
+    isActive: boolean;
+  }) => (
     <div
-      className={`w-5 h-5 rounded-full flex items-center justify-center shrink-0 transition-all duration-500 ease-out ${
-        isCompleted ? check.color : "border border-feat-border"
+      className={`flex items-center justify-between p-3 sm:p-5 rounded-lg border transition-all duration-500 ease-in-out ${
+        isActive
+          ? "border-primary/80 bg-primary/15 shadow-md ring-1 ring-primary/20"
+          : "border-feat-border bg-feat-card opacity-70"
       }`}
     >
-      {isCompleted && <Check className="w-3.5 h-3.5 text-primary2" strokeWidth={4} />}
+      <span className="text-sm text-feat-desc font-medium">{agent.name}</span>
+      <div className="flex items-center gap-3">
+        <span className="text-xs text-feat-desc/80">{agent.state}</span>
+        <span
+          className={`w-2.5 h-2.5 rounded-full ${agent.color} ${
+            isActive ? "animate-pulse shadow-[0_0_8px_rgba(0,0,0,0.2)]" : ""
+          }`}
+        />
+      </div>
     </div>
-    <span className="text-xs font-medium text-feat-desc">{check.label}</span>
-  </div>
-));
+  ),
+);
+AgentItem.displayName = "AgentItem";
+
+const GuardrailItem = memo(
+  ({
+    check,
+    isCompleted,
+  }: {
+    check: (typeof GUARDRAIL_CHECKS)[0];
+    isCompleted: boolean;
+  }) => (
+    <div className="flex items-center gap-3 sm:gap-5 p-3 sm:p-5 rounded-md border border-feat-border/60 bg-feat-card shadow-xs transition-opacity duration-300">
+      <div
+        className={`w-5 h-5 rounded-full flex items-center justify-center shrink-0 transition-all duration-500 ease-out ${
+          isCompleted ? check.color : "border border-feat-border"
+        }`}
+      >
+        {isCompleted && (
+          <Check className="w-3.5 h-3.5 text-primary2" strokeWidth={4} />
+        )}
+      </div>
+      <span className="text-xs font-medium text-feat-desc">{check.label}</span>
+    </div>
+  ),
+);
 GuardrailItem.displayName = "GuardrailItem";
 
 export default function EstadoAgentes() {
@@ -69,10 +87,9 @@ export default function EstadoAgentes() {
   return (
     <section className="w-full py-16 md:py-24 bg-feat-bg text-feat-txt overflow-hidden">
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 flex flex-col items-center">
-        
         {/* HEADER */}
-        <div className="text-center mb-12 md:mb-20 px-4">
-          <div className="inline-flex relative items-center justify-center px-6 py-2 border border-primary-general/30 mb-6 group transition-colors">
+        <div className="text-center mb-1 md:mb-20 px-4">
+          <div className="inline-flex relative items-center justify-center px-6 py-2 border border-primary-general/30 mb-2 group transition-colors">
             <h2 className="text-2xl md:text-4xl font-bold tracking-tight text-title-ttl">
               Ecosistema de Agentes
             </h2>
@@ -83,7 +100,8 @@ export default function EstadoAgentes() {
             </div>
           </div>
           <p className="text-sm md:text-base text-title-desc max-w-2xl mx-auto leading-relaxed">
-            Gestión inteligente y segura en tiempo real. Monitorea la autonomía de tus procesos bajo el control estricto de nuestros protocolos de seguridad.
+            Gestión inteligente y segura en tiempo real. Gestión inteligente y
+            segura en tiempo real.
           </p>
         </div>
 
@@ -94,18 +112,24 @@ export default function EstadoAgentes() {
           <div className="absolute top-0 bottom-0 left-1/2 w-[1px] bg-feat-border/20 hidden md:block" />
 
           <div className="grid grid-cols-1 md:grid-cols-2 md:min-h-[600px] gap-px bg-feat-border/20">
-            
             {/* COLUMN 1: Agent Status (Top-Left) */}
             <div className="bg-feat-bg p-6 md:p-12 space-y-8">
               <div>
-                <h3 className="text-xl md:text-2xl font-semibold text-feat-ttl mb-2">Monitoreo de Agentes</h3>
+                <h3 className="text-xl md:text-2xl font-semibold text-feat-ttl mb-2">
+                  Monitoreo de Agentes
+                </h3>
                 <p className="text-sm text-feat-desc max-w-md">
-                  Estado actual y flujo de ejecución de las entidades inteligentes activas en el sistema.
+                  Estado actual y flujo de ejecución de las entidades
+                  inteligentes activas en el sistema.
                 </p>
               </div>
               <div className="space-y-3">
                 {AGENT_STATES.map((agent, index) => (
-                  <AgentItem key={agent.id} agent={agent} isActive={progress === index} />
+                  <AgentItem
+                    key={agent.id}
+                    agent={agent}
+                    isActive={progress === index}
+                  />
                 ))}
               </div>
             </div>
@@ -113,10 +137,16 @@ export default function EstadoAgentes() {
             {/* COLUMN 2: Features Text 1 (Top-Right) */}
             <div className="bg-feat-bg p-6 md:p-12 space-y-6">
               <div className="space-y-4">
-                <h3 className="text-xl md:text-2xl font-semibold text-feat-ttl">Operación Autónoma</h3>
-                <p className="text-[10px] tracking-[0.3em] uppercase text-primary-general font-bold">Sistema Inteligente</p>
+                <h3 className="text-xl md:text-2xl font-semibold text-feat-ttl">
+                  Operación Autónoma
+                </h3>
+                <p className="text-[10px] tracking-[0.3em] uppercase text-primary-general font-bold">
+                  Sistema Inteligente
+                </p>
                 <p className="text-sm text-feat-desc leading-relaxed">
-                  Nuestros agentes operan de manera independiente, coordinando tareas complejas con mínima intervención, asegurando una productividad constante y optimizada.
+                  Nuestros agentes operan de manera independiente, coordinando
+                  tareas complejas con mínima intervención, asegurando una
+                  productividad constante y optimizada.
                 </p>
               </div>
               <ul className="grid grid-cols-1 gap-3 text-sm text-feat-desc/80">
@@ -124,7 +154,7 @@ export default function EstadoAgentes() {
                   "Toma de decisiones proactiva",
                   "Coordinación multi-agente fluida",
                   "Aprendizaje continuo en tiempo real",
-                  "Priorización inteligente de objetivos"
+                  "Priorización inteligente de objetivos",
                 ].map((item, i) => (
                   <li key={i} className="flex items-center gap-3 group">
                     <span className="w-1.5 h-1.5 rounded-full bg-primary-general/60 group-hover:bg-primary-general transition-colors" />
@@ -137,10 +167,16 @@ export default function EstadoAgentes() {
             {/* COLUMN 3: Features Text 2 (Bottom-Left) */}
             <div className="bg-feat-bg p-6 md:p-12 space-y-6 order-last md:order-none">
               <div className="space-y-4">
-                <h3 className="text-xl md:text-2xl font-semibold text-feat-ttl">Seguridad y Control</h3>
-                <p className="text-[10px] tracking-[0.3em] uppercase text-primary-general font-bold">Guardrails Activos</p>
+                <h3 className="text-xl md:text-2xl font-semibold text-feat-ttl">
+                  Seguridad y Control
+                </h3>
+                <p className="text-[10px] tracking-[0.3em] uppercase text-primary-general font-bold">
+                  Guardrails Activos
+                </p>
                 <p className="text-sm text-feat-desc leading-relaxed">
-                  Cada acción es filtrada a través de protocolos estrictos que previenen comportamientos inesperados y garantizan el cumplimiento de normativas.
+                  Cada acción es filtrada a través de protocolos estrictos que
+                  previenen comportamientos inesperados y garantizan el
+                  cumplimiento de normativas.
                 </p>
               </div>
               <ul className="grid grid-cols-1 gap-3 text-sm text-feat-desc/80">
@@ -148,7 +184,7 @@ export default function EstadoAgentes() {
                   "Filtrado de contenido sensible",
                   "Límites operativos definidos",
                   "Auditoría de procesos en vivo",
-                  "Prevención de sesgos y errores"
+                  "Prevención de sesgos y errores",
                 ].map((item, i) => (
                   <li key={i} className="flex items-center gap-3 group">
                     <span className="w-1.5 h-1.5 rounded-full bg-primary-general/60 group-hover:bg-primary-general transition-colors" />
@@ -161,22 +197,27 @@ export default function EstadoAgentes() {
             {/* COLUMN 4: Guardrail Progress (Bottom-Right) */}
             <div className="bg-feat-bg p-6 md:p-12 space-y-8">
               <div>
-                <h3 className="text-xl md:text-2xl font-semibold text-feat-ttl mb-2">Validación de Protocolos</h3>
+                <h3 className="text-xl md:text-2xl font-semibold text-feat-ttl mb-2">
+                  Validación de Protocolos
+                </h3>
                 <p className="text-sm text-feat-desc max-w-md">
-                  Verificación secuencial de normativas y reglas de cumplimiento activas en el entorno.
+                  Verificación secuencial de normativas y reglas de cumplimiento
+                  activas en el entorno.
                 </p>
               </div>
               <div className="space-y-3">
                 {GUARDRAIL_CHECKS.map((check, index) => (
-                  <GuardrailItem key={check.id} check={check} isCompleted={progress >= index} />
+                  <GuardrailItem
+                    key={check.id}
+                    check={check}
+                    isCompleted={progress >= index}
+                  />
                 ))}
               </div>
             </div>
-
           </div>
         </div>
       </div>
     </section>
   );
 }
-

@@ -41,7 +41,7 @@ export function HeroSection({
   return (
     <div className="w-full min-h-[500px] md:h-[600px] lg:h-[650px] relative overflow-hidden bg-background border-0 shadow-none ring-0 text-foreground">
       {/* Contenido */}
-      <div className="relative z-10 flex h-full items-center pointer-events-none px-4 sm:px-6 pt-6 pb-12 md:py-0 transform-gpu opacity-100 translate-y-0">
+      <div className="relative z-10 flex h-full items-center pointer-events-none px-4 sm:px-6 pt-3.5 pb-12 md:py-0 transform-gpu opacity-100 translate-y-0">
         <div className="mx-auto w-full max-w-lg text-center lg:ml-16 lg:text-left mt-8 md:-mt-15">
           <div className="relative z-20 mt-2 mb-1 flex justify-center lg:justify-start">
             <Announcement styled animation="fade">
@@ -59,12 +59,18 @@ export function HeroSection({
           {/* ROBOT */}
           <div
             className={`
-              relative md:absolute md:inset-0 z-10 block transform-gpu pointer-events-auto
-              h-[400px] md:h-auto my-6 md:my-0 w-full hidden md:block
+              relative md:absolute md:inset-0 z-10 block transform-gpu 
+              ${isMobile ? "pointer-events-none" : "pointer-events-auto"}
+              h-[400px] sm:h-[450px] md:h-auto mt-2 mb-0 md:my-0 w-full
             `}
           >
-            <div className="w-full h-full scale-[1.0] sm:scale-[1.1] md:scale-[1.09] origin-center md:origin-top -translate-y-6 md:-translate-y-8 md:translate-x-[180px] lg:translate-x-[290px]">
-              {isMounted && !isMobile && (
+            <div
+              className={`translate
+              w-full h-full origin-top
+              ${isMobile ? "translate-y-0 scale-[1.0] opacity-90 transition-opacity duration-1000" : "-translate-y-8 md:translate-x-[180px] lg:translate-x-[290px] scale-[1.0] sm:scale-[1.1] md:scale-[1.09]"}
+            `}
+            >
+              {isMounted && (
                 <SplineScene
                   scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
                   className="w-full h-full"
@@ -74,11 +80,10 @@ export function HeroSection({
           </div>
 
           <p
-            className={`text-sm md:text-base relative z-20 mt-3 text-pretty text-hero-desc ${paragraphSize}`}
+            className={`text-sm md:text-base relative z-20 mt-4 md:mt-3 text-pretty text-hero-desc ${paragraphSize}`}
           >
             Landing page con experiencia futurista mediante animaciones,
-            interacción y diseño minimalista. Genera alto impacto visual
-            sirviendo como plantilla base profesional.
+            interacción y diseño minimalista. Genera alto impacto visual.
           </p>
 
           <div className="relative z-20 pointer-events-auto mt-8 md:mt-12 flex flex-row justify-center gap-4 sm:gap-5 lg:justify-start">
