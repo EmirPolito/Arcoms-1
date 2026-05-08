@@ -1,5 +1,5 @@
 <div align="center">
-  <h1>Arcoms-1 - Arcoms Collection</h1>
+  <h1>Arcoms-1</h1>
 </div>
 
 <div align="center">
@@ -12,16 +12,12 @@
 
 </div>
 
-**Arcoms-1** es una landing page inmersiva y de alto impacto visual, parte de **Arcoms Collection**. Diseñada para cautivar al usuario desde el primer segundo mediante animaciones fluidas, modelos 3D interactivos y un sistema de temas completamente personalizable.
+**Arcoms-1** es una landing page cuenta animaciones, modelos 3D interactivos y un sistema de temas completamente personalizable.
 
 ---
 
 ![9256019b-e669-4a83-a367-29cd49e4f2dd](https://github.com/user-attachments/assets/e3907327-70fa-45c6-9bb9-6e7b2b4dade0)
 ![1e652d5d-10e2-4d96-87ea-081189ab4776](https://github.com/user-attachments/assets/91adc200-d930-47a8-9037-31f35d61c73b)
-
-<div align="center">
- https://arcoms-1.vercel.app/
-</div>
 
 ---
 
@@ -30,8 +26,6 @@
 - **Sistema Multitema** — Modos **Claro** y **Oscuro** con acentos de color intercambiables en tiempo real (Naranja, Azul, Verde, Violeta, Rosa, Amarillo).
 - **Tokens CSS Semánticos** — Arquitectura basada en variables como `--hero-bg`, `--feat-card`, `--price-ttl` que garantizan consistencia visual en todos los modos.
 - **Modelos 3D Interactivos** — Integración de escenas Spline renderizadas en tiempo real dentro del navegador.
-- **Animaciones GPU-Optimizadas** — Transiciones de entrada con Motion (Framer Motion) usando solamente propiedades compositadas (`opacity`, `transform`) para 0 jank.
-- **Globo Interactivo** — Visualización global con la librería COBE y mapas wireframe con D3.js + TopoJSON.
 - **Componentes Animados** — Tarjetas 3D con perspectiva, carruseles de logos, testimonios con auto-play, y secciones bento con cards flotantes.
 - **Performance Extrema** — Next.js 16 con Turbopack, React 19, zero código muerto, transiciones específicas por propiedad.
 
@@ -41,16 +35,15 @@
 
 | Tecnología                 | Uso                                                           |
 | :------------------------- | :------------------------------------------------------------ |
-| **Next.js 16**             | App Router, SSR, optimización de imágenes, Turbopack          |
-| **React 19**               | Renderizado, hooks, interactividad                            |
-| **Tailwind CSS v4**        | Sistema de diseño con `@theme`, `@custom-variant`, `@utility` |
+| **Next.js**             | App Router, SSR, optimización de imágenes, Turbopack          |
+| **React**               | Renderizado, hooks, interactividad                            |
+| **Tailwind CSS**        | Sistema de diseño con `@theme`, `@custom-variant`, `@utility` |
 | **Motion (Framer Motion)** | Animaciones de entrada, transiciones, carruseles              |
-| **Spline**                 | Modelos 3D interactivos embebidos                             |
-| **COBE**                   | Globo 3D animado con WebGL                                    |
+| **Spline**                 | Modelos 3D interactivos embebidos                             
 | **D3.js + TopoJSON**       | Globo wireframe SVG interactivo                               |
 | **Embla Carousel**         | Motor de carruseles ligero                                    |
 | **Radix UI**               | Primitivos accesibles (Select, Avatar, Separator)             |
-| **Lucide React**           | Iconografía SVG consistente                                   |
+| **Lucide React**           | Iconografía SVG consistente                                   
 
 ---
 
