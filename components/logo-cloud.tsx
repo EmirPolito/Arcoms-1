@@ -17,7 +17,7 @@ function InfiniteSlider({
   return (
     <div className="overflow-hidden w-full group/slider">
       <div
-        className="flex w-max animate-marquee-logos group-hover/slider:[animation-play-state:paused]"
+        className="flex w-max animate-marquee-logos group-hover/slider:[animation-play-state:paused] transform-gpu will-change-transform"
         style={{ gap: `${gap}px`, animationDuration: `${speed}s` }}
       >
         {[...items, ...items].map((child, i) => (
@@ -137,7 +137,7 @@ export default function LogoCloud() {
           {/* Slider */}
           <div className="relative py-4 flex-1 md:pl-10 overflow-hidden">
             <div
-              className="flex w-max animate-marquee-logos hover:[animation-play-state:paused] gap-16 md:gap-32"
+              className="flex w-max animate-marquee-logos hover:[animation-play-state:paused] gap-16 md:gap-32 transform-gpu will-change-transform"
               style={{ animationDuration: "40s" }}
             >
               {[...logos, ...logos].map((logo, i) => (

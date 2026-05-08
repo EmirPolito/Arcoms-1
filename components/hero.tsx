@@ -1,4 +1,5 @@
 "use client";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import dynamic from "next/dynamic";
 
@@ -26,6 +27,17 @@ export function HeroSection({
   paragraphSize = "text-base md:text-lg ",
   buttonWidth = "px-6 md:px-8",
 }: SplineSceneBasicProps) {
+  const [isMounted, setIsMounted] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
   return (
     <div className="w-full min-h-[500px] md:h-[600px] lg:h-[650px] relative overflow-hidden bg-background border-0 shadow-none ring-0 text-foreground">
       {/* Contenido */}
@@ -48,19 +60,21 @@ export function HeroSection({
           <div
             className={`
               relative md:absolute md:inset-0 z-10 block transform-gpu pointer-events-auto
-              h-[400px] md:h-auto my-6 md:my-0 w-full
+              h-[400px] md:h-auto my-6 md:my-0 w-full hidden md:block
             `}
           >
             <div className="w-full h-full scale-[1.0] sm:scale-[1.1] md:scale-[1.09] origin-center md:origin-top -translate-y-6 md:-translate-y-8 md:translate-x-[180px] lg:translate-x-[290px]">
-              <SplineScene
-                scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
-                className="w-full h-full"
-              />
+              {isMounted && !isMobile && (
+                <SplineScene
+                  scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
+                  className="w-full h-full"
+                />
+              )}
             </div>
           </div>
 
           <p
-            className={`relative z-20 mt-3 text-pretty text-hero-desc ${paragraphSize}`}
+            className={`text-sm md:text-base relative z-20 mt-3 text-pretty text-hero-desc ${paragraphSize}`}
           >
             Landing page con experiencia futurista mediante animaciones,
             interacción y diseño minimalista. Genera alto impacto visual

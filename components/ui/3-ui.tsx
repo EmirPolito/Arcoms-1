@@ -107,18 +107,18 @@ export const PinPerspective = ({
           </div>
         </div>
 
-        {/* HALOS ANIMADOS — Reducidos para rendimiento */}
+        {/* HALOS ANIMADOS — Desactivados en móvil para rendimiento */}
         <div
           style={{
             perspective: "1000px",
             transform: "rotateX(70deg) translateZ(0)",
           }}
           className={cn(
-            "absolute left-1/2 top-1/2 ml-[0.09375rem] -translate-x-1/2 -translate-y-1/2 transform-gpu",
+            "absolute left-1/2 top-1/2 ml-[0.09375rem] -translate-x-1/2 -translate-y-1/2 transform-gpu hidden md:block",
             isMobile ? "mt-10" : "mt-4",
           )}
         >
-          {(isMobile ? [0] : [0, 3]).map((delay) => (
+          {(!isMobile ? [0, 3] : []).map((delay) => (
             <motion.div
               key={delay}
               initial={{ opacity: 0, scale: 0, x: "-50%", y: "-50%" }}
@@ -134,8 +134,8 @@ export const PinPerspective = ({
           ))}
         </div>
 
-        {/* PARTICULAS */}
-        <>
+        {/* PARTICULAS - Ocultas en móvil */}
+        <div className="hidden md:block">
           <motion.div
             className={cn(
               "absolute right-1/2 bottom-1/2 bg-gradient-to-b from-transparent to-primary-color-linea w-px transition-all duration-500 blur-[2px] transform-gpu",
@@ -162,7 +162,7 @@ export const PinPerspective = ({
               isMobile ? "translate-y-[38px]" : "translate-y-[14px]",
             )}
           />
-        </>
+        </div>
       </div>
     </motion.div>
   );

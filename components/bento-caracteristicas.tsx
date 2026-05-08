@@ -44,7 +44,7 @@ export function BentoCaracteristicas() {
             </p>
           </div>
 
-          <div className="absolute inset-0 flex items-end justify-center md:translate-x-[7rem] translate-x-[2.5rem]">
+          <div className="absolute inset-0 flex items-end justify-center md:translate-x-[7rem] translate-x-[2.5rem] hidden md:flex">
             <Globe />
           </div>
 
@@ -136,10 +136,10 @@ export function BentoCaracteristicas() {
                 key={card.id}
                 animate={{
                   rotate: [0, i % 2 === 0 ? 2 : -2, 0],
-                  y: [0, -8, 0],
+                  y: [0, -4, 0],
                 }}
                 transition={{
-                  duration: 4 + i,
+                  duration: 6 + i,
                   repeat: Infinity,
                   ease: "easeInOut",
                 }}
@@ -152,6 +152,7 @@ export function BentoCaracteristicas() {
                   bg-secondary
                   shadow-sm
                   flex items-center justify-center
+                  transform-gpu
                 "
               >
                 {card.content}
