@@ -5,7 +5,7 @@ export default function TermsOfServicePage() {
   return (
     <div className="min-h-screen bg-background text-foreground flex flex-col">
       <Header />
-      <main className="flex-1 max-w-4xl mx-auto w-full px-5.5 md:px-6 py-10 text-left">
+      <main className="flex-1 max-w-4xl mx-auto w-full px-5 md:px-6 py-20 md:py-25 text-left">
         <h1 className="text-3xl md:text-5xl font-bold text-[var(--primary-general)] mb-5 tracking-tight">
           Términos de Servicio
         </h1>

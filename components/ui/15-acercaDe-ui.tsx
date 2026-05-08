@@ -15,15 +15,15 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
 
   useEffect(() => {
     if (!ref.current) return;
-    
+
     const observer = new ResizeObserver(() => {
       if (ref.current) {
         setHeight(ref.current.offsetHeight);
       }
     });
-    
+
     observer.observe(ref.current);
-    
+
     return () => observer.disconnect();
   }, [ref]);
 
@@ -32,11 +32,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
     offset: ["start 10%", "end 100%"],
   });
 
-  const heightTransform = useTransform(
-    scrollYProgress,
-    [0, 1],
-    [0, height],
-  );
+  const heightTransform = useTransform(scrollYProgress, [0, 1], [0, height]);
   const opacityTransform = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
 
   return (
@@ -45,7 +41,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
       ref={containerRef}
     >
       {/* 🔥 TÍTULO PRINCIPAL + PÁRRAFO PRINCIPAL CON EFECTO */}
-      <div className="max-w-7xl mx-auto py-8 px-4 md:px-8 lg:px-10 text-center">
+      <div className="max-w-7xl mx-auto py-20 md:py-25 px-4 md:px-8 lg:px-10 text-center">
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}

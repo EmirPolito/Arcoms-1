@@ -42,7 +42,7 @@ export default function ContactWithGlobe({
   return (
     <section
       className={cn(
-        "relative w-full bg-background overflow-hidden py-8",
+        "relative w-full bg-background overflow-hidden py-20 md:py-25",
         className,
       )}
     >
