@@ -49,7 +49,7 @@ const galleryImages = [
 
 export default function CTAWithFloatingGallery({
   title = "Resumen del proyecto",
-  description = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.",
+  description = "Lorem ipsum dolor meet is sit amet consectetur adipisicing elit. Lome  se Quisquam, quod. Lorem ipsum dolor sit amet consectetur adipisicing elit.",
   buttonLabel = "Ver proyecto",
   className,
 }: CTAWithFloatingGalleryProps) {
@@ -60,7 +60,7 @@ export default function CTAWithFloatingGallery({
   return (
     <section
       className={cn(
-        "mx-auto my-10 sm:my-20 grid w-full max-w-7xl grid-cols-1 items-center gap-8 px-4 sm:px-6 md:my-0 md:grid-cols-2 md:gap-16 md:px-8",
+        "mx-auto my-35 sm:my-20 grid w-full max-w-7xl grid-cols-1 items-center gap-8 px-4 sm:px-6 md:my-0 md:grid-cols-2 md:gap-16 md:px-8",
         className,
       )}
     >
@@ -89,7 +89,7 @@ export default function CTAWithFloatingGallery({
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.4 }}
-          className="mt-4 sm:mt-6 max-w-lg text-sm sm:text-base text-[var(--primary-color-text)] md:text-lg"
+          className="mt-1 sm:mt-6 max-w-lg text-sm sm:text-base text-[var(--primary-color-text)] md:text-lg"
         >
           {description}
         </motion.p>

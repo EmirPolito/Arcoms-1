@@ -4,9 +4,9 @@ import { PinContainer } from "@/components/ui/3-ui";
 
 export function TarjetaPines() {
   return (
-    <section className="w-full py-2 px-4 flex flex-col items-center">
+    <section className="w-full py-1 px-4 flex flex-col items-center">
       {/* HEADER INTEGRADO */}
-      <div className="text-center mb-2.5 md:mb-10  px-4">
+      <div className="text-center mb-1 md:mb-10  px-4">
         <div className="flex flex-row flex-wrap items-center justify-center gap-4 mb-2">
           <span className="text-2xl md:text-4xl font-bold tracking-tight text-titulos">
             Título
@@ -22,7 +22,7 @@ export function TarjetaPines() {
       </div>
 
       {/* GRID DE TARJETAS */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-14 lg:gap-10">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-14 lg:gap-10">
         <div className="fade-section" style={{ transitionDelay: "0ms" }}>
           <PinContainer title="Descripcion1/" href="/">
             <div className="flex basis-full flex-col p-3.5 tracking-tight text-primary-color-text w-[17.5rem] h-[17.5rem] sm:w-[18rem] sm:h-[18rem] lg:w-[20rem] lg:h-[20rem]">

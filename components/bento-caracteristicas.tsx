@@ -13,7 +13,7 @@ import { useTheme } from "next-themes";
 export function BentoCaracteristicas() {
   return (
     <section
-      className="relative z-20 max-w-7xl mx-auto pt-2 pb-24 space-y-6 md:space-y-5 bg-feat-bg text-feat-txt px-6 sm:px-6 flex flex-col items-center"
+      className="relative z-20 max-w-7xl mx-auto pt-0 pb-24 space-y-6 md:space-y-5 bg-feat-bg text-feat-txt px-6 sm:px-6 flex flex-col items-center"
       style={{ contain: "layout style" }}
     >
       {/* HEADER INTEGRADO */}

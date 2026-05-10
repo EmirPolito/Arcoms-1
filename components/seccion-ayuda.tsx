@@ -90,7 +90,7 @@ export default function ContenidoBlog() {
   }
 
   return (
-    <div className="w-full py-20 md:py-25 transition-colors px-5 sm:px-6">
+    <div className="w-full py-25 md:py-25 transition-colors px-5 sm:px-6">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <motion.div

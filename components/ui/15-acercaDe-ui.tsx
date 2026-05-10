@@ -41,7 +41,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
       ref={containerRef}
     >
       {/* 🔥 TÍTULO PRINCIPAL + PÁRRAFO PRINCIPAL CON EFECTO */}
-      <div className="max-w-7xl mx-auto py-20 md:py-25 px-4 md:px-8 lg:px-10 text-center">
+      <div className="max-w-7xl mx-auto py-25 md:py-25 px-4 md:px-8 lg:px-10 text-center">
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}

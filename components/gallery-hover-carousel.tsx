@@ -81,16 +81,16 @@ export default function GalleryHoverCarousel({
   const canScrollNext = index < itemsCount - 1;
 
   return (
-    <section className="py-10 sm:py-20 bg-background">
+    <section className="py-35 sm:py-20 bg-background">
       <div className="container mx-auto px-4 sm:px-6">
         <div className="mb-6 sm:mb-8 flex flex-col justify-between md:mb-14 md:flex-row md:items-end lg:mb-7 gap-4">
           <div className="max-w-5xl">
             <h3 className="text-base sm:text-lg md:text-xl lg:text-3xl font-medium text-[var(--primary-general)] leading-relaxed">
               {heading}{" "}
-              <span className="text-[var(--primary-color-text)] text-xs sm:text-sm md:text-base lg:text-3xl">
+              <span className="text-[var(--primary-color-text)] text-base sm:text-sm md:text-base lg:text-3xl">
                 {" "}
-                Explora nuestra colección de soluciones innovadoras y tecnologías
-                de vanguardia diseñadas para potenciar tu negocio.
+                Explora nuestra colección de soluciones innovadoras y
+                tecnologías de vanguardia diseñadas para potenciar tu negocio.
               </span>
             </h3>
           </div>
@@ -124,7 +124,10 @@ export default function GalleryHoverCarousel({
           >
             <CarouselContent className="hide-scrollbar w-full max-w-full md:ml-4 md:-mr-4">
               {items.map((item) => (
-                <CarouselItem key={item.id} className="ml-3 sm:ml-6 max-w-[260px] sm:max-w-[300px] md:max-w-[350px]">
+                <CarouselItem
+                  key={item.id}
+                  className="ml-3 sm:ml-6 max-w-[260px] sm:max-w-[300px] md:max-w-[350px]"
+                >
                   <Link
                     href={item.url}
                     className="group block relative w-full h-[240px] sm:h-[280px] md:h-[350px]"

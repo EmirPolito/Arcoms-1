@@ -36,13 +36,13 @@ interface ContactWithGlobeProps {
 
 export default function ContactWithGlobe({
   title = "Contactanos",
-  description = "Estamos siempre buscando formas de mejorar. Contáctanos y déjanos saber cómo podemos ayudarte.",
+  description = "Puedes contactarnos si tienes alguna duda, comentario o necesitas información.",
   className,
 }: ContactWithGlobeProps) {
   return (
     <section
       className={cn(
-        "relative w-full bg-background overflow-hidden py-20 md:py-25",
+        "relative w-full bg-background overflow-hidden py-25 md:py-25",
         className,
       )}
     >
