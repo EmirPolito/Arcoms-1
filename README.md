@@ -133,5 +133,5 @@ Este proyecto está bajo la licencia **MIT**. Consulta el archivo [LICENSE](LICE
 **Emir Polito**
 
 - GitHub: [EmirPolito](https://github.com/EmirPolito)
-- LinkedIn: [emir-polito-g](https://www.linkedin.com/in/emir-polito-g/)
+- LinkedIn: [emir-polito-g](https://www.linkedin.com/in/emir-polito)
 - X: [@emirpolitog](https://x.com/emirpolitog)
