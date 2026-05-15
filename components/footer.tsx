@@ -9,7 +9,7 @@ export default function Footer() {
           <div className="mb-4 md:mb-0">
             <Link href="/" className="mr-4 flex items-center gap-2 lg:mr-6">
               <span className="font-bold lg:inline-block text-[var(--primary-general)] ">
-                Arcoms 1
+                Arcoms <span className="font-light">One</span>
               </span>
             </Link>
 
@@ -26,7 +26,7 @@ export default function Footer() {
             </h1>
 
             <p className="font-normal text-footer-txt mt-1 text-sm sm:text-base">
-              © {new Date().getFullYear()} Arcoms 1. Todos los derechos
+              © {new Date().getFullYear()} Arcoms One. Todos los derechos
               reservados.
             </p>
           </div>
@@ -122,7 +122,7 @@ export default function Footer() {
         </div>
         <div className="w-full flex mt-10 md:mt-15 items-center justify-center">
           <h1 className="text-center text-4xl sm:text-5xl md:text-7xl lg:text-[11rem] font-bold bg-clip-text text-transparent bg-gradient-to-b from-footer-ttl/100 to-footer-ttl/110 select-none ">
-            Arcoms 1
+            Arcoms <span className="font-light">One</span>
           </h1>
         </div>
       </div>
