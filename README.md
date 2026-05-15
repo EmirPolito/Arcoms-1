@@ -1,5 +1,5 @@
 <div align="center">
-  <h1>Arcoms-1</h1>
+  <h1>Arcoms One</h1>
 </div>
 
 <div align="center">
@@ -12,7 +12,7 @@
 
 </div>
 
-**Arcoms-1** es una landing page cuenta animaciones, modelos 3D interactivos y un sistema de temas completamente personalizable.
+**Arcoms One** es una landing page cuenta animaciones, modelos 3D interactivos y un sistema de temas completamente personalizable.
 
 ---
 
@@ -35,15 +35,15 @@
 
 | Tecnología                 | Uso                                                           |
 | :------------------------- | :------------------------------------------------------------ |
-| **Next.js**             | App Router, SSR, optimización de imágenes, Turbopack          |
-| **React**               | Renderizado, hooks, interactividad                            |
-| **Tailwind CSS**        | Sistema de diseño con `@theme`, `@custom-variant`, `@utility` |
+| **Next.js**                | App Router, SSR, optimización de imágenes, Turbopack          |
+| **React**                  | Renderizado, hooks, interactividad                            |
+| **Tailwind CSS**           | Sistema de diseño con `@theme`, `@custom-variant`, `@utility` |
 | **Motion (Framer Motion)** | Animaciones de entrada, transiciones, carruseles              |
-| **Spline**                 | Modelos 3D interactivos embebidos                             
+| **Spline**                 | Modelos 3D interactivos embebidos                             |
 | **D3.js + TopoJSON**       | Globo wireframe SVG interactivo                               |
 | **Embla Carousel**         | Motor de carruseles ligero                                    |
 | **Radix UI**               | Primitivos accesibles (Select, Avatar, Separator)             |
-| **Lucide React**           | Iconografía SVG consistente                                   
+| **Lucide React**           | Iconografía SVG consistente                                   |
 
 ---
 
