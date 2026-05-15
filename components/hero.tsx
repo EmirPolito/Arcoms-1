@@ -50,10 +50,12 @@ export function HeroSection({
             </Announcement>
           </div>
 
-          <h1 className=" relative z-20 font-semibold text-4xl sm:text-5xl md:text-6xl xl:text-7xl text-hero-ttl">
+          <h1 className="relative z-20 font-semibold text-4xl sm:text-5xl md:text-6xl xl:text-7xl text-hero-ttl">
             Bienvenidos
             <br />
-            <span className="block">a Arcoms 1</span>
+            <span>
+              a Arcoms <span className="font-light">One</span>
+            </span>
           </h1>
 
           {/* IMAGE FOR MOBILE */}
@@ -81,7 +83,7 @@ export function HeroSection({
             className={`text-center md:text-left text-sm md:text-base relative z-20 mt-8 md:mt-3 text-pretty text-hero-desc ${paragraphSize}`}
           >
             Landing page con experiencia futurista mediante animaciones,
-            interacción y diseño minimalista. Genera alto impacto visual.
+            interacción y diseño minimalista.
           </p>
 
           <div className="relative z-20 pointer-events-auto mt-3 md:mt-12 flex flex-row justify-center gap-4 sm:gap-5 lg:justify-start">
