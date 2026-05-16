@@ -23,17 +23,16 @@
 
 ---
 
-## ✨ Características
+## Características
 
-- **Modos de visualizar** — **Claro** y **Oscuro** con acentos de color intercambiables en tiempo real (Naranja, Azul, Verde, Violeta, Rosa, Amarillo).
-- **Tokens CSS Semánticos** — Arquitectura basada en variables como `--hero-bg`, `--feat-card`, `--price-ttl` que garantizan consistencia visual en todos los modos.
-- **Modelos 3D Interactivos** — Integración de escenas Spline renderizadas en tiempo real dentro del navegador.
+- **Selector de Modos**: Incluye modo `Claro` y `Oscuro` adaptando la apariencia visual a cada entorno y necesidad.
+- **Selector de Color**: Permite personalizar los colores de la interfaz entre `Nranja`, `Azul`, `Verde`, `Morado`, `Rosa` y `Amarillo`.
 - **Componentes Animados** — Tarjetas 3D con perspectiva, carruseles de logos, testimonios con auto-play, y secciones bento con cards flotantes.
 - **Performance Extrema** — Next.js 16 con Turbopack, React 19, zero código muerto, transiciones específicas por propiedad.
 
 ---
 
-## 🛠️ Stack Tecnológico
+## Stack Tecnológico
 
 | Tecnología                 | Uso                                                           |
 | :------------------------- | :------------------------------------------------------------ |
@@ -49,7 +48,7 @@
 
 ---
 
-## 🚀 Inicio Rápido
+## Inicio Rápido
 
 ### 1. Clonar el repositorio
 
@@ -81,7 +80,7 @@ npm start
 
 ---
 
-## 📄 Licencia
+## Licencia
 
 Este proyecto está bajo la licencia **MIT**. Consulta el archivo [LICENSE](LICENSE) para más detalles.
 
