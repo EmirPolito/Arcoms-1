@@ -25,7 +25,7 @@
 
 ## ✨ Características
 
-- **Sistema Multitema** — Modos **Claro** y **Oscuro** con acentos de color intercambiables en tiempo real (Naranja, Azul, Verde, Violeta, Rosa, Amarillo).
+- **Modos de visualizar** — **Claro** y **Oscuro** con acentos de color intercambiables en tiempo real (Naranja, Azul, Verde, Violeta, Rosa, Amarillo).
 - **Tokens CSS Semánticos** — Arquitectura basada en variables como `--hero-bg`, `--feat-card`, `--price-ttl` que garantizan consistencia visual en todos los modos.
 - **Modelos 3D Interactivos** — Integración de escenas Spline renderizadas en tiempo real dentro del navegador.
 - **Componentes Animados** — Tarjetas 3D con perspectiva, carruseles de logos, testimonios con auto-play, y secciones bento con cards flotantes.
@@ -81,49 +81,6 @@ npm start
 
 ---
 
-## 🎨 Sistema de Temas y Colores
-
-El proyecto utiliza un sistema de temas basado en atributos `data-theme` y `data-color` en el elemento `<html>`:
-
-```
-data-theme="light" | "dark"
-data-color="neutro" | "orange" | "blue" | "green" | "violet" | "rose" | "yellow"
-```
-
-- **Tokens centralizados** en `app/globals.css`, organizados por componente semántico (`--header-*`, `--hero-*`, `--feat-*`, `--price-*`, `--footer-*`).
-- **Sin clases hardcodeadas** — todo responde a variables CSS reactivas.
-
----
-
-## 📂 Estructura del Proyecto
-
-```
-Arcoms-1/
-├── app/                    # Rutas (App Router) y globals.css
-│   ├── page.tsx            # Página principal
-│   ├── globals.css         # Sistema de temas y tokens
-│   ├── layout.tsx          # Layout raíz con carga de temas
-│   ├── acerca/             # Página "Acerca De"
-│   ├── contacto/           # Página de contacto con globo
-│   ├── ayuda/              # Centro de ayuda
-│   ├── explore/            # Galería de proyectos
-│   └── work/               # Resumen con galería flotante
-├── components/             # Componentes de la aplicación
-│   ├── hero.tsx            # Hero con escena Spline 3D
-│   ├── pricing.tsx         # Sección de precios interactiva
-│   ├── header.tsx          # Header con selector de temas
-│   ├── footer.tsx          # Footer con gradiente tipográfico
-│   ├── estado-agentes.tsx  # Grid de 4 cuadrantes animado
-│   ├── bento-caracteristicas.tsx  # Bento grid con globo COBE
-│   └── ui/                 # Primitivos UI reutilizables
-├── public/
-│   ├── img/                # Imágenes del proyecto
-│   └── icons/              # Logos SVG para el carrusel
-└── package.json
-```
-
----
-
 ## 📄 Licencia
 
 Este proyecto está bajo la licencia **MIT**. Consulta el archivo [LICENSE](LICENSE) para más detalles.
@@ -135,5 +92,5 @@ Este proyecto está bajo la licencia **MIT**. Consulta el archivo [LICENSE](LICE
 **Emir Polito**
 
 - GitHub: [EmirPolito](https://github.com/EmirPolito)
-- LinkedIn: [emir-polito-g](https://www.linkedin.com/in/emir-polito)
+- LinkedIn: [emirpolitog](https://www.linkedin.com/in/emirpolitog/)
 - X: [@emirpolitog](https://x.com/emirpolitog)
