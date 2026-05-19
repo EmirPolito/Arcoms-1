@@ -30,21 +30,6 @@
 - **Componentes Animados** — Tarjetas 3D con perspectiva, carruseles de logos, testimonios con auto-play, y secciones bento con cards flotantes.
 - **Performance Extrema** — Next.js 16 con Turbopack, React 19, zero código muerto, transiciones específicas por propiedad.
 
----
-
-## Stack Tecnológico
-
-| Tecnología                 | Uso                                                           |
-| :------------------------- | :------------------------------------------------------------ |
-| **Next.js**                | App Router, SSR, optimización de imágenes, Turbopack          |
-| **React**                  | Renderizado, hooks, interactividad                            |
-| **Tailwind CSS**           | Sistema de diseño con `@theme`, `@custom-variant`, `@utility` |
-| **Motion (Framer Motion)** | Animaciones de entrada, transiciones, carruseles              |
-| **Spline**                 | Modelos 3D interactivos embebidos                             |
-| **D3.js + TopoJSON**       | Globo wireframe SVG interactivo                               |
-| **Embla Carousel**         | Motor de carruseles ligero                                    |
-| **Radix UI**               | Primitivos accesibles (Select, Avatar, Separator)             |
-| **Lucide React**           | Iconografía SVG consistente                                   |
 
 ---
 
