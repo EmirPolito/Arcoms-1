@@ -4,7 +4,15 @@ import * as React from "react";
 import * as SelectPrimitive from "@radix-ui/react-select";
 import { cn } from "@/lib/utils";
 
-const Select = SelectPrimitive.Root;
+const Select = React.forwardRef<
+    React.ComponentRef<typeof SelectPrimitive.Root>,
+    React.ComponentPropsWithoutRef<typeof SelectPrimitive.Root>
+>(({ children, ...props }, ref) => (
+    <SelectPrimitive.Root modal={false} {...props}>
+        {children}
+    </SelectPrimitive.Root>
+));
+Select.displayName = "Select";
 const SelectGroup = SelectPrimitive.Group;
 const SelectValue = SelectPrimitive.Value;
 
