@@ -1,5 +1,5 @@
 "use client";
-import { useEffect } from "react";
+import { useEffect, useRef, ReactNode, memo, useCallback } from "react";
 
 import { Header } from "../components/header";
 import { HeroSection } from "@/components/hero";
@@ -10,46 +10,42 @@ import { BentoCaracteristicas } from "@/components/bento-caracteristicas";
 import TestimonialsCarousel from "@/components/testimonials-with-carousel";
 import Footer from "../components/footer";
 
-/**
- * Shared observer for all sections to improve performance.
- * Ensure the CSS for .fade-section includes:
- * transition: opacity 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
- */
-const useSharedObserver = () => {
+const FadeInSection = memo(function FadeInSection({ children }: { children: ReactNode }) {
+  const ref = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+
+    // Activar inmediatamente si ya está visible
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight + 100) {
+      el.classList.add("visible");
+      return;
+    }
+
     const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-            observer.unobserve(entry.target);
-          }
-        });
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.disconnect();
+        }
       },
-      { 
-        threshold: 0, 
-        rootMargin: "0px 0px -50px 0px" 
-      }
+      { threshold: 0, rootMargin: "100px 0px" }
     );
 
-    const elements = document.querySelectorAll(".fade-section");
-    elements.forEach((el) => observer.observe(el));
-
+    observer.observe(el);
     return () => observer.disconnect();
   }, []);
-};
 
-function FadeInSection({ children }: { children: React.ReactNode }) {
   return (
-    <div className="fade-section">
+    <div ref={ref} className="fade-section">
       {children}
     </div>
   );
-}
+});
 
 export default function Home() {
-  useSharedObserver();
-
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
       <Header />

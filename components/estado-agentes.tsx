@@ -30,7 +30,7 @@ const AgentItem = memo(
     isActive: boolean;
   }) => (
     <div
-      className={`flex items-center justify-between p-3 sm:p-5 rounded-lg border transition-all duration-500 ease-in-out ${
+      className={`flex items-center justify-between p-3 sm:p-5 rounded-lg border transition-colors duration-300 ${
         isActive
           ? "border-primary/80 bg-primary/15 shadow-md ring-1 ring-primary/20"
           : "border-feat-border bg-feat-card opacity-70"
@@ -41,7 +41,7 @@ const AgentItem = memo(
         <span className="text-xs text-feat-desc/80">{agent.state}</span>
         <span
           className={`w-2.5 h-2.5 rounded-full ${agent.color} ${
-            isActive ? "animate-pulse shadow-[0_0_8px_rgba(0,0,0,0.2)]" : ""
+            isActive ? "animate-pulse" : ""
           }`}
         />
       </div>
@@ -58,9 +58,9 @@ const GuardrailItem = memo(
     check: (typeof GUARDRAIL_CHECKS)[0];
     isCompleted: boolean;
   }) => (
-    <div className="flex items-center gap-3 sm:gap-5 p-3 sm:p-5 rounded-md border border-feat-border/60 bg-feat-card shadow-xs transition-opacity duration-300">
+    <div className="flex items-center gap-3 sm:gap-5 p-3 sm:p-5 rounded-md border border-feat-border/60 bg-feat-card shadow-xs">
       <div
-        className={`w-5 h-5 rounded-full flex items-center justify-center shrink-0 transition-all duration-500 ease-out ${
+        className={`w-5 h-5 rounded-full flex items-center justify-center shrink-0 transition-colors duration-300 ${
           isCompleted ? check.color : "border border-feat-border"
         }`}
       >
@@ -80,7 +80,7 @@ export default function EstadoAgentes() {
   useEffect(() => {
     const interval = setInterval(() => {
       setProgress((prev) => (prev + 1) % 5);
-    }, 1500); // Slightly slower for better readability and lower CPU usage
+    }, 2000);
     return () => clearInterval(interval);
   }, []);
 

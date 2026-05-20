@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, memo } from "react";
 import { motion, useInView } from "motion/react";
 import createGlobe from "cobe";
 import Image from "next/image";
@@ -134,12 +134,13 @@ export function BentoCaracteristicas() {
             {workflowSwingCards.map((card, i) => (
               <motion.div
                 key={card.id}
+                initial={false}
                 animate={{
-                  rotate: [0, i % 2 === 0 ? 2 : -2, 0],
-                  y: [0, -4, 0],
+                  rotate: [0, i % 2 === 0 ? 1.5 : -1.5, 0],
+                  y: [0, -3, 0],
                 }}
                 transition={{
-                  duration: 6 + i,
+                  duration: 8 + i * 2,
                   repeat: Infinity,
                   ease: "easeInOut",
                 }}
@@ -152,7 +153,6 @@ export function BentoCaracteristicas() {
                   bg-secondary
                   shadow-sm
                   flex items-center justify-center
-                  transform-gpu
                 "
               >
                 {card.content}
@@ -210,10 +210,10 @@ const workflowSwingCards = [
 ];
 
 /* =====================================================
-   GLOBE (NO TOCADO)
+   GLOBE (OPTIMIZADO)
 ===================================================== */
 
-function Globe() {
+const Globe = memo(function Globe() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const { resolvedTheme } = useTheme();
   const [themeTick, setThemeTick] = useState(0);
@@ -236,7 +236,7 @@ function Globe() {
     return () => observer.disconnect();
   }, []);
 
-  const isVisible = useInView(canvasRef, { margin: "400px" });
+  const isVisible = useInView(canvasRef, { margin: "200px" });
 
   useEffect(() => {
     if (!canvasRef.current || !isVisible) return;
@@ -284,14 +284,14 @@ function Globe() {
     const isBright = globeColor[0] + globeColor[1] + globeColor[2] > 2.5;
 
     const globe = createGlobe(canvasRef.current, {
-      devicePixelRatio: 2,
-      width: 840,
-      height: 840,
+      devicePixelRatio: 1,
+      width: 600,
+      height: 600,
       phi: 0,
       theta: 0,
       dark: isBright ? 0 : 1,
       diffuse: 1.2,
-      mapSamples: 16000,
+      mapSamples: 8000,
       mapBrightness: 6,
       baseColor: globeColor,
       glowColor: globeColor,
@@ -300,9 +300,9 @@ function Globe() {
         { location: [37.7595, -122.4367], size: 0.03 },
         { location: [40.7128, -74.006], size: 0.1 },
       ],
-      onRender: (state: any) => {
+      onRender: (state: Record<string, number>) => {
         state.phi = phi;
-        phi += 0.01;
+        phi += 0.005;
       },
     });
 
@@ -316,4 +316,4 @@ function Globe() {
       style={{ width: 450, height: 450, maxWidth: "110%" }}
     />
   );
-}
+});
