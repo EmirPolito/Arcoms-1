@@ -25,11 +25,10 @@
 
 ## Características
 
-- **Selector de Modos**: Incluye modo `Claro` y `Oscuro` adaptando la apariencia visual a cada entorno y necesidad.
+- **Selector de Modos**: Incluye modo  `Claro` y  `Oscuro` para adaptar la apariencia visual según el entorno y mejorar la comodidad de uso.
 - **Selector de Colores**: Permite personalizar los colores de la interfaz entre `Nranja`, `Azul`, `Verde`, `Morado`, `Rosa` y `Amarillo`.
-- **Componentes Animados** — Tarjetas 3D con perspectiva, carruseles de logos, testimonios con auto-play, y secciones bento con cards flotantes.
-- **Performance Extrema** — Next.js 16 con Turbopack, React 19, zero código muerto, transiciones específicas por propiedad.
-
+- **Componentes Animados**: Integra tarjetas 3D con perspectiva, carruseles de logos, testimonios con auto-play y secciones bento con cards flotantes para una experiencia más dinámica.
+- **Diseño responsive**: Adaptado para computadoras, tablets y dispositivos móviles.
 
 ---
 
