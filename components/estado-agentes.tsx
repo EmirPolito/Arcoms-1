@@ -85,8 +85,8 @@ export default function EstadoAgentes() {
   }, []);
 
   return (
-    <section className="w-full py-16 md:py-24 bg-feat-bg text-feat-txt overflow-hidden">
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 flex flex-col items-center">
+    <section className="w-full py-16 md:py-27 bg-feat-bg text-feat-txt overflow-hidden">
+      <div className="relative max-w-8xl mx-auto px-4 sm:px-15 flex flex-col items-center">
         {/* HEADER */}
         <div className="text-center mb-1 md:mb-20 px-4">
           <div className="inline-flex relative items-center justify-center px-6 py-2 border border-primary-general/30 mb-2 group transition-colors">

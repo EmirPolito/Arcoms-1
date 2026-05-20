@@ -13,7 +13,7 @@ import { useTheme } from "next-themes";
 export function BentoCaracteristicas() {
   return (
     <section
-      className="relative z-20 max-w-7xl mx-auto pt-0 pb-24 space-y-6 md:space-y-5 bg-feat-bg text-feat-txt px-6 sm:px-6 flex flex-col items-center"
+      className="relative z-20 max-w-8xl mx-auto pt-0 pb-24 space-y-6 md:space-y-5 bg-feat-bg text-feat-txt px-6 sm:px-25 flex flex-col items-center"
       style={{ contain: "layout style" }}
     >
       {/* HEADER INTEGRADO */}
@@ -312,7 +312,7 @@ const Globe = memo(function Globe() {
   return (
     <canvas
       ref={canvasRef}
-      className="translate-y-[8rem] scale-[0.75] md:scale-100 aspect-square"
+      className="translate-y-[9rem] scale-[0.75] md:scale-80 aspect-square"
       style={{ width: 450, height: 450, maxWidth: "110%" }}
     />
   );
