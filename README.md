@@ -68,13 +68,3 @@ npm start
 ## Licencia
 
 Este proyecto está bajo la licencia **MIT**. Consulta el archivo [LICENSE](LICENSE) para más detalles.
-
----
-
-## Desarrollado por
-
-**Emir Polito**
-
-- GitHub: [EmirPolito](https://github.com/EmirPolito)
-- LinkedIn: [emirpolitog](https://www.linkedin.com/in/emirpolitog/)
-- X: [@emirpolitog](https://x.com/emirpolitog)
