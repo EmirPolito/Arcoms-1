@@ -520,10 +520,8 @@
    BASE STYLES
    ===================================================== */
 
-
 html {
   overflow-y: scroll;
-  scrollbar-gutter: stable;
 }
 
 body {
@@ -533,10 +531,17 @@ body {
 }
 
 /* Prevenir que Radix UI oculte el scrollbar al abrir modales/selects */
-body[data-scroll-locked] {
-  overflow: auto !important;
-  padding-right: 0 !important;
+html[data-scroll-locked],
+html[data-scroll-locked] body {
+  overflow: visible !important;
   margin-right: 0 !important;
+  padding-right: 0 !important;
+}
+
+body[data-scroll-locked] {
+  overflow: visible !important;
+  margin-right: 0 !important;
+  padding-right: 0 !important;
 }
 
 /* Fade-in sections — Optimización de rendimiento */
