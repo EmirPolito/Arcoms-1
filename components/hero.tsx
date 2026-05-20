@@ -5,11 +5,7 @@ import dynamic from "next/dynamic";
 
 const SplineScene = dynamic(() => import("@splinetool/react-spline"), {
   ssr: false,
-  loading: () => (
-    <div className="w-full h-full flex items-center justify-center">
-      <span className="loader" />
-    </div>
-  ),
+  loading: () => null,
 });
 
 import {
@@ -27,11 +23,9 @@ export function HeroSection({
   paragraphSize = "text-base md:text-lg ",
   buttonWidth = "px-6 md:px-8",
 }: SplineSceneBasicProps) {
-  const [isMounted, setIsMounted] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
+  const [isMobile, setIsMobile] = useState(true);
 
   useEffect(() => {
-    setIsMounted(true);
     const checkMobile = () => setIsMobile(window.innerWidth < 768);
     checkMobile();
     window.addEventListener("resize", checkMobile);
@@ -70,7 +64,7 @@ export function HeroSection({
           {/* ROBOT DESKTOP */}
           <div className="hidden md:block absolute inset-0 z-10 transform-gpu pointer-events-auto w-full">
             <div className="w-full h-full origin-top -translate-y-8 md:translate-x-[180px] lg:translate-x-[290px] md:scale-[1.09]">
-              {isMounted && !isMobile && (
+              {!isMobile && (
                 <SplineScene
                   scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
                   className="w-full h-full"
