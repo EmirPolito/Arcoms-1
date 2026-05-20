@@ -143,7 +143,7 @@ export function ThemeSwitcher() {
     <div className="flex gap-2 sm:gap-3 items-center">
       <button
         onClick={cycleTheme}
-        className="cursor-pointer w-8 h-8 sm:w-9 sm:h-9 rounded-full flex items-center justify-center border-2 bg-[var(--primary)] text-white border-[var(--primary)] shadow-lg hover:scale-110 active:scale-95 transition mr-1 sm:mr-0"
+        className="cursor-pointer w-8 h-8 sm:w-9 sm:h-9 rounded-full flex items-center justify-center border-2 bg-[var(--primary)] text-white border-[var(--primary)] shadow-lg hover:scale-110 active:scale-95 transition mr-1 sm:mr-0 dark:bg-white dark:text-black dark:border-white"
       >
         {icon}
       </button>
