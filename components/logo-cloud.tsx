@@ -137,7 +137,7 @@ export default function LogoCloud() {
           {/* Slider */}
           <div className="relative py-4 flex-1 md:pl-10 overflow-hidden">
             <div
-              className="flex w-max animate-marquee-logos hover:[animation-play-state:paused] gap-16 md:gap-32 transform-gpu will-change-transform"
+              className="flex w-max animate-marquee-logos hover:[animation-play-state:paused] gap-16 md:gap-32"
               style={{ animationDuration: "40s" }}
             >
               {[...logos, ...logos].map((logo, i) => (

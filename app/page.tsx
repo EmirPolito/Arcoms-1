@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useRef, ReactNode } from "react";
+import { useEffect, useRef, ReactNode, memo, useCallback } from "react";
 
 import { Header } from "../components/header";
 import { HeroSection } from "@/components/hero";
@@ -10,21 +10,28 @@ import { BentoCaracteristicas } from "@/components/bento-caracteristicas";
 import TestimonialsCarousel from "@/components/testimonials-with-carousel";
 import Footer from "../components/footer";
 
-function FadeInSection({ children }: { children: ReactNode }) {
+const FadeInSection = memo(function FadeInSection({ children }: { children: ReactNode }) {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
 
+    // Activar inmediatamente si ya está visible
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight + 100) {
+      el.classList.add("visible");
+      return;
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          el.classList.add("visible");
+          entry.target.classList.add("visible");
           observer.disconnect();
         }
       },
-      { threshold: 0.1, rootMargin: "50px 0px" }
+      { threshold: 0, rootMargin: "100px 0px" }
     );
 
     observer.observe(el);
@@ -36,7 +43,7 @@ function FadeInSection({ children }: { children: ReactNode }) {
       {children}
     </div>
   );
-}
+});
 
 export default function Home() {
   return (

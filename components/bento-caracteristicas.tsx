@@ -134,12 +134,13 @@ export function BentoCaracteristicas() {
             {workflowSwingCards.map((card, i) => (
               <motion.div
                 key={card.id}
+                initial={false}
                 animate={{
-                  rotate: [0, i % 2 === 0 ? 2 : -2, 0],
-                  y: [0, -4, 0],
+                  rotate: [0, i % 2 === 0 ? 1.5 : -1.5, 0],
+                  y: [0, -3, 0],
                 }}
                 transition={{
-                  duration: 6 + i,
+                  duration: 8 + i * 2,
                   repeat: Infinity,
                   ease: "easeInOut",
                 }}
@@ -283,14 +284,14 @@ const Globe = memo(function Globe() {
     const isBright = globeColor[0] + globeColor[1] + globeColor[2] > 2.5;
 
     const globe = createGlobe(canvasRef.current, {
-      devicePixelRatio: 1.5,
-      width: 840,
-      height: 840,
+      devicePixelRatio: 1,
+      width: 600,
+      height: 600,
       phi: 0,
       theta: 0,
       dark: isBright ? 0 : 1,
       diffuse: 1.2,
-      mapSamples: 12000,
+      mapSamples: 8000,
       mapBrightness: 6,
       baseColor: globeColor,
       glowColor: globeColor,
@@ -301,7 +302,7 @@ const Globe = memo(function Globe() {
       ],
       onRender: (state: Record<string, number>) => {
         state.phi = phi;
-        phi += 0.008;
+        phi += 0.005;
       },
     });
 
