@@ -1,8 +1,19 @@
 "use client";
 import React from "react";
+import { motion } from "motion/react";
 import { PinContainer } from "@/components/ui/3-ui";
+import { useReducedMotion } from "@/hooks/use-reduced-motion";
+import {
+  VIEWPORT_CONFIG,
+  STAGGER_CONTAINER,
+  FADE_UP,
+  FADE_UP_REDUCED,
+} from "@/lib/motion-config";
 
 export function TarjetaPines() {
+  const prefersReduced = useReducedMotion();
+  const fadeUpVariant = prefersReduced ? FADE_UP_REDUCED : FADE_UP;
+
   return (
     <section className="w-full py-1 px-4 flex flex-col items-center">
       {/* HEADER INTEGRADO */}
@@ -22,8 +33,14 @@ export function TarjetaPines() {
       </div>
 
       {/* GRID DE TARJETAS */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-14 lg:gap-25">
-        <div>
+      <motion.div
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-14 lg:gap-25"
+        variants={STAGGER_CONTAINER}
+        initial="hidden"
+        whileInView="visible"
+        viewport={VIEWPORT_CONFIG}
+      >
+        <motion.div variants={fadeUpVariant} style={{ willChange: "transform, opacity" }}>
           <PinContainer title="Descripcion1/" href="/">
             <div className="flex basis-full flex-col p-3.5 tracking-tight text-primary-color-text w-[17.5rem] h-[17.5rem] sm:w-[18rem] sm:h-[18rem] lg:w-[20rem] lg:h-[20rem]">
               <h3 className="max-w-xs pb-2 m-0 font-bold text-base text-foreground">
@@ -36,9 +53,9 @@ export function TarjetaPines() {
               <div className="flex flex-1 w-full rounded-lg mt-4 bg-primary-color-1" />
             </div>
           </PinContainer>
-        </div>
+        </motion.div>
 
-        <div>
+        <motion.div variants={fadeUpVariant} style={{ willChange: "transform, opacity" }}>
           <PinContainer title="Descripcion2/" href="/">
             <div className="flex basis-full flex-col p-3.5 tracking-tight text-foreground/60 w-[17.5rem] h-[17.5rem] sm:w-[18rem] sm:h-[18rem] lg:w-[20rem] lg:h-[20rem]">
               <h3 className="max-w-xs pb-2 m-0 font-bold text-base text-foreground">
@@ -51,9 +68,9 @@ export function TarjetaPines() {
               <div className="flex flex-1 w-full rounded-lg mt-4 bg-primary-color-2" />
             </div>
           </PinContainer>
-        </div>
+        </motion.div>
 
-        <div>
+        <motion.div variants={fadeUpVariant} style={{ willChange: "transform, opacity" }}>
           <PinContainer title="Descripcion3/" href="/">
             <div className="flex basis-full flex-col p-3.5 tracking-tight text-foreground/60 w-[17.5rem] h-[17.5rem] sm:w-[18rem] sm:h-[18rem] lg:w-[20rem] lg:h-[20rem]">
               <h3 className="max-w-xs pb-2 m-0 font-bold text-base text-foreground">
@@ -66,8 +83,8 @@ export function TarjetaPines() {
               <div className="flex flex-1 w-full rounded-lg mt-4 bg-primary-color-3" />
             </div>
           </PinContainer>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </section>
   );
 }

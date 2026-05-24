@@ -3,6 +3,8 @@
 import React, { useRef, useState, useEffect } from "react";
 import { motion, useInView } from "motion/react";
 import { cn } from "@/lib/utils";
+import { useReducedMotion } from "@/hooks/use-reduced-motion";
+import { EASE_PREMIUM_CSS } from "@/lib/motion-config";
 
 export const PinContainer = ({
   children,
@@ -21,6 +23,7 @@ export const PinContainer = ({
   const isInView = useInView(ref, { margin: "-20% 0px -20% 0px" });
   const [isHovered, setIsHovered] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const prefersReduced = useReducedMotion();
 
   useEffect(() => {
     setIsMobile(window.innerWidth < 768);
@@ -58,9 +61,12 @@ export const PinContainer = ({
         className="absolute left-1/2 top-1/2 ml-[0.09375rem] mt-4 -translate-x-1/2 -translate-y-1/2"
       >
         <div
-          style={{ transform }}
+          style={{ 
+            transform,
+            transition: prefersReduced ? "none" : `transform 0.5s ${EASE_PREMIUM_CSS}, opacity 0.5s ${EASE_PREMIUM_CSS}`
+          }}
           className={cn(
-            "absolute left-1/2 top-1/2 p-4 flex justify-start items-start rounded-2xl transition-[opacity,transform] duration-500 overflow-hidden transform-gpu will-change-transform",
+            "absolute left-1/2 top-1/2 p-4 flex justify-start items-start rounded-2xl overflow-hidden transform-gpu will-change-transform",
             "bg-background text-foreground border border-border shadow-md dark:shadow-lg",
             className,
           )}
@@ -70,7 +76,7 @@ export const PinContainer = ({
       </div>
 
       {/* TEXTO Y EFECTO */}
-      <PinPerspective title={title} isActive={isActive} isMobile={isMobile} />
+      <PinPerspective title={title} isActive={isActive} isMobile={isMobile} prefersReduced={prefersReduced} />
     </a>
   );
 };
@@ -79,25 +85,34 @@ export const PinPerspective = ({
   title,
   isActive,
   isMobile,
+  prefersReduced,
 }: {
   title?: string;
   isActive: boolean;
   isMobile: boolean;
+  prefersReduced: boolean;
 }) => {
   return (
     <motion.div
       className={cn(
-        "pointer-events-none w-full md:w-96 h-83.5 flex items-center justify-center z-20 transition duration-500 transform-gpu",
+        "pointer-events-none w-full md:w-96 h-83.5 flex items-center justify-center z-20 transform-gpu",
         isActive ? "opacity-100" : "opacity-0",
       )}
+      style={{
+        transition: prefersReduced ? "none" : `opacity 0.5s ${EASE_PREMIUM_CSS}`,
+        willChange: "opacity, transform"
+      }}
     >
       <div className="absolute inset-0 flex items-center justify-center w-full">
         {/* TITULO */}
         <div
           className={cn(
-            "absolute inset-x-0 flex justify-center transition-all duration-500",
+            "absolute inset-x-0 flex justify-center",
             isMobile ? "top-4" : "top-0",
           )}
+          style={{
+            transition: prefersReduced ? "none" : `top 0.5s ${EASE_PREMIUM_CSS}`
+          }}
         >
           <div className="relative flex space-x-2 items-center z-10 rounded-full bg-background/70 backdrop-blur-sm py-0.5 px-4 ring-1 ring-border">
             <span className="relative z-20 text-xs font-bold text-foreground inline-block py-0.5">
@@ -107,7 +122,7 @@ export const PinPerspective = ({
           </div>
         </div>
 
-        {/* HALOS ANIMADOS — Desactivados en móvil para rendimiento */}
+        {/* HALOS ANIMADOS — Desactivados en móvil y reduced motion */}
         <div
           style={{
             perspective: "1000px",
@@ -118,7 +133,7 @@ export const PinPerspective = ({
             isMobile ? "mt-10" : "mt-4",
           )}
         >
-          {(!isMobile ? [0, 3] : []).map((delay) => (
+          {(!isMobile && !prefersReduced ? [0, 3] : []).map((delay) => (
             <motion.div
               key={delay}
               initial={{ opacity: 0, scale: 0, x: "-50%", y: "-50%" }}
@@ -138,17 +153,23 @@ export const PinPerspective = ({
         <div className="block">
           <motion.div
             className={cn(
-              "absolute right-1/2 bottom-1/2 bg-gradient-to-b from-transparent to-primary-color-linea w-px transition-all duration-500 blur-[2px] transform-gpu",
+              "absolute right-1/2 bottom-1/2 bg-gradient-to-b from-transparent to-primary-color-linea w-px blur-[2px] transform-gpu",
               isMobile ? "translate-y-[38px]" : "translate-y-[14px]",
               isActive ? (isMobile ? "h-48" : "h-40") : "h-20",
             )}
+            style={{
+              transition: prefersReduced ? "none" : `height 0.5s ${EASE_PREMIUM_CSS}, transform 0.5s ${EASE_PREMIUM_CSS}`
+            }}
           />
           <motion.div
             className={cn(
-              "absolute right-1/2 bottom-1/2 bg-gradient-to-b from-transparent to-primary-color-linea w-px transition-all duration-500 transform-gpu",
+              "absolute right-1/2 bottom-1/2 bg-gradient-to-b from-transparent to-primary-color-linea w-px transform-gpu",
               isMobile ? "translate-y-[38px]" : "translate-y-[14px]",
               isActive ? (isMobile ? "h-48" : "h-40") : "h-20",
             )}
+            style={{
+               transition: prefersReduced ? "none" : `height 0.5s ${EASE_PREMIUM_CSS}, transform 0.5s ${EASE_PREMIUM_CSS}`
+            }}
           />
           <motion.div
             className={cn(

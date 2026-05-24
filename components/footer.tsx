@@ -1,7 +1,13 @@
 "use client";
 import Link from "next/link";
+import { motion } from "motion/react";
+import { useReducedMotion } from "@/hooks/use-reduced-motion";
+import { VIEWPORT_CONFIG, FADE_UP, FADE_UP_REDUCED, EASE_PREMIUM_CSS } from "@/lib/motion-config";
 
 export default function Footer() {
+  const prefersReduced = useReducedMotion();
+  const fadeUpVariant = prefersReduced ? FADE_UP_REDUCED : FADE_UP;
+
   return (
     <footer className="border-t border-footer-border py-10 md:py-20 px-5 md:px-6 z-50 bg-footer-bg text-footer-txt">
       <div className="relative max-w-7xl mx-auto w-full">
@@ -19,6 +25,9 @@ export default function Footer() {
                 <Link
                   className="underline hover:opacity-80"
                   href="https://x.com/emirpolitog"
+                  style={{
+                    transition: prefersReduced ? "none" : `opacity 0.3s ${EASE_PREMIUM_CSS}`,
+                  }}
                 >
                   @emirpolitog
                 </Link>
@@ -39,7 +48,10 @@ export default function Footer() {
                 <li>
                   <Link
                     href="/ayuda"
-                    className="text-footer-txt hover:text-[var(--primary-general)] transition-colors font-normal text-sm"
+                    className="text-footer-txt hover:text-[var(--primary-general)] font-normal text-sm"
+                    style={{
+                      transition: prefersReduced ? "none" : `color 0.3s ${EASE_PREMIUM_CSS}`,
+                    }}
                   >
                     Ayuda
                   </Link>
@@ -47,7 +59,10 @@ export default function Footer() {
                 <li>
                   <Link
                     href="/contacto"
-                    className="text-footer-txt hover:text-[var(--primary-general)] transition-colors font-normal text-sm"
+                    className="text-footer-txt hover:text-[var(--primary-general)] font-normal text-sm"
+                    style={{
+                      transition: prefersReduced ? "none" : `color 0.3s ${EASE_PREMIUM_CSS}`,
+                    }}
                   >
                     Contacto
                   </Link>
@@ -55,7 +70,10 @@ export default function Footer() {
                 <li>
                   <Link
                     href="/acerca"
-                    className="text-footer-txt hover:text-[var(--primary-general)] transition-colors font-normal text-sm"
+                    className="text-footer-txt hover:text-[var(--primary-general)] font-normal text-sm"
+                    style={{
+                      transition: prefersReduced ? "none" : `color 0.3s ${EASE_PREMIUM_CSS}`,
+                    }}
                   >
                     Nosotros
                   </Link>
@@ -70,7 +88,10 @@ export default function Footer() {
                 <li>
                   <Link
                     href="https://github.com/EmirPolito"
-                    className="text-footer-txt hover:text-[var(--primary-general)] transition-colors font-normal text-sm"
+                    className="text-footer-txt hover:text-[var(--primary-general)] font-normal text-sm"
+                    style={{
+                      transition: prefersReduced ? "none" : `color 0.3s ${EASE_PREMIUM_CSS}`,
+                    }}
                   >
                     GitHub
                   </Link>
@@ -79,7 +100,10 @@ export default function Footer() {
                 <li>
                   <Link
                     href="https://www.linkedin.com/in/emir-polito-g/"
-                    className="text-footer-txt hover:text-[var(--primary-general)] transition-colors font-normal text-sm"
+                    className="text-footer-txt hover:text-[var(--primary-general)] font-normal text-sm"
+                    style={{
+                      transition: prefersReduced ? "none" : `color 0.3s ${EASE_PREMIUM_CSS}`,
+                    }}
                   >
                     LinkedIn
                   </Link>
@@ -87,7 +111,10 @@ export default function Footer() {
                 <li>
                   <Link
                     href="#"
-                    className="text-footer-txt hover:text-[var(--primary-general)] transition-colors font-normal text-sm"
+                    className="text-footer-txt hover:text-[var(--primary-general)] font-normal text-sm"
+                    style={{
+                      transition: prefersReduced ? "none" : `color 0.3s ${EASE_PREMIUM_CSS}`,
+                    }}
                   >
                     Instagram
                   </Link>
@@ -103,7 +130,10 @@ export default function Footer() {
                 <li>
                   <Link
                     href="/privacy-policy"
-                    className="text-footer-txt hover:text-[var(--primary-general)] transition-colors font-normal text-sm"
+                    className="text-footer-txt hover:text-[var(--primary-general)] font-normal text-sm"
+                    style={{
+                      transition: prefersReduced ? "none" : `color 0.3s ${EASE_PREMIUM_CSS}`,
+                    }}
                   >
                     Política de privacidad
                   </Link>
@@ -111,7 +141,10 @@ export default function Footer() {
                 <li>
                   <Link
                     href="/tos"
-                    className="text-footer-txt hover:text-[var(--primary-general)] transition-colors font-normal text-sm"
+                    className="text-footer-txt hover:text-[var(--primary-general)] font-normal text-sm"
+                    style={{
+                      transition: prefersReduced ? "none" : `color 0.3s ${EASE_PREMIUM_CSS}`,
+                    }}
                   >
                     Términos de servicio
                   </Link>
@@ -121,9 +154,16 @@ export default function Footer() {
           </div>
         </div>
         <div className="w-full flex mt-10 md:mt-15 items-center justify-center">
-          <h1 className="text-center text-4xl sm:text-5xl md:text-7xl lg:text-[11rem] font-bold bg-clip-text text-transparent bg-gradient-to-b from-footer-ttl/100 to-footer-ttl/110 select-none ">
+          <motion.h1 
+            className="text-center text-4xl sm:text-5xl md:text-7xl lg:text-[11rem] font-bold bg-clip-text text-transparent bg-gradient-to-b from-footer-ttl/100 to-footer-ttl/110 select-none transform-gpu"
+            variants={fadeUpVariant}
+            initial="hidden"
+            whileInView="visible"
+            viewport={VIEWPORT_CONFIG}
+            style={{ willChange: "transform, opacity" }}
+          >
             Arcoms <span className="font-light">One</span>
-          </h1>
+          </motion.h1>
         </div>
       </div>
     </footer>

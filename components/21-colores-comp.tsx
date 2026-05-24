@@ -8,6 +8,9 @@ import {
   SelectTrigger,
   SelectValue,
 } from "./ui/21-colores-ui";
+import { disableTransitionsTemporarily } from "@/lib/disable-transitions";
+import { useReducedMotion } from "@/hooks/use-reduced-motion";
+import { EASE_PREMIUM_CSS } from "@/lib/motion-config";
 
 type Theme = "light" | "dark";
 type ColorTheme = "orange" | "blue" | "green" | "violet" | "rose" | "yellow";
@@ -81,6 +84,7 @@ export function ThemeSwitcher() {
   const [theme, setTheme] = useState<Theme>(initialTheme);
   const [color, setColor] = useState<ColorTheme | "neutro">(initialColor);
   const [mounted, setMounted] = useState(false);
+  const prefersReduced = useReducedMotion();
 
   const animatedColors: ColorTheme[] = [
     "orange",
@@ -113,9 +117,9 @@ export function ThemeSwitcher() {
     }
   }, [theme, color, mounted]);
 
-  // Animación solo en neutro
+  // Animación solo en neutro (detenida en reduced motion)
   useEffect(() => {
-    if (color !== "neutro") return;
+    if (color !== "neutro" || prefersReduced) return;
 
     let i = 0;
 
@@ -125,13 +129,19 @@ export function ThemeSwitcher() {
     }, 800);
 
     return () => clearInterval(id);
-  }, [color]);
+  }, [color, prefersReduced]);
 
   if (!mounted) return null;
 
   const cycleTheme = () => {
+    disableTransitionsTemporarily(50);
     const order: Theme[] = ["light", "dark"];
     setTheme(order[(order.indexOf(theme) + 1) % order.length]);
+  };
+
+  const handleColorChange = (v: string) => {
+    disableTransitionsTemporarily(50);
+    setColor(v as ColorTheme | "neutro");
   };
 
   const icon = theme === "light" ? <SunIcon /> : <MoonIcon />;
@@ -143,7 +153,11 @@ export function ThemeSwitcher() {
     <div className="flex gap-2 sm:gap-3 items-center">
       <button
         onClick={cycleTheme}
-        className="cursor-pointer w-8 h-8 sm:w-9 sm:h-9 rounded-full flex items-center justify-center border-2 bg-[var(--primary)] text-white border-[var(--primary)] shadow-lg hover:scale-110 active:scale-95 transition mr-1 sm:mr-0 dark:bg-white dark:text-black dark:border-white"
+        className="cursor-pointer w-8 h-8 sm:w-9 sm:h-9 rounded-full flex items-center justify-center border-2 bg-[var(--primary)] text-white border-[var(--primary)] shadow-lg hover:scale-110 active:scale-95 mr-1 sm:mr-0 dark:bg-white dark:text-black dark:border-white transform-gpu"
+        style={{
+          transition: prefersReduced ? "none" : `transform 0.3s ${EASE_PREMIUM_CSS}, background-color 0.3s ${EASE_PREMIUM_CSS}, color 0.3s ${EASE_PREMIUM_CSS}, border-color 0.3s ${EASE_PREMIUM_CSS}`,
+          willChange: "transform"
+        }}
       >
         {icon}
       </button>
@@ -152,13 +166,16 @@ export function ThemeSwitcher() {
 
       <Select
         value={color}
-        onValueChange={(v) => setColor(v as ColorTheme | "neutro")}
+        onValueChange={handleColorChange}
       >
         <SelectTrigger className="h-8 w-24 sm:w-28 text-[11px] sm:text-xs flex items-center gap-1 sm:gap-2 cursor-pointer">
           {/* ÚNICO puntito visible */}
           {color === "neutro" ? (
             <span
-              className={`w-2.5 h-2.5 rounded-full ${colorClasses[animatedDotColor]} transition-colors`}
+              className={`w-2.5 h-2.5 rounded-full ${colorClasses[animatedDotColor]}`}
+              style={{
+                 transition: prefersReduced ? "none" : `background-color 0.3s ${EASE_PREMIUM_CSS}`
+              }}
             />
           ) : (
             <span

@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useRef, ReactNode, memo, useCallback } from "react";
+import { useReducedMotion } from "@/hooks/use-reduced-motion";
 
 import { Header } from "../components/header";
 import { HeroSection } from "@/components/hero";
@@ -10,17 +11,34 @@ import { BentoCaracteristicas } from "@/components/bento-caracteristicas";
 import TestimonialsCarousel from "@/components/testimonials-with-carousel";
 import Footer from "../components/footer";
 
-const FadeInSection = memo(function FadeInSection({ children }: { children: ReactNode }) {
+const STAGGER_BASE_DELAY = 80; // ms entre cada sección
+
+const FadeInSection = memo(function FadeInSection({
+  children,
+  index = 0,
+}: {
+  children: ReactNode;
+  index?: number;
+}) {
   const ref = useRef<HTMLDivElement>(null);
+  const prefersReduced = useReducedMotion();
 
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
 
-    // Activar inmediatamente si ya está visible
-    const rect = el.getBoundingClientRect();
-    if (rect.top < window.innerHeight + 100) {
+    // Si reduced motion, mostrar inmediatamente
+    if (prefersReduced) {
       el.classList.add("visible");
+      return;
+    }
+
+    // Activar inmediatamente si ya está visible al cargar
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight * 0.85) {
+      // Stagger delay basado en índice para las secciones visibles al cargar
+      const delay = index * STAGGER_BASE_DELAY;
+      setTimeout(() => el.classList.add("visible"), delay);
       return;
     }
 
@@ -31,15 +49,19 @@ const FadeInSection = memo(function FadeInSection({ children }: { children: Reac
           observer.disconnect();
         }
       },
-      { threshold: 0, rootMargin: "100px 0px" }
+      { threshold: 0.2 } // Umbral del 20% — no se re-anima al scroll up/down
     );
 
     observer.observe(el);
     return () => observer.disconnect();
-  }, []);
+  }, [prefersReduced, index]);
 
   return (
-    <div ref={ref} className="fade-section">
+    <div
+      ref={ref}
+      className="fade-section"
+      style={{ transitionDelay: `${index * 0.05}s` }}
+    >
       {children}
     </div>
   );
@@ -50,27 +72,27 @@ export default function Home() {
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
       <Header />
       <main className="py-10">
-        <FadeInSection>
+        <FadeInSection index={0}>
           <HeroSection />
         </FadeInSection>
 
-        <FadeInSection>
+        <FadeInSection index={1}>
           <LogoCloud />
         </FadeInSection>
 
-        <FadeInSection>
+        <FadeInSection index={2}>
           <TarjetaPines />
         </FadeInSection>
 
-        <FadeInSection>
+        <FadeInSection index={3}>
           <EstadoAgentes />
         </FadeInSection>
 
-        <FadeInSection>
+        <FadeInSection index={4}>
           <BentoCaracteristicas />
         </FadeInSection>
 
-        <FadeInSection>
+        <FadeInSection index={5}>
           <TestimonialsCarousel />
         </FadeInSection>
       </main>

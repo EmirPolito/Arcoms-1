@@ -1,34 +1,8 @@
 "use client";
 
 import React from "react";
-
-/* ─── Inline InfiniteSlider (CSS marquee, pausa suave en hover) ─── */
-function InfiniteSlider({
-  children,
-  speed = 40,
-  gap = 112,
-}: {
-  children: React.ReactNode;
-  speed?: number;
-  gap?: number;
-}) {
-  const items = React.Children.toArray(children);
-
-  return (
-    <div className="overflow-hidden w-full group/slider">
-      <div
-        className="flex w-max animate-marquee-logos group-hover/slider:[animation-play-state:paused] transform-gpu will-change-transform"
-        style={{ gap: `${gap}px`, animationDuration: `${speed}s` }}
-      >
-        {[...items, ...items].map((child, i) => (
-          <div key={i} className="flex items-center shrink-0">
-            {child}
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
+import { useReducedMotion } from "@/hooks/use-reduced-motion";
+import { EASE_PREMIUM_CSS } from "@/lib/motion-config";
 
 /* ─── Logos ─── */
 const logos = [
@@ -84,8 +58,6 @@ const logos = [
 ];
 
 function Logo({ logo }: { logo: (typeof logos)[0] }) {
-  // Altura ajustada: un poco más grandes como pediste
-  // 22px en mobile, 32px en desktop
   const hCls = "h-[28px] md:h-[38.5px]";
 
   if (logo.themed) {
@@ -96,14 +68,20 @@ function Logo({ logo }: { logo: (typeof logos)[0] }) {
           alt={logo.label}
           loading="lazy"
           decoding="async"
-          className="h-full w-auto object-contain transition-opacity duration-300 dark:opacity-0"
+          className="h-full w-auto object-contain dark:opacity-0"
+          style={{
+            transition: `opacity 0.3s ${EASE_PREMIUM_CSS}`,
+          }}
         />
         <img
           src={logo.dark}
           alt={logo.label}
           loading="lazy"
           decoding="async"
-          className="h-full w-auto object-contain transition-opacity duration-300 opacity-0 dark:opacity-100 absolute inset-0"
+          className="h-full w-auto object-contain opacity-0 dark:opacity-100 absolute inset-0"
+          style={{
+            transition: `opacity 0.3s ${EASE_PREMIUM_CSS}`,
+          }}
         />
       </div>
     );
@@ -121,11 +99,13 @@ function Logo({ logo }: { logo: (typeof logos)[0] }) {
 
 /* ─── Main export ─── */
 export default function LogoCloud() {
+  const prefersReduced = useReducedMotion();
+
   return (
     <section className="bg-background overflow-hidden py-12 md:py-10">
       <div className="relative w-full px-4 md:px-2">
         <div className="flex items-center md:flex-row">
-          {/* Left label - Ajustado ancho para dar más espacio al slider en laptop */}
+          {/* Left label */}
           <div className="w-24 shrink-0 border-r border-border pr-3 md:w-40 md:pr-8">
             <p className="text-left md:text-end text-[11px] md:text-sm text-muted-foreground font-medium leading-tight">
               Tecnologías
@@ -134,11 +114,17 @@ export default function LogoCloud() {
             </p>
           </div>
 
-          {/* Slider */}
+          {/* Slider — detenido si reduced motion */}
           <div className="relative py-4 flex-1 md:pl-10 overflow-hidden">
             <div
-              className="flex w-max animate-marquee-logos hover:[animation-play-state:paused] gap-16 md:gap-32"
-              style={{ animationDuration: "40s" }}
+              className={`flex w-max gap-16 md:gap-32 hover:[animation-play-state:paused] ${
+                prefersReduced ? "" : "animate-marquee-logos"
+              }`}
+              style={{
+                animationDuration: "40s",
+                willChange: prefersReduced ? "auto" : "transform",
+                transform: "translateZ(0)",
+              }}
             >
               {[...logos, ...logos].map((logo, i) => (
                 <div key={i} className="flex items-center shrink-0">

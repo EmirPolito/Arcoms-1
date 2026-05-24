@@ -1,6 +1,15 @@
 "use client";
-import React, { useState, useEffect, memo, useMemo } from "react";
+import React, { useState, useEffect, memo } from "react";
 import { Check } from "lucide-react";
+import { motion } from "motion/react";
+import { useReducedMotion } from "@/hooks/use-reduced-motion";
+import {
+  VIEWPORT_CONFIG,
+  STAGGER_CONTAINER_FAST,
+  FADE_UP,
+  FADE_UP_REDUCED,
+  EASE_PREMIUM_CSS,
+} from "@/lib/motion-config";
 
 // Data defined outside to prevent re-creation on render
 const AGENT_STATES = [
@@ -25,23 +34,30 @@ const AgentItem = memo(
   ({
     agent,
     isActive,
+    prefersReduced,
   }: {
     agent: (typeof AGENT_STATES)[0];
     isActive: boolean;
+    prefersReduced: boolean;
   }) => (
     <div
-      className={`flex items-center justify-between p-3 sm:p-5 rounded-lg border transition-colors duration-300 ${
+      className={`flex items-center justify-between p-3 sm:p-5 rounded-lg border ${
         isActive
           ? "border-primary/80 bg-primary/15 shadow-md ring-1 ring-primary/20"
           : "border-feat-border bg-feat-card opacity-70"
       }`}
+      style={{
+        transition: prefersReduced
+          ? "none"
+          : `background-color 0.4s ${EASE_PREMIUM_CSS}, border-color 0.4s ${EASE_PREMIUM_CSS}, box-shadow 0.4s ${EASE_PREMIUM_CSS}, opacity 0.4s ${EASE_PREMIUM_CSS}`,
+      }}
     >
       <span className="text-sm text-feat-desc font-medium">{agent.name}</span>
       <div className="flex items-center gap-3">
         <span className="text-xs text-feat-desc/80">{agent.state}</span>
         <span
           className={`w-2.5 h-2.5 rounded-full ${agent.color} ${
-            isActive ? "animate-pulse" : ""
+            isActive && !prefersReduced ? "animate-pulse" : ""
           }`}
         />
       </div>
@@ -54,15 +70,22 @@ const GuardrailItem = memo(
   ({
     check,
     isCompleted,
+    prefersReduced,
   }: {
     check: (typeof GUARDRAIL_CHECKS)[0];
     isCompleted: boolean;
+    prefersReduced: boolean;
   }) => (
     <div className="flex items-center gap-3 sm:gap-5 p-3 sm:p-5 rounded-md border border-feat-border/60 bg-feat-card shadow-xs">
       <div
-        className={`w-5 h-5 rounded-full flex items-center justify-center shrink-0 transition-colors duration-300 ${
+        className={`w-5 h-5 rounded-full flex items-center justify-center shrink-0 ${
           isCompleted ? check.color : "border border-feat-border"
         }`}
+        style={{
+          transition: prefersReduced
+            ? "none"
+            : `background-color 0.3s ${EASE_PREMIUM_CSS}, border-color 0.3s ${EASE_PREMIUM_CSS}`,
+        }}
       >
         {isCompleted && (
           <Check className="w-3.5 h-3.5 text-primary2" strokeWidth={4} />
@@ -76,6 +99,8 @@ GuardrailItem.displayName = "GuardrailItem";
 
 export default function EstadoAgentes() {
   const [progress, setProgress] = useState(0);
+  const prefersReduced = useReducedMotion();
+  const fadeUpVariant = prefersReduced ? FADE_UP_REDUCED : FADE_UP;
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -123,15 +148,27 @@ export default function EstadoAgentes() {
                   inteligentes activas en el sistema.
                 </p>
               </div>
-              <div className="space-y-3">
+              <motion.div
+                className="space-y-3"
+                variants={STAGGER_CONTAINER_FAST}
+                initial="hidden"
+                whileInView="visible"
+                viewport={VIEWPORT_CONFIG}
+              >
                 {AGENT_STATES.map((agent, index) => (
-                  <AgentItem
+                  <motion.div
                     key={agent.id}
-                    agent={agent}
-                    isActive={progress === index}
-                  />
+                    variants={fadeUpVariant}
+                    style={{ willChange: "transform, opacity" }}
+                  >
+                    <AgentItem
+                      agent={agent}
+                      isActive={progress === index}
+                      prefersReduced={prefersReduced}
+                    />
+                  </motion.div>
                 ))}
-              </div>
+              </motion.div>
             </div>
 
             {/* COLUMN 2: Features Text 1 (Top-Right) */}
@@ -157,7 +194,14 @@ export default function EstadoAgentes() {
                   "Priorización inteligente de objetivos",
                 ].map((item, i) => (
                   <li key={i} className="flex items-center gap-3 group">
-                    <span className="w-1.5 h-1.5 rounded-full bg-primary-general/60 group-hover:bg-primary-general transition-colors" />
+                    <span
+                      className="w-1.5 h-1.5 rounded-full bg-primary-general/60 group-hover:bg-primary-general"
+                      style={{
+                        transition: prefersReduced
+                          ? "none"
+                          : `background-color 0.3s ${EASE_PREMIUM_CSS}`,
+                      }}
+                    />
                     {item}
                   </li>
                 ))}
@@ -187,7 +231,14 @@ export default function EstadoAgentes() {
                   "Prevención de sesgos y errores",
                 ].map((item, i) => (
                   <li key={i} className="flex items-center gap-3 group">
-                    <span className="w-1.5 h-1.5 rounded-full bg-primary-general/60 group-hover:bg-primary-general transition-colors" />
+                    <span
+                      className="w-1.5 h-1.5 rounded-full bg-primary-general/60 group-hover:bg-primary-general"
+                      style={{
+                        transition: prefersReduced
+                          ? "none"
+                          : `background-color 0.3s ${EASE_PREMIUM_CSS}`,
+                      }}
+                    />
                     {item}
                   </li>
                 ))}
@@ -205,15 +256,27 @@ export default function EstadoAgentes() {
                   activas en el entorno.
                 </p>
               </div>
-              <div className="space-y-3">
+              <motion.div
+                className="space-y-3"
+                variants={STAGGER_CONTAINER_FAST}
+                initial="hidden"
+                whileInView="visible"
+                viewport={VIEWPORT_CONFIG}
+              >
                 {GUARDRAIL_CHECKS.map((check, index) => (
-                  <GuardrailItem
+                  <motion.div
                     key={check.id}
-                    check={check}
-                    isCompleted={progress >= index}
-                  />
+                    variants={fadeUpVariant}
+                    style={{ willChange: "transform, opacity" }}
+                  >
+                    <GuardrailItem
+                      check={check}
+                      isCompleted={progress >= index}
+                      prefersReduced={prefersReduced}
+                    />
+                  </motion.div>
                 ))}
-              </div>
+              </motion.div>
             </div>
           </div>
         </div>

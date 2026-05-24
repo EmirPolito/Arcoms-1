@@ -5,12 +5,23 @@ import { motion, useInView } from "motion/react";
 import createGlobe from "cobe";
 import Image from "next/image";
 import { useTheme } from "next-themes";
+import { useReducedMotion } from "@/hooks/use-reduced-motion";
+import {
+  VIEWPORT_CONFIG,
+  STAGGER_CONTAINER,
+  FADE_UP,
+  FADE_UP_REDUCED,
+  EASE_PREMIUM,
+} from "@/lib/motion-config";
 
 /* =====================================================
    SECTION
 ===================================================== */
 
 export function BentoCaracteristicas() {
+  const prefersReduced = useReducedMotion();
+  const fadeUpVariant = prefersReduced ? FADE_UP_REDUCED : FADE_UP;
+
   return (
     <section
       className="relative z-20 max-w-8xl mx-auto pt-0 pb-24 space-y-6 md:space-y-5 bg-feat-bg text-feat-txt px-6 sm:px-25 flex flex-col items-center"
@@ -32,137 +43,167 @@ export function BentoCaracteristicas() {
         </p>
       </div>
 
-      {/* ROW 1 */}
-      <div className="flex flex-col md:flex-row gap-6 md:gap-5 items-stretch w-full">
-        {/* LEFT — GLOBE CARD */}
-        <div className="relative overflow-hidden rounded-2xl bg-feat-card border border-feat-border p-5 h-[21rem] md:h-[23rem] w-full md:w-[26rem] flex flex-col">
-          <div className="relative z-10 space-y-1">
-            <h3 className="text-feat-ttl text-base font-semibold">Titulo</h3>
-            <p className="text-sm text-feat-desc">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit bot,
-              quod.adipisicing elite.
-            </p>
-          </div>
-
-          <div className="absolute inset-0 flex items-end justify-center md:translate-x-[7rem] translate-x-[2.5rem]">
-            <Globe />
-          </div>
-
-          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-card to-transparent hidden dark:block" />
-        </div>
-
-        {/* RIGHT — GLOBAL INFRASTRUCTURE */}
-        <div className="relative flex-1 rounded-2xl bg-feat-card border border-feat-border p-5.5 overflow-hidden min-h-[23.5rem] md:min-h-0">
-          <div className="max-w-md space-y-1">
-            <h4 className="text-feat-ttl text-base font-semibold">Título</h4>
-            <p className="text-sm text-feat-desc leading-relaxed">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit bot,
-              quod.adipisicing elite.
-            </p>
-          </div>
-
-          <div className="absolute bottom-[-16rem] md:bottom-[-16rem] right-[-5rem] md:right-[-5rem]">
-            <div className="rounded-2xl border border-img-frame bg-muted/40 p-4">
-              <Image
-                src="/img/5.jpg"
-                alt="Infrastructure"
-                width={800}
-                height={450}
-                draggable={false}
-                className="
-                  w-[20rem]
-                  md:w-[51rem]
-                  h-[28.5rem]
-                  object-cover
-                  object-center
-                  rounded-xl
-                  opacity-90
-                  pointer-events-none
-                "
-              />
+      <motion.div
+        className="w-full flex flex-col gap-6 md:gap-5"
+        variants={STAGGER_CONTAINER}
+        initial="hidden"
+        whileInView="visible"
+        viewport={VIEWPORT_CONFIG}
+      >
+        {/* ROW 1 */}
+        <div className="flex flex-col md:flex-row gap-6 md:gap-5 items-stretch w-full">
+          {/* LEFT — GLOBE CARD */}
+          <motion.div
+            className="relative overflow-hidden rounded-2xl bg-feat-card border border-feat-border p-5 h-[21rem] md:h-[23rem] w-full md:w-[26rem] flex flex-col"
+            variants={fadeUpVariant}
+            style={{ willChange: "transform, opacity" }}
+          >
+            <div className="relative z-10 space-y-1">
+              <h3 className="text-feat-ttl text-base font-semibold">Titulo</h3>
+              <p className="text-sm text-feat-desc">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit bot,
+                quod.adipisicing elite.
+              </p>
             </div>
-          </div>
-        </div>
-      </div>
 
-      {/* ROW 2 */}
-      <div className="flex flex-col md:flex-row gap-6 md:gap-5 items-stretch w-full">
-        {/* LEFT — CHART IMAGE (MOVED FROM RIGHT) */}
-        <div className="relative flex-1 rounded-2xl bg-feat-card border border-feat-border p-6 overflow-hidden min-h-[23.5rem] md:min-h-0">
-          <div className="max-w-md space-y-1 relative z-10">
-            <h4 className="text-feat-ttl text-base font-semibold">Título</h4>
-            <p className="text-sm text-feat-desc leading-relaxed">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit bot,
-              quod.adipisicing elite.
-            </p>
-          </div>
-
-          <div className="absolute bottom-[-16rem] md:bottom-[-16rem] right-[-5rem] md:right-[-5rem]">
-            <div className="rounded-2xl border border-img-frame bg-muted/40 p-4">
-              <Image
-                src="/img/5.jpg"
-                alt="Infrastructure"
-                width={800}
-                height={450}
-                draggable={false}
-                className="
-                  w-[20rem]
-                  md:w-[51rem]
-                  h-[28.5rem]
-                  object-cover
-                  object-center
-                  rounded-xl
-                  opacity-90
-                  pointer-events-none
-                "
-              />
+            <div className="absolute inset-0 flex items-end justify-center md:translate-x-[7rem] translate-x-[2.5rem]">
+              <Globe />
             </div>
-          </div>
+
+            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-card to-transparent hidden dark:block" />
+          </motion.div>
+
+          {/* RIGHT — GLOBAL INFRASTRUCTURE */}
+          <motion.div
+            className="relative flex-1 rounded-2xl bg-feat-card border border-feat-border p-5.5 overflow-hidden min-h-[23.5rem] md:min-h-0"
+            variants={fadeUpVariant}
+            style={{ willChange: "transform, opacity" }}
+          >
+            <div className="max-w-md space-y-1">
+              <h4 className="text-feat-ttl text-base font-semibold">Título</h4>
+              <p className="text-sm text-feat-desc leading-relaxed">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit bot,
+                quod.adipisicing elite.
+              </p>
+            </div>
+
+            <div className="absolute bottom-[-16rem] md:bottom-[-16rem] right-[-5rem] md:right-[-5rem]">
+              <div className="rounded-2xl border border-img-frame bg-muted/40 p-4">
+                <Image
+                  src="/img/5.jpg"
+                  alt="Infrastructure"
+                  width={800}
+                  height={450}
+                  draggable={false}
+                  className="
+                    w-[20rem]
+                    md:w-[51rem]
+                    h-[28.5rem]
+                    object-cover
+                    object-center
+                    rounded-xl
+                    opacity-90
+                    pointer-events-none
+                  "
+                />
+              </div>
+            </div>
+          </motion.div>
         </div>
 
-        {/* RIGHT — METRIC CARDS (MOVED FROM LEFT) */}
-        <div className="relative overflow-hidden rounded-2xl bg-feat-card border border-feat-border p-5.5 h-[21rem] md:h-[23rem] w-full md:w-[26rem] flex flex-col">
-          <div className="relative z-10 space-y-1.5">
-            <h3 className="text-feat-ttl text-base font-semibold">Titulo</h3>
-            <p className="text-sm text-feat-desc">
-              Lorem ipsum dolor sit amet consecteetur adipisicing elit.
-              Quisquam.adipisicing elit.
-            </p>
-          </div>
+        {/* ROW 2 */}
+        <div className="flex flex-col md:flex-row gap-6 md:gap-5 items-stretch w-full">
+          {/* LEFT — CHART IMAGE (MOVED FROM RIGHT) */}
+          <motion.div
+            className="relative flex-1 rounded-2xl bg-feat-card border border-feat-border p-6 overflow-hidden min-h-[23.5rem] md:min-h-0"
+            variants={fadeUpVariant}
+            style={{ willChange: "transform, opacity" }}
+          >
+            <div className="max-w-md space-y-1 relative z-10">
+              <h4 className="text-feat-ttl text-base font-semibold">Título</h4>
+              <p className="text-sm text-feat-desc leading-relaxed">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit bot,
+                quod.adipisicing elite.
+              </p>
+            </div>
 
-          <div className="flex-1 flex items-center justify-center gap-4 sm:gap-6 md:gap-4 mt-4 md:mt-4 flex-wrap relative z-10">
-            {workflowSwingCards.map((card, i) => (
-              <motion.div
-                key={card.id}
-                initial={false}
-                animate={{
-                  rotate: [0, i % 2 === 0 ? 1.5 : -1.5, 0],
-                  y: [0, -3, 0],
-                }}
-                transition={{
-                  duration: 8 + i * 2,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-                className="
-                  h-20 w-20
-                  sm:h-28 sm:w-28
-                  md:h-28 md:w-28
-                  rounded-xl
-                  border border-border
-                  bg-secondary
-                  shadow-sm
-                  flex items-center justify-center
-                "
-              >
-                {card.content}
-              </motion.div>
-            ))}
-          </div>
+            <div className="absolute bottom-[-16rem] md:bottom-[-16rem] right-[-5rem] md:right-[-5rem]">
+              <div className="rounded-2xl border border-img-frame bg-muted/40 p-4">
+                <Image
+                  src="/img/5.jpg"
+                  alt="Infrastructure"
+                  width={800}
+                  height={450}
+                  draggable={false}
+                  className="
+                    w-[20rem]
+                    md:w-[51rem]
+                    h-[28.5rem]
+                    object-cover
+                    object-center
+                    rounded-xl
+                    opacity-90
+                    pointer-events-none
+                  "
+                />
+              </div>
+            </div>
+          </motion.div>
 
-          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-feat-card to-transparent hidden dark:block" />
+          {/* RIGHT — METRIC CARDS (MOVED FROM LEFT) */}
+          <motion.div
+            className="relative overflow-hidden rounded-2xl bg-feat-card border border-feat-border p-5.5 h-[21rem] md:h-[23rem] w-full md:w-[26rem] flex flex-col"
+            variants={fadeUpVariant}
+            style={{ willChange: "transform, opacity" }}
+          >
+            <div className="relative z-10 space-y-1.5">
+              <h3 className="text-feat-ttl text-base font-semibold">Titulo</h3>
+              <p className="text-sm text-feat-desc">
+                Lorem ipsum dolor sit amet consecteetur adipisicing elit.
+                Quisquam.adipisicing elit.
+              </p>
+            </div>
+
+            <div className="flex-1 flex items-center justify-center gap-4 sm:gap-6 md:gap-4 mt-4 md:mt-4 flex-wrap relative z-10">
+              {workflowSwingCards.map((card, i) => (
+                <motion.div
+                  key={card.id}
+                  initial={false}
+                  animate={
+                    prefersReduced
+                      ? { rotate: 0, y: 0 }
+                      : {
+                          rotate: [0, i % 2 === 0 ? 1.5 : -1.5, 0],
+                          y: [0, -3, 0],
+                        }
+                  }
+                  transition={{
+                    duration: prefersReduced ? 0 : 8 + i * 2,
+                    repeat: prefersReduced ? 0 : Infinity,
+                    ease: EASE_PREMIUM,
+                  }}
+                  className="
+                    h-20 w-20
+                    sm:h-28 sm:w-28
+                    md:h-28 md:w-28
+                    rounded-xl
+                    border border-border
+                    bg-secondary
+                    shadow-sm
+                    flex items-center justify-center
+                    transform-gpu
+                  "
+                  style={{ willChange: "transform" }}
+                >
+                  {card.content}
+                </motion.div>
+              ))}
+            </div>
+
+            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-feat-card to-transparent hidden dark:block" />
+          </motion.div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }
@@ -217,6 +258,7 @@ const Globe = memo(function Globe() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const { resolvedTheme } = useTheme();
   const [themeTick, setThemeTick] = useState(0);
+  const prefersReduced = useReducedMotion();
 
   useEffect(() => {
     const observer = new MutationObserver((mutations) => {
@@ -291,7 +333,7 @@ const Globe = memo(function Globe() {
       theta: 0,
       dark: isBright ? 0 : 1,
       diffuse: 1.2,
-      mapSamples: 8000,
+      mapSamples: prefersReduced ? 2000 : 8000,
       mapBrightness: 6,
       baseColor: globeColor,
       glowColor: globeColor,
@@ -302,12 +344,14 @@ const Globe = memo(function Globe() {
       ],
       onRender: (state: Record<string, number>) => {
         state.phi = phi;
-        phi += 0.005;
+        if (!prefersReduced) {
+          phi += 0.005;
+        }
       },
     });
 
     return () => globe.destroy();
-  }, [resolvedTheme, themeTick, isVisible]);
+  }, [resolvedTheme, themeTick, isVisible, prefersReduced]);
 
   return (
     <canvas

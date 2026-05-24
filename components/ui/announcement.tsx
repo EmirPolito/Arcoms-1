@@ -14,6 +14,8 @@ import {
 } from "motion/react";
 import { ChevronDown } from "lucide-react";
 import LustreText from "@/components/ui/lustretext";
+import { useReducedMotion } from "@/hooks/use-reduced-motion";
+import { EASE_PREMIUM } from "@/lib/motion-config";
 
 const EXPANDABLE_CONTENT_SYMBOL = Symbol.for("AnnouncementExpandedContent");
 
@@ -22,17 +24,20 @@ const MovingBorder = ({
   duration = 3000,
   rx,
   ry,
+  prefersReduced,
   ...otherProps
 }: {
   children: React.ReactNode;
   duration?: number;
   rx?: string;
   ry?: string;
+  prefersReduced?: boolean;
 } & React.SVGProps<SVGSVGElement>) => {
   const pathRef = useRef<SVGRectElement | null>(null);
   const progress = useMotionValue(0);
 
   useAnimationFrame((time) => {
+    if (prefersReduced) return;
     const length = pathRef.current?.getTotalLength?.();
     if (length) {
       const pxPerMillisecond = length / duration;
@@ -74,8 +79,9 @@ const MovingBorder = ({
           position: "absolute",
           top: 0,
           left: 0,
-          display: "inline-block",
+          display: prefersReduced ? "none" : "inline-block",
           transform,
+          willChange: "transform"
         }}
       >
         {children}
@@ -117,6 +123,7 @@ function AnnouncementComponent({
   });
   const containerRef = useRef<HTMLDivElement>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const prefersReduced = useReducedMotion();
 
   const isMounted = typeof window !== "undefined";
 
@@ -257,7 +264,7 @@ function AnnouncementComponent({
             type="button"
             onClick={handleToggle}
             data-state={isOpen ? "open" : "closed"}
-            className="flex shrink-0 items-center rounded p-1 hover:bg-foreground/10 transition-colors focus:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-1 ml-1"
+            className="flex shrink-0 items-center rounded p-1 hover:bg-foreground/10 transition-colors focus:outline-hidden focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-1 ml-1 transform-gpu"
             aria-expanded={isOpen}
             aria-haspopup="true"
             aria-label={
@@ -265,9 +272,14 @@ function AnnouncementComponent({
             }
           >
             <ChevronDown
-              className="size-3 shrink-0 transition-transform duration-300 data-[state=open]:rotate-180"
+              className="size-3 shrink-0 transform-gpu"
               aria-hidden="true"
               data-state={isOpen ? "open" : "closed"}
+              style={{
+                transition: prefersReduced ? "none" : "transform 0.3s cubic-bezier(0.22, 1, 0.36, 1)",
+                transform: isOpen ? "rotate(180deg)" : "rotate(0deg)",
+                willChange: "transform"
+              }}
             />
           </button>
         ) : null}
@@ -281,13 +293,13 @@ function AnnouncementComponent({
         ref={containerRef}
         data-state={isOpen ? "open" : "closed"}
         {...animations[animation]}
-        transition={{ duration: 0.3, ease: "easeOut" }}
+        transition={{ duration: prefersReduced ? 0 : 0.3, ease: EASE_PREMIUM }}
         className="relative inline-block"
       >
         {movingBorder ? (
           <div className="relative overflow-hidden rounded-full bg-transparent p-px">
             <div className="absolute inset-0 pointer-events-none">
-              <MovingBorder duration={movingBorderDuration} rx="50%" ry="50%">
+              <MovingBorder duration={movingBorderDuration} rx="50%" ry="50%" prefersReduced={prefersReduced}>
                 <div
                   className={cn(
                     "h-20 w-20 bg-[radial-gradient(var(--primary-general)_40%,transparent_60%)] opacity-[0.8]",
@@ -312,15 +324,16 @@ function AnnouncementComponent({
                 initial={{ opacity: 0, scale: 0.95, y: -10 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.95, y: -10 }}
-                transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                transition={{ duration: prefersReduced ? 0 : 0.2, ease: EASE_PREMIUM }}
                 style={{
                   position: "absolute",
                   top: `${dropdownPosition.top + 8}px`,
                   left: `${dropdownPosition.left}px`,
                   width: `${Math.max(dropdownPosition.width, 200)}px`,
                   zIndex: 50,
+                  willChange: "transform, opacity"
                 }}
-                className="rounded-lg border bg-popover text-popover-foreground p-4 text-sm shadow-lg"
+                className="rounded-lg border bg-popover text-popover-foreground p-4 text-sm shadow-lg transform-gpu"
                 role="dialog"
                 aria-modal="false"
                 aria-label="Expanded announcement content"
@@ -353,6 +366,7 @@ export function AnnouncementTag({
   children,
   ...props
 }: AnnouncementTagProps) {
+  const prefersReduced = useReducedMotion();
   const tagContent = (
     <span
       className={cn(
@@ -378,7 +392,7 @@ export function AnnouncementTag({
     return (
       <span className="relative inline-block overflow-hidden rounded-full p-px">
         <span className="absolute inset-0 pointer-events-none">
-          <MovingBorder duration={movingBorderDuration} rx="50%" ry="50%">
+          <MovingBorder duration={movingBorderDuration} rx="50%" ry="50%" prefersReduced={prefersReduced}>
             <div
               className={cn(
                 "h-12 w-12 bg-[radial-gradient(var(--primary-general)_40%,transparent_60%)] opacity-80",

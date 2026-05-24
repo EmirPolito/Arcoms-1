@@ -546,16 +546,26 @@ body[style*="overflow:hidden"] {
   position: static !important;
 }
 
-/* Fade-in sections — Animaciones suaves e inmediatas */
+/* ── Anti-parpadeo al cambiar tema ── */
+.no-transitions *,
+.no-transitions *::before,
+.no-transitions *::after {
+  transition: none !important;
+  animation-duration: 0s !important;
+}
+
+/* Fade-in sections — Desaceleración fluida premium */
 .fade-section {
   opacity: 0;
-  transform: translateY(12px);
-  transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+  transform: translate3d(0, 16px, 0);
+  transition: opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform, opacity;
 }
 
 .fade-section.visible {
   opacity: 1;
-  transform: translateY(0);
+  transform: translate3d(0, 0, 0);
 }
 
 .container {
@@ -572,6 +582,8 @@ body[style*="overflow:hidden"] {
 }
 .animate-marquee-logos {
   animation: marquee-logos linear infinite;
+  will-change: transform;
+  transform: translateZ(0);
 }
 
 @layer base {
@@ -618,4 +630,30 @@ body[style*="overflow:hidden"] {
   animation-timing-function: ease-out;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
+}
+
+/* =====================================================
+   REDUCED MOTION — A11Y
+   ===================================================== */
+@media (prefers-reduced-motion: reduce) {
+  .fade-section {
+    opacity: 1;
+    transform: none;
+    transition: none;
+    will-change: auto;
+  }
+
+  .animate-marquee-logos {
+    animation: none;
+    will-change: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

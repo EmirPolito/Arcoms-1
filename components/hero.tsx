@@ -2,6 +2,8 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import dynamic from "next/dynamic";
+import { useReducedMotion } from "@/hooks/use-reduced-motion";
+import { EASE_PREMIUM_CSS } from "@/lib/motion-config";
 
 const SplineScene = dynamic(() => import("@splinetool/react-spline"), {
   ssr: false,
@@ -24,6 +26,7 @@ export function HeroSection({
   buttonWidth = "px-6 md:px-8",
 }: SplineSceneBasicProps) {
   const [isMobile, setIsMobile] = useState(true);
+  const prefersReduced = useReducedMotion();
 
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 768);
@@ -35,7 +38,10 @@ export function HeroSection({
   return (
     <div className="w-full min-h-[500px] md:h-[600px] lg:h-[650px] relative overflow-hidden bg-background border-0 shadow-none ring-0 text-foreground">
       {/* Contenido */}
-      <div className="relative z-10 flex h-full items-center pointer-events-none px-5 sm:px-6 pt-0 pb-12 md:py-0 transform-gpu opacity-100 translate-y-7">
+      <div
+        className="relative z-10 flex h-full items-center pointer-events-none px-5 sm:px-6 pt-0 pb-12 md:py-0 transform-gpu opacity-100 translate-y-7"
+        style={{ willChange: "transform, opacity" }}
+      >
         <div className="mx-auto w-full max-w-lg text-center  lg:ml-16 lg:text-left mt-8 md:-mt-15">
           <div className="relative z-20 mt-2 mb-1 flex justify-center lg:justify-start">
             <Announcement styled animation="fade">
@@ -61,10 +67,13 @@ export function HeroSection({
             />
           </div>
 
-          {/* ROBOT DESKTOP */}
-          <div className="hidden md:block absolute inset-0 z-10 transform-gpu pointer-events-auto w-full">
+          {/* ROBOT DESKTOP — Desactivado en reduced motion */}
+          <div
+            className="hidden md:block absolute inset-0 z-10 transform-gpu pointer-events-auto w-full"
+            style={{ willChange: "transform" }}
+          >
             <div className="w-full h-full origin-top -translate-y-8 md:translate-x-[180px] lg:translate-x-[290px] md:scale-[1.09]">
-              {!isMobile && (
+              {!isMobile && !prefersReduced && (
                 <SplineScene
                   scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
                   className="w-full h-full"
@@ -83,14 +92,20 @@ export function HeroSection({
           <div className="relative z-20 pointer-events-auto mt-3 md:mt-12 flex flex-row justify-center gap-4 sm:gap-5 lg:justify-start">
             <Link
               href="/explore"
-              className={`${buttonWidth} w-full max-w-[135px] sm:w-[165px] h-[43px] flex items-center justify-center text-base md:text-lg rounded-md font-medium shadow-md text-hero-btn-txt bg-hero-btn-bg transition-opacity cursor-pointer md:hover:opacity-95`}
+              className={`${buttonWidth} w-full max-w-[135px] sm:w-[165px] h-[43px] flex items-center justify-center text-base md:text-lg rounded-md font-medium shadow-md text-hero-btn-txt bg-hero-btn-bg cursor-pointer md:hover:opacity-95`}
+              style={{
+                transition: `opacity 0.25s ${EASE_PREMIUM_CSS}, transform 0.25s ${EASE_PREMIUM_CSS}`,
+              }}
             >
               Explorar
             </Link>
 
             <Link
               href="/work"
-              className={`${buttonWidth} w-full max-w-[135px] sm:w-[165px] h-[43px] flex items-center justify-center text-base md:text-lg rounded-lg text-hero-ttl font-medium shadow-md transition-opacity cursor-pointer md:hover:opacity-95`}
+              className={`${buttonWidth} w-full max-w-[135px] sm:w-[165px] h-[43px] flex items-center justify-center text-base md:text-lg rounded-lg text-hero-ttl font-medium shadow-md cursor-pointer md:hover:opacity-95`}
+              style={{
+                transition: `opacity 0.25s ${EASE_PREMIUM_CSS}, transform 0.25s ${EASE_PREMIUM_CSS}`,
+              }}
             >
               Resumen
             </Link>
