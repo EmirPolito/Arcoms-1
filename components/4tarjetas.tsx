@@ -28,7 +28,7 @@ export function CuatroCaracteristicas() {
       style={{ contain: "layout style" }}
     >
       {/* HEADER INTEGRADO */}
-      <div className="text-center  mb-5 md:mb-10 px-4">
+      <div className="text-center  mb-5 md:mb-0 px-4 py-0 md:py-7">
         <div className="flex flex-row flex-wrap items-center justify-center gap-4 mb-2">
           <span className="text-2xl md:text-4xl font-bold tracking-tight text-titulos">
             Título
