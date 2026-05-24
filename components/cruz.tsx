@@ -138,7 +138,7 @@ export default function EstadoAgentes() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 md:min-h-[600px] gap-px bg-feat-border/20">
             {/* COLUMN 1: Agent Status (Top-Left) */}
-            <div className="bg-feat-bg p-6 md:p-12 space-y-8">
+            <div className="bg-feat-bg p-6 md:p-15 space-y-8">
               <div>
                 <h3 className="text-xl md:text-2xl font-semibold text-feat-ttl mb-2">
                   Monitoreo de Agentes
@@ -172,7 +172,7 @@ export default function EstadoAgentes() {
             </div>
 
             {/* COLUMN 2: Features Text 1 (Top-Right) */}
-            <div className="bg-feat-bg p-6 md:p-12 space-y-6">
+            <div className="bg-feat-bg p-6 md:p-15 space-y-6">
               <div className="space-y-4">
                 <h3 className="text-xl md:text-2xl font-semibold text-feat-ttl">
                   Operación Autónoma
@@ -209,7 +209,7 @@ export default function EstadoAgentes() {
             </div>
 
             {/* COLUMN 3: Features Text 2 (Bottom-Left) */}
-            <div className="bg-feat-bg p-6 md:p-12 space-y-6 order-last md:order-none">
+            <div className="bg-feat-bg p-6 md:p-15 space-y-6 order-last md:order-none">
               <div className="space-y-4">
                 <h3 className="text-xl md:text-2xl font-semibold text-feat-ttl">
                   Seguridad y Control
@@ -246,7 +246,7 @@ export default function EstadoAgentes() {
             </div>
 
             {/* COLUMN 4: Guardrail Progress (Bottom-Right) */}
-            <div className="bg-feat-bg p-6 md:p-12 space-y-8">
+            <div className="bg-feat-bg p-6 md:p-15 space-y-8">
               <div>
                 <h3 className="text-xl md:text-2xl font-semibold text-feat-ttl mb-2">
                   Validación de Protocolos

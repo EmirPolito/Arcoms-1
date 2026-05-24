@@ -6,7 +6,7 @@ import { Header } from "../components/header";
 import { HeroSection } from "@/components/hero";
 import LogoCloud from "@/components/logo-cloud";
 import { TarjetaPines } from "@/components/3d-pin";
-import EstadoAgentes from "@/components/estado-agentes";
+import EstadoAgentes from "@/components/cruz";
 import { CuatroCaracteristicas } from "@/components/4tarjetas";
 import TestimonialsCarousel from "@/components/testimonials-with-carousel";
 import Footer from "../components/footer";
