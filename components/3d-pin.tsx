@@ -15,7 +15,7 @@ export function TarjetaPines() {
   const fadeUpVariant = prefersReduced ? FADE_UP_REDUCED : FADE_UP;
 
   return (
-    <section className="w-full py-1 px-4 flex flex-col items-center">
+    <section className="w-full py-1 md:py-15 px-4 flex flex-col items-center">
       {/* HEADER INTEGRADO */}
       <div className="text-center mb-1 md:mb-10  px-4">
         <div className="flex flex-row flex-wrap items-center justify-center gap-4 mb-0">
