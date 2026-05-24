@@ -103,11 +103,11 @@ export default function LogoCloud() {
 
   return (
     <section className="bg-background overflow-hidden py-12 md:py-10">
-      <div className="relative w-full px-4 md:px-2">
+      <div className="relative w-full px-4 md:px-0">
         <div className="flex items-center md:flex-row">
           {/* Left label */}
-          <div className="w-24 shrink-0 border-r border-border pr-3 md:w-40 md:pr-8">
-            <p className="text-left md:text-end text-[11px] md:text-sm text-muted-foreground font-medium leading-tight">
+          <div className="w-24 shrink-0 border-r border-border md:w-40 pr-3 md:pr-5">
+            <p className="text-left md:text-end text-[11px] md:text-sm text-muted-foreground font-mormal leading-tight">
               Tecnologías
               <br />
               utilizadas
