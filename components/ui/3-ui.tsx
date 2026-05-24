@@ -63,7 +63,7 @@ export const PinContainer = ({
         <div
           style={{ 
             transform,
-            transition: prefersReduced ? "none" : `transform 0.5s ${EASE_PREMIUM_CSS}, opacity 0.5s ${EASE_PREMIUM_CSS}`
+            transition: prefersReduced ? "none" : `transform 1.2s ${EASE_PREMIUM_CSS}, opacity 1.2s ${EASE_PREMIUM_CSS}`
           }}
           className={cn(
             "absolute left-1/2 top-1/2 p-4 flex justify-start items-start rounded-2xl overflow-hidden transform-gpu will-change-transform",
@@ -99,7 +99,7 @@ export const PinPerspective = ({
         isActive ? "opacity-100" : "opacity-0",
       )}
       style={{
-        transition: prefersReduced ? "none" : `opacity 0.5s ${EASE_PREMIUM_CSS}`,
+        transition: prefersReduced ? "none" : `opacity 1.2s ${EASE_PREMIUM_CSS}`,
         willChange: "opacity, transform"
       }}
     >
@@ -111,7 +111,7 @@ export const PinPerspective = ({
             isMobile ? "top-4" : "top-0",
           )}
           style={{
-            transition: prefersReduced ? "none" : `top 0.5s ${EASE_PREMIUM_CSS}`
+            transition: prefersReduced ? "none" : `top 1.2s ${EASE_PREMIUM_CSS}`
           }}
         >
           <div className="relative flex space-x-2 items-center z-10 rounded-full bg-background/70 backdrop-blur-sm py-0.5 px-4 ring-1 ring-border">
@@ -158,7 +158,7 @@ export const PinPerspective = ({
               isActive ? (isMobile ? "h-48" : "h-40") : "h-20",
             )}
             style={{
-              transition: prefersReduced ? "none" : `height 0.5s ${EASE_PREMIUM_CSS}, transform 0.5s ${EASE_PREMIUM_CSS}`
+              transition: prefersReduced ? "none" : `height 1.2s ${EASE_PREMIUM_CSS}, transform 1.2s ${EASE_PREMIUM_CSS}`
             }}
           />
           <motion.div
@@ -168,7 +168,7 @@ export const PinPerspective = ({
               isActive ? (isMobile ? "h-48" : "h-40") : "h-20",
             )}
             style={{
-               transition: prefersReduced ? "none" : `height 0.5s ${EASE_PREMIUM_CSS}, transform 0.5s ${EASE_PREMIUM_CSS}`
+               transition: prefersReduced ? "none" : `height 1.2s ${EASE_PREMIUM_CSS}, transform 1.2s ${EASE_PREMIUM_CSS}`
             }}
           />
           <motion.div

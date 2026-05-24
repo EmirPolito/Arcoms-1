@@ -26,7 +26,7 @@ export function TarjetaPines() {
             texto
           </span>
         </div>
-        <p className="text-sm md:text-base text-title-desc max-w-2xl mx-auto">
+        <p className="font-normal text-sm md:text-base text-title-desc max-w-2xl mx-auto">
           Lorem dolor sit met consectetu adipisicing elit. Quisquam, quod. lo
           adipisicing elit.
         </p>
@@ -43,10 +43,10 @@ export function TarjetaPines() {
         <motion.div variants={fadeUpVariant} style={{ willChange: "transform, opacity" }}>
           <PinContainer title="Descripcion1/" href="/">
             <div className="flex basis-full flex-col p-3.5 tracking-tight text-primary-color-text w-[17.5rem] h-[17.5rem] sm:w-[18rem] sm:h-[18rem] lg:w-[20rem] lg:h-[20rem]">
-              <h3 className="max-w-xs pb-2 m-0 font-bold text-base text-foreground">
+              <h3 className="max-w-xs pb-2 m-0 font-semibold text-base text-foreground">
                 Titulo 1
               </h3>
-              <div className="text-left text-sm m-0 p-0 font-normal">
+              <div className="font-normal text-left text-sm m-0 p-0 font-normal">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Quisquam, quod. meeet.
               </div>
@@ -58,10 +58,10 @@ export function TarjetaPines() {
         <motion.div variants={fadeUpVariant} style={{ willChange: "transform, opacity" }}>
           <PinContainer title="Descripcion2/" href="/">
             <div className="flex basis-full flex-col p-3.5 tracking-tight text-foreground/60 w-[17.5rem] h-[17.5rem] sm:w-[18rem] sm:h-[18rem] lg:w-[20rem] lg:h-[20rem]">
-              <h3 className="max-w-xs pb-2 m-0 font-bold text-base text-foreground">
+              <h3 className="max-w-xs pb-2 m-0 font-semibold text-base text-foreground">
                 Titulo 2
               </h3>
-              <div className="text-sm m-0 p-0 font-normal">
+              <div className="font-normal text-left text-sm m-0 p-0 font-normal">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Quisquam, quod. meeet
               </div>
@@ -73,10 +73,10 @@ export function TarjetaPines() {
         <motion.div variants={fadeUpVariant} style={{ willChange: "transform, opacity" }}>
           <PinContainer title="Descripcion3/" href="/">
             <div className="flex basis-full flex-col p-3.5 tracking-tight text-foreground/60 w-[17.5rem] h-[17.5rem] sm:w-[18rem] sm:h-[18rem] lg:w-[20rem] lg:h-[20rem]">
-              <h3 className="max-w-xs pb-2 m-0 font-bold text-base text-foreground">
+              <h3 className="max-w-xs pb-2 m-0 font-semibold text-base text-foreground">
                 Titulo 3
               </h3>
-              <div className="text-sm m-0 p-0 font-normal">
+              <div className="font-normal text-left text-sm m-0 p-0 font-normal">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Quisquam, quod. meeet
               </div>
