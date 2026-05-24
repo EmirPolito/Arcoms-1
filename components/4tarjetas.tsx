@@ -18,7 +18,7 @@ import {
    SECTION
 ===================================================== */
 
-export function BentoCaracteristicas() {
+export function CuatroCaracteristicas() {
   const prefersReduced = useReducedMotion();
   const fadeUpVariant = prefersReduced ? FADE_UP_REDUCED : FADE_UP;
 

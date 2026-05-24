@@ -7,7 +7,7 @@ import { HeroSection } from "@/components/hero";
 import LogoCloud from "@/components/logo-cloud";
 import { TarjetaPines } from "@/components/tarjeta-pines";
 import EstadoAgentes from "@/components/estado-agentes";
-import { BentoCaracteristicas } from "@/components/bento-caracteristicas";
+import { CuatroCaracteristicas } from "@/components/4tarjetas";
 import TestimonialsCarousel from "@/components/testimonials-with-carousel";
 import Footer from "../components/footer";
 
@@ -89,7 +89,7 @@ export default function Home() {
         </FadeInSection>
 
         <FadeInSection index={4}>
-          <BentoCaracteristicas />
+          <CuatroCaracteristicas />
         </FadeInSection>
 
         <FadeInSection index={5}>
