@@ -66,7 +66,7 @@ export function CuatroCaracteristicas() {
               </p>
             </div>
 
-            <div className="absolute inset-0 flex items-end justify-center md:translate-x-[7rem] translate-x-[2.5rem]">
+           <div className="absolute inset-0 flex items-end justify-center md:translate-x-[7rem] translate-x-[2.5rem]">
               <Globe />
             </div>
 

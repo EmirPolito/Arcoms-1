@@ -49,7 +49,7 @@ const FadeInSection = memo(function FadeInSection({
           observer.disconnect();
         }
       },
-      { threshold: 0.2 } // Umbral del 20% — no se re-anima al scroll up/down
+      { threshold: 0, rootMargin: "100px 0px" } // Aparece un poco antes de entrar en la pantalla
     );
 
     observer.observe(el);
@@ -60,7 +60,6 @@ const FadeInSection = memo(function FadeInSection({
     <div
       ref={ref}
       className="fade-section"
-      style={{ transitionDelay: `${index * 0.05}s` }}
     >
       {children}
     </div>

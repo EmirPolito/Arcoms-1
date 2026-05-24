@@ -42,8 +42,8 @@ export const STAGGER_SLOW = 0.1;
 
 /* ─── Viewport / IntersectionObserver ─── */
 
-/** Configuración unificada para `whileInView` — anima una vez, al 20% visible */
-export const VIEWPORT_CONFIG = { once: true, amount: 0.2 } as const;
+/** Configuración unificada para `whileInView` — anima al instante, un poco antes de ser visible */
+export const VIEWPORT_CONFIG = { once: true, amount: 0, margin: "100px" } as const;
 
 /* ─── Variantes de entrada ─── */
 

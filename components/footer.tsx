@@ -110,7 +110,7 @@ export default function Footer() {
                 </li>
                 <li>
                   <Link
-                    href="#"
+                    href="https://www.instagram.com/emirppolito/"
                     className="text-footer-txt hover:text-[var(--primary-general)] font-normal text-sm"
                     style={{
                       transition: prefersReduced ? "none" : `color 0.3s ${EASE_PREMIUM_CSS}`,

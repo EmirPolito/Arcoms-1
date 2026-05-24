@@ -41,7 +41,7 @@ const TestimonialsCarousel = memo(() => {
   return (
     <section className="relative w-full py-0 bg-testim-bg flex flex-col items-center px-4 overflow-hidden">
       {/* HEADER */}
-      <div className="text-center mb-4 md:mb-8 px-4">
+      <div className="text-center mb-4 md:mb-0 px-4 py-0 md:py-7">
         <h2 className="text-2xl md:text-4xl font-bold tracking-tight text-foreground mb-3">
           Nuestra comunidad{" "}
           <span className="text-title-ttl inline-flex relative items-center justify-center px-4 py-1.5 border border-primary-general/30 ml-1">

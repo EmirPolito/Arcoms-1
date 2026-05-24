@@ -307,7 +307,7 @@ export default function TestimonialCarousel({
 
   return (
     <div className="relative flex items-center justify-center w-full select-none px-2 sm:px-4 md:px-6 py-2">
-      <TestimonialCard className="relative max-w-4xl w-full" setApi={setApi}>
+      <TestimonialCard className="relative max-w-5xl w-full" setApi={setApi}>
         <div className="relative w-full">
           <TestimonialCardContent>
             {data.map((testimonial, index) => (
