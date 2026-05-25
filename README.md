@@ -12,7 +12,7 @@
 
 </div>
 
-**Arcoms One** es una landing page cuenta animaciones, modelos 3D interactivos y un sistema de temas completamente personalizable.
+**Arcoms One** es una landing page moderna con animaciones y modelos 3D interactivos con un sistema de temas completamente personalizable, diseñada para ofrecer una experiencia visual, dinámica y atractiva para el usuario.
 
 ---
 
@@ -67,3 +67,11 @@ npm start
 ## Licencia
 
 Este proyecto está bajo la licencia **MIT**. Consulta el archivo [LICENSE](LICENSE) para más detalles.
+
+--- 
+
+## Desarrollado por
+**Emir Polito** - Frontend & QA Tester
+- X: https://x.com/emirpolitog
+- GitHub: https://github.com/EmirPolito
+- LinkedIn: https://www.linkedin.com/in/emirpolitog/
