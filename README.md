@@ -71,7 +71,7 @@ Este proyecto está bajo la licencia **MIT**. Consulta el archivo [LICENSE](LICE
 --- 
 
 ## Desarrollado por
-**Emir Polito** - Frontend & QA Tester
+> **Emir Polito**: Frontend & QA Tester
 - X: https://x.com/emirpolitog
 - GitHub: https://github.com/EmirPolito
 - LinkedIn: https://www.linkedin.com/in/emirpolitog/
